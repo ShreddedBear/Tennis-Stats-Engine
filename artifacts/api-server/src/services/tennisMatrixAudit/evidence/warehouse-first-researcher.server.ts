@@ -1,4 +1,5 @@
 import { auditWarehouseDb } from "./postgrestCompat";
+import { sourcePacketBudgetMs } from "./bsd-pbp-fetch";
 import { auditCutoff } from "./temporal-boundary";
 import type { MetricFinding, Researcher } from "./audit-pipeline";
 import { deterministicEnvironmentMetric } from "./deterministic-environment-metrics.server";
@@ -32,7 +33,9 @@ import { auditDbCompositeMetric, isAuditDbCompositeMetric } from "./audit-metric
 const db = auditWarehouseDb as any;
 const USABLE = new Set(["DIRECT", "RECONSTRUCTED", "PARTIAL"]);
 const metricCallCache = new BoundedPromiseCache<MetricFinding[]>(256, 15 * 60_000);
-const SOURCE_PACKET_BUDGET_MS = 7_000;
+// Configurable, and shared with the per-request timeout so a single request can never be
+// allowed to outlive the stage it runs inside. See bsd-pbp-fetch.ts.
+const SOURCE_PACKET_BUDGET_MS = sourcePacketBudgetMs();
 const LIVE_PROVIDER_BUDGET_MS = 12_000;
 const researchWorkPool = new BoundedOperationPool(4);
 

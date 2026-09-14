@@ -1,0 +1,8570 @@
+[
+  {
+    "year": 2026,
+    "match_id": 22338,
+    "date": "2026-01-11T13:00:00+00:00",
+    "players": [
+      "Ezequiel Monferrer",
+      "Tomas Farjat"
+    ],
+    "player_ids": [
+      574,
+      543
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 574,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 147,
+    "valid_point_rows": 147,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22339,
+    "date": "2026-01-11T13:00:00+00:00",
+    "players": [
+      "Stefan Palosi",
+      "Thiago Agustin Pernas"
+    ],
+    "player_ids": [
+      1974,
+      2720
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1974,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 96,
+    "valid_point_rows": 96,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22340,
+    "date": "2026-01-11T13:00:00+00:00",
+    "players": [
+      "Valerio Aboian",
+      "Nicolas Garcia Longo"
+    ],
+    "player_ids": [
+      549,
+      4183
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 549,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 152,
+    "valid_point_rows": 152,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22342,
+    "date": "2026-01-11T14:50:00+00:00",
+    "players": [
+      "Joaquin Aguilar Cardozo",
+      "Christopher Li"
+    ],
+    "player_ids": [
+      1828,
+      4184
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1828,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 159,
+    "valid_point_rows": 159,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22341,
+    "date": "2026-01-11T15:25:00+00:00",
+    "players": [
+      "Arklon Huertas Del Pino Cordova",
+      "Lucio Ratti"
+    ],
+    "player_ids": [
+      548,
+      1834
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1834,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 73,
+    "valid_point_rows": 73,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22343,
+    "date": "2026-01-11T15:45:00+00:00",
+    "players": [
+      "Thiago Cigarran",
+      "Juan Carlos Aguilar"
+    ],
+    "player_ids": [
+      1830,
+      1594
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1594,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 176,
+    "valid_point_rows": 176,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22345,
+    "date": "2026-01-11T16:40:00+00:00",
+    "players": [
+      "Juan Estevez",
+      "Valentin Guadagno"
+    ],
+    "player_ids": [
+      1833,
+      2047
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1833,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 76,
+    "valid_point_rows": 76,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22346,
+    "date": "2026-01-11T17:45:00+00:00",
+    "players": [
+      "Sebastian Gima",
+      "Brandon Perez"
+    ],
+    "player_ids": [
+      1674,
+      4186
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1674,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 79,
+    "valid_point_rows": 79,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22347,
+    "date": "2026-01-11T18:00:00+00:00",
+    "players": [
+      "Bruno Kuzuhara",
+      "Tomas Martinez"
+    ],
+    "player_ids": [
+      545,
+      4187
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 545,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 124,
+    "valid_point_rows": 124,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22344,
+    "date": "2026-01-11T18:45:00+00:00",
+    "players": [
+      "Joel Santiago Navarro",
+      "Ignacio Monzon"
+    ],
+    "player_ids": [
+      4185,
+      1232
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1232,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 77,
+    "valid_point_rows": 77,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22349,
+    "date": "2026-01-11T18:50:00+00:00",
+    "players": [
+      "Noah Schachter",
+      "Wilson Leite"
+    ],
+    "player_ids": [
+      4189,
+      1243
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1243,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 143,
+    "valid_point_rows": 143,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22348,
+    "date": "2026-01-11T20:10:00+00:00",
+    "players": [
+      "Juan Bautista Otegui",
+      "Juan Cruz Martin Manzano"
+    ],
+    "player_ids": [
+      2297,
+      4188
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 2297,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 77,
+    "valid_point_rows": 77,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22742,
+    "date": "2026-01-12T13:00:00+00:00",
+    "players": [
+      "Stefan Palosi",
+      "Ezequiel Monferrer"
+    ],
+    "player_ids": [
+      1974,
+      574
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1974,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 114,
+    "valid_point_rows": 114,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22743,
+    "date": "2026-01-12T13:00:00+00:00",
+    "players": [
+      "Joaquin Aguilar Cardozo",
+      "Juan Carlos Aguilar"
+    ],
+    "player_ids": [
+      1828,
+      1594
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1828,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 87,
+    "valid_point_rows": 87,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22744,
+    "date": "2026-01-12T13:00:00+00:00",
+    "players": [
+      "Sebastian Gima",
+      "Lucio Ratti"
+    ],
+    "player_ids": [
+      1674,
+      1834
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1834,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 161,
+    "valid_point_rows": 161,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22748,
+    "date": "2026-01-12T14:30:00+00:00",
+    "players": [
+      "Bruno Kuzuhara",
+      "Wilson Leite"
+    ],
+    "player_ids": [
+      545,
+      1243
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1243,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 162,
+    "valid_point_rows": 162,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22749,
+    "date": "2026-01-12T15:10:00+00:00",
+    "players": [
+      "Juan Estevez",
+      "Ignacio Monzon"
+    ],
+    "player_ids": [
+      1833,
+      1232
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1833,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 131,
+    "valid_point_rows": 131,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22750,
+    "date": "2026-01-12T15:40:00+00:00",
+    "players": [
+      "Valerio Aboian",
+      "Juan Bautista Otegui"
+    ],
+    "player_ids": [
+      549,
+      2297
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 549,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 175,
+    "valid_point_rows": 175,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22369,
+    "date": "2026-01-12T17:25:00+00:00",
+    "players": [
+      "Juan Bautista Torres",
+      "Juan Manuel La Serna"
+    ],
+    "player_ids": [
+      586,
+      665
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 665,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 145,
+    "valid_point_rows": 145,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22372,
+    "date": "2026-01-12T18:00:00+00:00",
+    "players": [
+      "Mateus Alves",
+      "Matheus Pucinelli de Almeida"
+    ],
+    "player_ids": [
+      580,
+      834
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 834,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 127,
+    "valid_point_rows": 127,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22375,
+    "date": "2026-01-12T18:45:00+00:00",
+    "players": [
+      "Renzo Olivo",
+      "Pedro Sakamoto"
+    ],
+    "player_ids": [
+      583,
+      664
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 664,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 12,
+    "points": 45,
+    "valid_point_rows": 45,
+    "malformed_point_rows": 0,
+    "games_with_server": 12,
+    "games_with_break_field": 12,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22373,
+    "date": "2026-01-12T20:15:00+00:00",
+    "players": [
+      "Nikolas Sanchez Izquierdo",
+      "Joao Eduardo Schiessl"
+    ],
+    "player_ids": [
+      538,
+      971
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 538,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 141,
+    "valid_point_rows": 141,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22370,
+    "date": "2026-01-12T20:20:00+00:00",
+    "players": [
+      "Juan Pablo Varillas",
+      "Gonzalo Villanueva"
+    ],
+    "player_ids": [
+      397,
+      533
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 397,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 104,
+    "valid_point_rows": 104,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22368,
+    "date": "2026-01-13T13:00:00+00:00",
+    "players": [
+      "Daniel Dutra Da Silva",
+      "Nicolas Kicker"
+    ],
+    "player_ids": [
+      589,
+      584
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 589,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 107,
+    "valid_point_rows": 107,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22371,
+    "date": "2026-01-13T13:00:00+00:00",
+    "players": [
+      "Luciano Emanuel Ambrogi",
+      "Andrea Collarini"
+    ],
+    "player_ids": [
+      547,
+      122
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 122,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 94,
+    "valid_point_rows": 94,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22922,
+    "date": "2026-01-13T13:00:00+00:00",
+    "players": [
+      "Pedro Boscardin Dias",
+      "Valerio Aboian"
+    ],
+    "player_ids": [
+      537,
+      549
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 537,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 150,
+    "valid_point_rows": 150,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22923,
+    "date": "2026-01-13T14:55:00+00:00",
+    "players": [
+      "Dante Pagani",
+      "Lucio Ratti"
+    ],
+    "player_ids": [
+      1389,
+      1834
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1834,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 104,
+    "valid_point_rows": 104,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22924,
+    "date": "2026-01-13T15:05:00+00:00",
+    "players": [
+      "Juan Estevez",
+      "Guido Ivan Justo"
+    ],
+    "player_ids": [
+      1833,
+      666
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1833,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 138,
+    "valid_point_rows": 138,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22925,
+    "date": "2026-01-13T15:55:00+00:00",
+    "players": [
+      "Lorenzo Joaquin Rodriguez",
+      "Stefan Palosi"
+    ],
+    "player_ids": [
+      944,
+      1974
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1974,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 147,
+    "valid_point_rows": 147,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22367,
+    "date": "2026-01-13T16:50:00+00:00",
+    "players": [
+      "Alexis Gurmendi",
+      "Maximo Zeitune"
+    ],
+    "player_ids": [
+      4190,
+      581
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 581,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 132,
+    "valid_point_rows": 132,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22376,
+    "date": "2026-01-13T17:25:00+00:00",
+    "players": [
+      "Santiago Rodriguez Taverna",
+      "Gabi Adrian Boitan"
+    ],
+    "player_ids": [
+      577,
+      851
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 577,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 134,
+    "valid_point_rows": 134,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22926,
+    "date": "2026-01-13T18:20:00+00:00",
+    "players": [
+      "Bruno Kuzuhara",
+      "Franco Agamenone"
+    ],
+    "player_ids": [
+      545,
+      843
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 843,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 83,
+    "valid_point_rows": 83,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22928,
+    "date": "2026-01-13T19:15:00+00:00",
+    "players": [
+      "Wilson Leite",
+      "Lautaro Midon"
+    ],
+    "player_ids": [
+      1243,
+      578
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 578,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 155,
+    "valid_point_rows": 155,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22927,
+    "date": "2026-01-13T19:55:00+00:00",
+    "players": [
+      "Murkel Dellien",
+      "Joaquin Aguilar Cardozo"
+    ],
+    "player_ids": [
+      369,
+      1828
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 369,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 147,
+    "valid_point_rows": 147,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22934,
+    "date": "2026-01-14T13:00:00+00:00",
+    "players": [
+      "Juan Pablo Varillas",
+      "Pedro Sakamoto"
+    ],
+    "player_ids": [
+      397,
+      664
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 397,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 10,
+    "points": 47,
+    "valid_point_rows": 47,
+    "malformed_point_rows": 0,
+    "games_with_server": 10,
+    "games_with_break_field": 10,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22988,
+    "date": "2026-01-14T13:00:00+00:00",
+    "players": [
+      "Nikolas Sanchez Izquierdo",
+      "Daniel Dutra Da Silva"
+    ],
+    "player_ids": [
+      538,
+      589
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 538,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 13,
+    "points": 72,
+    "valid_point_rows": 72,
+    "malformed_point_rows": 0,
+    "games_with_server": 13,
+    "games_with_break_field": 13,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22992,
+    "date": "2026-01-14T13:00:00+00:00",
+    "players": [
+      "Lucio Ratti",
+      "Andrea Collarini"
+    ],
+    "player_ids": [
+      1834,
+      122
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 122,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 87,
+    "valid_point_rows": 87,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22993,
+    "date": "2026-01-14T14:30:00+00:00",
+    "players": [
+      "Pedro Boscardin Dias",
+      "Juan Estevez"
+    ],
+    "player_ids": [
+      537,
+      1833
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 537,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 33,
+    "points": 170,
+    "valid_point_rows": 170,
+    "malformed_point_rows": 0,
+    "games_with_server": 33,
+    "games_with_break_field": 33,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22991,
+    "date": "2026-01-14T14:45:00+00:00",
+    "players": [
+      "Franco Agamenone",
+      "Matheus Pucinelli de Almeida"
+    ],
+    "player_ids": [
+      843,
+      834
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 843,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 98,
+    "valid_point_rows": 98,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22994,
+    "date": "2026-01-14T14:50:00+00:00",
+    "players": [
+      "Santiago Rodriguez Taverna",
+      "Juan Manuel La Serna"
+    ],
+    "player_ids": [
+      577,
+      665
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 665,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 131,
+    "valid_point_rows": 131,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22995,
+    "date": "2026-01-14T17:15:00+00:00",
+    "players": [
+      "Murkel Dellien",
+      "Maximo Zeitune"
+    ],
+    "player_ids": [
+      369,
+      581
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 369,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 101,
+    "valid_point_rows": 101,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 22996,
+    "date": "2026-01-14T17:25:00+00:00",
+    "players": [
+      "Stefan Palosi",
+      "Lautaro Midon"
+    ],
+    "player_ids": [
+      1974,
+      578
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 578,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 89,
+    "valid_point_rows": 89,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 23085,
+    "date": "2026-01-15T13:30:00+00:00",
+    "players": [
+      "Juan Pablo Varillas",
+      "Lautaro Midon"
+    ],
+    "player_ids": [
+      397,
+      578
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 397,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 159,
+    "valid_point_rows": 159,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 23086,
+    "date": "2026-01-15T13:30:00+00:00",
+    "players": [
+      "Murkel Dellien",
+      "Nikolas Sanchez Izquierdo"
+    ],
+    "player_ids": [
+      369,
+      538
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 369,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 166,
+    "valid_point_rows": 166,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 23084,
+    "date": "2026-01-15T16:35:00+00:00",
+    "players": [
+      "Juan Manuel La Serna",
+      "Franco Agamenone"
+    ],
+    "player_ids": [
+      665,
+      843
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 843,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 145,
+    "valid_point_rows": 145,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 23087,
+    "date": "2026-01-15T16:55:00+00:00",
+    "players": [
+      "Pedro Boscardin Dias",
+      "Andrea Collarini"
+    ],
+    "player_ids": [
+      537,
+      122
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 122,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 78,
+    "valid_point_rows": 78,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 23119,
+    "date": "2026-01-16T14:00:00+00:00",
+    "players": [
+      "Andrea Collarini",
+      "Juan Pablo Varillas"
+    ],
+    "player_ids": [
+      122,
+      397
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 122,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 137,
+    "valid_point_rows": 137,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 23120,
+    "date": "2026-01-16T16:40:00+00:00",
+    "players": [
+      "Franco Agamenone",
+      "Murkel Dellien"
+    ],
+    "player_ids": [
+      843,
+      369
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 843,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 119,
+    "valid_point_rows": 119,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 23309,
+    "date": "2026-01-17T14:00:00+00:00",
+    "players": [
+      "Franco Agamenone",
+      "Andrea Collarini"
+    ],
+    "player_ids": [
+      843,
+      122
+    ],
+    "tournament": "Buenos Aires, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 843,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 139,
+    "valid_point_rows": 139,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24359,
+    "date": "2026-01-26T08:00:00+00:00",
+    "players": [
+      "Hynek Barton",
+      "Dali Blanch"
+    ],
+    "player_ids": [
+      832,
+      933
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 832,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 127,
+    "valid_point_rows": 127,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24360,
+    "date": "2026-01-26T08:00:00+00:00",
+    "players": [
+      "Radu Albot",
+      "Neil Oberleitner"
+    ],
+    "player_ids": [
+      439,
+      918
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 918,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 92,
+    "valid_point_rows": 92,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24361,
+    "date": "2026-01-26T08:00:00+00:00",
+    "players": [
+      "Yanki Erel",
+      "Alibek Kachmazov"
+    ],
+    "player_ids": [
+      903,
+      425
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 903,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 109,
+    "valid_point_rows": 109,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24364,
+    "date": "2026-01-26T09:35:00+00:00",
+    "players": [
+      "Saba Purtseladze",
+      "Lukas Pokorny"
+    ],
+    "player_ids": [
+      826,
+      947
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 947,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 123,
+    "valid_point_rows": 123,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24362,
+    "date": "2026-01-26T09:50:00+00:00",
+    "players": [
+      "Dimitar Kuzmanov",
+      "Petros Tsitsipas"
+    ],
+    "player_ids": [
+      691,
+      1485
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 691,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24363,
+    "date": "2026-01-26T10:15:00+00:00",
+    "players": [
+      "Enrico Baldisserri",
+      "Sergey Fomin"
+    ],
+    "player_ids": [
+      4375,
+      859
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 859,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 77,
+    "valid_point_rows": 77,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24366,
+    "date": "2026-01-26T11:25:00+00:00",
+    "players": [
+      "Beibit Zhukayev",
+      "Faris Zakaria"
+    ],
+    "player_ids": [
+      718,
+      689
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 718,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 124,
+    "valid_point_rows": 124,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24365,
+    "date": "2026-01-26T11:30:00+00:00",
+    "players": [
+      "Alexander Binda",
+      "Viktor Durasovi\u0107"
+    ],
+    "player_ids": [
+      920,
+      714
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 714,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 88,
+    "valid_point_rows": 88,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24367,
+    "date": "2026-01-26T11:30:00+00:00",
+    "players": [
+      "Benjamin Hassan",
+      "Manas Dhamne"
+    ],
+    "player_ids": [
+      478,
+      1287
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1287,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 176,
+    "valid_point_rows": 176,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24369,
+    "date": "2026-01-26T12:55:00+00:00",
+    "players": [
+      "Edas Butvilas",
+      "Elyas Abduljalil"
+    ],
+    "player_ids": [
+      821,
+      687
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 821,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 81,
+    "valid_point_rows": 81,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24370,
+    "date": "2026-01-26T13:15:00+00:00",
+    "players": [
+      "Vadym Ursu",
+      "Alex Hernandez"
+    ],
+    "player_ids": [
+      928,
+      910
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 928,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 145,
+    "valid_point_rows": 145,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24368,
+    "date": "2026-01-26T14:15:00+00:00",
+    "players": [
+      "Alberto Bronzetti",
+      "Mert Alkaya"
+    ],
+    "player_ids": [
+      683,
+      906
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 906,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 8,
+    "points": 59,
+    "valid_point_rows": 59,
+    "malformed_point_rows": 0,
+    "games_with_server": 8,
+    "games_with_break_field": 8,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24488,
+    "date": "2026-01-27T08:00:00+00:00",
+    "players": [
+      "Dimitar Kuzmanov",
+      "Sergey Fomin"
+    ],
+    "player_ids": [
+      691,
+      859
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 691,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24489,
+    "date": "2026-01-27T08:00:00+00:00",
+    "players": [
+      "Hynek Barton",
+      "Yanki Erel"
+    ],
+    "player_ids": [
+      832,
+      903
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 903,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 121,
+    "valid_point_rows": 121,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24490,
+    "date": "2026-01-27T08:00:00+00:00",
+    "players": [
+      "Lukas Pokorny",
+      "Neil Oberleitner"
+    ],
+    "player_ids": [
+      947,
+      918
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 947,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 85,
+    "valid_point_rows": 85,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24493,
+    "date": "2026-01-27T09:30:00+00:00",
+    "players": [
+      "Edas Butvilas",
+      "Mert Alkaya"
+    ],
+    "player_ids": [
+      821,
+      906
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 821,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 191,
+    "valid_point_rows": 191,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24492,
+    "date": "2026-01-27T10:05:00+00:00",
+    "players": [
+      "Beibit Zhukayev",
+      "Vadym Ursu"
+    ],
+    "player_ids": [
+      718,
+      928
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 928,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 89,
+    "valid_point_rows": 89,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24491,
+    "date": "2026-01-27T10:20:00+00:00",
+    "players": [
+      "Manas Dhamne",
+      "Viktor Durasovi\u0107"
+    ],
+    "player_ids": [
+      1287,
+      714
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1287,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 176,
+    "valid_point_rows": 176,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24383,
+    "date": "2026-01-27T11:25:00+00:00",
+    "players": [
+      "Thiago Agustin Tirante",
+      "Geoffrey Blancaneaux"
+    ],
+    "player_ids": [
+      468,
+      659
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 468,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 104,
+    "valid_point_rows": 104,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24376,
+    "date": "2026-01-27T12:25:00+00:00",
+    "players": [
+      "Coleman Wong",
+      "Ryan Peniston"
+    ],
+    "player_ids": [
+      275,
+      801
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 275,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 93,
+    "valid_point_rows": 93,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24384,
+    "date": "2026-01-27T13:15:00+00:00",
+    "players": [
+      "Zhizhen Zhang",
+      "Otto Virtanen"
+    ],
+    "player_ids": [
+      356,
+      506
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 506,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 36,
+    "points": 223,
+    "valid_point_rows": 223,
+    "malformed_point_rows": 0,
+    "games_with_server": 36,
+    "games_with_break_field": 36,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24377,
+    "date": "2026-01-27T13:25:00+00:00",
+    "players": [
+      "Filip Misolic",
+      "Lorenzo Giustino"
+    ],
+    "player_ids": [
+      772,
+      795
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 795,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 150,
+    "valid_point_rows": 150,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24379,
+    "date": "2026-01-27T15:25:00+00:00",
+    "players": [
+      "Kyrian Jacquet",
+      "Christopher O'Connell"
+    ],
+    "player_ids": [
+      776,
+      209
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 776,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 72,
+    "valid_point_rows": 72,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24380,
+    "date": "2026-01-27T16:30:00+00:00",
+    "players": [
+      "Lukas Neumayer",
+      "Jacob Fearnley"
+    ],
+    "player_ids": [
+      401,
+      520
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 520,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 130,
+    "valid_point_rows": 130,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24382,
+    "date": "2026-01-28T08:00:00+00:00",
+    "players": [
+      "Stefano Travaglia",
+      "Shintaro Mochizuki"
+    ],
+    "player_ids": [
+      789,
+      438
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 789,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 131,
+    "valid_point_rows": 131,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24510,
+    "date": "2026-01-28T08:00:00+00:00",
+    "players": [
+      "Vadym Ursu",
+      "Joel Schwaerzler"
+    ],
+    "player_ids": [
+      928,
+      572
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 572,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 109,
+    "valid_point_rows": 109,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24511,
+    "date": "2026-01-28T08:00:00+00:00",
+    "players": [
+      "Yanki Erel",
+      "Mattia Bellucci"
+    ],
+    "player_ids": [
+      903,
+      450
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 450,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 97,
+    "valid_point_rows": 97,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24512,
+    "date": "2026-01-28T09:50:00+00:00",
+    "players": [
+      "Maxim Mrva",
+      "Edas Butvilas"
+    ],
+    "player_ids": [
+      862,
+      821
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 821,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 81,
+    "valid_point_rows": 81,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24375,
+    "date": "2026-01-28T10:00:00+00:00",
+    "players": [
+      "Alexei Popyrin",
+      "Ugo Blanchet"
+    ],
+    "player_ids": [
+      255,
+      130
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 130,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 112,
+    "valid_point_rows": 112,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24513,
+    "date": "2026-01-28T10:00:00+00:00",
+    "players": [
+      "Yannick Hanfmann",
+      "Manas Dhamne"
+    ],
+    "player_ids": [
+      116,
+      1287
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 116,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 94,
+    "valid_point_rows": 94,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24514,
+    "date": "2026-01-28T11:15:00+00:00",
+    "players": [
+      "Lukas Pokorny",
+      "Guy Den Ouden"
+    ],
+    "player_ids": [
+      947,
+      778
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 947,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 110,
+    "valid_point_rows": 110,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24541,
+    "date": "2026-01-28T11:35:00+00:00",
+    "players": [
+      "Hugo Grenier",
+      "Beibit Zhukayev"
+    ],
+    "player_ids": [
+      184,
+      718
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 184,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 136,
+    "valid_point_rows": 136,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24381,
+    "date": "2026-01-28T11:50:00+00:00",
+    "players": [
+      "Rodrigo Pacheco Mendez",
+      "Luca Nardi"
+    ],
+    "player_ids": [
+      752,
+      321
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 321,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 170,
+    "valid_point_rows": 170,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24521,
+    "date": "2026-01-28T14:30:00+00:00",
+    "players": [
+      "Nicolai Budkov Kjaer",
+      "Dimitar Kuzmanov"
+    ],
+    "player_ids": [
+      715,
+      691
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 715,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 158,
+    "valid_point_rows": 158,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24544,
+    "date": "2026-01-29T08:00:00+00:00",
+    "players": [
+      "Thiago Agustin Tirante",
+      "Joel Schwaerzler"
+    ],
+    "player_ids": [
+      468,
+      572
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 468,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 157,
+    "valid_point_rows": 157,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24551,
+    "date": "2026-01-29T08:00:00+00:00",
+    "players": [
+      "Lukas Pokorny",
+      "Jacob Fearnley"
+    ],
+    "player_ids": [
+      947,
+      520
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 520,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 148,
+    "valid_point_rows": 148,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24545,
+    "date": "2026-01-29T10:10:00+00:00",
+    "players": [
+      "Yannick Hanfmann",
+      "Kyrian Jacquet"
+    ],
+    "player_ids": [
+      116,
+      776
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 776,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 105,
+    "valid_point_rows": 105,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24543,
+    "date": "2026-01-29T10:25:00+00:00",
+    "players": [
+      "Edas Butvilas",
+      "Mattia Bellucci"
+    ],
+    "player_ids": [
+      821,
+      450
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 450,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 114,
+    "valid_point_rows": 114,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24552,
+    "date": "2026-01-29T12:00:00+00:00",
+    "players": [
+      "Ugo Blanchet",
+      "Hugo Grenier"
+    ],
+    "player_ids": [
+      130,
+      184
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 130,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 131,
+    "valid_point_rows": 131,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24555,
+    "date": "2026-01-29T12:30:00+00:00",
+    "players": [
+      "Nicolai Budkov Kjaer",
+      "Luca Nardi"
+    ],
+    "player_ids": [
+      715,
+      321
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 321,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 61,
+    "valid_point_rows": 61,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24542,
+    "date": "2026-01-29T13:40:00+00:00",
+    "players": [
+      "Coleman Wong",
+      "Stefano Travaglia"
+    ],
+    "player_ids": [
+      275,
+      789
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 789,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 179,
+    "valid_point_rows": 179,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24525,
+    "date": "2026-01-29T16:05:00+00:00",
+    "players": [
+      "Lorenzo Giustino",
+      "Otto Virtanen"
+    ],
+    "player_ids": [
+      795,
+      506
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 506,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 124,
+    "valid_point_rows": 124,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24579,
+    "date": "2026-01-30T10:00:00+00:00",
+    "players": [
+      "Thiago Agustin Tirante",
+      "Mattia Bellucci"
+    ],
+    "player_ids": [
+      468,
+      450
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 450,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 100,
+    "valid_point_rows": 100,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24575,
+    "date": "2026-01-30T12:00:00+00:00",
+    "players": [
+      "Kyrian Jacquet",
+      "Jacob Fearnley"
+    ],
+    "player_ids": [
+      776,
+      520
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 776,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 156,
+    "valid_point_rows": 156,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24584,
+    "date": "2026-01-30T14:00:00+00:00",
+    "players": [
+      "Otto Virtanen",
+      "Stefano Travaglia"
+    ],
+    "player_ids": [
+      506,
+      789
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 506,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 98,
+    "valid_point_rows": 98,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24583,
+    "date": "2026-01-30T14:30:00+00:00",
+    "players": [
+      "Ugo Blanchet",
+      "Luca Nardi"
+    ],
+    "player_ids": [
+      130,
+      321
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 321,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24631,
+    "date": "2026-01-31T12:00:00+00:00",
+    "players": [
+      "Kyrian Jacquet",
+      "Mattia Bellucci"
+    ],
+    "player_ids": [
+      776,
+      450
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 776,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 36,
+    "points": 203,
+    "valid_point_rows": 203,
+    "malformed_point_rows": 0,
+    "games_with_server": 36,
+    "games_with_break_field": 36,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 24670,
+    "date": "2026-01-31T15:10:00+00:00",
+    "players": [
+      "Luca Nardi",
+      "Otto Virtanen"
+    ],
+    "player_ids": [
+      321,
+      506
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 321,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 145,
+    "valid_point_rows": 145,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25117,
+    "date": "2026-02-01T15:00:00+00:00",
+    "players": [
+      "Luca Nardi",
+      "Kyrian Jacquet"
+    ],
+    "player_ids": [
+      321,
+      776
+    ],
+    "tournament": "Manama, Bahrain",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 776,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 169,
+    "valid_point_rows": 169,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25120,
+    "date": "2026-02-01T18:00:00+00:00",
+    "players": [
+      "Igor Marcondes",
+      "Tymur Bieldiugin"
+    ],
+    "player_ids": [
+      899,
+      4448
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 899,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 68,
+    "valid_point_rows": 68,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25121,
+    "date": "2026-02-01T18:00:00+00:00",
+    "players": [
+      "Juan Estevez",
+      "Valentin Garay"
+    ],
+    "player_ids": [
+      1833,
+      4449
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1833,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 61,
+    "valid_point_rows": 61,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25122,
+    "date": "2026-02-01T18:00:00+00:00",
+    "players": [
+      "Tomas Re",
+      "Carlos Maria Zarate"
+    ],
+    "player_ids": [
+      4450,
+      1829
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1829,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 88,
+    "valid_point_rows": 88,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25123,
+    "date": "2026-02-01T19:15:00+00:00",
+    "players": [
+      "Juan Manuel La Serna",
+      "Mateo Del Pino"
+    ],
+    "player_ids": [
+      665,
+      667
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 665,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 138,
+    "valid_point_rows": 138,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25125,
+    "date": "2026-02-01T19:20:00+00:00",
+    "players": [
+      "Wilson Leite",
+      "Lucio Ratti"
+    ],
+    "player_ids": [
+      1243,
+      1834
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1834,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 86,
+    "valid_point_rows": 86,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25124,
+    "date": "2026-02-01T19:40:00+00:00",
+    "players": [
+      "Maximo Zeitune",
+      "Valerio Aboian"
+    ],
+    "player_ids": [
+      581,
+      549
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 549,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 122,
+    "valid_point_rows": 122,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25126,
+    "date": "2026-02-01T21:10:00+00:00",
+    "players": [
+      "Bruno Fernandez",
+      "Paulo Andre Saraiva Dos Santos"
+    ],
+    "player_ids": [
+      4451,
+      1239
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 4451,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 193,
+    "valid_point_rows": 193,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25127,
+    "date": "2026-02-01T21:35:00+00:00",
+    "players": [
+      "Guido Ivan Justo",
+      "Tomas Farjat"
+    ],
+    "player_ids": [
+      666,
+      543
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 666,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 163,
+    "valid_point_rows": 163,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25128,
+    "date": "2026-02-01T22:00:00+00:00",
+    "players": [
+      "Luciano Emanuel Ambrogi",
+      "Nicolas Bruna"
+    ],
+    "player_ids": [
+      547,
+      1856
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 547,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 68,
+    "valid_point_rows": 68,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25129,
+    "date": "2026-02-01T23:15:00+00:00",
+    "players": [
+      "Dante Pagani",
+      "Santiago De la Fuente"
+    ],
+    "player_ids": [
+      1389,
+      1835
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1835,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 169,
+    "valid_point_rows": 169,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25131,
+    "date": "2026-02-02T00:10:00+00:00",
+    "players": [
+      "Hernan Casanova",
+      "Lautaro Agustin Falabella"
+    ],
+    "player_ids": [
+      663,
+      529
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 663,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 116,
+    "valid_point_rows": 116,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25130,
+    "date": "2026-02-02T00:20:00+00:00",
+    "players": [
+      "Ezequiel Monferrer",
+      "Connor Huertas Del Pino"
+    ],
+    "player_ids": [
+      574,
+      536
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 574,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 169,
+    "valid_point_rows": 169,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25301,
+    "date": "2026-02-02T18:00:00+00:00",
+    "players": [
+      "Igor Marcondes",
+      "Valerio Aboian"
+    ],
+    "player_ids": [
+      899,
+      549
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 899,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 84,
+    "valid_point_rows": 84,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25302,
+    "date": "2026-02-02T18:00:00+00:00",
+    "players": [
+      "Juan Estevez",
+      "Carlos Maria Zarate"
+    ],
+    "player_ids": [
+      1833,
+      1829
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1833,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 94,
+    "valid_point_rows": 94,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25303,
+    "date": "2026-02-02T18:00:00+00:00",
+    "players": [
+      "Juan Manuel La Serna",
+      "Bruno Fernandez"
+    ],
+    "player_ids": [
+      665,
+      4451
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 665,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 100,
+    "valid_point_rows": 100,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25304,
+    "date": "2026-02-02T19:30:00+00:00",
+    "players": [
+      "Guido Ivan Justo",
+      "Ezequiel Monferrer"
+    ],
+    "player_ids": [
+      666,
+      574
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 666,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 128,
+    "valid_point_rows": 128,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25305,
+    "date": "2026-02-02T19:40:00+00:00",
+    "players": [
+      "Hernan Casanova",
+      "Santiago De la Fuente"
+    ],
+    "player_ids": [
+      663,
+      1835
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 663,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 159,
+    "valid_point_rows": 159,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25306,
+    "date": "2026-02-02T19:45:00+00:00",
+    "players": [
+      "Luciano Emanuel Ambrogi",
+      "Lucio Ratti"
+    ],
+    "player_ids": [
+      547,
+      1834
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 547,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 150,
+    "valid_point_rows": 150,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25144,
+    "date": "2026-02-02T22:00:00+00:00",
+    "players": [
+      "Nikolas Sanchez Izquierdo",
+      "Andrea Collarini"
+    ],
+    "player_ids": [
+      538,
+      122
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 538,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 173,
+    "valid_point_rows": 173,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25138,
+    "date": "2026-02-02T22:20:00+00:00",
+    "players": [
+      "Alex Barrena",
+      "Juan Bautista Torres"
+    ],
+    "player_ids": [
+      540,
+      586
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 586,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 97,
+    "valid_point_rows": 97,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25139,
+    "date": "2026-02-02T23:00:00+00:00",
+    "players": [
+      "Facundo Mena",
+      "Thiago Monteiro"
+    ],
+    "player_ids": [
+      394,
+      452
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 394,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 121,
+    "valid_point_rows": 121,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25146,
+    "date": "2026-02-03T00:15:00+00:00",
+    "players": [
+      "Roman Andres Burruchaga",
+      "Lautaro Midon"
+    ],
+    "player_ids": [
+      387,
+      578
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 387,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 85,
+    "valid_point_rows": 85,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25338,
+    "date": "2026-02-03T18:00:00+00:00",
+    "players": [
+      "Chun-Hsin Tseng",
+      "Hernan Casanova"
+    ],
+    "player_ids": [
+      135,
+      663
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 135,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 9,
+    "points": 41,
+    "valid_point_rows": 41,
+    "malformed_point_rows": 0,
+    "games_with_server": 9,
+    "games_with_break_field": 9,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25339,
+    "date": "2026-02-03T18:00:00+00:00",
+    "players": [
+      "Juan Estevez",
+      "Andrea Pellegrino"
+    ],
+    "player_ids": [
+      1833,
+      576
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 576,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 142,
+    "valid_point_rows": 142,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25368,
+    "date": "2026-02-03T18:00:00+00:00",
+    "players": [
+      "Thiago Seyboth Wild",
+      "Valerio Aboian"
+    ],
+    "player_ids": [
+      515,
+      549
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 549,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 158,
+    "valid_point_rows": 158,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25145,
+    "date": "2026-02-03T19:20:00+00:00",
+    "players": [
+      "Pedro Boscardin Dias",
+      "Marco Cecchinato"
+    ],
+    "player_ids": [
+      537,
+      550
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 537,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 34,
+    "points": 168,
+    "valid_point_rows": 168,
+    "malformed_point_rows": 0,
+    "games_with_server": 34,
+    "games_with_break_field": 34,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25340,
+    "date": "2026-02-03T20:30:00+00:00",
+    "players": [
+      "Santiago Rodriguez Taverna",
+      "Luciano Emanuel Ambrogi"
+    ],
+    "player_ids": [
+      577,
+      547
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 547,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 121,
+    "valid_point_rows": 121,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25142,
+    "date": "2026-02-03T21:20:00+00:00",
+    "players": [
+      "Juan Manuel Cerundolo",
+      "Gonzalo Villanueva"
+    ],
+    "player_ids": [
+      178,
+      533
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 178,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 13,
+    "points": 64,
+    "valid_point_rows": 64,
+    "malformed_point_rows": 0,
+    "games_with_server": 13,
+    "games_with_break_field": 13,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25140,
+    "date": "2026-02-03T22:05:00+00:00",
+    "players": [
+      "Felipe Meligeni Alves",
+      "Genaro Alberto Olivieri"
+    ],
+    "player_ids": [
+      418,
+      588
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 588,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 71,
+    "valid_point_rows": 71,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25341,
+    "date": "2026-02-03T22:35:00+00:00",
+    "players": [
+      "Camilo Ugo Carabelli",
+      "Guido Ivan Justo"
+    ],
+    "player_ids": [
+      552,
+      666
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 552,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 13,
+    "points": 60,
+    "valid_point_rows": 60,
+    "malformed_point_rows": 0,
+    "games_with_server": 13,
+    "games_with_break_field": 13,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25342,
+    "date": "2026-02-03T22:45:00+00:00",
+    "players": [
+      "Juan Manuel La Serna",
+      "Renzo Olivo"
+    ],
+    "player_ids": [
+      665,
+      583
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 665,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 160,
+    "valid_point_rows": 160,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25141,
+    "date": "2026-02-03T23:25:00+00:00",
+    "players": [
+      "Franco Agamenone",
+      "Hugo Dellien"
+    ],
+    "player_ids": [
+      843,
+      380
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 380,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 110,
+    "valid_point_rows": 110,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25143,
+    "date": "2026-02-04T00:00:00+00:00",
+    "players": [
+      "Nicolas Kicker",
+      "Francisco Comesa\u00f1a"
+    ],
+    "player_ids": [
+      584,
+      329
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 329,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 119,
+    "valid_point_rows": 119,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25343,
+    "date": "2026-02-04T01:10:00+00:00",
+    "players": [
+      "Facundo Diaz Acosta",
+      "Igor Marcondes"
+    ],
+    "player_ids": [
+      322,
+      899
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 322,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 93,
+    "valid_point_rows": 93,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25372,
+    "date": "2026-02-04T20:00:00+00:00",
+    "players": [
+      "Chun-Hsin Tseng",
+      "Facundo Mena"
+    ],
+    "player_ids": [
+      135,
+      394
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 135,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 108,
+    "valid_point_rows": 108,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25377,
+    "date": "2026-02-04T21:40:00+00:00",
+    "players": [
+      "Nikolas Sanchez Izquierdo",
+      "Valerio Aboian"
+    ],
+    "player_ids": [
+      538,
+      549
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 549,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 120,
+    "valid_point_rows": 110,
+    "malformed_point_rows": 10,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": false
+  },
+  {
+    "year": 2026,
+    "match_id": 25376,
+    "date": "2026-02-04T21:55:00+00:00",
+    "players": [
+      "Luciano Emanuel Ambrogi",
+      "Andrea Pellegrino"
+    ],
+    "player_ids": [
+      547,
+      576
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 576,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 150,
+    "valid_point_rows": 150,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25375,
+    "date": "2026-02-05T00:30:00+00:00",
+    "players": [
+      "Juan Manuel Cerundolo",
+      "Juan Bautista Torres"
+    ],
+    "player_ids": [
+      178,
+      586
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 178,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 154,
+    "valid_point_rows": 154,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25378,
+    "date": "2026-02-05T20:00:00+00:00",
+    "players": [
+      "Roman Andres Burruchaga",
+      "Genaro Alberto Olivieri"
+    ],
+    "player_ids": [
+      387,
+      588
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 387,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25388,
+    "date": "2026-02-05T23:30:00+00:00",
+    "players": [
+      "Pedro Boscardin Dias",
+      "Francisco Comesa\u00f1a"
+    ],
+    "player_ids": [
+      537,
+      329
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 537,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 157,
+    "valid_point_rows": 157,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25387,
+    "date": "2026-02-06T18:30:00+00:00",
+    "players": [
+      "Juan Manuel La Serna",
+      "Hugo Dellien"
+    ],
+    "player_ids": [
+      665,
+      380
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 380,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 102,
+    "valid_point_rows": 102,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25389,
+    "date": "2026-02-06T18:30:00+00:00",
+    "players": [
+      "Camilo Ugo Carabelli",
+      "Facundo Diaz Acosta"
+    ],
+    "player_ids": [
+      552,
+      322
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 552,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 35,
+    "points": 206,
+    "valid_point_rows": 206,
+    "malformed_point_rows": 0,
+    "games_with_server": 35,
+    "games_with_break_field": 35,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25427,
+    "date": "2026-02-06T20:00:00+00:00",
+    "players": [
+      "Juan Manuel Cerundolo",
+      "Andrea Pellegrino"
+    ],
+    "player_ids": [
+      178,
+      576
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 178,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 101,
+    "valid_point_rows": 101,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25407,
+    "date": "2026-02-06T22:00:00+00:00",
+    "players": [
+      "Chun-Hsin Tseng",
+      "Valerio Aboian"
+    ],
+    "player_ids": [
+      135,
+      549
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 135,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 74,
+    "valid_point_rows": 74,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25703,
+    "date": "2026-02-06T22:25:00+00:00",
+    "players": [
+      "Camilo Ugo Carabelli",
+      "Hugo Dellien"
+    ],
+    "player_ids": [
+      552,
+      380
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 552,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 92,
+    "valid_point_rows": 92,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25525,
+    "date": "2026-02-07T00:15:00+00:00",
+    "players": [
+      "Roman Andres Burruchaga",
+      "Pedro Boscardin Dias"
+    ],
+    "player_ids": [
+      387,
+      537
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 387,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 148,
+    "valid_point_rows": 148,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25939,
+    "date": "2026-02-07T21:30:00+00:00",
+    "players": [
+      "Camilo Ugo Carabelli",
+      "Juan Manuel Cerundolo"
+    ],
+    "player_ids": [
+      552,
+      178
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 552,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 92,
+    "valid_point_rows": 92,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 25940,
+    "date": "2026-02-07T23:35:00+00:00",
+    "players": [
+      "Chun-Hsin Tseng",
+      "Roman Andres Burruchaga"
+    ],
+    "player_ids": [
+      135,
+      387
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 387,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 92,
+    "valid_point_rows": 72,
+    "malformed_point_rows": 20,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": false
+  },
+  {
+    "year": 2026,
+    "match_id": 26088,
+    "date": "2026-02-08T21:30:00+00:00",
+    "players": [
+      "Camilo Ugo Carabelli",
+      "Roman Andres Burruchaga"
+    ],
+    "player_ids": [
+      552,
+      387
+    ],
+    "tournament": "Rosario, Argentina",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 552,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 105,
+    "valid_point_rows": 105,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28005,
+    "date": "2026-03-01T13:00:00+00:00",
+    "players": [
+      "Carlos Sanchez Jover",
+      "Breno Braga"
+    ],
+    "player_ids": [
+      632,
+      1236
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 632,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 13,
+    "points": 70,
+    "valid_point_rows": 70,
+    "malformed_point_rows": 0,
+    "games_with_server": 13,
+    "games_with_break_field": 13,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28006,
+    "date": "2026-03-01T13:00:00+00:00",
+    "players": [
+      "Enzo Camargo Lima",
+      "Joao Vitor Scramin Do Lago"
+    ],
+    "player_ids": [
+      1248,
+      4776
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 4776,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28007,
+    "date": "2026-03-01T13:00:00+00:00",
+    "players": [
+      "Franco Roncadelli",
+      "Ryan Augusto Dos Santos"
+    ],
+    "player_ids": [
+      528,
+      1234
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 528,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 71,
+    "valid_point_rows": 71,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28008,
+    "date": "2026-03-01T14:15:00+00:00",
+    "players": [
+      "Enrique Bogo",
+      "Ryan Dickerson"
+    ],
+    "player_ids": [
+      2316,
+      4777
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 4777,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 90,
+    "valid_point_rows": 90,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28009,
+    "date": "2026-03-01T14:25:00+00:00",
+    "players": [
+      "Joao Eduardo Schiessl",
+      "Joao Pedro Didoni Bonini"
+    ],
+    "player_ids": [
+      971,
+      4778
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 971,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 132,
+    "valid_point_rows": 132,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28010,
+    "date": "2026-03-01T14:45:00+00:00",
+    "players": [
+      "Rafael Tosetto",
+      "Nicolas Villalon Valdes"
+    ],
+    "player_ids": [
+      1246,
+      4726
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 4726,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28011,
+    "date": "2026-03-01T16:05:00+00:00",
+    "players": [
+      "Eduardo Ribeiro",
+      "Luka Bojicic Ono"
+    ],
+    "player_ids": [
+      942,
+      4779
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 942,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 12,
+    "points": 62,
+    "valid_point_rows": 62,
+    "malformed_point_rows": 0,
+    "games_with_server": 12,
+    "games_with_break_field": 12,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28012,
+    "date": "2026-03-01T16:35:00+00:00",
+    "players": [
+      "Miguel Bellorio Pinheiro",
+      "Benjamin Torrealba"
+    ],
+    "player_ids": [
+      4780,
+      1869
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1869,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 12,
+    "points": 53,
+    "valid_point_rows": 53,
+    "malformed_point_rows": 0,
+    "games_with_server": 12,
+    "games_with_break_field": 12,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28013,
+    "date": "2026-03-01T16:50:00+00:00",
+    "players": [
+      "Paulo Andre Saraiva Dos Santos",
+      "Marcelo Zormann"
+    ],
+    "player_ids": [
+      1239,
+      4781
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1239,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 125,
+    "valid_point_rows": 125,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28015,
+    "date": "2026-03-01T17:15:00+00:00",
+    "players": [
+      "Pedro Sakamoto",
+      "Victor Hugo Remondy Pagotto"
+    ],
+    "player_ids": [
+      664,
+      1237
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 664,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 176,
+    "valid_point_rows": 176,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28016,
+    "date": "2026-03-01T17:40:00+00:00",
+    "players": [
+      "Victor Braga",
+      "Nicolas Moreno de Alboran"
+    ],
+    "player_ids": [
+      1240,
+      1255
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1255,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 65,
+    "valid_point_rows": 65,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 28014,
+    "date": "2026-03-01T18:55:00+00:00",
+    "players": [
+      "Luis Felipe Miguel",
+      "Santiago De la Fuente"
+    ],
+    "player_ids": [
+      2121,
+      1835
+    ],
+    "tournament": "Brasilia, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 2121,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 118,
+    "valid_point_rows": 118,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29401,
+    "date": "2026-03-22T01:00:00+00:00",
+    "players": [
+      "Fajing Sun",
+      "Koki Matsuda"
+    ],
+    "player_ids": [
+      700,
+      1946
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 700,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 89,
+    "valid_point_rows": 89,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29402,
+    "date": "2026-03-22T01:00:00+00:00",
+    "players": [
+      "Jie Cui",
+      "Yuki Mochizuki"
+    ],
+    "player_ids": [
+      177,
+      1235
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 177,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 94,
+    "valid_point_rows": 94,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29403,
+    "date": "2026-03-22T01:00:00+00:00",
+    "players": [
+      "Shunsuke Mitsui",
+      "Takuya Kumasaka"
+    ],
+    "player_ids": [
+      3921,
+      952
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 952,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 11,
+    "points": 64,
+    "valid_point_rows": 64,
+    "malformed_point_rows": 0,
+    "games_with_server": 11,
+    "games_with_break_field": 11,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29474,
+    "date": "2026-03-22T02:25:00+00:00",
+    "players": [
+      "Ryo Tabata",
+      "Alec Deckers"
+    ],
+    "player_ids": [
+      1383,
+      4584
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 4584,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29404,
+    "date": "2026-03-22T02:45:00+00:00",
+    "players": [
+      "Masamichi Imamura",
+      "Hiroki Moriya"
+    ],
+    "player_ids": [
+      1272,
+      948
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1272,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 99,
+    "valid_point_rows": 99,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29405,
+    "date": "2026-03-22T02:45:00+00:00",
+    "players": [
+      "Omar Jasika",
+      "Lennon Roark Jones"
+    ],
+    "player_ids": [
+      354,
+      4868
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 354,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 113,
+    "valid_point_rows": 113,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29408,
+    "date": "2026-03-22T04:20:00+00:00",
+    "players": [
+      "Kasidit Samrej",
+      "Shion Motoyama"
+    ],
+    "player_ids": [
+      558,
+      4869
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 558,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 151,
+    "valid_point_rows": 151,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29407,
+    "date": "2026-03-22T04:25:00+00:00",
+    "players": [
+      "Hyeon Chung",
+      "Yusuke Takahashi"
+    ],
+    "player_ids": [
+      875,
+      927
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 875,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 82,
+    "valid_point_rows": 82,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29409,
+    "date": "2026-03-22T04:30:00+00:00",
+    "players": [
+      "Yusuke Kusuhara",
+      "Tsung-Hao Huang"
+    ],
+    "player_ids": [
+      1947,
+      962
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 962,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 80,
+    "valid_point_rows": 80,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29410,
+    "date": "2026-03-22T05:55:00+00:00",
+    "players": [
+      "Braden Shick",
+      "Tai Leonard Sach"
+    ],
+    "player_ids": [
+      1567,
+      4870
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 4870,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 207,
+    "valid_point_rows": 207,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29411,
+    "date": "2026-03-22T06:30:00+00:00",
+    "players": [
+      "Ryuki Matsuda",
+      "Justin Boulais"
+    ],
+    "player_ids": [
+      1661,
+      1595
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1595,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 93,
+    "valid_point_rows": 93,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29412,
+    "date": "2026-03-22T08:45:00+00:00",
+    "players": [
+      "Shunsuke Nakagawa",
+      "Carl Emil Overbeck"
+    ],
+    "player_ids": [
+      4871,
+      1840
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1840,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 143,
+    "valid_point_rows": 143,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29487,
+    "date": "2026-03-23T02:00:00+00:00",
+    "players": [
+      "Fajing Sun",
+      "Takuya Kumasaka"
+    ],
+    "player_ids": [
+      700,
+      952
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 700,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 77,
+    "valid_point_rows": 77,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29488,
+    "date": "2026-03-23T02:00:00+00:00",
+    "players": [
+      "Jie Cui",
+      "Alec Deckers"
+    ],
+    "player_ids": [
+      177,
+      4584
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 177,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 110,
+    "valid_point_rows": 110,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29489,
+    "date": "2026-03-23T02:00:00+00:00",
+    "players": [
+      "Omar Jasika",
+      "Masamichi Imamura"
+    ],
+    "player_ids": [
+      354,
+      1272
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1272,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 143,
+    "valid_point_rows": 143,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29493,
+    "date": "2026-03-23T03:45:00+00:00",
+    "players": [
+      "Hyeon Chung",
+      "Justin Boulais"
+    ],
+    "player_ids": [
+      875,
+      1595
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1595,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 112,
+    "valid_point_rows": 112,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29490,
+    "date": "2026-03-23T04:10:00+00:00",
+    "players": [
+      "Kasidit Samrej",
+      "Tsung-Hao Huang"
+    ],
+    "player_ids": [
+      558,
+      962
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 558,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 112,
+    "valid_point_rows": 112,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29494,
+    "date": "2026-03-23T04:10:00+00:00",
+    "players": [
+      "Tai Leonard Sach",
+      "Carl Emil Overbeck"
+    ],
+    "player_ids": [
+      4870,
+      1840
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1840,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 86,
+    "valid_point_rows": 86,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29425,
+    "date": "2026-03-23T05:30:00+00:00",
+    "players": [
+      "Hayato Matsuoka",
+      "Ognjen Mili\u0107"
+    ],
+    "player_ids": [
+      872,
+      3732
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 872,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 154,
+    "valid_point_rows": 154,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29427,
+    "date": "2026-03-23T05:40:00+00:00",
+    "players": [
+      "Kokoro Isomura",
+      "Dan Added"
+    ],
+    "player_ids": [
+      1666,
+      793
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 793,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 89,
+    "valid_point_rows": 89,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29430,
+    "date": "2026-03-23T05:45:00+00:00",
+    "players": [
+      "Renta Tokuda",
+      "August Holmgren"
+    ],
+    "player_ids": [
+      836,
+      427
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 427,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 140,
+    "valid_point_rows": 140,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29423,
+    "date": "2026-03-24T01:00:00+00:00",
+    "players": [
+      "Blake Ellis",
+      "Soonwoo Kwon"
+    ],
+    "player_ids": [
+      471,
+      965
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 965,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 86,
+    "valid_point_rows": 86,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29424,
+    "date": "2026-03-24T01:00:00+00:00",
+    "players": [
+      "Harry Wendelken",
+      "Yi Zhou"
+    ],
+    "player_ids": [
+      845,
+      813
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 845,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 127,
+    "valid_point_rows": 127,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29564,
+    "date": "2026-03-24T01:00:00+00:00",
+    "players": [
+      "Kasidit Samrej",
+      "Paul Jubb"
+    ],
+    "player_ids": [
+      558,
+      421
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 421,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29431,
+    "date": "2026-03-24T02:20:00+00:00",
+    "players": [
+      "Sho Shimabukuro",
+      "Naoya Honda"
+    ],
+    "player_ids": [
+      440,
+      4357
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 4357,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 77,
+    "valid_point_rows": 77,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29566,
+    "date": "2026-03-24T02:40:00+00:00",
+    "players": [
+      "Sanhui Shin",
+      "Masamichi Imamura"
+    ],
+    "player_ids": [
+      871,
+      1272
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1272,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 99,
+    "valid_point_rows": 99,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29565,
+    "date": "2026-03-24T03:00:00+00:00",
+    "players": [
+      "Kaichi Uchida",
+      "Fajing Sun"
+    ],
+    "player_ids": [
+      695,
+      700
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 700,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 96,
+    "valid_point_rows": 96,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29429,
+    "date": "2026-03-24T03:40:00+00:00",
+    "players": [
+      "Maximus Jones",
+      "Yasutaka Uchiyama"
+    ],
+    "player_ids": [
+      866,
+      373
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 373,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 153,
+    "valid_point_rows": 153,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29567,
+    "date": "2026-03-24T04:15:00+00:00",
+    "players": [
+      "Li Tu",
+      "Carl Emil Overbeck"
+    ],
+    "player_ids": [
+      128,
+      1840
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 128,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29428,
+    "date": "2026-03-24T04:40:00+00:00",
+    "players": [
+      "Liam Broady",
+      "James Trotter"
+    ],
+    "player_ids": [
+      841,
+      381
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 841,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 65,
+    "valid_point_rows": 65,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29432,
+    "date": "2026-03-24T06:00:00+00:00",
+    "players": [
+      "Tung-Lin Wu",
+      "Rio Noguchi"
+    ],
+    "player_ids": [
+      886,
+      806
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 806,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 116,
+    "valid_point_rows": 116,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29568,
+    "date": "2026-03-24T06:20:00+00:00",
+    "players": [
+      "Yu Hsiou Hsu",
+      "Justin Boulais"
+    ],
+    "player_ids": [
+      802,
+      1595
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 802,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 130,
+    "valid_point_rows": 130,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29569,
+    "date": "2026-03-24T06:20:00+00:00",
+    "players": [
+      "Yuta Shimizu",
+      "Jie Cui"
+    ],
+    "player_ids": [
+      458,
+      177
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 458,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 112,
+    "valid_point_rows": 112,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29426,
+    "date": "2026-03-24T08:25:00+00:00",
+    "players": [
+      "James McCabe",
+      "Andre Ilagan"
+    ],
+    "player_ids": [
+      133,
+      864
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 133,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 142,
+    "valid_point_rows": 142,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29589,
+    "date": "2026-03-25T01:00:00+00:00",
+    "players": [
+      "Soonwoo Kwon",
+      "August Holmgren"
+    ],
+    "player_ids": [
+      965,
+      427
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 965,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 111,
+    "valid_point_rows": 111,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29588,
+    "date": "2026-03-26T02:00:00+00:00",
+    "players": [
+      "Paul Jubb",
+      "Harry Wendelken"
+    ],
+    "player_ids": [
+      421,
+      845
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 845,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 183,
+    "valid_point_rows": 183,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29591,
+    "date": "2026-03-26T02:00:00+00:00",
+    "players": [
+      "Naoya Honda",
+      "Liam Broady"
+    ],
+    "player_ids": [
+      4357,
+      841
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 841,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 75,
+    "valid_point_rows": 75,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29593,
+    "date": "2026-03-26T02:00:00+00:00",
+    "players": [
+      "Fajing Sun",
+      "Masamichi Imamura"
+    ],
+    "player_ids": [
+      700,
+      1272
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 700,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 150,
+    "valid_point_rows": 150,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29592,
+    "date": "2026-03-26T03:20:00+00:00",
+    "players": [
+      "Yasutaka Uchiyama",
+      "Dan Added"
+    ],
+    "player_ids": [
+      373,
+      793
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 373,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 84,
+    "valid_point_rows": 84,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29599,
+    "date": "2026-03-26T04:50:00+00:00",
+    "players": [
+      "James McCabe",
+      "Hayato Matsuoka"
+    ],
+    "player_ids": [
+      133,
+      872
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 872,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 111,
+    "valid_point_rows": 111,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29601,
+    "date": "2026-03-26T05:05:00+00:00",
+    "players": [
+      "Yu Hsiou Hsu",
+      "Yuta Shimizu"
+    ],
+    "player_ids": [
+      802,
+      458
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 458,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 176,
+    "valid_point_rows": 176,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29598,
+    "date": "2026-03-26T05:45:00+00:00",
+    "players": [
+      "Li Tu",
+      "Rio Noguchi"
+    ],
+    "player_ids": [
+      128,
+      806
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 806,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 146,
+    "valid_point_rows": 146,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29620,
+    "date": "2026-03-27T02:00:00+00:00",
+    "players": [
+      "Hayato Matsuoka",
+      "Soonwoo Kwon"
+    ],
+    "player_ids": [
+      872,
+      965
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 872,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 134,
+    "valid_point_rows": 134,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29623,
+    "date": "2026-03-27T02:05:00+00:00",
+    "players": [
+      "Liam Broady",
+      "Rio Noguchi"
+    ],
+    "player_ids": [
+      841,
+      806
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 806,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 93,
+    "valid_point_rows": 93,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29622,
+    "date": "2026-03-27T03:50:00+00:00",
+    "players": [
+      "Yuta Shimizu",
+      "Harry Wendelken"
+    ],
+    "player_ids": [
+      458,
+      845
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 845,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 101,
+    "valid_point_rows": 101,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29621,
+    "date": "2026-03-27T03:55:00+00:00",
+    "players": [
+      "Fajing Sun",
+      "Yasutaka Uchiyama"
+    ],
+    "player_ids": [
+      700,
+      373
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 373,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 65,
+    "valid_point_rows": 65,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29627,
+    "date": "2026-03-28T03:00:00+00:00",
+    "players": [
+      "Rio Noguchi",
+      "Harry Wendelken"
+    ],
+    "player_ids": [
+      806,
+      845
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 806,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 157,
+    "valid_point_rows": 157,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29628,
+    "date": "2026-03-28T04:00:00+00:00",
+    "players": [
+      "Yasutaka Uchiyama",
+      "Hayato Matsuoka"
+    ],
+    "player_ids": [
+      373,
+      872
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 373,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 185,
+    "valid_point_rows": 185,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 29880,
+    "date": "2026-03-29T03:00:00+00:00",
+    "players": [
+      "Rio Noguchi",
+      "Yasutaka Uchiyama"
+    ],
+    "player_ids": [
+      806,
+      373
+    ],
+    "tournament": "Yokkaichi, Japan",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 806,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 34,
+    "points": 187,
+    "valid_point_rows": 187,
+    "malformed_point_rows": 0,
+    "games_with_server": 34,
+    "games_with_break_field": 34,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30495,
+    "date": "2026-04-05T13:00:00+00:00",
+    "players": [
+      "Franco Ribero",
+      "Thiago Cigarran"
+    ],
+    "player_ids": [
+      1852,
+      1830
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1852,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 119,
+    "valid_point_rows": 119,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30496,
+    "date": "2026-04-05T13:00:00+00:00",
+    "players": [
+      "Joao Vitor Scramin Do Lago",
+      "Benjamin Torrealba"
+    ],
+    "player_ids": [
+      4776,
+      1869
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1869,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 96,
+    "valid_point_rows": 96,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30497,
+    "date": "2026-04-05T13:00:00+00:00",
+    "players": [
+      "Santiago De la Fuente",
+      "Joao Victor Couto Loureiro"
+    ],
+    "player_ids": [
+      1835,
+      4928
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1835,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 86,
+    "valid_point_rows": 86,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30500,
+    "date": "2026-04-05T14:45:00+00:00",
+    "players": [
+      "Marcco Iannoni",
+      "Nicolas Villalon Valdes"
+    ],
+    "player_ids": [
+      4930,
+      4726
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 4726,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 100,
+    "valid_point_rows": 100,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30498,
+    "date": "2026-04-05T14:50:00+00:00",
+    "players": [
+      "Bruno Fernandez",
+      "Pietro Gava"
+    ],
+    "player_ids": [
+      4451,
+      4929
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 4451,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 82,
+    "valid_point_rows": 82,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30499,
+    "date": "2026-04-05T15:35:00+00:00",
+    "players": [
+      "Eric Vanshelboim",
+      "Nicolas Zanellato"
+    ],
+    "player_ids": [
+      950,
+      1317
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1317,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 93,
+    "valid_point_rows": 93,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30504,
+    "date": "2026-04-05T16:20:00+00:00",
+    "players": [
+      "Wilson Leite",
+      "Jose Pereira"
+    ],
+    "player_ids": [
+      1243,
+      1253
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1253,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 92,
+    "valid_point_rows": 92,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30503,
+    "date": "2026-04-05T16:30:00+00:00",
+    "players": [
+      "Victor Hugo Remondy Pagotto",
+      "Arklon Huertas Del Pino Cordova"
+    ],
+    "player_ids": [
+      1237,
+      548
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1237,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 96,
+    "valid_point_rows": 96,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30502,
+    "date": "2026-04-05T17:15:00+00:00",
+    "players": [
+      "Daniel Antonio Nunez",
+      "Joao Vitor Goncalves Ceolin"
+    ],
+    "player_ids": [
+      1245,
+      1249
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1245,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 36,
+    "points": 173,
+    "valid_point_rows": 173,
+    "malformed_point_rows": 0,
+    "games_with_server": 36,
+    "games_with_break_field": 36,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30506,
+    "date": "2026-04-05T18:20:00+00:00",
+    "players": [
+      "Mariano Kestelboim",
+      "Natan Rodrigues"
+    ],
+    "player_ids": [
+      541,
+      4932
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 4932,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 8,
+    "points": 42,
+    "valid_point_rows": 42,
+    "malformed_point_rows": 0,
+    "games_with_server": 8,
+    "games_with_break_field": 8,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30626,
+    "date": "2026-04-05T18:20:00+00:00",
+    "players": [
+      "Jefferson Wendler Filho",
+      "Rafael Tosetto"
+    ],
+    "player_ids": [
+      4946,
+      1246
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1246,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 141,
+    "valid_point_rows": 141,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30507,
+    "date": "2026-04-05T19:25:00+00:00",
+    "players": [
+      "Valentin Basel",
+      "Connor Huertas Del Pino"
+    ],
+    "player_ids": [
+      1858,
+      536
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 536,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 152,
+    "valid_point_rows": 152,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30641,
+    "date": "2026-04-06T13:30:00+00:00",
+    "players": [
+      "Bruno Fernandez",
+      "Nicolas Villalon Valdes"
+    ],
+    "player_ids": [
+      4451,
+      4726
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 4451,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 76,
+    "valid_point_rows": 76,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30642,
+    "date": "2026-04-06T13:30:00+00:00",
+    "players": [
+      "Nicolas Zanellato",
+      "Franco Ribero"
+    ],
+    "player_ids": [
+      1317,
+      1852
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1852,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 157,
+    "valid_point_rows": 157,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30643,
+    "date": "2026-04-06T13:30:00+00:00",
+    "players": [
+      "Santiago De la Fuente",
+      "Benjamin Torrealba"
+    ],
+    "player_ids": [
+      1835,
+      1869
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1835,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 163,
+    "valid_point_rows": 163,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30644,
+    "date": "2026-04-06T15:00:00+00:00",
+    "players": [
+      "Natan Rodrigues",
+      "Jose Pereira"
+    ],
+    "player_ids": [
+      4932,
+      1253
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1253,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 82,
+    "valid_point_rows": 82,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30646,
+    "date": "2026-04-06T16:20:00+00:00",
+    "players": [
+      "Rafael Tosetto",
+      "Connor Huertas Del Pino"
+    ],
+    "player_ids": [
+      1246,
+      536
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 536,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 100,
+    "valid_point_rows": 100,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30645,
+    "date": "2026-04-06T16:40:00+00:00",
+    "players": [
+      "Daniel Antonio Nunez",
+      "Victor Hugo Remondy Pagotto"
+    ],
+    "player_ids": [
+      1245,
+      1237
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1237,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 35,
+    "points": 193,
+    "valid_point_rows": 193,
+    "malformed_point_rows": 0,
+    "games_with_server": 35,
+    "games_with_break_field": 35,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30511,
+    "date": "2026-04-06T18:00:00+00:00",
+    "players": [
+      "Juan Bautista Torres",
+      "Luciano Emanuel Ambrogi"
+    ],
+    "player_ids": [
+      586,
+      547
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 547,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 147,
+    "valid_point_rows": 147,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30515,
+    "date": "2026-04-06T18:00:00+00:00",
+    "players": [
+      "Pedro Boscardin Dias",
+      "Lorenzo Joaquin Rodriguez"
+    ],
+    "player_ids": [
+      537,
+      944
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 537,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 100,
+    "valid_point_rows": 100,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30517,
+    "date": "2026-04-06T19:50:00+00:00",
+    "players": [
+      "Victor Braga",
+      "Juan Pablo Varillas"
+    ],
+    "player_ids": [
+      1240,
+      397
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 397,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 68,
+    "valid_point_rows": 68,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30516,
+    "date": "2026-04-06T20:40:00+00:00",
+    "players": [
+      "Pedro Sakamoto",
+      "Joao Eduardo Schiessl"
+    ],
+    "player_ids": [
+      664,
+      971
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 664,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 138,
+    "valid_point_rows": 138,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30512,
+    "date": "2026-04-06T21:00:00+00:00",
+    "players": [
+      "Juan Manuel La Serna",
+      "Enzo Camargo Lima"
+    ],
+    "player_ids": [
+      665,
+      1248
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 665,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 80,
+    "valid_point_rows": 80,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30510,
+    "date": "2026-04-07T13:30:00+00:00",
+    "players": [
+      "Johan Nikles",
+      "Valerio Aboian"
+    ],
+    "player_ids": [
+      1866,
+      549
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1866,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 123,
+    "valid_point_rows": 123,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30765,
+    "date": "2026-04-07T13:30:00+00:00",
+    "players": [
+      "Franco Ribero",
+      "Alvaro Guillen Meza"
+    ],
+    "player_ids": [
+      1852,
+      579
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 579,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 129,
+    "valid_point_rows": 129,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30766,
+    "date": "2026-04-07T13:30:00+00:00",
+    "players": [
+      "Gonzalo Villanueva",
+      "Santiago De la Fuente"
+    ],
+    "player_ids": [
+      533,
+      1835
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 533,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 151,
+    "valid_point_rows": 151,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30767,
+    "date": "2026-04-07T15:35:00+00:00",
+    "players": [
+      "Gonzalo Bueno",
+      "Bruno Fernandez"
+    ],
+    "player_ids": [
+      573,
+      4451
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 573,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 125,
+    "valid_point_rows": 125,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30513,
+    "date": "2026-04-07T16:05:00+00:00",
+    "players": [
+      "Murkel Dellien",
+      "Paulo Andre Saraiva Dos Santos"
+    ],
+    "player_ids": [
+      369,
+      1239
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 369,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 180,
+    "valid_point_rows": 180,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30768,
+    "date": "2026-04-07T16:20:00+00:00",
+    "players": [
+      "Lautaro Midon",
+      "Jose Pereira"
+    ],
+    "player_ids": [
+      578,
+      1253
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 578,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 176,
+    "valid_point_rows": 176,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30769,
+    "date": "2026-04-07T18:00:00+00:00",
+    "players": [
+      "Connor Huertas Del Pino",
+      "Hernan Casanova"
+    ],
+    "player_ids": [
+      536,
+      663
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 663,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 82,
+    "valid_point_rows": 82,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30770,
+    "date": "2026-04-07T18:50:00+00:00",
+    "players": [
+      "Guido Ivan Justo",
+      "Victor Hugo Remondy Pagotto"
+    ],
+    "player_ids": [
+      666,
+      1237
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 666,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 84,
+    "valid_point_rows": 84,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30509,
+    "date": "2026-04-07T19:20:00+00:00",
+    "players": [
+      "Gustavo Heide",
+      "Joao Lucas Reis da Silva"
+    ],
+    "player_ids": [
+      376,
+      530
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 376,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 88,
+    "valid_point_rows": 88,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30633,
+    "date": "2026-04-07T20:25:00+00:00",
+    "players": [
+      "Nicolas Alvarez Varona",
+      "Lucio Ratti"
+    ],
+    "player_ids": [
+      874,
+      1834
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 1834,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 90,
+    "valid_point_rows": 90,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30508,
+    "date": "2026-04-07T21:00:00+00:00",
+    "players": [
+      "Eduardo Ribeiro",
+      "Facundo Diaz Acosta"
+    ],
+    "player_ids": [
+      942,
+      322
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 322,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 33,
+    "points": 193,
+    "valid_point_rows": 193,
+    "malformed_point_rows": 0,
+    "games_with_server": 33,
+    "games_with_break_field": 33,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30822,
+    "date": "2026-04-08T15:00:00+00:00",
+    "players": [
+      "Lautaro Midon",
+      "Luciano Emanuel Ambrogi"
+    ],
+    "player_ids": [
+      578,
+      547
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 578,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 166,
+    "valid_point_rows": 166,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30824,
+    "date": "2026-04-08T15:00:00+00:00",
+    "players": [
+      "Gonzalo Villanueva",
+      "Juan Pablo Varillas"
+    ],
+    "player_ids": [
+      533,
+      397
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 397,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 136,
+    "valid_point_rows": 136,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30825,
+    "date": "2026-04-08T19:20:00+00:00",
+    "players": [
+      "Pedro Sakamoto",
+      "Alvaro Guillen Meza"
+    ],
+    "player_ids": [
+      664,
+      579
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 579,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 33,
+    "points": 202,
+    "valid_point_rows": 202,
+    "malformed_point_rows": 0,
+    "games_with_server": 33,
+    "games_with_break_field": 33,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30823,
+    "date": "2026-04-08T22:40:00+00:00",
+    "players": [
+      "Pedro Boscardin Dias",
+      "Murkel Dellien"
+    ],
+    "player_ids": [
+      537,
+      369
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 537,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 92,
+    "valid_point_rows": 92,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30831,
+    "date": "2026-04-09T15:00:00+00:00",
+    "players": [
+      "Gonzalo Bueno",
+      "Lucio Ratti"
+    ],
+    "player_ids": [
+      573,
+      1834
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 573,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 97,
+    "valid_point_rows": 97,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30844,
+    "date": "2026-04-09T16:45:00+00:00",
+    "players": [
+      "Hernan Casanova",
+      "Facundo Diaz Acosta"
+    ],
+    "player_ids": [
+      663,
+      322
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 663,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 7,
+    "points": 34,
+    "valid_point_rows": 34,
+    "malformed_point_rows": 0,
+    "games_with_server": 7,
+    "games_with_break_field": 7,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30832,
+    "date": "2026-04-09T18:15:00+00:00",
+    "players": [
+      "Guido Ivan Justo",
+      "Juan Manuel La Serna"
+    ],
+    "player_ids": [
+      666,
+      665
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 666,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 121,
+    "valid_point_rows": 121,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30833,
+    "date": "2026-04-09T21:00:00+00:00",
+    "players": [
+      "Johan Nikles",
+      "Gustavo Heide"
+    ],
+    "player_ids": [
+      1866,
+      376
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 376,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 115,
+    "valid_point_rows": 115,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30978,
+    "date": "2026-04-10T14:00:00+00:00",
+    "players": [
+      "Gonzalo Bueno",
+      "Hernan Casanova"
+    ],
+    "player_ids": [
+      573,
+      663
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 573,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 169,
+    "valid_point_rows": 169,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30892,
+    "date": "2026-04-10T16:00:00+00:00",
+    "players": [
+      "Lautaro Midon",
+      "Juan Pablo Varillas"
+    ],
+    "player_ids": [
+      578,
+      397
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 578,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 139,
+    "valid_point_rows": 139,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30903,
+    "date": "2026-04-10T16:50:00+00:00",
+    "players": [
+      "Pedro Boscardin Dias",
+      "Alvaro Guillen Meza"
+    ],
+    "player_ids": [
+      537,
+      579
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 537,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 99,
+    "valid_point_rows": 99,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 30979,
+    "date": "2026-04-10T18:40:00+00:00",
+    "players": [
+      "Guido Ivan Justo",
+      "Gustavo Heide"
+    ],
+    "player_ids": [
+      666,
+      376
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 376,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 88,
+    "valid_point_rows": 88,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31117,
+    "date": "2026-04-11T13:30:00+00:00",
+    "players": [
+      "Gonzalo Bueno",
+      "Lautaro Midon"
+    ],
+    "player_ids": [
+      573,
+      578
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 573,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31145,
+    "date": "2026-04-11T15:45:00+00:00",
+    "players": [
+      "Gustavo Heide",
+      "Pedro Boscardin Dias"
+    ],
+    "player_ids": [
+      376,
+      537
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 376,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 116,
+    "valid_point_rows": 116,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31430,
+    "date": "2026-04-12T01:30:00+00:00",
+    "players": [
+      "Matisse Bobichon",
+      "Kasidit Samrej"
+    ],
+    "player_ids": [
+      5012,
+      558
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 558,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 107,
+    "valid_point_rows": 107,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31434,
+    "date": "2026-04-12T01:30:00+00:00",
+    "players": [
+      "Taro Daniel",
+      "Duckhee Lee"
+    ],
+    "player_ids": [
+      348,
+      1275
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 348,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 10,
+    "points": 51,
+    "valid_point_rows": 51,
+    "malformed_point_rows": 0,
+    "games_with_server": 10,
+    "games_with_break_field": 10,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31435,
+    "date": "2026-04-12T01:30:00+00:00",
+    "players": [
+      "Tomohiro Masabayashi",
+      "Patrick Zahraj"
+    ],
+    "player_ids": [
+      5016,
+      690
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 690,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 119,
+    "valid_point_rows": 119,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31427,
+    "date": "2026-04-12T02:25:00+00:00",
+    "players": [
+      "Dong Ju Kim",
+      "Hikaru Shiraishi"
+    ],
+    "player_ids": [
+      5010,
+      913
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 913,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 102,
+    "valid_point_rows": 102,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31428,
+    "date": "2026-04-12T03:30:00+00:00",
+    "players": [
+      "James Trotter",
+      "Suk Ann"
+    ],
+    "player_ids": [
+      381,
+      5011
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 381,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 103,
+    "valid_point_rows": 103,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31431,
+    "date": "2026-04-12T03:30:00+00:00",
+    "players": [
+      "Pawit Sornlaksup",
+      "Takuya Kumasaka"
+    ],
+    "player_ids": [
+      5013,
+      952
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 5013,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 169,
+    "valid_point_rows": 169,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31436,
+    "date": "2026-04-12T04:25:00+00:00",
+    "players": [
+      "Tung-Lin Wu",
+      "Woobin Shin"
+    ],
+    "player_ids": [
+      886,
+      5017
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 886,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 85,
+    "valid_point_rows": 85,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31432,
+    "date": "2026-04-12T05:10:00+00:00",
+    "players": [
+      "Renta Tokuda",
+      "Ku Keon Kang"
+    ],
+    "player_ids": [
+      836,
+      5014
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 836,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 112,
+    "valid_point_rows": 112,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31429,
+    "date": "2026-04-12T06:00:00+00:00",
+    "players": [
+      "Ji Sung Nam",
+      "Marat Sharipov"
+    ],
+    "player_ids": [
+      1273,
+      684
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 684,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31433,
+    "date": "2026-04-12T06:45:00+00:00",
+    "players": [
+      "Sungbeen Sim",
+      "Jake Delaney"
+    ],
+    "player_ids": [
+      5015,
+      945
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 945,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 98,
+    "valid_point_rows": 98,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31426,
+    "date": "2026-04-12T06:50:00+00:00",
+    "players": [
+      "Daniel Masur",
+      "Dong Geon Kim"
+    ],
+    "player_ids": [
+      320,
+      1274
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 320,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 68,
+    "valid_point_rows": 68,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31437,
+    "date": "2026-04-12T07:20:00+00:00",
+    "players": [
+      "Yuta Shimizu",
+      "Ben Jones"
+    ],
+    "player_ids": [
+      458,
+      5018
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 458,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 87,
+    "valid_point_rows": 87,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31467,
+    "date": "2026-04-12T16:00:00+00:00",
+    "players": [
+      "Gonzalo Bueno",
+      "Gustavo Heide"
+    ],
+    "player_ids": [
+      573,
+      376
+    ],
+    "tournament": "Campinas, Brazil",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 376,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 113,
+    "valid_point_rows": 113,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31516,
+    "date": "2026-04-13T01:30:00+00:00",
+    "players": [
+      "James Trotter",
+      "Kasidit Samrej"
+    ],
+    "player_ids": [
+      381,
+      558
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 558,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 144,
+    "valid_point_rows": 144,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31517,
+    "date": "2026-04-13T01:30:00+00:00",
+    "players": [
+      "Taro Daniel",
+      "Patrick Zahraj"
+    ],
+    "player_ids": [
+      348,
+      690
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 348,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 191,
+    "valid_point_rows": 191,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31518,
+    "date": "2026-04-13T01:30:00+00:00",
+    "players": [
+      "Tung-Lin Wu",
+      "Pawit Sornlaksup"
+    ],
+    "player_ids": [
+      886,
+      5013
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 886,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 89,
+    "valid_point_rows": 89,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31534,
+    "date": "2026-04-13T03:10:00+00:00",
+    "players": [
+      "Daniel Masur",
+      "Jake Delaney"
+    ],
+    "player_ids": [
+      320,
+      945
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 945,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31519,
+    "date": "2026-04-13T04:05:00+00:00",
+    "players": [
+      "Renta Tokuda",
+      "Hikaru Shiraishi"
+    ],
+    "player_ids": [
+      836,
+      913
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 836,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31535,
+    "date": "2026-04-13T04:35:00+00:00",
+    "players": [
+      "Yuta Shimizu",
+      "Marat Sharipov"
+    ],
+    "player_ids": [
+      458,
+      684
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 684,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 112,
+    "valid_point_rows": 112,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31419,
+    "date": "2026-04-13T04:45:00+00:00",
+    "players": [
+      "Rio Noguchi",
+      "Clement Chidekh"
+    ],
+    "player_ids": [
+      806,
+      419
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 806,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 110,
+    "valid_point_rows": 110,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31424,
+    "date": "2026-04-13T05:35:00+00:00",
+    "players": [
+      "Yu Hsiou Hsu",
+      "Adam Walton"
+    ],
+    "player_ids": [
+      802,
+      257
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 257,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 151,
+    "valid_point_rows": 151,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31425,
+    "date": "2026-04-13T06:25:00+00:00",
+    "players": [
+      "Yunchaokete Bu",
+      "Yun Seong Chung"
+    ],
+    "player_ids": [
+      268,
+      5009
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 268,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 92,
+    "valid_point_rows": 92,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31414,
+    "date": "2026-04-14T02:00:00+00:00",
+    "players": [
+      "Alex Bolt",
+      "James McCabe"
+    ],
+    "player_ids": [
+      127,
+      133
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 127,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 128,
+    "valid_point_rows": 128,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31619,
+    "date": "2026-04-14T02:00:00+00:00",
+    "players": [
+      "James Trotter",
+      "Jake Delaney"
+    ],
+    "player_ids": [
+      381,
+      945
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 381,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 166,
+    "valid_point_rows": 166,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31620,
+    "date": "2026-04-14T02:00:00+00:00",
+    "players": [
+      "Tung-Lin Wu",
+      "Taro Daniel"
+    ],
+    "player_ids": [
+      886,
+      348
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 886,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 103,
+    "valid_point_rows": 103,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31416,
+    "date": "2026-04-14T03:45:00+00:00",
+    "players": [
+      "Ilya Ivashka",
+      "Dane Sweeny"
+    ],
+    "player_ids": [
+      1626,
+      449
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1626,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 34,
+    "points": 216,
+    "valid_point_rows": 216,
+    "malformed_point_rows": 0,
+    "games_with_server": 34,
+    "games_with_break_field": 34,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31622,
+    "date": "2026-04-14T04:20:00+00:00",
+    "players": [
+      "Renta Tokuda",
+      "Coleman Wong"
+    ],
+    "player_ids": [
+      836,
+      275
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 275,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 117,
+    "valid_point_rows": 117,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31621,
+    "date": "2026-04-14T05:05:00+00:00",
+    "players": [
+      "Marat Sharipov",
+      "Yasutaka Uchiyama"
+    ],
+    "player_ids": [
+      684,
+      373
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 684,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 34,
+    "points": 187,
+    "valid_point_rows": 187,
+    "malformed_point_rows": 0,
+    "games_with_server": 34,
+    "games_with_break_field": 34,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31421,
+    "date": "2026-04-14T06:15:00+00:00",
+    "players": [
+      "Soonwoo Kwon",
+      "Leandro Riedi"
+    ],
+    "player_ids": [
+      965,
+      785
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 785,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 127,
+    "valid_point_rows": 127,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31423,
+    "date": "2026-04-14T07:15:00+00:00",
+    "players": [
+      "Yi Zhou",
+      "Pavel Kotov"
+    ],
+    "player_ids": [
+      813,
+      175
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 175,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 10,
+    "points": 46,
+    "valid_point_rows": 46,
+    "malformed_point_rows": 0,
+    "games_with_server": 10,
+    "games_with_break_field": 10,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31418,
+    "date": "2026-04-14T08:50:00+00:00",
+    "players": [
+      "Liam Broady",
+      "Murphy Cassone"
+    ],
+    "player_ids": [
+      841,
+      678
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 841,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 13,
+    "points": 55,
+    "valid_point_rows": 55,
+    "malformed_point_rows": 0,
+    "games_with_server": 13,
+    "games_with_break_field": 13,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31422,
+    "date": "2026-04-14T08:50:00+00:00",
+    "players": [
+      "Uisung Park",
+      "Beibit Zhukayev"
+    ],
+    "player_ids": [
+      1969,
+      718
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 718,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 157,
+    "valid_point_rows": 157,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31415,
+    "date": "2026-04-14T09:35:00+00:00",
+    "players": [
+      "Alexis Galarneau",
+      "Kaichi Uchida"
+    ],
+    "player_ids": [
+      461,
+      695
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 461,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 146,
+    "valid_point_rows": 146,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31420,
+    "date": "2026-04-14T09:50:00+00:00",
+    "players": [
+      "Sho Shimabukuro",
+      "Ilia Simakin"
+    ],
+    "player_ids": [
+      440,
+      701
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 440,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 86,
+    "valid_point_rows": 86,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31623,
+    "date": "2026-04-14T11:05:00+00:00",
+    "players": [
+      "Kasidit Samrej",
+      "August Holmgren"
+    ],
+    "player_ids": [
+      558,
+      427
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 427,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 188,
+    "valid_point_rows": 188,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31644,
+    "date": "2026-04-15T02:00:00+00:00",
+    "players": [
+      "Alex Bolt",
+      "Tung-Lin Wu"
+    ],
+    "player_ids": [
+      127,
+      886
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 127,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 33,
+    "points": 166,
+    "valid_point_rows": 166,
+    "malformed_point_rows": 0,
+    "games_with_server": 33,
+    "games_with_break_field": 33,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31645,
+    "date": "2026-04-15T02:00:00+00:00",
+    "players": [
+      "James Trotter",
+      "Adam Walton"
+    ],
+    "player_ids": [
+      381,
+      257
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 257,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 154,
+    "valid_point_rows": 154,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31646,
+    "date": "2026-04-15T04:40:00+00:00",
+    "players": [
+      "Rio Noguchi",
+      "Coleman Wong"
+    ],
+    "player_ids": [
+      806,
+      275
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 806,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 79,
+    "valid_point_rows": 79,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31653,
+    "date": "2026-04-15T04:50:00+00:00",
+    "players": [
+      "Yunchaokete Bu",
+      "Marat Sharipov"
+    ],
+    "player_ids": [
+      268,
+      684
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 268,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 97,
+    "valid_point_rows": 97,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31660,
+    "date": "2026-04-16T02:00:00+00:00",
+    "players": [
+      "Pavel Kotov",
+      "Leandro Riedi"
+    ],
+    "player_ids": [
+      175,
+      785
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 785,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 122,
+    "valid_point_rows": 122,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31661,
+    "date": "2026-04-16T02:10:00+00:00",
+    "players": [
+      "Sho Shimabukuro",
+      "Beibit Zhukayev"
+    ],
+    "player_ids": [
+      440,
+      718
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 440,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 203,
+    "valid_point_rows": 203,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31659,
+    "date": "2026-04-16T04:05:00+00:00",
+    "players": [
+      "Liam Broady",
+      "Ilya Ivashka"
+    ],
+    "player_ids": [
+      841,
+      1626
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 841,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 104,
+    "valid_point_rows": 104,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31678,
+    "date": "2026-04-16T05:05:00+00:00",
+    "players": [
+      "August Holmgren",
+      "Alexis Galarneau"
+    ],
+    "player_ids": [
+      427,
+      461
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 427,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 94,
+    "valid_point_rows": 94,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31692,
+    "date": "2026-04-17T02:00:00+00:00",
+    "players": [
+      "Alex Bolt",
+      "Rio Noguchi"
+    ],
+    "player_ids": [
+      127,
+      806
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 127,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 145,
+    "valid_point_rows": 145,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31693,
+    "date": "2026-04-17T02:00:00+00:00",
+    "players": [
+      "Yunchaokete Bu",
+      "Adam Walton"
+    ],
+    "player_ids": [
+      268,
+      257
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 268,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 123,
+    "valid_point_rows": 123,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31724,
+    "date": "2026-04-17T04:10:00+00:00",
+    "players": [
+      "Sho Shimabukuro",
+      "Leandro Riedi"
+    ],
+    "player_ids": [
+      440,
+      785
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 785,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 101,
+    "valid_point_rows": 101,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31725,
+    "date": "2026-04-18T04:00:00+00:00",
+    "players": [
+      "August Holmgren",
+      "Liam Broady"
+    ],
+    "player_ids": [
+      427,
+      841
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 841,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 152,
+    "valid_point_rows": 152,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31779,
+    "date": "2026-04-18T07:25:00+00:00",
+    "players": [
+      "Alex Bolt",
+      "Yunchaokete Bu"
+    ],
+    "player_ids": [
+      127,
+      268
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 268,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 101,
+    "valid_point_rows": 101,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31910,
+    "date": "2026-04-18T09:10:00+00:00",
+    "players": [
+      "Liam Broady",
+      "Leandro Riedi"
+    ],
+    "player_ids": [
+      841,
+      785
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 785,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 83,
+    "valid_point_rows": 83,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2026,
+    "match_id": 31912,
+    "date": "2026-04-19T07:00:00+00:00",
+    "players": [
+      "Leandro Riedi",
+      "Yunchaokete Bu"
+    ],
+    "player_ids": [
+      785,
+      268
+    ],
+    "tournament": "Busan, South Korea",
+    "circuit": "ATP",
+    "category": "challenger",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 785,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  }
+]

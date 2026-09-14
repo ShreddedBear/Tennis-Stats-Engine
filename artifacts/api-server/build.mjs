@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { build as esbuild } from "esbuild";
 import esbuildPluginPino from "esbuild-plugin-pino";
 import { cp, rm } from "node:fs/promises";
+import { existsSync } from "node:fs";
 
 // Plugins (e.g. 'esbuild-plugin-pino') may use `require` to resolve dependencies
 globalThis.require = createRequire(import.meta.url);
@@ -136,6 +137,14 @@ globalThis.__dirname = __bannerPath.dirname(globalThis.__filename);
     path.resolve(distDir, "seed"),
     { recursive: true },
   );
+
+  // The BSD point-by-point history indexes. Without them the modules discover no candidate
+  // matches and report "no data" -- indistinguishable from a player who never played. They
+  // live at the repository root so scripts and the server share one copy.
+  const dataRoot = path.resolve(artifactDir, "../../data");
+  if (existsSync(dataRoot)) {
+    await cp(dataRoot, path.resolve(distDir, "data"), { recursive: true });
+  }
 }
 
 buildAll().catch((err) => {

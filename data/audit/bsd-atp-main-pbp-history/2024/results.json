@@ -1,0 +1,2046 @@
+[
+  {
+    "year": 2024,
+    "match_id": 101,
+    "date": "2024-12-18T11:00:00+00:00",
+    "players": [
+      "Juncheng Shang",
+      "Luca Van Assche"
+    ],
+    "player_ids": [
+      83,
+      84
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 84,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 0,
+    "points": 0,
+    "valid_point_rows": 0,
+    "malformed_point_rows": 0,
+    "games_with_server": 0,
+    "games_with_break_field": 0,
+    "structurally_present": false
+  },
+  {
+    "year": 2024,
+    "match_id": 104,
+    "date": "2024-12-18T13:15:00+00:00",
+    "players": [
+      "Alex Michelsen",
+      "Nishesh Basavareddy"
+    ],
+    "player_ids": [
+      89,
+      90
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 89,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 108,
+    "valid_point_rows": 108,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 102,
+    "date": "2024-12-18T16:00:00+00:00",
+    "players": [
+      "Jakub Men\u0161ik",
+      "Learner Tien"
+    ],
+    "player_ids": [
+      85,
+      86
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 86,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 33,
+    "points": 179,
+    "valid_point_rows": 177,
+    "malformed_point_rows": 2,
+    "games_with_server": 33,
+    "games_with_break_field": 33,
+    "structurally_present": false
+  },
+  {
+    "year": 2024,
+    "match_id": 103,
+    "date": "2024-12-18T18:35:00+00:00",
+    "players": [
+      "Arthur Fils",
+      "Joao Fonseca"
+    ],
+    "player_ids": [
+      87,
+      88
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 88,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 121,
+    "valid_point_rows": 121,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 105,
+    "date": "2024-12-19T11:00:00+00:00",
+    "players": [
+      "Juncheng Shang",
+      "Nishesh Basavareddy"
+    ],
+    "player_ids": [
+      83,
+      90
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 90,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 0,
+    "points": 0,
+    "valid_point_rows": 0,
+    "malformed_point_rows": 0,
+    "games_with_server": 0,
+    "games_with_break_field": 0,
+    "structurally_present": false
+  },
+  {
+    "year": 2024,
+    "match_id": 108,
+    "date": "2024-12-19T12:50:00+00:00",
+    "players": [
+      "Alex Michelsen",
+      "Luca Van Assche"
+    ],
+    "player_ids": [
+      89,
+      84
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 89,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 130,
+    "valid_point_rows": 130,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 106,
+    "date": "2024-12-19T16:00:00+00:00",
+    "players": [
+      "Arthur Fils",
+      "Jakub Men\u0161ik"
+    ],
+    "player_ids": [
+      87,
+      85
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 87,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 94,
+    "valid_point_rows": 94,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 107,
+    "date": "2024-12-19T17:35:00+00:00",
+    "players": [
+      "Learner Tien",
+      "Joao Fonseca"
+    ],
+    "player_ids": [
+      86,
+      88
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 88,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 83,
+    "valid_point_rows": 83,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 109,
+    "date": "2024-12-20T11:00:00+00:00",
+    "players": [
+      "Alex Michelsen",
+      "Juncheng Shang"
+    ],
+    "player_ids": [
+      89,
+      83
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 89,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 7,
+    "points": 31,
+    "valid_point_rows": 31,
+    "malformed_point_rows": 0,
+    "games_with_server": 7,
+    "games_with_break_field": 7,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 112,
+    "date": "2024-12-20T12:00:00+00:00",
+    "players": [
+      "Luca Van Assche",
+      "Nishesh Basavareddy"
+    ],
+    "player_ids": [
+      84,
+      90
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 84,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 135,
+    "valid_point_rows": 135,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 110,
+    "date": "2024-12-20T16:00:00+00:00",
+    "players": [
+      "Arthur Fils",
+      "Learner Tien"
+    ],
+    "player_ids": [
+      87,
+      86
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 86,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 111,
+    "date": "2024-12-20T18:00:00+00:00",
+    "players": [
+      "Jakub Men\u0161ik",
+      "Joao Fonseca"
+    ],
+    "player_ids": [
+      85,
+      88
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 88,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 34,
+    "points": 194,
+    "valid_point_rows": 174,
+    "malformed_point_rows": 20,
+    "games_with_server": 34,
+    "games_with_break_field": 34,
+    "structurally_present": false
+  },
+  {
+    "year": 2024,
+    "match_id": 113,
+    "date": "2024-12-21T16:00:00+00:00",
+    "players": [
+      "Alex Michelsen",
+      "Learner Tien"
+    ],
+    "player_ids": [
+      89,
+      86
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 86,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 77,
+    "valid_point_rows": 77,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 114,
+    "date": "2024-12-21T18:05:00+00:00",
+    "players": [
+      "Joao Fonseca",
+      "Luca Van Assche"
+    ],
+    "player_ids": [
+      88,
+      84
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 88,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 72,
+    "valid_point_rows": 72,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 115,
+    "date": "2024-12-22T17:00:00+00:00",
+    "players": [
+      "Joao Fonseca",
+      "Learner Tien"
+    ],
+    "player_ids": [
+      88,
+      86
+    ],
+    "tournament": "Next Gen Finals",
+    "circuit": "ATP",
+    "category": "other",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 88,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 0,
+    "points": 0,
+    "valid_point_rows": 0,
+    "malformed_point_rows": 0,
+    "games_with_server": 0,
+    "games_with_break_field": 0,
+    "structurally_present": false
+  },
+  {
+    "year": 2024,
+    "match_id": 129,
+    "date": "2024-12-28T01:00:00+00:00",
+    "players": [
+      "Borna Gojo",
+      "Nishesh Basavareddy"
+    ],
+    "player_ids": [
+      113,
+      90
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 90,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 33,
+    "points": 163,
+    "valid_point_rows": 163,
+    "malformed_point_rows": 0,
+    "games_with_server": 33,
+    "games_with_break_field": 33,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 130,
+    "date": "2024-12-28T01:00:00+00:00",
+    "players": [
+      "Derek Pham",
+      "Richard Gasquet"
+    ],
+    "player_ids": [
+      114,
+      115
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 115,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 64,
+    "valid_point_rows": 64,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 131,
+    "date": "2024-12-28T01:00:00+00:00",
+    "players": [
+      "Yannick Hanfmann",
+      "Jacob Bradshaw"
+    ],
+    "player_ids": [
+      116,
+      117
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 116,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 90,
+    "valid_point_rows": 90,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 132,
+    "date": "2024-12-28T02:15:00+00:00",
+    "players": [
+      "Lucas Pouille",
+      "Jason Kubler"
+    ],
+    "player_ids": [
+      118,
+      119
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 118,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 172,
+    "valid_point_rows": 172,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 133,
+    "date": "2024-12-28T02:40:00+00:00",
+    "players": [
+      "James Duckworth",
+      "Tristan Schoolkate"
+    ],
+    "player_ids": [
+      120,
+      121
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 121,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 94,
+    "valid_point_rows": 94,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 134,
+    "date": "2024-12-28T03:45:00+00:00",
+    "players": [
+      "Andrea Collarini",
+      "Mikhail Kukushkin"
+    ],
+    "player_ids": [
+      122,
+      123
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 123,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 101,
+    "valid_point_rows": 100,
+    "malformed_point_rows": 1,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": false
+  },
+  {
+    "year": 2024,
+    "match_id": 135,
+    "date": "2024-12-28T04:15:00+00:00",
+    "players": [
+      "Du\u0161an Lajovi\u0107",
+      "Casey Hoole"
+    ],
+    "player_ids": [
+      124,
+      125
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 124,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 130,
+    "valid_point_rows": 130,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 136,
+    "date": "2024-12-28T05:05:00+00:00",
+    "players": [
+      "Yoshihito Nishioka",
+      "Alex Bolt"
+    ],
+    "player_ids": [
+      126,
+      127
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 126,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 128,
+    "valid_point_rows": 128,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 137,
+    "date": "2024-12-28T05:40:00+00:00",
+    "players": [
+      "Li Tu",
+      "Lukas Klein"
+    ],
+    "player_ids": [
+      128,
+      129
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 128,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 105,
+    "valid_point_rows": 105,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 138,
+    "date": "2024-12-28T06:40:00+00:00",
+    "players": [
+      "Ugo Blanchet",
+      "Federico Agustin Gomez"
+    ],
+    "player_ids": [
+      130,
+      131
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 131,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 134,
+    "valid_point_rows": 134,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 139,
+    "date": "2024-12-28T06:55:00+00:00",
+    "players": [
+      "Benjamin Bonzi",
+      "James McCabe"
+    ],
+    "player_ids": [
+      132,
+      133
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 132,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 81,
+    "valid_point_rows": 81,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 140,
+    "date": "2024-12-28T07:25:00+00:00",
+    "players": [
+      "Adrian Andreev",
+      "Chun-Hsin Tseng"
+    ],
+    "player_ids": [
+      134,
+      135
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 134,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 183,
+    "valid_point_rows": 183,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 168,
+    "date": "2024-12-29T01:00:00+00:00",
+    "players": [
+      "Tristan Schoolkate",
+      "Mikhail Kukushkin"
+    ],
+    "player_ids": [
+      121,
+      123
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 123,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 92,
+    "valid_point_rows": 92,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 169,
+    "date": "2024-12-29T01:00:00+00:00",
+    "players": [
+      "Yannick Hanfmann",
+      "Richard Gasquet"
+    ],
+    "player_ids": [
+      116,
+      115
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 116,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 123,
+    "valid_point_rows": 123,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 170,
+    "date": "2024-12-29T02:00:00+00:00",
+    "players": [
+      "Lucas Pouille",
+      "Nishesh Basavareddy"
+    ],
+    "player_ids": [
+      118,
+      90
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 90,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 93,
+    "valid_point_rows": 93,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 171,
+    "date": "2024-12-29T03:00:00+00:00",
+    "players": [
+      "Du\u0161an Lajovi\u0107",
+      "Federico Agustin Gomez"
+    ],
+    "player_ids": [
+      124,
+      131
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 131,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 96,
+    "valid_point_rows": 96,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 172,
+    "date": "2024-12-29T03:00:00+00:00",
+    "players": [
+      "Yoshihito Nishioka",
+      "Li Tu"
+    ],
+    "player_ids": [
+      126,
+      128
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 126,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 140,
+    "valid_point_rows": 140,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 173,
+    "date": "2024-12-29T03:35:00+00:00",
+    "players": [
+      "Benjamin Bonzi",
+      "Adrian Andreev"
+    ],
+    "player_ids": [
+      132,
+      134
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 132,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 5,
+    "points": 25,
+    "valid_point_rows": 25,
+    "malformed_point_rows": 0,
+    "games_with_server": 5,
+    "games_with_break_field": 5,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 174,
+    "date": "2024-12-29T04:00:00+00:00",
+    "players": [
+      "Denis Yevseyev",
+      "Cristian Garin"
+    ],
+    "player_ids": [
+      169,
+      170
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 169,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 175,
+    "date": "2024-12-29T04:00:00+00:00",
+    "players": [
+      "Francesco Passaro",
+      "Aziz Dougaz"
+    ],
+    "player_ids": [
+      171,
+      172
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 171,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 141,
+    "valid_point_rows": 141,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 176,
+    "date": "2024-12-29T04:00:00+00:00",
+    "players": [
+      "Marc-Andrea Huesler",
+      "Laslo Djere"
+    ],
+    "player_ids": [
+      173,
+      174
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 173,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 122,
+    "valid_point_rows": 122,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 177,
+    "date": "2024-12-29T06:00:00+00:00",
+    "players": [
+      "Pavel Kotov",
+      "Valentin Royer"
+    ],
+    "player_ids": [
+      175,
+      176
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 175,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 34,
+    "points": 171,
+    "valid_point_rows": 171,
+    "malformed_point_rows": 0,
+    "games_with_server": 34,
+    "games_with_break_field": 34,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 178,
+    "date": "2024-12-29T06:05:00+00:00",
+    "players": [
+      "Jie Cui",
+      "Juan Manuel Cerundolo"
+    ],
+    "player_ids": [
+      177,
+      178
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 177,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 109,
+    "valid_point_rows": 109,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 179,
+    "date": "2024-12-29T06:20:00+00:00",
+    "players": [
+      "Daniel Altmaier",
+      "Alejandro Moro Canas"
+    ],
+    "player_ids": [
+      179,
+      180
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 180,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 85,
+    "valid_point_rows": 85,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 180,
+    "date": "2024-12-29T08:00:00+00:00",
+    "players": [
+      "Gabriel Diallo",
+      "K. Lung Ng"
+    ],
+    "player_ids": [
+      181,
+      182
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 181,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 125,
+    "valid_point_rows": 125,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 181,
+    "date": "2024-12-29T08:15:00+00:00",
+    "players": [
+      "Terence Atmane",
+      "Hugo Grenier"
+    ],
+    "player_ids": [
+      183,
+      184
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 184,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 142,
+    "valid_point_rows": 142,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 159,
+    "date": "2024-12-29T11:45:00+00:00",
+    "players": [
+      "David Goffin",
+      "Aleksandar Vuki\u0107"
+    ],
+    "player_ids": [
+      154,
+      155
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 155,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 101,
+    "valid_point_rows": 101,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 204,
+    "date": "2024-12-30T01:00:00+00:00",
+    "players": [
+      "Alejandro Tabilo",
+      "Benjamin Bonzi"
+    ],
+    "player_ids": [
+      208,
+      132
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 132,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 36,
+    "points": 201,
+    "valid_point_rows": 201,
+    "malformed_point_rows": 0,
+    "games_with_server": 36,
+    "games_with_break_field": 36,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 205,
+    "date": "2024-12-30T01:00:00+00:00",
+    "players": [
+      "Alex Michelsen",
+      "Christopher O'Connell"
+    ],
+    "player_ids": [
+      89,
+      209
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 89,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 33,
+    "points": 161,
+    "valid_point_rows": 161,
+    "malformed_point_rows": 0,
+    "games_with_server": 33,
+    "games_with_break_field": 33,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 206,
+    "date": "2024-12-30T02:35:00+00:00",
+    "players": [
+      "Arthur Rinderknech",
+      "Yoshihito Nishioka"
+    ],
+    "player_ids": [
+      210,
+      126
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 126,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 82,
+    "valid_point_rows": 82,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 231,
+    "date": "2024-12-30T03:00:00+00:00",
+    "players": [
+      "Alejandro Moro Canas",
+      "Jie Cui"
+    ],
+    "player_ids": [
+      180,
+      177
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 180,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 94,
+    "valid_point_rows": 94,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 232,
+    "date": "2024-12-30T03:00:00+00:00",
+    "players": [
+      "Francesco Passaro",
+      "Denis Yevseyev"
+    ],
+    "player_ids": [
+      171,
+      169
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 171,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 151,
+    "valid_point_rows": 151,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 207,
+    "date": "2024-12-30T03:25:00+00:00",
+    "players": [
+      "Jordan Thompson",
+      "Matteo Berrettini"
+    ],
+    "player_ids": [
+      211,
+      212
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 211,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 141,
+    "valid_point_rows": 141,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 208,
+    "date": "2024-12-30T04:10:00+00:00",
+    "players": [
+      "Mariano Navone",
+      "Nicolas Jarry"
+    ],
+    "player_ids": [
+      213,
+      214
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 214,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 128,
+    "valid_point_rows": 128,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 233,
+    "date": "2024-12-30T04:45:00+00:00",
+    "players": [
+      "Gabriel Diallo",
+      "Hugo Grenier"
+    ],
+    "player_ids": [
+      181,
+      184
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 181,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 125,
+    "valid_point_rows": 125,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 234,
+    "date": "2024-12-30T05:15:00+00:00",
+    "players": [
+      "Pavel Kotov",
+      "Marc-Andrea Huesler"
+    ],
+    "player_ids": [
+      175,
+      173
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 173,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 125,
+    "valid_point_rows": 125,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 209,
+    "date": "2024-12-30T06:00:00+00:00",
+    "players": [
+      "Yannick Hanfmann",
+      "Grigor Dimitrov"
+    ],
+    "player_ids": [
+      116,
+      215
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 215,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 134,
+    "valid_point_rows": 134,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 211,
+    "date": "2024-12-30T06:00:00+00:00",
+    "players": [
+      "Luciano Darderi",
+      "Miomir Kecmanovi\u0107"
+    ],
+    "player_ids": [
+      218,
+      219
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 219,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 92,
+    "valid_point_rows": 92,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 210,
+    "date": "2024-12-30T06:55:00+00:00",
+    "players": [
+      "Jiri Lehe\u010dka",
+      "Holger Rune"
+    ],
+    "player_ids": [
+      216,
+      217
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 216,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 109,
+    "valid_point_rows": 109,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 212,
+    "date": "2024-12-30T06:55:00+00:00",
+    "players": [
+      "Roman Safiullin",
+      "F\u00e1bi\u00e1n Marozs\u00e1n"
+    ],
+    "player_ids": [
+      220,
+      221
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 221,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 123,
+    "valid_point_rows": 123,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 213,
+    "date": "2024-12-30T07:25:00+00:00",
+    "players": [
+      "Lorenzo Sonego",
+      "Brandon Nakashima"
+    ],
+    "player_ids": [
+      222,
+      223
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 222,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 96,
+    "valid_point_rows": 96,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 214,
+    "date": "2024-12-30T11:00:00+00:00",
+    "players": [
+      "Cameron Norrie",
+      "Learner Tien"
+    ],
+    "player_ids": [
+      224,
+      86
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 224,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 126,
+    "valid_point_rows": 126,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 247,
+    "date": "2024-12-31T01:00:00+00:00",
+    "players": [
+      "Federico Agustin Gomez",
+      "Reilly Opelka"
+    ],
+    "player_ids": [
+      131,
+      253
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 253,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 89,
+    "valid_point_rows": 89,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 248,
+    "date": "2024-12-31T01:00:00+00:00",
+    "players": [
+      "Matteo Arnaldi",
+      "Alexei Popyrin"
+    ],
+    "player_ids": [
+      254,
+      255
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 254,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 78,
+    "valid_point_rows": 78,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 249,
+    "date": "2024-12-31T02:30:00+00:00",
+    "players": [
+      "Frances Tiafoe",
+      "Adam Walton"
+    ],
+    "player_ids": [
+      256,
+      257
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 256,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 111,
+    "valid_point_rows": 111,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 251,
+    "date": "2024-12-31T03:35:00+00:00",
+    "players": [
+      "Jakub Men\u0161ik",
+      "Mikhail Kukushkin"
+    ],
+    "player_ids": [
+      85,
+      123
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 85,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 122,
+    "valid_point_rows": 122,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 256,
+    "date": "2024-12-31T04:00:00+00:00",
+    "players": [
+      "Alexandre Muller",
+      "Marc-Andrea Huesler"
+    ],
+    "player_ids": [
+      265,
+      173
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 265,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 147,
+    "valid_point_rows": 147,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 257,
+    "date": "2024-12-31T04:00:00+00:00",
+    "players": [
+      "Zizou Bergs",
+      "Alejandro Moro Canas"
+    ],
+    "player_ids": [
+      266,
+      180
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 266,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 112,
+    "valid_point_rows": 112,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 252,
+    "date": "2024-12-31T04:30:00+00:00",
+    "players": [
+      "Arthur Cazaux",
+      "Du\u0161an Lajovi\u0107"
+    ],
+    "player_ids": [
+      258,
+      124
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 124,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 122,
+    "valid_point_rows": 122,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 253,
+    "date": "2024-12-31T04:45:00+00:00",
+    "players": [
+      "Giovanni Mpetshi Perricard",
+      "Nick Kyrgios"
+    ],
+    "player_ids": [
+      260,
+      261
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 260,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 39,
+    "points": 182,
+    "valid_point_rows": 182,
+    "malformed_point_rows": 0,
+    "games_with_server": 39,
+    "games_with_break_field": 39,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 258,
+    "date": "2024-12-31T05:00:00+00:00",
+    "players": [
+      "Nuno Borges",
+      "Yunchaokete Bu"
+    ],
+    "player_ids": [
+      267,
+      268
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 267,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 158,
+    "valid_point_rows": 158,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 259,
+    "date": "2024-12-31T06:20:00+00:00",
+    "players": [
+      "Jaume Munar",
+      "Alejandro Davidovich Fokina"
+    ],
+    "player_ids": [
+      269,
+      270
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 269,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 126,
+    "valid_point_rows": 126,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 254,
+    "date": "2024-12-31T06:25:00+00:00",
+    "players": [
+      "Nishesh Basavareddy",
+      "Gael Monfils"
+    ],
+    "player_ids": [
+      90,
+      262
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 262,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 124,
+    "valid_point_rows": 124,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 260,
+    "date": "2024-12-31T07:30:00+00:00",
+    "players": [
+      "Denis Shapovalov",
+      "Kei Nishikori"
+    ],
+    "player_ids": [
+      271,
+      272
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 272,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 85,
+    "valid_point_rows": 85,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 261,
+    "date": "2024-12-31T07:35:00+00:00",
+    "players": [
+      "Francesco Passaro",
+      "Pedro Martinez"
+    ],
+    "player_ids": [
+      171,
+      273
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 273,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 98,
+    "valid_point_rows": 98,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 255,
+    "date": "2024-12-31T07:45:00+00:00",
+    "players": [
+      "Novak Djokovic",
+      "Rinky Hijikata"
+    ],
+    "player_ids": [
+      263,
+      264
+    ],
+    "tournament": "Brisbane",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 263,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 83,
+    "valid_point_rows": 83,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 262,
+    "date": "2024-12-31T08:35:00+00:00",
+    "players": [
+      "Gabriel Diallo",
+      "Roberto Carball\u00e9s Baena"
+    ],
+    "player_ids": [
+      181,
+      274
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 181,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 35,
+    "points": 187,
+    "valid_point_rows": 187,
+    "malformed_point_rows": 0,
+    "games_with_server": 35,
+    "games_with_break_field": 35,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 263,
+    "date": "2024-12-31T08:45:00+00:00",
+    "players": [
+      "Juncheng Shang",
+      "Coleman Wong"
+    ],
+    "player_ids": [
+      83,
+      275
+    ],
+    "tournament": "Hong Kong Men Singles",
+    "circuit": "ATP",
+    "category": "atp_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 83,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 113,
+    "valid_point_rows": 113,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  }
+]

@@ -3,9 +3,12 @@ import { join } from "node:path";
 import { policyForMetric } from "./metric-source-family-policy";
 import { TASK18B_METRIC_CODES } from "./pbp-score-state-recovery";
 import { canonicalApprovedPbpIdentity, claimUniqueApprovedPbp, isApprovedWtaChallengerPbpRow } from "./pbp-evidence-firewall";
+import { auditDataPath } from "./bsd-pbp-fetch";
+/** A missing data root is a deployment fault, not an absence of evidence. */
+const auditDataPathOrThrow=(...seg:string[])=>{const p=auditDataPath(...seg);if(!p)throw new Error("Audit data root not found: the bundled history indexes are not deployed (set AUDIT_DATA_ROOT).");return p;};
 
 const COVERAGE_START="2025-01-01";
-const APPROVED_INDEX=join(process.cwd(),"data","metrics","pbp","wta_challenger","approved-index.jsonl");
+const APPROVED_INDEX=auditDataPathOrThrow("metrics","pbp","wta_challenger","approved-index.jsonl");
 const LEGACY_PBP_CODES=new Set(["016","024","025","033","042","043","044","060"]);
 // "034" and "053" (and 026's within-match opening-window detector) are deliberately NOT
 // added here, verified against this file's own row shape rather than assumed: every

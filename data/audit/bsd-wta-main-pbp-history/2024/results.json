@@ -1,0 +1,6022 @@
+[
+  {
+    "year": 2024,
+    "match_id": 1,
+    "date": "2024-12-02T10:40:00+00:00",
+    "players": [
+      "Varvara Lepchenko",
+      "Anouk Koevermans"
+    ],
+    "player_ids": [
+      1,
+      2
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 172,
+    "valid_point_rows": 172,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 17,
+    "date": "2024-12-02T13:00:00+00:00",
+    "players": [
+      "Alevtina Ibragimova",
+      "Oleksandra Oliynykova"
+    ],
+    "player_ids": [
+      32,
+      33
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 33,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 74,
+    "valid_point_rows": 74,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 18,
+    "date": "2024-12-02T13:00:00+00:00",
+    "players": [
+      "Carolina Alves",
+      "Julia Riera"
+    ],
+    "player_ids": [
+      34,
+      35
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 34,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 124,
+    "valid_point_rows": 124,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 19,
+    "date": "2024-12-02T13:00:00+00:00",
+    "players": [
+      "Leolia Jeanjean",
+      "Daria Lodikova"
+    ],
+    "player_ids": [
+      36,
+      37
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 36,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 124,
+    "valid_point_rows": 124,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 2,
+    "date": "2024-12-02T13:10:00+00:00",
+    "players": [
+      "Tamara Korpatsch",
+      "Anna-Lena Friedsam"
+    ],
+    "player_ids": [
+      3,
+      4
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 3,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 115,
+    "valid_point_rows": 115,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 20,
+    "date": "2024-12-02T14:30:00+00:00",
+    "players": [
+      "Iryna Shymanovich",
+      "Antonia Vergara Rivera"
+    ],
+    "player_ids": [
+      38,
+      39
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 38,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 113,
+    "valid_point_rows": 113,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 3,
+    "date": "2024-12-02T14:55:00+00:00",
+    "players": [
+      "Carole Monnet",
+      "Nuria Parrizas Diaz"
+    ],
+    "player_ids": [
+      5,
+      6
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 5,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 120,
+    "valid_point_rows": 120,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 21,
+    "date": "2024-12-02T15:00:00+00:00",
+    "players": [
+      "Kristina Mladenovi\u0107",
+      "Emiliana Arango"
+    ],
+    "player_ids": [
+      40,
+      41
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 40,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 33,
+    "points": 184,
+    "valid_point_rows": 184,
+    "malformed_point_rows": 0,
+    "games_with_server": 33,
+    "games_with_break_field": 33,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 4,
+    "date": "2024-12-02T16:50:00+00:00",
+    "players": [
+      "Oceane Dodin",
+      "Brenda Fruhvirtova"
+    ],
+    "player_ids": [
+      7,
+      8
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 7,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 108,
+    "valid_point_rows": 108,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 5,
+    "date": "2024-12-02T18:25:00+00:00",
+    "players": [
+      "Belinda Bencic",
+      "Patricia Maria Tig"
+    ],
+    "player_ids": [
+      9,
+      10
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 9,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 97,
+    "valid_point_rows": 97,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 22,
+    "date": "2024-12-02T18:25:00+00:00",
+    "players": [
+      "Nina Stojanovic",
+      "Ana Candiotto"
+    ],
+    "player_ids": [
+      42,
+      43
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 42,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 74,
+    "valid_point_rows": 74,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 6,
+    "date": "2024-12-02T20:00:00+00:00",
+    "players": [
+      "Sinja Kraus",
+      "Dominika Salkova"
+    ],
+    "player_ids": [
+      11,
+      12
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 12,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 116,
+    "valid_point_rows": 116,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 8,
+    "date": "2024-12-03T09:00:00+00:00",
+    "players": [
+      "Mariam Bolkvadze",
+      "Anastasia Zakharova"
+    ],
+    "player_ids": [
+      15,
+      16
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 15,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 108,
+    "valid_point_rows": 108,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 9,
+    "date": "2024-12-03T10:50:00+00:00",
+    "players": [
+      "Sara Cakarevic",
+      "Victoria Jimenez Kasintseva"
+    ],
+    "player_ids": [
+      17,
+      18
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 18,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 148,
+    "valid_point_rows": 148,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 10,
+    "date": "2024-12-03T13:00:00+00:00",
+    "players": [
+      "Selena Jani\u0107ijevi\u0107",
+      "Mona Barthel"
+    ],
+    "player_ids": [
+      19,
+      20
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 20,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 85,
+    "valid_point_rows": 85,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 23,
+    "date": "2024-12-03T13:00:00+00:00",
+    "players": [
+      "Darja Semenistaja",
+      "Nicole Fossa Huergo"
+    ],
+    "player_ids": [
+      44,
+      45
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 45,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 137,
+    "valid_point_rows": 137,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 24,
+    "date": "2024-12-03T13:00:00+00:00",
+    "players": [
+      "Ekaterina Makarova",
+      "Francisca Jorge"
+    ],
+    "player_ids": [
+      46,
+      47
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 47,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 145,
+    "valid_point_rows": 145,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 25,
+    "date": "2024-12-03T13:00:00+00:00",
+    "players": [
+      "Valeriya Strakhova",
+      "Miriam Bulgaru"
+    ],
+    "player_ids": [
+      48,
+      49
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 48,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 156,
+    "valid_point_rows": 156,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 11,
+    "date": "2024-12-03T14:10:00+00:00",
+    "players": [
+      "Clervie Ngounoue",
+      "Jessika Ponchet"
+    ],
+    "player_ids": [
+      21,
+      22
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 21,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 92,
+    "valid_point_rows": 92,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 26,
+    "date": "2024-12-03T15:25:00+00:00",
+    "players": [
+      "Luiza Fullana",
+      "Katarzyna Kawa"
+    ],
+    "player_ids": [
+      50,
+      51
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 51,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 13,
+    "points": 91,
+    "valid_point_rows": 91,
+    "malformed_point_rows": 0,
+    "games_with_server": 13,
+    "games_with_break_field": 13,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 27,
+    "date": "2024-12-03T15:30:00+00:00",
+    "players": [
+      "Despina Papamichail",
+      "Martina Capurro Taborda"
+    ],
+    "player_ids": [
+      52,
+      53
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 52,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 156,
+    "valid_point_rows": 156,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 12,
+    "date": "2024-12-03T15:35:00+00:00",
+    "players": [
+      "Alycia Parks",
+      "Julie Belgraver"
+    ],
+    "player_ids": [
+      23,
+      24
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 23,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 79,
+    "valid_point_rows": 79,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 28,
+    "date": "2024-12-03T15:55:00+00:00",
+    "players": [
+      "Maria Carle",
+      "Mariia Tkacheva"
+    ],
+    "player_ids": [
+      54,
+      55
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 54,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 13,
+    "points": 62,
+    "valid_point_rows": 62,
+    "malformed_point_rows": 0,
+    "games_with_server": 13,
+    "games_with_break_field": 13,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 13,
+    "date": "2024-12-03T17:00:00+00:00",
+    "players": [
+      "Clara Burel",
+      "Celine Naef"
+    ],
+    "player_ids": [
+      25,
+      26
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 25,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 118,
+    "valid_point_rows": 118,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 29,
+    "date": "2024-12-03T17:05:00+00:00",
+    "players": [
+      "Maja Chwalinska",
+      "Angela Fita Boluda"
+    ],
+    "player_ids": [
+      56,
+      57
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 56,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 125,
+    "valid_point_rows": 125,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 30,
+    "date": "2024-12-03T17:30:00+00:00",
+    "players": [
+      "Guiomar Maristany",
+      "Mayar Sherif"
+    ],
+    "player_ids": [
+      58,
+      59
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 59,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 129,
+    "valid_point_rows": 129,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 31,
+    "date": "2024-12-03T18:30:00+00:00",
+    "players": [
+      "Ylena In-Albon",
+      "Panna Udvardy"
+    ],
+    "player_ids": [
+      60,
+      61
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 60,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 107,
+    "valid_point_rows": 107,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 14,
+    "date": "2024-12-03T18:55:00+00:00",
+    "players": [
+      "Margarita Betova",
+      "Linda Fruhvirtova"
+    ],
+    "player_ids": [
+      27,
+      28
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 28,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 134,
+    "valid_point_rows": 134,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 32,
+    "date": "2024-12-03T20:00:00+00:00",
+    "players": [
+      "Anastasia Kulikova",
+      "Laura Pigossi"
+    ],
+    "player_ids": [
+      62,
+      63
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 63,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 87,
+    "valid_point_rows": 87,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 15,
+    "date": "2024-12-04T09:00:00+00:00",
+    "players": [
+      "Barbora Palicova",
+      "Sara Saito"
+    ],
+    "player_ids": [
+      29,
+      30
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 29,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 111,
+    "valid_point_rows": 111,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 16,
+    "date": "2024-12-04T10:45:00+00:00",
+    "players": [
+      "Elsa Jacquemot",
+      "Yasmin Mansouri"
+    ],
+    "player_ids": [
+      13,
+      31
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 13,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 170,
+    "valid_point_rows": 170,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 33,
+    "date": "2024-12-04T13:40:00+00:00",
+    "players": [
+      "Dominika Salkova",
+      "Carole Monnet"
+    ],
+    "player_ids": [
+      12,
+      5
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 12,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 104,
+    "valid_point_rows": 104,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 39,
+    "date": "2024-12-04T14:30:00+00:00",
+    "players": [
+      "Iryna Shymanovich",
+      "Ylena In-Albon"
+    ],
+    "player_ids": [
+      38,
+      60
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 60,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 119,
+    "valid_point_rows": 119,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 40,
+    "date": "2024-12-04T14:30:00+00:00",
+    "players": [
+      "Leolia Jeanjean",
+      "Nina Stojanovic"
+    ],
+    "player_ids": [
+      36,
+      42
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 36,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 66,
+    "valid_point_rows": 66,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 41,
+    "date": "2024-12-04T14:30:00+00:00",
+    "players": [
+      "Maja Chwalinska",
+      "Oleksandra Oliynykova"
+    ],
+    "player_ids": [
+      56,
+      33
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 56,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 101,
+    "valid_point_rows": 101,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 34,
+    "date": "2024-12-04T15:10:00+00:00",
+    "players": [
+      "Alycia Parks",
+      "Tamara Korpatsch"
+    ],
+    "player_ids": [
+      23,
+      3
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 23,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 122,
+    "valid_point_rows": 122,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 42,
+    "date": "2024-12-04T15:45:00+00:00",
+    "players": [
+      "Maria Carle",
+      "Kristina Mladenovi\u0107"
+    ],
+    "player_ids": [
+      54,
+      40
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 54,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 159,
+    "valid_point_rows": 159,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 35,
+    "date": "2024-12-04T17:05:00+00:00",
+    "players": [
+      "Oceane Dodin",
+      "Linda Fruhvirtova"
+    ],
+    "player_ids": [
+      7,
+      28
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 7,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 92,
+    "valid_point_rows": 92,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 36,
+    "date": "2024-12-04T18:30:00+00:00",
+    "players": [
+      "Belinda Bencic",
+      "Mariam Bolkvadze"
+    ],
+    "player_ids": [
+      9,
+      15
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 9,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 78,
+    "valid_point_rows": 78,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 43,
+    "date": "2024-12-04T20:00:00+00:00",
+    "players": [
+      "Valeriya Strakhova",
+      "Carolina Alves"
+    ],
+    "player_ids": [
+      48,
+      34
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 48,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 108,
+    "valid_point_rows": 108,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 37,
+    "date": "2024-12-04T20:10:00+00:00",
+    "players": [
+      "Elena-Gabriela Ruse",
+      "Varvara Lepchenko"
+    ],
+    "player_ids": [
+      64,
+      1
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 172,
+    "valid_point_rows": 172,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 38,
+    "date": "2024-12-05T10:00:00+00:00",
+    "players": [
+      "Barbora Palicova",
+      "Clervie Ngounoue"
+    ],
+    "player_ids": [
+      29,
+      21
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 29,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 125,
+    "valid_point_rows": 125,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 44,
+    "date": "2024-12-05T14:50:00+00:00",
+    "players": [
+      "Victoria Jimenez Kasintseva",
+      "Elsa Jacquemot"
+    ],
+    "player_ids": [
+      18,
+      13
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 18,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 131,
+    "valid_point_rows": 131,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 46,
+    "date": "2024-12-05T15:30:00+00:00",
+    "players": [
+      "Nicole Fossa Huergo",
+      "Despina Papamichail"
+    ],
+    "player_ids": [
+      45,
+      52
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 45,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 158,
+    "valid_point_rows": 158,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 47,
+    "date": "2024-12-05T16:00:00+00:00",
+    "players": [
+      "Katarzyna Kawa",
+      "Laura Pigossi"
+    ],
+    "player_ids": [
+      51,
+      63
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 51,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 121,
+    "valid_point_rows": 121,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 45,
+    "date": "2024-12-05T17:00:00+00:00",
+    "players": [
+      "Clara Burel",
+      "Mona Barthel"
+    ],
+    "player_ids": [
+      25,
+      20
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 20,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 174,
+    "valid_point_rows": 174,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 48,
+    "date": "2024-12-05T17:55:00+00:00",
+    "players": [
+      "Francisca Jorge",
+      "Mayar Sherif"
+    ],
+    "player_ids": [
+      47,
+      59
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 59,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 87,
+    "valid_point_rows": 87,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 49,
+    "date": "2024-12-06T12:30:00+00:00",
+    "players": [
+      "Mona Barthel",
+      "Barbora Palicova"
+    ],
+    "player_ids": [
+      20,
+      29
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 20,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 122,
+    "valid_point_rows": 122,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 50,
+    "date": "2024-12-06T14:15:00+00:00",
+    "players": [
+      "Alycia Parks",
+      "Victoria Jimenez Kasintseva"
+    ],
+    "player_ids": [
+      23,
+      18
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 23,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 129,
+    "valid_point_rows": 129,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 53,
+    "date": "2024-12-06T15:30:00+00:00",
+    "players": [
+      "Leolia Jeanjean",
+      "Valeriya Strakhova"
+    ],
+    "player_ids": [
+      36,
+      48
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 36,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 59,
+    "valid_point_rows": 59,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 54,
+    "date": "2024-12-06T15:30:00+00:00",
+    "players": [
+      "Maja Chwalinska",
+      "Mayar Sherif"
+    ],
+    "player_ids": [
+      56,
+      59
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 56,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 116,
+    "valid_point_rows": 116,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 55,
+    "date": "2024-12-06T15:30:00+00:00",
+    "players": [
+      "Nicole Fossa Huergo",
+      "Ylena In-Albon"
+    ],
+    "player_ids": [
+      45,
+      60
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 60,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 88,
+    "valid_point_rows": 88,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 51,
+    "date": "2024-12-06T17:00:00+00:00",
+    "players": [
+      "Oceane Dodin",
+      "Belinda Bencic"
+    ],
+    "player_ids": [
+      7,
+      9
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 9,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 71,
+    "valid_point_rows": 71,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 56,
+    "date": "2024-12-06T18:00:00+00:00",
+    "players": [
+      "Maria Carle",
+      "Katarzyna Kawa"
+    ],
+    "player_ids": [
+      54,
+      51
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 54,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 81,
+    "valid_point_rows": 81,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 52,
+    "date": "2024-12-06T18:15:00+00:00",
+    "players": [
+      "Varvara Lepchenko",
+      "Dominika Salkova"
+    ],
+    "player_ids": [
+      1,
+      12
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 12,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 127,
+    "valid_point_rows": 127,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 59,
+    "date": "2024-12-07T12:40:00+00:00",
+    "players": [
+      "Mona Barthel",
+      "Alycia Parks"
+    ],
+    "player_ids": [
+      20,
+      23
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 23,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 150,
+    "valid_point_rows": 150,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 60,
+    "date": "2024-12-07T14:40:00+00:00",
+    "players": [
+      "Belinda Bencic",
+      "Dominika Salkova"
+    ],
+    "player_ids": [
+      9,
+      12
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 9,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 71,
+    "valid_point_rows": 71,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 57,
+    "date": "2024-12-08T09:00:00+00:00",
+    "players": [
+      "Ipek Oz",
+      "Sara Cakarevic"
+    ],
+    "player_ids": [
+      65,
+      17
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 65,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 165,
+    "valid_point_rows": 165,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 58,
+    "date": "2024-12-08T11:35:00+00:00",
+    "players": [
+      "Manon Leonard",
+      "Patricia Maria Tig"
+    ],
+    "player_ids": [
+      66,
+      10
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 10,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 141,
+    "valid_point_rows": 141,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 65,
+    "date": "2024-12-08T13:30:00+00:00",
+    "players": [
+      "Alycia Parks",
+      "Belinda Bencic"
+    ],
+    "player_ids": [
+      23,
+      9
+    ],
+    "tournament": "Angers, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 23,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 172,
+    "valid_point_rows": 172,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 63,
+    "date": "2024-12-08T13:55:00+00:00",
+    "players": [
+      "Ekaterina Makarova",
+      "Yasmine Mansouri"
+    ],
+    "player_ids": [
+      46,
+      69
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 69,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 100,
+    "valid_point_rows": 100,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 66,
+    "date": "2024-12-08T14:00:00+00:00",
+    "players": [
+      "Maria Carle",
+      "Ylena In-Albon"
+    ],
+    "player_ids": [
+      54,
+      60
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 60,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 197,
+    "valid_point_rows": 197,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 67,
+    "date": "2024-12-08T15:00:00+00:00",
+    "players": [
+      "Leolia Jeanjean",
+      "Maja Chwalinska"
+    ],
+    "player_ids": [
+      36,
+      56
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 56,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 77,
+    "valid_point_rows": 77,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 64,
+    "date": "2024-12-08T15:25:00+00:00",
+    "players": [
+      "Justina Mikulskyte",
+      "Alina Charaeva"
+    ],
+    "player_ids": [
+      70,
+      71
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 71,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 89,
+    "valid_point_rows": 89,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 68,
+    "date": "2024-12-08T18:55:00+00:00",
+    "players": [
+      "Ylena In-Albon",
+      "Maja Chwalinska"
+    ],
+    "player_ids": [
+      60,
+      56
+    ],
+    "tournament": "Florianapolis, Brazil",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "clay",
+    "winner_id": 56,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 76,
+    "valid_point_rows": 76,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 61,
+    "date": "2024-12-09T09:00:00+00:00",
+    "players": [
+      "Lilli Tagger",
+      "Victoria Jimenez Kasintseva"
+    ],
+    "player_ids": [
+      67,
+      18
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 67,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 166,
+    "valid_point_rows": 166,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 62,
+    "date": "2024-12-09T11:30:00+00:00",
+    "players": [
+      "Nuria Parrizas Diaz",
+      "Jil Teichmann"
+    ],
+    "player_ids": [
+      6,
+      68
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 6,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 148,
+    "valid_point_rows": 148,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 70,
+    "date": "2024-12-09T14:00:00+00:00",
+    "players": [
+      "Margaux Rouvroy",
+      "Varvara Lepchenko"
+    ],
+    "player_ids": [
+      73,
+      1
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 197,
+    "valid_point_rows": 197,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 71,
+    "date": "2024-12-09T16:45:00+00:00",
+    "players": [
+      "Viktorija Golubi\u0107",
+      "Ekaterina Makarova"
+    ],
+    "player_ids": [
+      72,
+      46
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 72,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 85,
+    "valid_point_rows": 85,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 72,
+    "date": "2024-12-09T18:00:00+00:00",
+    "players": [
+      "Ella Seidel",
+      "Carole Monnet"
+    ],
+    "player_ids": [
+      74,
+      5
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 5,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 105,
+    "valid_point_rows": 105,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 73,
+    "date": "2024-12-09T19:30:00+00:00",
+    "players": [
+      "Patricia Maria Tig",
+      "Mariam Bolkvadze"
+    ],
+    "player_ids": [
+      10,
+      15
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 15,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 108,
+    "valid_point_rows": 108,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 76,
+    "date": "2024-12-10T09:00:00+00:00",
+    "players": [
+      "Petra Marti\u0107",
+      "Sara Saito"
+    ],
+    "player_ids": [
+      75,
+      30
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 30,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 97,
+    "valid_point_rows": 97,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 77,
+    "date": "2024-12-10T12:10:00+00:00",
+    "players": [
+      "Alina Charaeva",
+      "Dayana Yastremska"
+    ],
+    "player_ids": [
+      71,
+      76
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 76,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 129,
+    "valid_point_rows": 129,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 78,
+    "date": "2024-12-10T14:00:00+00:00",
+    "players": [
+      "Oceane Dodin",
+      "Celine Naef"
+    ],
+    "player_ids": [
+      7,
+      26
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 26,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 79,
+    "valid_point_rows": 79,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 79,
+    "date": "2024-12-10T15:10:00+00:00",
+    "players": [
+      "Elena-Gabriela Ruse",
+      "Anna Blinkova"
+    ],
+    "player_ids": [
+      64,
+      77
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 77,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 93,
+    "valid_point_rows": 93,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 80,
+    "date": "2024-12-10T16:35:00+00:00",
+    "players": [
+      "Manon Leonard",
+      "Selena Jani\u0107ijevi\u0107"
+    ],
+    "player_ids": [
+      66,
+      19
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 66,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 81,
+    "date": "2024-12-10T18:10:00+00:00",
+    "players": [
+      "Ipek Oz",
+      "Erika Andreeva"
+    ],
+    "player_ids": [
+      65,
+      78
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 78,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 82,
+    "date": "2024-12-11T09:00:00+00:00",
+    "players": [
+      "Kathinka von Deichmann",
+      "Polina Kudermetova"
+    ],
+    "player_ids": [
+      79,
+      80
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 79,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 35,
+    "points": 203,
+    "valid_point_rows": 203,
+    "malformed_point_rows": 0,
+    "games_with_server": 35,
+    "games_with_break_field": 35,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 83,
+    "date": "2024-12-11T11:40:00+00:00",
+    "players": [
+      "Yasmine Mansouri",
+      "Anastasia Zakharova"
+    ],
+    "player_ids": [
+      69,
+      16
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 16,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 130,
+    "valid_point_rows": 130,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 84,
+    "date": "2024-12-11T13:25:00+00:00",
+    "players": [
+      "Anastasia Tikhonova",
+      "Elsa Jacquemot"
+    ],
+    "player_ids": [
+      81,
+      13
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 13,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 136,
+    "valid_point_rows": 136,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 85,
+    "date": "2024-12-11T15:40:00+00:00",
+    "players": [
+      "Ekaterina Alexandrova",
+      "Tamara Korpatsch"
+    ],
+    "player_ids": [
+      82,
+      3
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 3,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 121,
+    "valid_point_rows": 121,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 86,
+    "date": "2024-12-11T17:40:00+00:00",
+    "players": [
+      "Nuria Parrizas Diaz",
+      "Lilli Tagger"
+    ],
+    "player_ids": [
+      6,
+      67
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 6,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 115,
+    "valid_point_rows": 115,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 87,
+    "date": "2024-12-11T19:20:00+00:00",
+    "players": [
+      "Viktorija Golubi\u0107",
+      "Mariam Bolkvadze"
+    ],
+    "player_ids": [
+      72,
+      15
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 72,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 108,
+    "valid_point_rows": 108,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 88,
+    "date": "2024-12-12T10:40:00+00:00",
+    "players": [
+      "Celine Naef",
+      "Sara Saito"
+    ],
+    "player_ids": [
+      26,
+      30
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 26,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 82,
+    "valid_point_rows": 82,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 89,
+    "date": "2024-12-12T12:00:00+00:00",
+    "players": [
+      "Kathinka von Deichmann",
+      "Erika Andreeva"
+    ],
+    "player_ids": [
+      79,
+      78
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 78,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 178,
+    "valid_point_rows": 178,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 90,
+    "date": "2024-12-12T14:35:00+00:00",
+    "players": [
+      "Elsa Jacquemot",
+      "Anastasia Zakharova"
+    ],
+    "player_ids": [
+      13,
+      16
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 13,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 74,
+    "valid_point_rows": 74,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 91,
+    "date": "2024-12-12T15:45:00+00:00",
+    "players": [
+      "Tamara Korpatsch",
+      "Manon Leonard"
+    ],
+    "player_ids": [
+      3,
+      66
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 66,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 116,
+    "valid_point_rows": 116,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 92,
+    "date": "2024-12-12T17:35:00+00:00",
+    "players": [
+      "Carole Monnet",
+      "Dayana Yastremska"
+    ],
+    "player_ids": [
+      5,
+      76
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 5,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 113,
+    "valid_point_rows": 113,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 93,
+    "date": "2024-12-12T19:20:00+00:00",
+    "players": [
+      "Varvara Lepchenko",
+      "Anna Blinkova"
+    ],
+    "player_ids": [
+      1,
+      77
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 1,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 12,
+    "points": 53,
+    "valid_point_rows": 53,
+    "malformed_point_rows": 0,
+    "games_with_server": 12,
+    "games_with_break_field": 12,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 94,
+    "date": "2024-12-13T10:30:00+00:00",
+    "players": [
+      "Celine Naef",
+      "Erika Andreeva"
+    ],
+    "player_ids": [
+      26,
+      78
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 26,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 95,
+    "date": "2024-12-13T12:40:00+00:00",
+    "players": [
+      "Manon Leonard",
+      "Elsa Jacquemot"
+    ],
+    "player_ids": [
+      66,
+      13
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 13,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 117,
+    "valid_point_rows": 117,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 96,
+    "date": "2024-12-13T14:30:00+00:00",
+    "players": [
+      "Viktorija Golubi\u0107",
+      "Carole Monnet"
+    ],
+    "player_ids": [
+      72,
+      5
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 72,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 163,
+    "valid_point_rows": 163,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 97,
+    "date": "2024-12-13T17:00:00+00:00",
+    "players": [
+      "Nuria Parrizas Diaz",
+      "Varvara Lepchenko"
+    ],
+    "player_ids": [
+      6,
+      1
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 6,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 83,
+    "valid_point_rows": 83,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 98,
+    "date": "2024-12-14T15:30:00+00:00",
+    "players": [
+      "Elsa Jacquemot",
+      "Celine Naef"
+    ],
+    "player_ids": [
+      13,
+      26
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 26,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 189,
+    "valid_point_rows": 189,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 99,
+    "date": "2024-12-14T18:25:00+00:00",
+    "players": [
+      "Nuria Parrizas Diaz",
+      "Viktorija Golubi\u0107"
+    ],
+    "player_ids": [
+      6,
+      72
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 72,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 115,
+    "valid_point_rows": 115,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 100,
+    "date": "2024-12-15T14:35:00+00:00",
+    "players": [
+      "Celine Naef",
+      "Viktorija Golubi\u0107"
+    ],
+    "player_ids": [
+      26,
+      72
+    ],
+    "tournament": "Limoges, France",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 72,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 131,
+    "valid_point_rows": 131,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 116,
+    "date": "2024-12-27T01:00:00+00:00",
+    "players": [
+      "Daria Saville",
+      "Anastasiia Sobolieva"
+    ],
+    "player_ids": [
+      91,
+      92
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 92,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 162,
+    "valid_point_rows": 162,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 117,
+    "date": "2024-12-27T01:00:00+00:00",
+    "players": [
+      "Mirjam Bjorklund",
+      "Anca Todoni"
+    ],
+    "player_ids": [
+      93,
+      94
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 94,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 67,
+    "valid_point_rows": 67,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 118,
+    "date": "2024-12-27T01:00:00+00:00",
+    "players": [
+      "Ysaline Bonaventure",
+      "Maddison Inglis"
+    ],
+    "player_ids": [
+      95,
+      96
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 96,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 79,
+    "valid_point_rows": 79,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 119,
+    "date": "2024-12-27T02:20:00+00:00",
+    "players": [
+      "Anna-Karolina Schmiedlova",
+      "Melisa Ercan"
+    ],
+    "player_ids": [
+      97,
+      98
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 97,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 102,
+    "valid_point_rows": 102,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 120,
+    "date": "2024-12-27T02:30:00+00:00",
+    "players": [
+      "Zeynep S\u00f6nmez",
+      "Ekaterina Makarova"
+    ],
+    "player_ids": [
+      99,
+      46
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 99,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 13,
+    "points": 76,
+    "valid_point_rows": 76,
+    "malformed_point_rows": 0,
+    "games_with_server": 13,
+    "games_with_break_field": 13,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 121,
+    "date": "2024-12-27T03:35:00+00:00",
+    "players": [
+      "Hanyu Guo",
+      "Eva Lys"
+    ],
+    "player_ids": [
+      100,
+      101
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 100,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 150,
+    "valid_point_rows": 149,
+    "malformed_point_rows": 1,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": false
+  },
+  {
+    "year": 2024,
+    "match_id": 123,
+    "date": "2024-12-27T03:50:00+00:00",
+    "players": [
+      "Sara Sorribes Tormo",
+      "Tahlia Kokkinis"
+    ],
+    "player_ids": [
+      103,
+      104
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 103,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 84,
+    "valid_point_rows": 84,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 124,
+    "date": "2024-12-27T04:25:00+00:00",
+    "players": [
+      "Tina Nadine Smith",
+      "Sara Bejlek"
+    ],
+    "player_ids": [
+      105,
+      106
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 106,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 124,
+    "valid_point_rows": 124,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 125,
+    "date": "2024-12-27T05:35:00+00:00",
+    "players": [
+      "Astra Sharma",
+      "Polina Kudermetova"
+    ],
+    "player_ids": [
+      107,
+      80
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 80,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 90,
+    "valid_point_rows": 90,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 126,
+    "date": "2024-12-27T06:10:00+00:00",
+    "players": [
+      "Emiliana Arango",
+      "Heather Watson"
+    ],
+    "player_ids": [
+      41,
+      108
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 41,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 103,
+    "valid_point_rows": 103,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 127,
+    "date": "2024-12-27T06:25:00+00:00",
+    "players": [
+      "Ana Bogdan",
+      "Arina Rodionova"
+    ],
+    "player_ids": [
+      109,
+      110
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 109,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 73,
+    "valid_point_rows": 73,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 128,
+    "date": "2024-12-27T06:55:00+00:00",
+    "players": [
+      "Harriet Dart",
+      "Priscilla Hon"
+    ],
+    "player_ids": [
+      111,
+      112
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 112,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 161,
+    "valid_point_rows": 161,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 147,
+    "date": "2024-12-27T22:00:00+00:00",
+    "players": [
+      "Ena Shibahara",
+      "Monique Barry"
+    ],
+    "player_ids": [
+      136,
+      137
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 137,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 132,
+    "valid_point_rows": 132,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 148,
+    "date": "2024-12-27T22:00:00+00:00",
+    "players": [
+      "Lina Glushko",
+      "Louisa Chirico"
+    ],
+    "player_ids": [
+      138,
+      139
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 138,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 119,
+    "valid_point_rows": 119,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 149,
+    "date": "2024-12-27T22:00:00+00:00",
+    "players": [
+      "Lucrezia Stefanini",
+      "Haruka Kaji"
+    ],
+    "player_ids": [
+      140,
+      141
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 140,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 104,
+    "valid_point_rows": 104,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 150,
+    "date": "2024-12-28T00:00:00+00:00",
+    "players": [
+      "Nao Hibino",
+      "Elyse Tse"
+    ],
+    "player_ids": [
+      142,
+      143
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 142,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 82,
+    "valid_point_rows": 82,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 151,
+    "date": "2024-12-28T00:05:00+00:00",
+    "players": [
+      "Miriam Bulgaru",
+      "Emina Bektas"
+    ],
+    "player_ids": [
+      49,
+      144
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 144,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 164,
+    "valid_point_rows": 164,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 152,
+    "date": "2024-12-28T00:25:00+00:00",
+    "players": [
+      "Sachia Vickery",
+      "Laura Pigossi"
+    ],
+    "player_ids": [
+      145,
+      63
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 145,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 94,
+    "valid_point_rows": 94,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 141,
+    "date": "2024-12-28T01:00:00+00:00",
+    "players": [
+      "Anastasiia Sobolieva",
+      "Maddison Inglis"
+    ],
+    "player_ids": [
+      92,
+      96
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 96,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 74,
+    "valid_point_rows": 74,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 142,
+    "date": "2024-12-28T01:00:00+00:00",
+    "players": [
+      "Anna-Karolina Schmiedlova",
+      "Anca Todoni"
+    ],
+    "player_ids": [
+      97,
+      94
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 94,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 89,
+    "valid_point_rows": 89,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 153,
+    "date": "2024-12-28T01:25:00+00:00",
+    "players": [
+      "Leyre Romero Gormaz",
+      "Valentina Ivanov"
+    ],
+    "player_ids": [
+      146,
+      147
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 146,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 36,
+    "points": 202,
+    "valid_point_rows": 202,
+    "malformed_point_rows": 0,
+    "games_with_server": 36,
+    "games_with_break_field": 36,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 154,
+    "date": "2024-12-28T02:05:00+00:00",
+    "players": [
+      "Mai Hontama",
+      "Irene Burillo"
+    ],
+    "player_ids": [
+      148,
+      149
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 148,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 96,
+    "valid_point_rows": 96,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 143,
+    "date": "2024-12-28T02:20:00+00:00",
+    "players": [
+      "Zeynep S\u00f6nmez",
+      "Polina Kudermetova"
+    ],
+    "player_ids": [
+      99,
+      80
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 80,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 96,
+    "valid_point_rows": 96,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 144,
+    "date": "2024-12-28T02:40:00+00:00",
+    "players": [
+      "Sara Sorribes Tormo",
+      "Sara Bejlek"
+    ],
+    "player_ids": [
+      103,
+      106
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 106,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 134,
+    "valid_point_rows": 134,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 155,
+    "date": "2024-12-28T02:40:00+00:00",
+    "players": [
+      "Katarina Zavatska",
+      "Selena Jani\u0107ijevi\u0107"
+    ],
+    "player_ids": [
+      150,
+      19
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 19,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 144,
+    "valid_point_rows": 144,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 145,
+    "date": "2024-12-28T03:35:00+00:00",
+    "players": [
+      "Priscilla Hon",
+      "Hanyu Guo"
+    ],
+    "player_ids": [
+      112,
+      100
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 112,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 102,
+    "valid_point_rows": 102,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 156,
+    "date": "2024-12-28T03:40:00+00:00",
+    "players": [
+      "Anna-Lena Friedsam",
+      "Nuria Brancaccio"
+    ],
+    "player_ids": [
+      4,
+      151
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 4,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 130,
+    "valid_point_rows": 130,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 157,
+    "date": "2024-12-28T04:45:00+00:00",
+    "players": [
+      "Victoria Jimenez Kasintseva",
+      "Ana Konjuh"
+    ],
+    "player_ids": [
+      18,
+      152
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 18,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 132,
+    "valid_point_rows": 132,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 158,
+    "date": "2024-12-28T05:00:00+00:00",
+    "players": [
+      "Mariam Bolkvadze",
+      "Jodie Burrage"
+    ],
+    "player_ids": [
+      15,
+      153
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 153,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 173,
+    "valid_point_rows": 173,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 146,
+    "date": "2024-12-28T05:20:00+00:00",
+    "players": [
+      "Ana Bogdan",
+      "Emiliana Arango"
+    ],
+    "player_ids": [
+      109,
+      41
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 109,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 95,
+    "valid_point_rows": 95,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 182,
+    "date": "2024-12-28T22:00:00+00:00",
+    "players": [
+      "Lucrezia Stefanini",
+      "Emina Bektas"
+    ],
+    "player_ids": [
+      140,
+      144
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 140,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 116,
+    "valid_point_rows": 116,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 183,
+    "date": "2024-12-28T22:00:00+00:00",
+    "players": [
+      "Monique Barry",
+      "Lina Glushko"
+    ],
+    "player_ids": [
+      137,
+      138
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 138,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 162,
+    "valid_point_rows": 162,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 184,
+    "date": "2024-12-28T22:00:00+00:00",
+    "players": [
+      "Nao Hibino",
+      "Sachia Vickery"
+    ],
+    "player_ids": [
+      142,
+      145
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 142,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 98,
+    "valid_point_rows": 98,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 188,
+    "date": "2024-12-28T23:30:00+00:00",
+    "players": [
+      "Dominika Salkova",
+      "Ipek Oz"
+    ],
+    "player_ids": [
+      12,
+      65
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 65,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 138,
+    "valid_point_rows": 138,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 189,
+    "date": "2024-12-28T23:30:00+00:00",
+    "players": [
+      "Elena Mi\u0107i\u0107",
+      "Barbora Palicova"
+    ],
+    "player_ids": [
+      185,
+      29
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 29,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 102,
+    "valid_point_rows": 102,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 190,
+    "date": "2024-12-28T23:30:00+00:00",
+    "players": [
+      "Solana Sierra",
+      "Susan Bandecchi"
+    ],
+    "player_ids": [
+      186,
+      187
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 186,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 89,
+    "valid_point_rows": 89,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 185,
+    "date": "2024-12-28T23:35:00+00:00",
+    "players": [
+      "Victoria Jimenez Kasintseva",
+      "Jodie Burrage"
+    ],
+    "player_ids": [
+      18,
+      153
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 18,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 96,
+    "valid_point_rows": 96,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 186,
+    "date": "2024-12-28T23:45:00+00:00",
+    "players": [
+      "Leyre Romero Gormaz",
+      "Selena Jani\u0107ijevi\u0107"
+    ],
+    "player_ids": [
+      146,
+      19
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 146,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 81,
+    "valid_point_rows": 81,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 187,
+    "date": "2024-12-29T00:20:00+00:00",
+    "players": [
+      "Mai Hontama",
+      "Anna-Lena Friedsam"
+    ],
+    "player_ids": [
+      148,
+      4
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 4,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 35,
+    "points": 208,
+    "valid_point_rows": 208,
+    "malformed_point_rows": 0,
+    "games_with_server": 35,
+    "games_with_break_field": 35,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 160,
+    "date": "2024-12-29T01:00:00+00:00",
+    "players": [
+      "Ashlyn Krueger",
+      "Moyuka Uchijima"
+    ],
+    "player_ids": [
+      156,
+      157
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 156,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 123,
+    "valid_point_rows": 123,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 161,
+    "date": "2024-12-29T01:00:00+00:00",
+    "players": [
+      "Kamilla Rakhimova",
+      "Suzan Lamens"
+    ],
+    "player_ids": [
+      158,
+      159
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 159,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 110,
+    "valid_point_rows": 110,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 191,
+    "date": "2024-12-29T01:00:00+00:00",
+    "players": [
+      "Aliona Falei",
+      "Anouk Koevermans"
+    ],
+    "player_ids": [
+      188,
+      2
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 2,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 97,
+    "valid_point_rows": 97,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 192,
+    "date": "2024-12-29T01:05:00+00:00",
+    "players": [
+      "Simona Waltert",
+      "Gabriella da Silva Fick"
+    ],
+    "player_ids": [
+      189,
+      190
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 189,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 162,
+    "valid_point_rows": 162,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 193,
+    "date": "2024-12-29T01:35:00+00:00",
+    "players": [
+      "Leonie Kung",
+      "Elena Pridankina"
+    ],
+    "player_ids": [
+      191,
+      192
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 192,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 146,
+    "valid_point_rows": 146,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 162,
+    "date": "2024-12-29T02:30:00+00:00",
+    "players": [
+      "Maddison Inglis",
+      "Maya Joint"
+    ],
+    "player_ids": [
+      96,
+      160
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 160,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 101,
+    "valid_point_rows": 101,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 194,
+    "date": "2024-12-29T02:35:00+00:00",
+    "players": [
+      "Veronika Erjavec",
+      "Sinja Kraus"
+    ],
+    "player_ids": [
+      193,
+      11
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 11,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 195,
+    "date": "2024-12-29T02:45:00+00:00",
+    "players": [
+      "Kaylah McPhee",
+      "Linda Fruhvirtova"
+    ],
+    "player_ids": [
+      194,
+      28
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 28,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 104,
+    "valid_point_rows": 104,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 163,
+    "date": "2024-12-29T02:55:00+00:00",
+    "players": [
+      "Viktoriya Tomova",
+      "Renata Zarazua"
+    ],
+    "player_ids": [
+      161,
+      162
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 162,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 83,
+    "valid_point_rows": 83,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 164,
+    "date": "2024-12-29T03:05:00+00:00",
+    "players": [
+      "Elina Avanesyan",
+      "Rebecca \u0160ramkov\u00e1"
+    ],
+    "player_ids": [
+      163,
+      164
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 163,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 128,
+    "valid_point_rows": 128,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 196,
+    "date": "2024-12-29T03:55:00+00:00",
+    "players": [
+      "Elsa Jacquemot",
+      "Hanna Chang"
+    ],
+    "player_ids": [
+      13,
+      195
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 13,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 13,
+    "points": 65,
+    "valid_point_rows": 65,
+    "malformed_point_rows": 0,
+    "games_with_server": 13,
+    "games_with_break_field": 13,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 197,
+    "date": "2024-12-29T04:25:00+00:00",
+    "players": [
+      "Lea Bo\u0161kovi\u0107",
+      "Tamara Zidan\u0161ek"
+    ],
+    "player_ids": [
+      196,
+      197
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 196,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 170,
+    "valid_point_rows": 170,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 198,
+    "date": "2024-12-29T04:35:00+00:00",
+    "players": [
+      "Sara Saito",
+      "Jaimee Fourlis"
+    ],
+    "player_ids": [
+      30,
+      198
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 30,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 150,
+    "valid_point_rows": 150,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 199,
+    "date": "2024-12-29T05:05:00+00:00",
+    "players": [
+      "Margaux Rouvroy",
+      "Lola Radivojevi\u0107"
+    ],
+    "player_ids": [
+      73,
+      199
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 73,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 75,
+    "valid_point_rows": 75,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 165,
+    "date": "2024-12-29T05:10:00+00:00",
+    "players": [
+      "Anna Blinkova",
+      "Sara Bejlek"
+    ],
+    "player_ids": [
+      77,
+      106
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 77,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 103,
+    "valid_point_rows": 103,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 200,
+    "date": "2024-12-29T06:10:00+00:00",
+    "players": [
+      "Dalila Jakupovic",
+      "Sayaka Ishii"
+    ],
+    "player_ids": [
+      200,
+      201
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 201,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 100,
+    "valid_point_rows": 100,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 201,
+    "date": "2024-12-29T07:05:00+00:00",
+    "players": [
+      "Alexandra Eala",
+      "Catherine Aulia"
+    ],
+    "player_ids": [
+      202,
+      203
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 202,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 94,
+    "valid_point_rows": 94,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 202,
+    "date": "2024-12-29T07:10:00+00:00",
+    "players": [
+      "Oksana Selekhmeteva",
+      "Raluca Georgiana Serban"
+    ],
+    "player_ids": [
+      204,
+      205
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 204,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 35,
+    "points": 183,
+    "valid_point_rows": 183,
+    "malformed_point_rows": 0,
+    "games_with_server": 35,
+    "games_with_break_field": 35,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 203,
+    "date": "2024-12-29T08:10:00+00:00",
+    "players": [
+      "Alana Suba\u0161i\u0107",
+      "Giorgia Pedone"
+    ],
+    "player_ids": [
+      206,
+      207
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 206,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 109,
+    "valid_point_rows": 109,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 166,
+    "date": "2024-12-29T08:30:00+00:00",
+    "players": [
+      "Marie Bouzkova",
+      "Talia Gibson"
+    ],
+    "player_ids": [
+      165,
+      166
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 165,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 196,
+    "valid_point_rows": 196,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 167,
+    "date": "2024-12-29T08:50:00+00:00",
+    "players": [
+      "Magda Linette",
+      "McCartney Kessler"
+    ],
+    "player_ids": [
+      167,
+      168
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 168,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 93,
+    "valid_point_rows": 93,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 223,
+    "date": "2024-12-29T22:30:00+00:00",
+    "players": [
+      "Jule Niemeier",
+      "Nao Hibino"
+    ],
+    "player_ids": [
+      237,
+      142
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 142,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 116,
+    "valid_point_rows": 116,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 224,
+    "date": "2024-12-29T22:30:00+00:00",
+    "players": [
+      "Lucrezia Stefanini",
+      "Clara Tauson"
+    ],
+    "player_ids": [
+      140,
+      238
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 238,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 87,
+    "valid_point_rows": 87,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 239,
+    "date": "2024-12-29T23:30:00+00:00",
+    "players": [
+      "Ipek Oz",
+      "Elena Pridankina"
+    ],
+    "player_ids": [
+      65,
+      192
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 65,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 78,
+    "valid_point_rows": 78,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 240,
+    "date": "2024-12-29T23:30:00+00:00",
+    "players": [
+      "Simona Waltert",
+      "Anouk Koevermans"
+    ],
+    "player_ids": [
+      189,
+      2
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 189,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 34,
+    "points": 216,
+    "valid_point_rows": 216,
+    "malformed_point_rows": 0,
+    "games_with_server": 34,
+    "games_with_break_field": 34,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 242,
+    "date": "2024-12-29T23:30:00+00:00",
+    "players": [
+      "Solana Sierra",
+      "Barbora Palicova"
+    ],
+    "player_ids": [
+      186,
+      29
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 186,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 87,
+    "valid_point_rows": 87,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 225,
+    "date": "2024-12-30T00:10:00+00:00",
+    "players": [
+      "Lulu Sun",
+      "Rebecca Marino"
+    ],
+    "player_ids": [
+      239,
+      240
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 240,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 133,
+    "valid_point_rows": 133,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 226,
+    "date": "2024-12-30T00:25:00+00:00",
+    "players": [
+      "Bernarda Pera",
+      "Victoria Jimenez Kasintseva"
+    ],
+    "player_ids": [
+      241,
+      18
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 241,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 108,
+    "valid_point_rows": 108,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 235,
+    "date": "2024-12-30T00:25:00+00:00",
+    "players": [
+      "Sijia Wei",
+      "Lizette Cabrera"
+    ],
+    "player_ids": [
+      247,
+      248
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 247,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 110,
+    "valid_point_rows": 110,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 215,
+    "date": "2024-12-30T01:00:00+00:00",
+    "players": [
+      "Priscilla Hon",
+      "Kimberly Birrell"
+    ],
+    "player_ids": [
+      112,
+      225
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 225,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 29,
+    "points": 134,
+    "valid_point_rows": 134,
+    "malformed_point_rows": 0,
+    "games_with_server": 29,
+    "games_with_break_field": 29,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 243,
+    "date": "2024-12-30T01:00:00+00:00",
+    "players": [
+      "Elsa Jacquemot",
+      "Margaux Rouvroy"
+    ],
+    "player_ids": [
+      13,
+      73
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 13,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 19,
+    "points": 99,
+    "valid_point_rows": 99,
+    "malformed_point_rows": 0,
+    "games_with_server": 19,
+    "games_with_break_field": 19,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 244,
+    "date": "2024-12-30T01:00:00+00:00",
+    "players": [
+      "Sara Saito",
+      "Lea Bo\u0161kovi\u0107"
+    ],
+    "player_ids": [
+      30,
+      196
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 30,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 109,
+    "valid_point_rows": 109,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 245,
+    "date": "2024-12-30T02:35:00+00:00",
+    "players": [
+      "Oksana Selekhmeteva",
+      "Sayaka Ishii"
+    ],
+    "player_ids": [
+      204,
+      201
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 204,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 168,
+    "valid_point_rows": 168,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 246,
+    "date": "2024-12-30T02:50:00+00:00",
+    "players": [
+      "Alexandra Eala",
+      "Alana Suba\u0161i\u0107"
+    ],
+    "player_ids": [
+      202,
+      206
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 202,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 115,
+    "valid_point_rows": 115,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 236,
+    "date": "2024-12-30T03:00:00+00:00",
+    "players": [
+      "Aliaksandra Sasnovich",
+      "Jil Teichmann"
+    ],
+    "player_ids": [
+      249,
+      68
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 249,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 149,
+    "valid_point_rows": 149,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 227,
+    "date": "2024-12-30T03:30:00+00:00",
+    "players": [
+      "Naomi Osaka",
+      "Lina Glushko"
+    ],
+    "player_ids": [
+      242,
+      138
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 242,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 102,
+    "valid_point_rows": 102,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 216,
+    "date": "2024-12-30T03:45:00+00:00",
+    "players": [
+      "Veronika Kudermetova",
+      "Peyton Stearns"
+    ],
+    "player_ids": [
+      226,
+      227
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 227,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 100,
+    "valid_point_rows": 100,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 228,
+    "date": "2024-12-30T03:45:00+00:00",
+    "players": [
+      "Leyre Romero Gormaz",
+      "Julia Grabher"
+    ],
+    "player_ids": [
+      146,
+      243
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 243,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 30,
+    "points": 185,
+    "valid_point_rows": 185,
+    "malformed_point_rows": 0,
+    "games_with_server": 30,
+    "games_with_break_field": 30,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 217,
+    "date": "2024-12-30T04:05:00+00:00",
+    "players": [
+      "Anhelina Kalinina",
+      "Yafan Wang"
+    ],
+    "player_ids": [
+      228,
+      229
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 228,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 12,
+    "points": 63,
+    "valid_point_rows": 63,
+    "malformed_point_rows": 0,
+    "games_with_server": 12,
+    "games_with_break_field": 12,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 237,
+    "date": "2024-12-30T04:40:00+00:00",
+    "players": [
+      "Marina Stakusic",
+      "Antonia Ru\u017ei\u0107"
+    ],
+    "player_ids": [
+      250,
+      251
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 250,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 165,
+    "valid_point_rows": 165,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 218,
+    "date": "2024-12-30T05:30:00+00:00",
+    "players": [
+      "Xinyu Wang",
+      "Polina Kudermetova"
+    ],
+    "player_ids": [
+      230,
+      80
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 80,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 82,
+    "valid_point_rows": 82,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 229,
+    "date": "2024-12-30T05:30:00+00:00",
+    "players": [
+      "Ann Li",
+      "Sloane Stephens"
+    ],
+    "player_ids": [
+      244,
+      245
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 244,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 163,
+    "valid_point_rows": 163,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 219,
+    "date": "2024-12-30T05:35:00+00:00",
+    "players": [
+      "Anca Todoni",
+      "Cristina Bucsa"
+    ],
+    "player_ids": [
+      94,
+      231
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 94,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 124,
+    "valid_point_rows": 124,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 238,
+    "date": "2024-12-30T06:15:00+00:00",
+    "players": [
+      "Anastasia Zakharova",
+      "Petra Hule"
+    ],
+    "player_ids": [
+      16,
+      252
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 252,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 101,
+    "valid_point_rows": 101,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 220,
+    "date": "2024-12-30T07:55:00+00:00",
+    "players": [
+      "Yue Yuan",
+      "Arantxa Rus"
+    ],
+    "player_ids": [
+      232,
+      233
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 232,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 85,
+    "valid_point_rows": 85,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 230,
+    "date": "2024-12-30T08:05:00+00:00",
+    "players": [
+      "Katie Volynets",
+      "Erika Andreeva"
+    ],
+    "player_ids": [
+      246,
+      78
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 246,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 196,
+    "valid_point_rows": 196,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 221,
+    "date": "2024-12-30T08:40:00+00:00",
+    "players": [
+      "Anastasia Potapova",
+      "Ana Bogdan"
+    ],
+    "player_ids": [
+      234,
+      109
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 234,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 21,
+    "points": 148,
+    "valid_point_rows": 148,
+    "malformed_point_rows": 0,
+    "games_with_server": 21,
+    "games_with_break_field": 21,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 222,
+    "date": "2024-12-30T10:35:00+00:00",
+    "players": [
+      "Ons Jabeur",
+      "Saisai Zheng"
+    ],
+    "player_ids": [
+      235,
+      236
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 235,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 140,
+    "valid_point_rows": 140,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 272,
+    "date": "2024-12-30T22:30:00+00:00",
+    "players": [
+      "Sofia Kenin",
+      "Xiyu Wang"
+    ],
+    "player_ids": [
+      283,
+      284
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 283,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 110,
+    "valid_point_rows": 110,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 273,
+    "date": "2024-12-30T22:30:00+00:00",
+    "players": [
+      "Yuliia Starodubtseva",
+      "Jaqueline Cristian"
+    ],
+    "player_ids": [
+      285,
+      286
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 286,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 11,
+    "points": 52,
+    "valid_point_rows": 52,
+    "malformed_point_rows": 0,
+    "games_with_server": 11,
+    "games_with_break_field": 11,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 282,
+    "date": "2024-12-30T23:30:00+00:00",
+    "players": [
+      "Mananchaya Sawangkaew",
+      "Ella Seidel"
+    ],
+    "player_ids": [
+      297,
+      74
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 297,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 158,
+    "valid_point_rows": 158,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 283,
+    "date": "2024-12-30T23:30:00+00:00",
+    "players": [
+      "Maria Timofeeva",
+      "Aoi Ito"
+    ],
+    "player_ids": [
+      298,
+      299
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 299,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 121,
+    "valid_point_rows": 121,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 284,
+    "date": "2024-12-30T23:30:00+00:00",
+    "players": [
+      "Oksana Selekhmeteva",
+      "Petra Marti\u0107"
+    ],
+    "player_ids": [
+      204,
+      75
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 204,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 31,
+    "points": 164,
+    "valid_point_rows": 164,
+    "malformed_point_rows": 0,
+    "games_with_server": 31,
+    "games_with_break_field": 31,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 274,
+    "date": "2024-12-31T00:05:00+00:00",
+    "players": [
+      "Hailey Baptiste",
+      "Renata Jamrichova"
+    ],
+    "player_ids": [
+      287,
+      288
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 287,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 14,
+    "points": 85,
+    "valid_point_rows": 85,
+    "malformed_point_rows": 0,
+    "games_with_server": 14,
+    "games_with_break_field": 14,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 275,
+    "date": "2024-12-31T00:15:00+00:00",
+    "players": [
+      "Madison Keys",
+      "Lucia Bronzetti"
+    ],
+    "player_ids": [
+      289,
+      290
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 289,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 105,
+    "valid_point_rows": 105,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 264,
+    "date": "2024-12-31T01:00:00+00:00",
+    "players": [
+      "McCartney Kessler",
+      "Yulia Putintseva"
+    ],
+    "player_ids": [
+      168,
+      276
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 276,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 107,
+    "valid_point_rows": 107,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 265,
+    "date": "2024-12-31T01:00:00+00:00",
+    "players": [
+      "Paula Badosa",
+      "Elina Avanesyan"
+    ],
+    "player_ids": [
+      277,
+      163
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 163,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 24,
+    "points": 162,
+    "valid_point_rows": 162,
+    "malformed_point_rows": 0,
+    "games_with_server": 24,
+    "games_with_break_field": 24,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 277,
+    "date": "2024-12-31T01:25:00+00:00",
+    "players": [
+      "Greet Minnen",
+      "Anna-Lena Friedsam"
+    ],
+    "player_ids": [
+      293,
+      4
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 293,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 91,
+    "valid_point_rows": 91,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 285,
+    "date": "2024-12-31T01:30:00+00:00",
+    "players": [
+      "Alexandra Eala",
+      "Sinja Kraus"
+    ],
+    "player_ids": [
+      202,
+      11
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 202,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 88,
+    "valid_point_rows": 88,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 286,
+    "date": "2024-12-31T01:55:00+00:00",
+    "players": [
+      "Nuria Parrizas Diaz",
+      "Jana Fett"
+    ],
+    "player_ids": [
+      6,
+      300
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 6,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 32,
+    "points": 183,
+    "valid_point_rows": 183,
+    "malformed_point_rows": 0,
+    "games_with_server": 32,
+    "games_with_break_field": 32,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 287,
+    "date": "2024-12-31T02:00:00+00:00",
+    "players": [
+      "Elsa Jacquemot",
+      "Emerson Jones"
+    ],
+    "player_ids": [
+      13,
+      301
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 13,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 93,
+    "valid_point_rows": 93,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 278,
+    "date": "2024-12-31T02:05:00+00:00",
+    "players": [
+      "Vivian Yang",
+      "Jodie Burrage"
+    ],
+    "player_ids": [
+      291,
+      153
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 153,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 98,
+    "valid_point_rows": 98,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 266,
+    "date": "2024-12-31T03:00:00+00:00",
+    "players": [
+      "Anna Kalinskaya",
+      "Ashlyn Krueger"
+    ],
+    "player_ids": [
+      278,
+      156
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 156,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 86,
+    "valid_point_rows": 86,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 288,
+    "date": "2024-12-31T03:05:00+00:00",
+    "players": [
+      "Simona Waltert",
+      "Darja Semenistaja"
+    ],
+    "player_ids": [
+      189,
+      44
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 189,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 76,
+    "valid_point_rows": 76,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 267,
+    "date": "2024-12-31T03:20:00+00:00",
+    "players": [
+      "Aryna Sabalenka",
+      "Renata Zarazua"
+    ],
+    "player_ids": [
+      279,
+      162
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 279,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 16,
+    "points": 69,
+    "valid_point_rows": 69,
+    "malformed_point_rows": 0,
+    "games_with_server": 16,
+    "games_with_break_field": 16,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 289,
+    "date": "2024-12-31T03:25:00+00:00",
+    "players": [
+      "Ipek Oz",
+      "Taylah Preston"
+    ],
+    "player_ids": [
+      65,
+      302
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 302,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 22,
+    "points": 111,
+    "valid_point_rows": 111,
+    "malformed_point_rows": 0,
+    "games_with_server": 22,
+    "games_with_break_field": 22,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 268,
+    "date": "2024-12-31T04:15:00+00:00",
+    "players": [
+      "Anna Blinkova",
+      "Mirra Andreeva"
+    ],
+    "player_ids": [
+      77,
+      280
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 280,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 104,
+    "valid_point_rows": 104,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 290,
+    "date": "2024-12-31T04:20:00+00:00",
+    "players": [
+      "Danka Kovini\u0107",
+      "Sara Saito"
+    ],
+    "player_ids": [
+      303,
+      30
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 30,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 20,
+    "points": 105,
+    "valid_point_rows": 105,
+    "malformed_point_rows": 0,
+    "games_with_server": 20,
+    "games_with_break_field": 20,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 291,
+    "date": "2024-12-31T04:40:00+00:00",
+    "players": [
+      "Nina Stojanovic",
+      "Solana Sierra"
+    ],
+    "player_ids": [
+      42,
+      186
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 42,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 75,
+    "valid_point_rows": 75,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 292,
+    "date": "2024-12-31T05:10:00+00:00",
+    "players": [
+      "Dalma Galfi",
+      "Daria Snigur"
+    ],
+    "player_ids": [
+      304,
+      305
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 304,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 27,
+    "points": 134,
+    "valid_point_rows": 134,
+    "malformed_point_rows": 0,
+    "games_with_server": 27,
+    "games_with_break_field": 27,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 280,
+    "date": "2024-12-31T05:30:00+00:00",
+    "players": [
+      "Robin Montgomery",
+      "Mai Hontama"
+    ],
+    "player_ids": [
+      294,
+      148
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 294,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 131,
+    "valid_point_rows": 131,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 293,
+    "date": "2024-12-31T05:40:00+00:00",
+    "players": [
+      "Arianne Hartono",
+      "Anna Bondar"
+    ],
+    "player_ids": [
+      306,
+      307
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 306,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 28,
+    "points": 161,
+    "valid_point_rows": 161,
+    "malformed_point_rows": 0,
+    "games_with_server": 28,
+    "games_with_break_field": 28,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 269,
+    "date": "2024-12-31T06:00:00+00:00",
+    "players": [
+      "Marie Bouzkova",
+      "Jelena Ostapenko"
+    ],
+    "player_ids": [
+      165,
+      281
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 165,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 147,
+    "valid_point_rows": 147,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 281,
+    "date": "2024-12-31T07:30:00+00:00",
+    "players": [
+      "Alycia Parks",
+      "Amanda Anisimova"
+    ],
+    "player_ids": [
+      23,
+      296
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 23,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 25,
+    "points": 151,
+    "valid_point_rows": 151,
+    "malformed_point_rows": 0,
+    "games_with_server": 25,
+    "games_with_break_field": 25,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 270,
+    "date": "2024-12-31T08:30:00+00:00",
+    "players": [
+      "Ons Jabeur",
+      "Ekaterina Alexandrova"
+    ],
+    "player_ids": [
+      235,
+      82
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 235,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 106,
+    "valid_point_rows": 106,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 271,
+    "date": "2024-12-31T08:35:00+00:00",
+    "players": [
+      "Diana Shnaider",
+      "Anhelina Kalinina"
+    ],
+    "player_ids": [
+      282,
+      228
+    ],
+    "tournament": "Brisbane",
+    "circuit": "WTA",
+    "category": "wta_500",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 228,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 26,
+    "points": 129,
+    "valid_point_rows": 129,
+    "malformed_point_rows": 0,
+    "games_with_server": 26,
+    "games_with_break_field": 26,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 310,
+    "date": "2024-12-31T22:30:00+00:00",
+    "players": [
+      "Rebecca Marino",
+      "Bernarda Pera"
+    ],
+    "player_ids": [
+      240,
+      241
+    ],
+    "tournament": "Auckland",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 241,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 23,
+    "points": 127,
+    "valid_point_rows": 127,
+    "malformed_point_rows": 0,
+    "games_with_server": 23,
+    "games_with_break_field": 23,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 314,
+    "date": "2024-12-31T23:30:00+00:00",
+    "players": [
+      "Aliaksandra Sasnovich",
+      "Aoi Ito"
+    ],
+    "player_ids": [
+      249,
+      299
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 299,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 15,
+    "points": 105,
+    "valid_point_rows": 105,
+    "malformed_point_rows": 0,
+    "games_with_server": 15,
+    "games_with_break_field": 15,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 315,
+    "date": "2024-12-31T23:30:00+00:00",
+    "players": [
+      "Mananchaya Sawangkaew",
+      "Sijia Wei"
+    ],
+    "player_ids": [
+      297,
+      247
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 247,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 17,
+    "points": 88,
+    "valid_point_rows": 88,
+    "malformed_point_rows": 0,
+    "games_with_server": 17,
+    "games_with_break_field": 17,
+    "structurally_present": true
+  },
+  {
+    "year": 2024,
+    "match_id": 316,
+    "date": "2024-12-31T23:30:00+00:00",
+    "players": [
+      "Nuria Parrizas Diaz",
+      "Sara Saito"
+    ],
+    "player_ids": [
+      6,
+      30
+    ],
+    "tournament": "Canberra, Australia",
+    "circuit": "WTA",
+    "category": "wta_250",
+    "round": null,
+    "surface": "hard",
+    "winner_id": 6,
+    "pbp_http": 200,
+    "available_flag": true,
+    "games": 18,
+    "points": 89,
+    "valid_point_rows": 89,
+    "malformed_point_rows": 0,
+    "games_with_server": 18,
+    "games_with_break_field": 18,
+    "structurally_present": true
+  }
+]

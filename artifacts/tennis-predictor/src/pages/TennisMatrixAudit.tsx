@@ -26,7 +26,8 @@ import {
 } from "@/components/TennisMatrixAuditViews";
 import {
   bootstrapAuditDefinitions, clearAuditSlate, colorClasses, commitSummaries, extractSummaries,
-  fileToBase64, getActiveMetrics, getAuditMatch, getAuditReadiness, getAuditSlate, runAuditSlice,
+  fileToBase64, getActiveMetrics, getAuditMatch, getAuditReadiness, getAuditSlate,
+  importVerifiedResults, outcomeClasses, runAuditSlice,
   REVIEW_FIELDS,
   type AuditRow, type ExtractedPdf, type MatchDetail, type ParsedField, type ParsedMatchup,
   type SlateEntry,
@@ -363,13 +364,29 @@ function SlateView({ onOpen }: { onOpen: (matchId: string) => void }) {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tennis-matrix-audit"] }),
   });
 
+  const resultsInput = useRef<HTMLInputElement>(null);
+  const importResults = useMutation({
+    mutationFn: async (files: File[]) =>
+      importVerifiedResults(await Promise.all(
+        files.map(async (file) => ({ filename: file.name, base64: await fileToBase64(file) })),
+      )),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tennis-matrix-audit"] }),
+  });
+
   const summary = useMemo(() => {
     const slate = data?.slate ?? [];
+    const graded = slate.filter((entry) => entry.outcome?.resolved);
+    const correct = graded.filter((entry) => entry.outcome.status === "WIN").length;
     return {
       total: slate.length,
       withWinner: slate.filter((entry) => entry.selected_player).length,
       refused: slate.filter((entry) => entry.run && !entry.selected_player).length,
       notRun: slate.filter((entry) => !entry.run).length,
+      graded: graded.length,
+      correct,
+      // Only over rows that were actually graded. A hit rate computed over refusals and
+      // unplayed matches would flatter or damn the engine for calls it never made.
+      hitRate: graded.length ? Math.round((correct / graded.length) * 1000) / 10 : null,
     };
   }, [data]);
 
@@ -389,6 +406,8 @@ function SlateView({ onOpen }: { onOpen: (matchId: string) => void }) {
       <div className="grid gap-2 text-xs sm:grid-cols-2 lg:grid-cols-5">
         {([["Matches on slate", summary.total], ["Selection made", summary.withWinner],
            ["Insufficient evidence", summary.refused], ["Not yet run", summary.notRun],
+           ["Graded", summary.graded],
+           ["Correct", summary.hitRate === null ? summary.correct : `${summary.correct} · ${summary.hitRate}%`],
            ["Active metrics", registry?.count ?? "—"]] as const).map(([label, value]) => (
           <div key={label} className="rounded-md border border-border px-3 py-2">
             <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{label}</p>
@@ -397,16 +416,53 @@ function SlateView({ onOpen }: { onOpen: (matchId: string) => void }) {
         ))}
       </div>
 
+      {importResults.error && (
+        <div className="flex items-start gap-2 rounded-md border border-red-500/30 bg-red-500/10 p-3 text-xs text-red-300">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" /> <span>{(importResults.error as Error).message}</span>
+        </div>
+      )}
+      {importResults.data && (
+        <div className="space-y-1 rounded-md border border-border p-3 text-xs">
+          <p>
+            {importResults.data.updated} of {importResults.data.parsed} verified results applied
+            {importResults.data.unverified ? ` · ${importResults.data.unverified} row(s) had no confirmed winner` : ""}
+          </p>
+          {/* Reported, never resolved: a row whose stated winner is not one of the two named
+              players is a defect in the source document that a person has to settle. */}
+          {importResults.data.inconsistent.map((row) => (
+            <p key={row.match} className="text-amber-300">{row.match}: {row.problem}</p>
+          ))}
+          {importResults.data.unmatched.slice(0, 5).map((row) => (
+            <p key={row.match} className="text-muted-foreground">{row.match}: {row.reason}</p>
+          ))}
+          {importResults.data.unmatched.length > 5 && (
+            <p className="text-muted-foreground">…and {importResults.data.unmatched.length - 5} more not on this slate.</p>
+          )}
+        </div>
+      )}
+
       <Card>
         <CardHeader className="flex flex-row items-center justify-between gap-2 pb-3">
           <CardTitle className="text-base">Current slate</CardTitle>
-          <Button
-            variant="outline" size="sm"
-            onClick={() => { if (window.confirm("Clear Slate permanently deletes every operational audit row. Continue?")) clear.mutate(); }}
-            disabled={clear.isPending}
-          >
-            {clear.isPending ? "Clearing…" : "Clear slate"}
-          </Button>
+          <div className="flex flex-wrap items-center gap-2">
+            <input
+              ref={resultsInput} type="file" accept="application/pdf,.pdf" multiple className="hidden"
+              onChange={(event) => {
+                const files = Array.from(event.target.files ?? []);
+                if (files.length) importResults.mutate(files);
+              }}
+            />
+            <Button variant="outline" size="sm" onClick={() => resultsInput.current?.click()} disabled={importResults.isPending}>
+              {importResults.isPending ? "Importing results…" : "Import verified results"}
+            </Button>
+            <Button
+              variant="outline" size="sm"
+              onClick={() => { if (window.confirm("Clear Slate permanently deletes every operational audit row. Continue?")) clear.mutate(); }}
+              disabled={clear.isPending}
+            >
+              {clear.isPending ? "Clearing…" : "Clear slate"}
+            </Button>
+          </div>
         </CardHeader>
         <CardContent>
           {!data?.slate.length ? (
@@ -422,6 +478,8 @@ function SlateView({ onOpen }: { onOpen: (matchId: string) => void }) {
                     <th className="px-2 py-2 font-medium">Context</th>
                     <th className="px-2 py-2 font-medium">Colour</th>
                     <th className="px-2 py-2 font-medium">Selection</th>
+                    <th className="px-2 py-2 font-medium">Result</th>
+                    <th className="px-2 py-2 font-medium">Actual winner</th>
                     <th className="px-2 py-2 font-medium">Run</th>
                   </tr>
                 </thead>
@@ -431,7 +489,9 @@ function SlateView({ onOpen }: { onOpen: (matchId: string) => void }) {
                     return (
                       <tr
                         key={matchId}
-                        className="cursor-pointer border-t border-border hover:bg-muted/40"
+                        // Green when the selection matched the recorded winner, red when it
+                        // did not, and untinted when the row is not gradeable at all.
+                        className={`cursor-pointer border-t border-border hover:bg-muted/40 ${outcomeClasses(entry.outcome)}`}
                         onClick={() => onOpen(matchId)}
                       >
                         <td className="px-2 py-2">
@@ -447,6 +507,19 @@ function SlateView({ onOpen }: { onOpen: (matchId: string) => void }) {
                           </Badge>
                         </td>
                         <td className="px-2 py-2 text-xs">{entry.selected_player ?? <span className="text-muted-foreground">No side selected</span>}</td>
+                        <td className="px-2 py-2 text-xs">
+                          {entry.outcome?.resolved ? (
+                            <span className={entry.outcome.status === "WIN" ? "text-emerald-400" : "text-red-400"}>
+                              {entry.outcome.status === "WIN" ? "CORRECT" : "INCORRECT"}
+                              {entry.outcome.result_type.startsWith("RETIREMENT") ? " (ret.)" : ""}
+                            </span>
+                          ) : (
+                            // Never "wrong": an ungraded row is one the engine could not grade,
+                            // and the reason says which of those cases it is.
+                            <span className="text-muted-foreground" title={entry.outcome?.reason ?? ""}>Not graded</span>
+                          )}
+                        </td>
+                        <td className="px-2 py-2 text-xs text-muted-foreground">{text(entry.match["actual_winner"] ?? "—")}</td>
                         <td className="px-2 py-2 text-xs text-muted-foreground">{text(entry.run?.["status"] ?? "—")}</td>
                       </tr>
                     );

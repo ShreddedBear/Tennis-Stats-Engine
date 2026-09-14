@@ -23,11 +23,12 @@ import { logger } from "../lib/logger.js";
 import {
   runPipeline, preparePipelineRun, evaluate, canonicalizeStageRows,
   latestRunsByMatch, activeSlateMatchIds, activeRunIds, resolveActiveRun, currentAuditRows,
-  activeMetricReadiness, winRate, STAGES,
+  activeMetricReadiness, winRate, resolvePredictionOutcome, STAGES,
 } from "@workspace/truth-engine";
 import { makeDeps } from "../services/tennisMatrixAudit/auditRepo";
 import { commitMatchups, extractMatchups, type ExtractedPdf } from "../services/tennisMatrixAudit/ingest";
 import { readBoard } from "../services/tennisMatrixAudit/board";
+import { importVerifiedResults, parseVerifiedResults } from "../services/tennisMatrixAudit/verifiedResults";
 import { bootstrapAuditDefinitions } from "../services/tennisMatrixAudit/bootstrap";
 import {
   gradeResult, matrixCalibrationInputs, readCalibration, readCalibrationHistory,
@@ -73,15 +74,26 @@ router.get("/tennis-matrix-audit/slate", requireAdmin, async (_req, res) => {
       .map((match) => {
         const run = latest.get(String(match["id"])) as Record<string, unknown> | undefined;
         const decision = run ? decisions.get(String(run["id"])) ?? null : null;
+        const selected =
+          (decision?.["gate_report"] as { deterministic_decision?: { selected_player?: string | null } } | null)
+            ?.deterministic_decision?.selected_player ?? null;
         return {
           match,
           run: run ?? null,
           decision,
           // The persisted decision's own selected player, which is the canonical winner
           // identity. Never parsed back out of the human-readable action string.
-          selected_player:
-            (decision?.["gate_report"] as { deterministic_decision?: { selected_player?: string | null } } | null)
-              ?.deterministic_decision?.selected_player ?? null,
+          selected_player: selected,
+          // Graded against the recorded result by the ENGINE's own resolver, so the slate can
+          // never disagree with it about who won. It returns UNRESOLVED -- neither right nor
+          // wrong -- when there is no selection, no final result, or an ambiguous name, which
+          // is why a refusal is never coloured as a miss.
+          outcome: resolvePredictionOutcome(selected, {
+            player1_name: String(match["player1_name"] ?? ""),
+            player2_name: String(match["player2_name"] ?? ""),
+            actual_winner: (match["actual_winner"] as string | null) ?? null,
+            result_status: (match["result_status"] as string | null) ?? null,
+          }),
         };
       });
 
@@ -360,6 +372,30 @@ router.post("/tennis-matrix-audit/sources/conflict/:id", requireAdmin, async (re
     res.json({ ok: true, resolution });
   } catch (error) {
     fail(res, error, "resolve conflict");
+  }
+});
+
+// --- VERIFIED RESULTS IMPORT -------------------------------------------------------
+// Records who actually won, so the slate can show which selections were right. Rows with no
+// confirmed winner, or whose stated winner is not one of the two named players, are REPORTED
+// rather than resolved -- a guessed winner is worse than a missing one.
+router.post("/tennis-matrix-audit/results/import", requireAdmin, async (req, res) => {
+  try {
+    const body = (req.body ?? {}) as { files?: Array<{ filename?: string; base64?: string }> };
+    if (!Array.isArray(body.files) || !body.files.length) {
+      res.status(400).json({ error: "At least one results document is required" });
+      return;
+    }
+    const pages: string[] = [];
+    for (const file of body.files) {
+      if (!file?.base64) continue;
+      const extracted = await extractMatchups(String(file.filename ?? "results.pdf"), String(file.base64));
+      pages.push(...extracted.pages);
+    }
+    const parsed = parseVerifiedResults(pages);
+    res.json(await importVerifiedResults(parsed));
+  } catch (error) {
+    fail(res, error, "results import");
   }
 });
 

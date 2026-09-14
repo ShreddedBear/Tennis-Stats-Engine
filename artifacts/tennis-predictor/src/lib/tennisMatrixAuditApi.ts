@@ -34,12 +34,27 @@ export interface GateReport {
   };
 }
 
+/**
+ * How a selection fared against the recorded result, decided by the engine's own resolver.
+ * UNRESOLVED means not gradeable -- no selection, no final result, or an ambiguous name --
+ * and is deliberately neither a hit nor a miss.
+ */
+export interface PredictionOutcome {
+  status: "WIN" | "LOSS" | "UNRESOLVED";
+  resolved: boolean;
+  actual_side: string | null;
+  selected_side: string | null;
+  result_type: string;
+  reason: string | null;
+}
+
 export interface SlateEntry {
   match: AuditRow;
   run: AuditRow | null;
   decision: AuditRow | null;
   /** Canonical winner identity from the persisted decision record -- never parsed from prose. */
   selected_player: string | null;
+  outcome: PredictionOutcome;
 }
 
 export interface MatchDetail {
@@ -220,6 +235,26 @@ export const bootstrapAuditDefinitions = () =>
     calibration: string; sources: string;
     documents: Array<{ docType: string; status: string; expected: number; parsed: number; activated: boolean }>;
   }>("/api/tennis-matrix-audit/bootstrap", { method: "POST" });
+
+/** Import verified match winners so the slate can show which selections were right. */
+export const importVerifiedResults = (files: Array<{ filename: string; base64: string }>) =>
+  request<{
+    parsed: number; unverified: number; matched: number; updated: number;
+    inconsistent: Array<{ match: string; problem: string }>;
+    unmatched: Array<{ match: string; reason: string }>;
+  }>("/api/tennis-matrix-audit/results/import", { method: "POST", body: JSON.stringify({ files }) });
+
+/**
+ * Row tint for a graded selection. Green is a correct call, red an incorrect one, and
+ * NOTHING for an ungraded row -- a refusal or an unplayed match is neither, and colouring
+ * it either way would assert a result the engine never reached.
+ */
+export function outcomeClasses(outcome: PredictionOutcome | undefined | null): string {
+  if (!outcome?.resolved) return "";
+  return outcome.status === "WIN"
+    ? "bg-emerald-500/10 border-l-2 border-l-emerald-500"
+    : "bg-red-500/10 border-l-2 border-l-red-500";
+}
 
 // --- MASTER RANKED BOARD -----------------------------------------------------------
 export interface BoardRow {

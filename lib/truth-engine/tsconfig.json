@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["node"],
+    // The frozen engine was authored under `strict: true`. The workspace base enables most
+    // of that set individually but not `strict` itself, and the two differ on
+    // strictFunctionTypes (base: false). Turning strict on here keeps the engine compiling
+    // under exactly the contract it was written and reviewed against, rather than a looser
+    // one that would silently accept changes the original repo rejected.
+    "strict": true,
+    "noImplicitOverride": true
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.ts"]
+}

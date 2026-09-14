@@ -156,15 +156,38 @@ export function scoreProgressionOf(game: Record<string, unknown>): unknown[] | n
     const value = game[key];
     if (Array.isArray(value) && value.length) return value;
   }
-  // Or a per-point score field on each point entry.
+  // Or a per-point score on each point entry. Real tapes carry this two ways: one combined
+  // field ("15-0"), or a SPLIT pair (player1_score / player2_score), which is the shape the
+  // captured provider samples actually use. Both are read; a split pair is assembled into
+  // the same state object the parser already understands.
   const points = game["points"];
   if (Array.isArray(points) && points.length) {
-    const states = points.map((p) => {
+    const combined = points.map((p) => {
       if (!p || typeof p !== "object") return null;
       const record = p as Record<string, unknown>;
       return record["score"] ?? record["score_after"] ?? record["scoreAfter"] ?? record["point_score"] ?? null;
     });
-    if (states.every((s) => s !== null && s !== undefined)) return states;
+    if (combined.every((s) => s !== null && s !== undefined)) return combined;
+
+    const SPLIT: Array<[string, string]> = [
+      ["player1_score", "player2_score"], ["p1_score", "p2_score"],
+      ["player1Score", "player2Score"], ["home_score", "away_score"],
+      ["score1", "score2"], ["server_score", "returner_score"],
+    ];
+    for (const [leftKey, rightKey] of SPLIT) {
+      const split = points.map((p) => {
+        if (!p || typeof p !== "object") return null;
+        const record = p as Record<string, unknown>;
+        const left = record[leftKey];
+        const right = record[rightKey];
+        // Both halves must be present on EVERY point. A partially-scored tape is not a
+        // progression, and filling the gaps would invent the points it cannot see.
+        return left === undefined || left === null || right === undefined || right === null
+          ? null
+          : { p1: left, p2: right };
+      });
+      if (split.every((s) => s !== null)) return split as unknown[];
+    }
   }
   return null;
 }

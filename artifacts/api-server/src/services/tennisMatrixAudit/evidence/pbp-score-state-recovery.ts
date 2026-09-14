@@ -87,6 +87,13 @@ function collectGames(payload:any):Game[]{const out:Game[]=[];const seen=new Set
       points.length=0;
       for(let di=0;di<derived.length;di++){const src=v.points[di];points.push({winner:derived[di]!.winner,ace:codedIndicator(src,"ace"),doubleFault:codedIndicator(src,"doubleFault")})}
       complete=true;}}}
+   // A game whose points the tape reported but which yielded NOTHING readable must not be
+   // silently dropped: `allPointsComplete` only inspects games that made it into the list, so
+   // an omitted game would leave the remaining ones reconstructing cleanly and the metrics
+   // computed from a quietly reduced evidence base. Recording it incomplete fails the tape,
+   // which is the honest outcome -- the alternative is scoring a match from the games that
+   // happened to parse.
+   if(!points.length&&Array.isArray(v.points)&&v.points.length){out.push({setNo:explicitSetNo(v)??ctx.setNo,server,points:[],tiebreak:false,winner:null,complete:false,postGames:post});}
    if(points.length)out.push({setNo:explicitSetNo(v)??ctx.setNo,server,points,tiebreak:inferTiebreak(v,winner,post),winner,complete:complete&&points.length===v.points.length,postGames:post})}}for(const[k,x]of Object.entries(v)){if(k==="points")continue;if(Array.isArray(x)&&/sets?/i.test(k)){x.forEach((item,i)=>walk(item,{setNo:i+1}));continue}walk(x,{setNo:explicitSetNo(v)??ctx.setNo})}};walk(payload,{setNo:null});return out}
 function gameWinner(g:Game):PbpSide|null{if(!g.complete)return null;if(g.winner)return g.winner;if(g.tiebreak)return null;let a=0,b=0;for(const p of g.points){if(p.winner==="player1")a++;else b++;if((a>=4||b>=4)&&Math.abs(a-b)>=2)return a>b?"player1":"player2"}return null}
 function wouldWinGame(s0:number,r0:number,w:"server"|"returner"){const s=s0+(w==="server"?1:0),r=r0+(w==="returner"?1:0);return(s>=4||r>=4)&&Math.abs(s-r)>=2}

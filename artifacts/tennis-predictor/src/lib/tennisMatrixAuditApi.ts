@@ -104,8 +104,14 @@ export const getAuditMatch = (matchId: string) =>
 export const runAuditSlice = (matchId: string) =>
   request<RunSliceResult>(`/api/tennis-matrix-audit/match/${encodeURIComponent(matchId)}/run`, { method: "POST" });
 
-export const getAuditLogs = (limit = 200) =>
-  request<{ logs: AuditRow[] }>(`/api/tennis-matrix-audit/logs?limit=${limit}`);
+/**
+ * Execution logs. Scoped to current runs by default: a cleared match's rows are real
+ * history and are never deleted, but they must not read as current operational output.
+ */
+export const getAuditLogs = (scope: "active" | "all" = "active", limit = 300) =>
+  request<{ logs: AuditRow[]; scope: string; total: number }>(
+    `/api/tennis-matrix-audit/logs?limit=${limit}&scope=${scope}`,
+  );
 
 export const getActiveMetrics = () =>
   request<{
@@ -166,6 +172,72 @@ export function fileToBase64(file: File): Promise<string> {
     reader.readAsDataURL(file);
   });
 }
+
+// --- MASTER RANKED BOARD -----------------------------------------------------------
+export interface BoardRow {
+  matchId: string; matchLabel: string; selection: string | null;
+  tournament: string | null; surface: string | null;
+  /** The Matrix summary's own claim. Shown to be judged, never used to rank. */
+  matrixPick: string | null; matrixWp: string | null;
+  bucket: string | null; verifiedWinRate: number | null;
+  independentWinner: string | null; independentRange: string | null; calibratedRange: string | null;
+  evidence: number; color: string; action: string | null; completion: number;
+}
+
+export const getAuditBoard = () => request<{ rows: BoardRow[] }>("/api/tennis-matrix-audit/board");
+
+// --- CALIBRATION -------------------------------------------------------------------
+export interface CalibrationBucket {
+  id: string; bucket_code: string; bucket_label: string;
+  wp_min: number; wp_max: number; wins: number; graded: number;
+  small_sample: boolean; win_rate: number | null;
+}
+export interface CalibrationView {
+  version: AuditRow | null;
+  buckets: CalibrationBucket[];
+  ledger: AuditRow[];
+}
+export interface GradeInput {
+  matchId: string | null; matchLabel: string; tournament: string | null; surface: string | null;
+  matchDate: string | null; matrixPredictedWinner: string | null; matrixWp: string | null;
+  resultType: string; actualWinner: string | null; note: string | null;
+}
+
+/** Retirements are real results. Walkovers and voids are recorded but never counted. */
+export const RESULT_TYPES = ["WIN", "LOSS", "RETIREMENT WIN", "RETIREMENT LOSS", "WALKOVER", "VOID"];
+
+export const getCalibration = () => request<CalibrationView>("/api/tennis-matrix-audit/calibration");
+
+export const getCalibrationHistory = () =>
+  request<{ versions: AuditRow[]; buckets: Array<CalibrationBucket & { calibration_version_id: string }> }>(
+    "/api/tennis-matrix-audit/calibration/history",
+  );
+
+/** Fills the PREDICTION fields only. The actual result is always entered by hand. */
+export const getCalibrationPrefill = (matchId: string) =>
+  request<{
+    matchLabel: string; tournament: string | null; surface: string | null;
+    matchDate: string | null; matrixPredictedWinner: string | null; matrixWp: number | null;
+  }>(`/api/tennis-matrix-audit/calibration/prefill/${encodeURIComponent(matchId)}`);
+
+export const gradeCalibrationResult = (input: GradeInput) =>
+  request<{ version: AuditRow; bucketCode: string | null; counted: boolean }>(
+    "/api/tennis-matrix-audit/calibration/grade",
+    { method: "POST", body: JSON.stringify(input) },
+  );
+
+// --- SOURCES, RULES, LOGS ----------------------------------------------------------
+export const getAuditSources = () =>
+  request<{ snapshots: AuditRow[]; conflicts: AuditRow[] }>("/api/tennis-matrix-audit/sources");
+
+export const resolveSourceConflict = (id: string, resolution: "RESOLVED" | "UNRESOLVABLE") =>
+  request<{ ok: boolean }>(`/api/tennis-matrix-audit/sources/conflict/${encodeURIComponent(id)}`, {
+    method: "POST",
+    body: JSON.stringify({ resolution }),
+  });
+
+export const getAuditRules = () =>
+  request<{ documents: AuditRow[]; versions: AuditRow[]; rules: AuditRow[] }>("/api/tennis-matrix-audit/rules");
 
 /** Tailwind classes for an audit colour. Presentation only -- never used to derive a winner. */
 export function colorClasses(color: AuditColor | string | null | undefined): string {

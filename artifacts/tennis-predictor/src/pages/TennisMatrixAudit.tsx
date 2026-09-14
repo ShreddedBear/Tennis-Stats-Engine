@@ -22,6 +22,9 @@ import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
+  BoardView, CalibrationView, LogsView, RulesView, SourcesView,
+} from "@/components/TennisMatrixAuditViews";
+import {
   clearAuditSlate, colorClasses, commitSummaries, extractSummaries, fileToBase64,
   getActiveMetrics, getAuditMatch, getAuditSlate, runAuditSlice,
   REVIEW_FIELDS,
@@ -645,14 +648,20 @@ export default function TennisMatrixAudit() {
         <Tabs defaultValue="slate">
           <TabsList className="flex-wrap">
             <TabsTrigger value="slate">Slate</TabsTrigger>
-            <TabsTrigger value="upload">Upload summaries</TabsTrigger>
+            <TabsTrigger value="upload">Upload</TabsTrigger>
+            <TabsTrigger value="board">Board</TabsTrigger>
+            <TabsTrigger value="calibration">Calibration</TabsTrigger>
+            <TabsTrigger value="sources">Sources</TabsTrigger>
+            <TabsTrigger value="rules">Rules</TabsTrigger>
+            <TabsTrigger value="logs">Logs</TabsTrigger>
           </TabsList>
-          <TabsContent value="slate" className="mt-4">
-            <SlateView onOpen={setOpenMatchId} />
-          </TabsContent>
-          <TabsContent value="upload" className="mt-4">
-            <UploadView />
-          </TabsContent>
+          <TabsContent value="slate" className="mt-4"><SlateView onOpen={setOpenMatchId} /></TabsContent>
+          <TabsContent value="upload" className="mt-4"><UploadView /></TabsContent>
+          <TabsContent value="board" className="mt-4"><BoardView /></TabsContent>
+          <TabsContent value="calibration" className="mt-4"><CalibrationView /></TabsContent>
+          <TabsContent value="sources" className="mt-4"><SourcesView /></TabsContent>
+          <TabsContent value="rules" className="mt-4"><RulesView /></TabsContent>
+          <TabsContent value="logs" className="mt-4"><LogsView /></TabsContent>
         </Tabs>
       )}
 

@@ -17,6 +17,7 @@
     "test:evaluation": "tsx --test src/services/evaluation/walkForward.test.ts src/services/evaluation/bridgeRescore.test.ts src/services/evaluation/bridgeRescoreJob.test.ts src/services/evaluation/paperTrading.test.ts src/services/evaluation/paperTradingQuiet.test.ts src/services/evaluation/specialistWeights.test.ts src/services/evaluation/ledgerDuplicates.test.ts src/services/evaluation/metrics.test.ts src/services/evaluation/savePrediction.test.ts src/services/evaluation/ledgerPlayers.test.ts src/services/evaluation/evaluationPredictionsImmutability.test.ts src/services/evaluation/shadowReplay.test.ts src/services/evaluation/predictionSnapshotParity.test.ts src/services/evaluation/historicalScoring.test.ts",
     "check:parlay-boundary": "tsx src/scripts/checkParlayBoundary.ts",
     "test:tennisMatrixAudit": "tsx --test src/services/tennisMatrixAudit/ingest.test.ts",
+    "test:tennisMatrixAudit:db": "tsx --test src/services/tennisMatrixAudit/calibration.test.ts",
     "test:parlay-boundary": "tsx --test src/scripts/checkParlayBoundary.test.ts",
     "test:ledgerPlayers": "tsx --test src/services/evaluation/ledgerPlayers.test.ts",
     "test:job-smoke": "pnpm run build && tsx --test src/jobs/runPaperTradingJob.smoke.test.ts src/jobs/runCalibrationRefitJob.smoke.test.ts src/jobs/runHistoricalBackfillJob.smoke.test.ts",

@@ -114,6 +114,34 @@ export const calibrationBuckets = pgTable("calibration_buckets", {
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 });
 
+/**
+ * Every graded result, in the order it was graded. Append-only by design: a row records the
+ * calibration version before and after it, so any board figure can be traced back to the
+ * exact bucket record that produced it. Walkovers and voids are recorded here too, marked
+ * not counted, rather than dropped -- a result that did not count still happened.
+ */
+export const calibrationLedger = pgTable("calibration_ledger", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").notNull(),
+  masterSequence: integer("master_sequence").notNull(),
+  matchId: uuid("match_id"),
+  matchLabel: text("match_label").notNull(),
+  tournament: text("tournament"),
+  matchDate: date("match_date"),
+  surface: text("surface"),
+  matrixPredictedWinner: text("matrix_predicted_winner"),
+  matrixWp: numeric("matrix_wp"),
+  bucketCode: text("bucket_code"),
+  actualWinner: text("actual_winner"),
+  resultType: text("result_type").default("UNKNOWN").notNull(),
+  resultGradingStatus: text("result_grading_status").default("PENDING").notNull(),
+  countedInBucket: boolean("counted_in_bucket").default(false).notNull(),
+  calibrationVersionBefore: uuid("calibration_version_before"),
+  calibrationVersionAfter: uuid("calibration_version_after"),
+  note: text("note"),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
 export const calibrationVersions = pgTable("calibration_versions", {
   id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
   userId: uuid("user_id").notNull(),

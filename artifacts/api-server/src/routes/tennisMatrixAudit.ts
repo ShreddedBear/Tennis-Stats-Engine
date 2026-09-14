@@ -17,11 +17,15 @@ import { pool } from "@workspace/db";
 import { logger } from "../lib/logger.js";
 import {
   runPipeline, preparePipelineRun, evaluate, canonicalizeStageRows,
-  latestRunsByMatch, activeSlateMatchIds, resolveActiveRun,
+  latestRunsByMatch, activeSlateMatchIds, activeRunIds, resolveActiveRun,
   activeMetricReadiness, STAGES,
 } from "@workspace/truth-engine";
 import { makeDeps } from "../services/tennisMatrixAudit/auditRepo";
 import { commitMatchups, extractMatchups, type ExtractedPdf } from "../services/tennisMatrixAudit/ingest";
+import { readBoard } from "../services/tennisMatrixAudit/board";
+import {
+  gradeResult, matrixCalibrationInputs, readCalibration, readCalibrationHistory,
+} from "../services/tennisMatrixAudit/calibration";
 
 const router: IRouter = Router();
 
@@ -234,16 +238,160 @@ router.post("/api/tennis-matrix-audit/ingest/commit", requireAdmin, async (req, 
   }
 });
 
+// --- MASTER RANKED BOARD -----------------------------------------------------------
+// Audit colour first, verified win rate second. Never the Matrix's stated probability.
+router.get("/api/tennis-matrix-audit/board", requireAdmin, async (_req, res) => {
+  try {
+    res.json({ rows: await readBoard() });
+  } catch (error) {
+    fail(res, error, "board");
+  }
+});
+
+// --- CALIBRATION -------------------------------------------------------------------
+router.get("/api/tennis-matrix-audit/calibration", requireAdmin, async (req, res) => {
+  try {
+    res.json(await readCalibration(Number(req.query["limit"] ?? 100)));
+  } catch (error) {
+    fail(res, error, "calibration");
+  }
+});
+
+router.get("/api/tennis-matrix-audit/calibration/history", requireAdmin, async (req, res) => {
+  try {
+    res.json(await readCalibrationHistory(Number(req.query["limit"] ?? 40)));
+  } catch (error) {
+    fail(res, error, "calibration history");
+  }
+});
+
+// Prefills only the PREDICTION half of the grading form. The actual winner and result type
+// are never inferred: they are the thing being graded.
+router.get("/api/tennis-matrix-audit/calibration/prefill/:matchId", requireAdmin, async (req, res) => {
+  try {
+    const prefill = await matrixCalibrationInputs(String(req.params["matchId"]));
+    if (!prefill) {
+      res.status(404).json({ error: "No match found for that id, or it has no parsed summary yet" });
+      return;
+    }
+    res.json(prefill);
+  } catch (error) {
+    fail(res, error, "calibration prefill");
+  }
+});
+
+router.post("/api/tennis-matrix-audit/calibration/grade", requireAdmin, async (req, res) => {
+  try {
+    const body = (req.body ?? {}) as Record<string, unknown>;
+    const label = String(body["matchLabel"] ?? "").trim();
+    if (!label) {
+      res.status(400).json({ error: "A match label is required to grade a result" });
+      return;
+    }
+    const wp = body["matrixWp"];
+    const result = await gradeResult({
+      matchId: body["matchId"] ? String(body["matchId"]) : null,
+      matchLabel: label,
+      tournament: body["tournament"] ? String(body["tournament"]) : null,
+      surface: body["surface"] ? String(body["surface"]) : null,
+      matchDate: body["matchDate"] ? String(body["matchDate"]) : null,
+      matrixPredictedWinner: body["matrixPredictedWinner"] ? String(body["matrixPredictedWinner"]) : null,
+      matrixWp: wp === null || wp === undefined || wp === "" || Number.isNaN(Number(wp)) ? null : Number(wp),
+      resultType: String(body["resultType"] ?? "WIN"),
+      actualWinner: body["actualWinner"] ? String(body["actualWinner"]) : null,
+      note: body["note"] ? String(body["note"]) : null,
+    });
+    res.json(result);
+  } catch (error) {
+    fail(res, error, "calibration grade");
+  }
+});
+
+// --- SOURCES & CONFLICTS -----------------------------------------------------------
+// Conflicting values are never silently averaged: both are kept and the conflict is a row.
+router.get("/api/tennis-matrix-audit/sources", requireAdmin, async (req, res) => {
+  try {
+    const limit = Math.min(500, Math.max(1, Number(req.query["limit"] ?? 200)));
+    const [snapshots, conflicts] = await Promise.all([
+      pool.query(
+        `select id, match_id, source_name, data_key, raw_value, normalized_value, reliability, retrieved_at
+           from source_snapshots order by retrieved_at desc limit $1`,
+        [limit],
+      ),
+      pool.query(
+        `select id, match_id, data_key, values, selected_value, critical, resolution_status, created_at
+           from source_conflicts order by created_at desc limit $1`,
+        [limit],
+      ),
+    ]);
+    res.json({ snapshots: snapshots.rows, conflicts: conflicts.rows });
+  } catch (error) {
+    fail(res, error, "sources");
+  }
+});
+
+router.post("/api/tennis-matrix-audit/sources/conflict/:id", requireAdmin, async (req, res) => {
+  try {
+    const resolution = String((req.body ?? {})["resolution"] ?? "");
+    // A conflict is resolved by a person choosing, or declared unresolvable. There is no
+    // third state that quietly lets a blocked match through.
+    if (!["RESOLVED", "UNRESOLVABLE"].includes(resolution)) {
+      res.status(400).json({ error: "Resolution must be RESOLVED or UNRESOLVABLE" });
+      return;
+    }
+    const { rowCount } = await pool.query(`update source_conflicts set resolution_status = $1 where id = $2`, [
+      resolution,
+      String(req.params["id"]),
+    ]);
+    if (!rowCount) {
+      res.status(404).json({ error: "Conflict not found" });
+      return;
+    }
+    res.json({ ok: true, resolution });
+  } catch (error) {
+    fail(res, error, "resolve conflict");
+  }
+});
+
+// --- RULE KNOWLEDGE BASE -----------------------------------------------------------
+// Every run clones the ACTIVE rule set, so past runs stay reproducible against the rules
+// they actually ran under.
+router.get("/api/tennis-matrix-audit/rules", requireAdmin, async (_req, res) => {
+  try {
+    const [documents, versions, rules] = await Promise.all([
+      pool.query(`select * from rule_documents order by doc_type`),
+      pool.query(`select * from rule_document_versions order by version_number`),
+      pool.query(`select * from rules order by rule_code`),
+    ]);
+    res.json({ documents: documents.rows, versions: versions.rows, rules: rules.rows });
+  } catch (error) {
+    fail(res, error, "rules");
+  }
+});
+
 // --- EXECUTION LOGS ----------------------------------------------------------------
+// Scoped to current runs by default. Cleared matches and invalidated runs are real history
+// and are never deleted, but they must not read as current operational output -- so the
+// full view is opt-in rather than the default.
 router.get("/api/tennis-matrix-audit/logs", requireAdmin, async (req, res) => {
   try {
     const limit = Math.min(500, Math.max(1, Number(req.query["limit"] ?? 200)));
-    const { rows } = await pool.query(
-      `select id, audit_run_id, match_id, stage, status, output, matrix_visible, created_at
-         from execution_logs order by created_at desc limit $1`,
-      [limit],
+    const scope = req.query["scope"] === "all" ? "all" : "active";
+    const [logs, runs, versions] = await Promise.all([
+      pool.query(
+        `select id, audit_run_id, match_id, stage, status, output, matrix_visible, created_at
+           from execution_logs order by created_at desc limit $1`,
+        [limit],
+      ),
+      pool.query(`select id, match_id, run_number, status, independent_decision_committed_at, heartbeat_at from audit_runs`),
+      pool.query(`select match_id, is_active from summary_versions`),
+    ]);
+
+    const active = activeRunIds(runs.rows as never, activeSlateMatchIds(versions.rows as never));
+    const rows = (logs.rows as Array<Record<string, unknown>>).filter(
+      (row) => scope === "all" || (row["audit_run_id"] !== null && active.has(String(row["audit_run_id"]))),
     );
-    res.json({ logs: rows });
+    res.json({ logs: rows, scope, total: logs.rows.length });
   } catch (error) {
     fail(res, error, "logs");
   }

@@ -23,7 +23,11 @@ import {
   matchIdentityRecords, matches, metricCoverageRates, metricResults, parsedSummaryFields,
   reconstructionResults, ruleDocuments, rules as rulesTable, sourceConflicts, summaryVersions,
 } from "@workspace/db";
-import { auditResearcher } from "./researcher";
+// The Audit's real evidence chain, ported intact: warehouse-first, then the completion
+// sweep, then the hybrid local/AI researcher. The engine consumes it through the same
+// Researcher interface it always did.
+import { warehouseFirstResearcher } from "./evidence/warehouse-first-researcher.server";
+import { ensureRuntimeIndexLoaded } from "./evidence/runtime-tennis-index-data.server";
 
 const OWNER = LOCAL_WORKSPACE_ID;
 
@@ -62,10 +66,14 @@ async function selectRows(table: string, where: string, params: unknown[]): Prom
 
 export async function makeDeps(): Promise<PipelineDeps> {
   const user_id = OWNER;
+  // Hydrate the local evidence index once before any producer reads it. loadRuntimeIndex()
+  // is synchronous by contract (producers call it inline while computing a metric), so the
+  // await has to happen here, at the boundary, rather than inside each of them.
+  await ensureRuntimeIndexLoaded();
 
   return {
     now: () => new Date(),
-    research: auditResearcher,
+    research: warehouseFirstResearcher,
 
     async getMatch(matchId) {
       const rows = await db.select().from(matches).where(eq(matches.id, matchId)).limit(1);

@@ -19,7 +19,7 @@
 // ----------------------------------------------------------------------------
 import { sql } from "drizzle-orm";
 import {
-  boolean, date, doublePrecision, integer, jsonb, numeric, pgTable,
+  boolean, customType, date, doublePrecision, integer, jsonb, numeric, pgTable,
   text, timestamp, uniqueIndex, uuid,
 } from "drizzle-orm/pg-core";
 
@@ -659,4 +659,25 @@ export const verificationResults = pgTable("verification_results", {
   reconstructionReason: text("reconstruction_reason"),
   reconstructionResult: text("reconstruction_result"),
   retrievedAt: timestamp("retrieved_at", { withTimezone: true }),
+});
+
+// ----------------------------------------------------------------------------
+// THE RUNTIME TENNIS INDEX.
+//
+// The Audit's local evidence backbone -- per-player Elo/form buckets and per-tour match
+// history -- stored once, gzipped, instead of as the standalone app's 80MB Git-LFS blob
+// plus a second static-asset copy. Keeping it here means one system of record rather than
+// ~291MB of statistical data duplicated alongside the database, and no per-asset size cap
+// to design around. Read by evidence/runtime-tennis-index-data.server.ts, which hydrates
+// it into memory on first use; written only by scripts/loadAuditRuntimeIndex.ts.
+// ----------------------------------------------------------------------------
+export const auditRuntimeIndex = pgTable("audit_runtime_index", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  // gzip of the index JSON. bytea rather than jsonb on purpose: nothing queries inside it,
+  // it is hydrated whole, and the compressed form is an order of magnitude smaller.
+  payload: customType<{ data: Buffer; driverData: Buffer }>({ dataType: () => "bytea" })("payload").notNull(),
+  generatedAt: timestamp("generated_at", { withTimezone: true }).defaultNow().notNull(),
+  sourceDescription: text("source_description"),
+  playerCount: integer("player_count"),
+  matchCount: integer("match_count"),
 });

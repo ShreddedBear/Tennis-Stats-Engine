@@ -57,6 +57,7 @@ const DRIZZLE_MANAGED_TABLES = [
   // src/schema/tennisMatrixAudit.ts, so each one belongs on this whitelist.
   "audit_coverage",
   "audit_runs",
+  "audit_runtime_index",
   "audit_stage_runs",
   "calibration_buckets",
   "calibration_versions",

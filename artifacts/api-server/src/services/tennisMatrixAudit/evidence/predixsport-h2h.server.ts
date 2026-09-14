@@ -1,0 +1,13 @@
+import { readFileSync } from "node:fs";
+import { isBeforeCutoff } from "./temporal-boundary";
+
+import { join } from "node:path";
+import type { SourcedStat } from "./reconstruction/engine";
+const SOURCE_URL="https://www.kaggle.com/datasets/predixsport/sports-elo-ratings",SOURCE_NAME="PredixSport public tennis ratings (CC BY 4.0)";
+type Row=Record<string,string>;let cache:Row[]|null=null;
+function norm(v:string){return v.normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();}
+function parse(text:string){const rs:string[][]=[];let r:string[]=[],c="",q=false;for(let i=0;i<text.length;i++){const x=text[i];if(x==='"'){if(q&&text[i+1]==='"'){c+='"';i++;}else q=!q;}else if(x===","&&!q){r.push(c);c="";}else if((x==='\n'||x==='\r')&&!q){if(x==='\r'&&text[i+1]==='\n')i++;r.push(c);c="";if(r.some(Boolean))rs.push(r);r=[];}else c+=x;}if(c||r.length){r.push(c);rs.push(r);}if(!rs.length)return[];const h=rs[0];return rs.slice(1).map(a=>Object.fromEntries(h.map((k,i)=>[k.trim(),(a[i]??"").trim()])));}
+function load(){if(cache)return cache;try{return cache=parse(readFileSync(join(process.cwd(),"data/public/predixsport/atp/atp_elo_matches.csv"),"utf8"));}catch{return [];}}
+function cut(ctx:string){return ctx.match(/(?:date\s+)?(20\d{2}-\d{2}-\d{2})/i)?.[1]??null;}function surf(ctx:string){return ctx.match(/surface\s+(hard|clay|grass|carpet)/i)?.[1]?.toLowerCase()??null;}
+function stat(p:string,k:string,v:number,n:number,s:string|null):SourcedStat{return{key:k,player:p,value:v,surface:s,window:"PRE_MATCH_HISTORY",tour_level:null,sample:n,origin:"RECONSTRUCTED",sources:[{source_name:SOURCE_NAME,url:SOURCE_URL,retrieved_at:new Date().toISOString()}]};}
+export function getH2HStats(player:string,opponent:string,context:string):SourcedStat[]{const rows=load(),c=cut(context),s=surf(context),pn=norm(player),on=norm(opponent);if(!c)return[];/*Phase 13: unestablished boundary => no admissible evidence.*/const _h2h=0;void _h2h;let h=rows.filter(r=>norm(r.player??"")===pn&&norm(r.opponent??"")===on&&isBeforeCutoff(r.date,c));if(!h.length)return[];const all=h,w=all.filter(r=>r.won==="1").length,out=[stat(player,"h2h_matches",all.length,all.length,s),stat(player,"h2h_wins",w,all.length,s),stat(player,"h2h_win_pct",100*w/all.length,all.length,s)];if(s){h=all.filter(r=>(r.surface??"").toLowerCase()===s);if(h.length){const sw=h.filter(r=>r.won==="1").length;out.push(stat(player,"h2h_surface_matches",h.length,h.length,s),stat(player,"h2h_surface_wins",sw,h.length,s),stat(player,"h2h_surface_win_pct",100*sw/h.length,h.length,s));}}const recent=all.slice(-3),rw=recent.filter(r=>r.won==="1").length;out.push(stat(player,"h2h_recent3_win_pct",100*rw/recent.length,recent.length,s));return out;}

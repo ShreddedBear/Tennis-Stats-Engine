@@ -14,8 +14,22 @@ import { strict as assert } from "node:assert";
 import { after, before, describe, test } from "node:test";
 
 const DATABASE_URL = process.env["DATABASE_URL"];
+// THIS SUITE IS DESTRUCTIVE: it empties calibration_versions, calibration_buckets and
+// calibration_ledger so sequence numbers in the assertions are predictable. Pointed at a
+// real database that would delete a genuine calibration record -- the graded history every
+// verified win rate on the board is derived from, which no re-run can reconstruct because
+// grading needs real match results entered by a person.
+//
+// So it refuses to run unless the operator says the target is disposable. A skipped test is
+// a far better outcome than a silently erased ledger.
+const DESTRUCTIVE_OK = process.env["AUDIT_DB_TEST_ALLOW_DESTRUCTIVE"] === "1";
+const skipReason = !DATABASE_URL
+  ? "DATABASE_URL is not set"
+  : !DESTRUCTIVE_OK
+    ? "refusing to erase calibration data: set AUDIT_DB_TEST_ALLOW_DESTRUCTIVE=1 to confirm this database is disposable"
+    : false;
 
-describe("calibration ledger", { skip: DATABASE_URL ? false : "DATABASE_URL is not set" }, () => {
+describe("calibration ledger", { skip: skipReason }, () => {
   // Imported lazily: @workspace/db throws at import time without DATABASE_URL, which would
   // fail the file rather than skip it.
   let pool: typeof import("@workspace/db").pool;

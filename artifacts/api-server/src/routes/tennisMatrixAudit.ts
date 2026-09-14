@@ -10,6 +10,11 @@
  * Every route is a thin transport wrapper. The decisions live in @workspace/truth-engine
  * and the persistence in services/tennisMatrixAudit/auditRepo; this module's only jobs
  * are admin authorisation, input validation and shaping rows for the UI.
+ *
+ * PATHS ARE DECLARED WITHOUT THE /api PREFIX, like every other router here: routes/index.ts
+ * is mounted at "/api" in app.ts, so a path spelled "/api/..." resolves at "/api/api/...".
+ * Declaring the full path is how this router ended up unreachable at the URLs its own client
+ * calls -- reachable only at a doubled prefix nothing requested.
  */
 import { Router, type IRouter } from "express";
 import { requireAdmin } from "../lib/adminAuth";
@@ -44,7 +49,7 @@ function fail(res: Parameters<Parameters<IRouter["get"]>[1]>[1], error: unknown,
 // resolved current run and that run's decision. Both layers matter -- a match whose
 // latest run was invalidated (Clear Slate, a rule-version change) has no current run and
 // must not show a stale one.
-router.get("/api/tennis-matrix-audit/slate", requireAdmin, async (_req, res) => {
+router.get("/tennis-matrix-audit/slate", requireAdmin, async (_req, res) => {
   try {
     const [matchRows, runRows, decisionRows, versionRows] = await Promise.all([
       pool.query(`select id, player1_name, player2_name, tournament_name, event_level, round,
@@ -89,7 +94,7 @@ router.get("/api/tennis-matrix-audit/slate", requireAdmin, async (_req, res) => 
 // --- MATCH DETAIL ------------------------------------------------------------------
 // Everything the match workspace renders, scoped to the CURRENT run: the 16 canonical
 // stages in order, all six child-result tables, coverage, and the decision.
-router.get("/api/tennis-matrix-audit/match/:matchId", requireAdmin, async (req, res) => {
+router.get("/tennis-matrix-audit/match/:matchId", requireAdmin, async (req, res) => {
   try {
     const matchId = String(req.params["matchId"]);
     const match = await pool.query(`select * from matches where id = $1`, [matchId]);
@@ -166,7 +171,7 @@ router.get("/api/tennis-matrix-audit/match/:matchId", requireAdmin, async (req, 
 // One time-boxed slice. runPipeline persists partial stage progress and takes a lease,
 // so calling this repeatedly resumes the same run rather than restarting it or creating
 // a duplicate -- which is exactly how the UI drives a long audit to completion.
-router.post("/api/tennis-matrix-audit/match/:matchId/run", requireAdmin, async (req, res) => {
+router.post("/tennis-matrix-audit/match/:matchId/run", requireAdmin, async (req, res) => {
   try {
     const matchId = String(req.params["matchId"]);
     const deps = await makeDeps();
@@ -189,7 +194,7 @@ router.post("/api/tennis-matrix-audit/match/:matchId/run", requireAdmin, async (
   }
 });
 
-router.post("/api/tennis-matrix-audit/match/:matchId/prepare", requireAdmin, async (req, res) => {
+router.post("/tennis-matrix-audit/match/:matchId/prepare", requireAdmin, async (req, res) => {
   try {
     const deps = await makeDeps();
     const run = await preparePipelineRun(deps, String(req.params["matchId"]));
@@ -204,7 +209,7 @@ router.post("/api/tennis-matrix-audit/match/:matchId/prepare", requireAdmin, asy
 // persists what the user actually reviewed. Match identity (canonical key + reuse search)
 // is resolved server-side in commit, so the same real match uploaded twice cannot end up
 // as two rows.
-router.post("/api/tennis-matrix-audit/ingest/extract", requireAdmin, async (req, res) => {
+router.post("/tennis-matrix-audit/ingest/extract", requireAdmin, async (req, res) => {
   try {
     const files = Array.isArray(req.body?.files) ? req.body.files : [];
     if (!files.length) {
@@ -226,7 +231,7 @@ router.post("/api/tennis-matrix-audit/ingest/extract", requireAdmin, async (req,
   }
 });
 
-router.post("/api/tennis-matrix-audit/ingest/commit", requireAdmin, async (req, res) => {
+router.post("/tennis-matrix-audit/ingest/commit", requireAdmin, async (req, res) => {
   try {
     const files = Array.isArray(req.body?.files) ? (req.body.files as ExtractedPdf[]) : [];
     if (!files.length) {
@@ -241,7 +246,7 @@ router.post("/api/tennis-matrix-audit/ingest/commit", requireAdmin, async (req, 
 
 // --- MASTER RANKED BOARD -----------------------------------------------------------
 // Audit colour first, verified win rate second. Never the Matrix's stated probability.
-router.get("/api/tennis-matrix-audit/board", requireAdmin, async (_req, res) => {
+router.get("/tennis-matrix-audit/board", requireAdmin, async (_req, res) => {
   try {
     res.json({ rows: await readBoard() });
   } catch (error) {
@@ -250,7 +255,7 @@ router.get("/api/tennis-matrix-audit/board", requireAdmin, async (_req, res) => 
 });
 
 // --- CALIBRATION -------------------------------------------------------------------
-router.get("/api/tennis-matrix-audit/calibration", requireAdmin, async (req, res) => {
+router.get("/tennis-matrix-audit/calibration", requireAdmin, async (req, res) => {
   try {
     res.json(await readCalibration(Number(req.query["limit"] ?? 100)));
   } catch (error) {
@@ -258,7 +263,7 @@ router.get("/api/tennis-matrix-audit/calibration", requireAdmin, async (req, res
   }
 });
 
-router.get("/api/tennis-matrix-audit/calibration/history", requireAdmin, async (req, res) => {
+router.get("/tennis-matrix-audit/calibration/history", requireAdmin, async (req, res) => {
   try {
     res.json(await readCalibrationHistory(Number(req.query["limit"] ?? 40)));
   } catch (error) {
@@ -268,7 +273,7 @@ router.get("/api/tennis-matrix-audit/calibration/history", requireAdmin, async (
 
 // Prefills only the PREDICTION half of the grading form. The actual winner and result type
 // are never inferred: they are the thing being graded.
-router.get("/api/tennis-matrix-audit/calibration/prefill/:matchId", requireAdmin, async (req, res) => {
+router.get("/tennis-matrix-audit/calibration/prefill/:matchId", requireAdmin, async (req, res) => {
   try {
     const prefill = await matrixCalibrationInputs(String(req.params["matchId"]));
     if (!prefill) {
@@ -281,7 +286,7 @@ router.get("/api/tennis-matrix-audit/calibration/prefill/:matchId", requireAdmin
   }
 });
 
-router.post("/api/tennis-matrix-audit/calibration/grade", requireAdmin, async (req, res) => {
+router.post("/tennis-matrix-audit/calibration/grade", requireAdmin, async (req, res) => {
   try {
     const body = (req.body ?? {}) as Record<string, unknown>;
     const label = String(body["matchLabel"] ?? "").trim();
@@ -310,17 +315,21 @@ router.post("/api/tennis-matrix-audit/calibration/grade", requireAdmin, async (r
 
 // --- SOURCES & CONFLICTS -----------------------------------------------------------
 // Conflicting values are never silently averaged: both are kept and the conflict is a row.
-router.get("/api/tennis-matrix-audit/sources", requireAdmin, async (req, res) => {
+router.get("/tennis-matrix-audit/sources", requireAdmin, async (req, res) => {
   try {
     const limit = Math.min(500, Math.max(1, Number(req.query["limit"] ?? 200)));
     const [snapshots, conflicts] = await Promise.all([
+      // Scoped by audit_run_id, not match_id: evidence is captured per RUN, so the same
+      // match re-audited under a new rule set has its own separate snapshot record.
       pool.query(
-        `select id, match_id, source_name, data_key, raw_value, normalized_value, reliability, retrieved_at
+        `select id, audit_run_id, source_name, data_key, player_side, raw_value, normalized_value,
+                reliability, excluded, retrieved_at
            from source_snapshots order by retrieved_at desc limit $1`,
         [limit],
       ),
       pool.query(
-        `select id, match_id, data_key, values, selected_value, critical, resolution_status, created_at
+        `select id, audit_run_id, data_key, values, selected_value, critical, resolution_status,
+                resolution_reason, created_at
            from source_conflicts order by created_at desc limit $1`,
         [limit],
       ),
@@ -331,7 +340,7 @@ router.get("/api/tennis-matrix-audit/sources", requireAdmin, async (req, res) =>
   }
 });
 
-router.post("/api/tennis-matrix-audit/sources/conflict/:id", requireAdmin, async (req, res) => {
+router.post("/tennis-matrix-audit/sources/conflict/:id", requireAdmin, async (req, res) => {
   try {
     const resolution = String((req.body ?? {})["resolution"] ?? "");
     // A conflict is resolved by a person choosing, or declared unresolvable. There is no
@@ -358,7 +367,7 @@ router.post("/api/tennis-matrix-audit/sources/conflict/:id", requireAdmin, async
 // Slate health at a glance: how much of the slate has been audited, how the completed
 // audits distributed across the colours, and which calibration record is in force. Scoped
 // to the active slate and current runs, like every other operational view.
-router.get("/api/tennis-matrix-audit/dashboard", requireAdmin, async (_req, res) => {
+router.get("/tennis-matrix-audit/dashboard", requireAdmin, async (_req, res) => {
   try {
     const [matches, runs, decisions, versions, uploads, calibration] = await Promise.all([
       pool.query(`select id, identity_status, surface_status, result_status from matches`),
@@ -420,7 +429,7 @@ router.get("/api/tennis-matrix-audit/dashboard", requireAdmin, async (_req, res)
 // Every run this match has had, current and superseded. Invalidated runs are real history
 // and are never deleted -- a past verdict was genuinely reached under the rules of the day,
 // and hiding it would make the record look cleaner than it was.
-router.get("/api/tennis-matrix-audit/match/:matchId/runs", requireAdmin, async (req, res) => {
+router.get("/tennis-matrix-audit/match/:matchId/runs", requireAdmin, async (req, res) => {
   try {
     const matchId = String(req.params["matchId"]);
     const runs = await pool.query(
@@ -465,7 +474,7 @@ router.get("/api/tennis-matrix-audit/match/:matchId/runs", requireAdmin, async (
 // What the Audit needs before it can produce a selection rather than a refusal. This
 // exists because all three failure modes look identical from the slate -- every match
 // refuses with INSUFFICIENT EVIDENCE -- and the reason is never the match.
-router.get("/api/tennis-matrix-audit/readiness", requireAdmin, async (_req, res) => {
+router.get("/tennis-matrix-audit/readiness", requireAdmin, async (_req, res) => {
   try {
     const [documents, index, sources] = await Promise.all([
       pool.query(
@@ -522,7 +531,7 @@ router.get("/api/tennis-matrix-audit/readiness", requireAdmin, async (_req, res)
 // Seeds the rule documents, source registry and calibration baseline the Audit cannot run
 // without. Idempotent: every step is skipped when its table already has rows, so this never
 // rolls a calibration that has since been graded back to the baseline.
-router.post("/api/tennis-matrix-audit/bootstrap", requireAdmin, async (_req, res) => {
+router.post("/tennis-matrix-audit/bootstrap", requireAdmin, async (_req, res) => {
   try {
     res.json(await bootstrapAuditDefinitions());
   } catch (error) {
@@ -533,7 +542,7 @@ router.post("/api/tennis-matrix-audit/bootstrap", requireAdmin, async (_req, res
 // --- RULE KNOWLEDGE BASE -----------------------------------------------------------
 // Every run clones the ACTIVE rule set, so past runs stay reproducible against the rules
 // they actually ran under.
-router.get("/api/tennis-matrix-audit/rules", requireAdmin, async (_req, res) => {
+router.get("/tennis-matrix-audit/rules", requireAdmin, async (_req, res) => {
   try {
     const [documents, versions, rules] = await Promise.all([
       pool.query(`select * from rule_documents order by doc_type`),
@@ -550,7 +559,7 @@ router.get("/api/tennis-matrix-audit/rules", requireAdmin, async (_req, res) => 
 // Scoped to current runs by default. Cleared matches and invalidated runs are real history
 // and are never deleted, but they must not read as current operational output -- so the
 // full view is opt-in rather than the default.
-router.get("/api/tennis-matrix-audit/logs", requireAdmin, async (req, res) => {
+router.get("/tennis-matrix-audit/logs", requireAdmin, async (req, res) => {
   try {
     const limit = Math.min(500, Math.max(1, Number(req.query["limit"] ?? 200)));
     const scope = req.query["scope"] === "all" ? "all" : "active";
@@ -577,7 +586,7 @@ router.get("/api/tennis-matrix-audit/logs", requireAdmin, async (req, res) => {
 // --- THE ACTIVE METRIC REGISTRY ----------------------------------------------------
 // The authoritative 25 and their comparison contract, read straight from the engine so
 // this can never drift from what actually grades a match.
-router.get("/api/tennis-matrix-audit/metrics", requireAdmin, async (_req, res) => {
+router.get("/tennis-matrix-audit/metrics", requireAdmin, async (_req, res) => {
   try {
     const { COMPARISON_SPECS, ACTIVE_METRIC_CODES } = await import("@workspace/truth-engine");
     res.json({
@@ -599,7 +608,7 @@ router.get("/api/tennis-matrix-audit/metrics", requireAdmin, async (_req, res) =
 // --- CLEAR SLATE -------------------------------------------------------------------
 // Physical deletion, verified inside the same transaction. Requires an explicit
 // confirmation phrase in the body: this destroys every operational audit row.
-router.post("/api/tennis-matrix-audit/clear-slate", requireAdmin, async (req, res) => {
+router.post("/tennis-matrix-audit/clear-slate", requireAdmin, async (req, res) => {
   try {
     if (req.body?.confirm !== "CLEAR SLATE") {
       res.status(400).json({ error: "Clear slate confirmation is required" });

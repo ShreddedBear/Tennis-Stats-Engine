@@ -21,6 +21,7 @@ import {
   activeMetricReadiness, STAGES,
 } from "@workspace/truth-engine";
 import { makeDeps } from "../services/tennisMatrixAudit/auditRepo";
+import { commitMatchups, extractMatchups, type ExtractedPdf } from "../services/tennisMatrixAudit/ingest";
 
 const router: IRouter = Router();
 
@@ -190,6 +191,46 @@ router.post("/api/tennis-matrix-audit/match/:matchId/prepare", requireAdmin, asy
     res.json({ ok: true, run });
   } catch (error) {
     fail(res, error, "prepare");
+  }
+});
+
+// --- INGESTION ---------------------------------------------------------------------
+// Two steps on purpose: extract shows what was detected and writes nothing; commit
+// persists what the user actually reviewed. Match identity (canonical key + reuse search)
+// is resolved server-side in commit, so the same real match uploaded twice cannot end up
+// as two rows.
+router.post("/api/tennis-matrix-audit/ingest/extract", requireAdmin, async (req, res) => {
+  try {
+    const files = Array.isArray(req.body?.files) ? req.body.files : [];
+    if (!files.length) {
+      res.status(400).json({ error: "No files supplied" });
+      return;
+    }
+    const extracted: ExtractedPdf[] = [];
+    const failures: Array<{ filename: string; message: string }> = [];
+    for (const file of files as Array<{ filename?: string; base64?: string }>) {
+      try {
+        extracted.push(await extractMatchups(String(file.filename ?? "upload.pdf"), String(file.base64 ?? "")));
+      } catch (error) {
+        failures.push({ filename: String(file.filename ?? "upload.pdf"), message: error instanceof Error ? error.message : String(error) });
+      }
+    }
+    res.json({ files: extracted, failures });
+  } catch (error) {
+    fail(res, error, "ingest/extract");
+  }
+});
+
+router.post("/api/tennis-matrix-audit/ingest/commit", requireAdmin, async (req, res) => {
+  try {
+    const files = Array.isArray(req.body?.files) ? (req.body.files as ExtractedPdf[]) : [];
+    if (!files.length) {
+      res.status(400).json({ error: "No reviewed files supplied" });
+      return;
+    }
+    res.json(await commitMatchups(files));
+  } catch (error) {
+    fail(res, error, "ingest/commit");
   }
 });
 

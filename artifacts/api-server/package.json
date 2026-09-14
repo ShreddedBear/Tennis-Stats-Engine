@@ -48,7 +48,8 @@
     "pino-http": "^10.5.0",
     "xlsx": "^0.18.5",
     "zod": "catalog:",
-    "@workspace/truth-engine": "workspace:*"
+    "@workspace/truth-engine": "workspace:*",
+    "pdfjs-dist": "^4.10.38"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",

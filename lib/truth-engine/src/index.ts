@@ -122,5 +122,12 @@ export { reconstruct } from "./reconstruction/engine";
 export type { SourcedStat, StatSource, StatOrigin } from "./reconstruction/engine";
 export { STAT_CATALOG, STAT_BY_KEY, familyOf } from "./reconstruction/stat-catalog";
 
+// --- Summary ingestion: PDF text -> matchups, and the canonical match key ----
+// Pure parsing. The canonical key is what makes "the same real match" resolve to the same
+// match row across uploads, and what keeps two genuinely different matches apart.
+export { parseSummaryText, canonicalKey, normalizeName } from "./summary-parser";
+export type { ParsedMatchup, ParsedField, ExtractionStatus } from "./summary-parser";
+export { parseRuleDocument } from "./rule-parser";
+
 // --- Definition documents ----------------------------------------------------
 export { UNDERDOG_PATHWAYS, STRESS_TESTS, LOCAL_WORKSPACE_ID } from "./constants";

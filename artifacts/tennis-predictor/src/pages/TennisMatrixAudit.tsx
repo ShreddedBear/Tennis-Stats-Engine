@@ -8,19 +8,22 @@
  * conflating either with a win probability is the specific misreading this engine exists
  * to avoid.
  */
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
-  Activity, AlertTriangle, ChevronLeft, Layers, Loader2, RefreshCw, ShieldCheck,
+  Activity, AlertTriangle, CheckCircle2, ChevronLeft, FileText, Layers, Loader2,
+  RefreshCw, ShieldCheck, Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  clearAuditSlate, colorClasses, getActiveMetrics, getAuditMatch, getAuditSlate,
-  runAuditSlice, type AuditRow, type MatchDetail, type SlateEntry,
+  clearAuditSlate, colorClasses, commitSummaries, extractSummaries, fileToBase64,
+  getActiveMetrics, getAuditMatch, getAuditSlate, runAuditSlice,
+  type AuditRow, type ExtractedPdf, type MatchDetail, type SlateEntry,
 } from "@/lib/tennisMatrixAuditApi";
 
 const text = (value: unknown): string => {
@@ -344,6 +347,217 @@ function SlateView({ onOpen }: { onOpen: (matchId: string) => void }) {
   );
 }
 
+/**
+ * Summary ingestion. Deliberately two steps with a review in between: extraction reads the
+ * PDFs and reports what it found without writing anything, and only the matchups the
+ * operator confirms are committed. A misparsed name or a missing tournament is what decides
+ * whether an upload lands on the right match row, so it has to be visible before it counts.
+ */
+function UploadView() {
+  const queryClient = useQueryClient();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [extracted, setExtracted] = useState<ExtractedPdf[] | null>(null);
+  const [readFailures, setReadFailures] = useState<Array<{ filename: string; message: string }>>([]);
+  // Keyed by "<file index>:<matchup index>" -- the identity of a parse before it has a match row.
+  const [skipped, setSkipped] = useState<Set<string>>(new Set());
+  const [error, setError] = useState<string | null>(null);
+
+  const detected = useMemo(
+    () => (extracted ?? []).reduce((total, file) => total + file.matchups.length, 0),
+    [extracted],
+  );
+  const selectedCount = detected - skipped.size;
+
+  const extract = useMutation({
+    mutationFn: async (files: File[]) => {
+      setError(null);
+      const payload = await Promise.all(
+        files.map(async (file) => ({ filename: file.name, base64: await fileToBase64(file) })),
+      );
+      return extractSummaries(payload);
+    },
+    onSuccess: (result) => {
+      setExtracted(result.files);
+      setReadFailures(result.failures);
+      setSkipped(new Set());
+    },
+    onError: (cause: Error) => setError(cause.message),
+  });
+
+  const commit = useMutation({
+    mutationFn: async () => {
+      setError(null);
+      // Only the confirmed matchups are sent; an unchecked parse is never persisted.
+      const files = (extracted ?? [])
+        .map((file, fileIndex) => ({
+          ...file,
+          matchups: file.matchups.filter((_, index) => !skipped.has(`${fileIndex}:${index}`)),
+        }))
+        .filter((file) => file.matchups.length > 0);
+      return commitSummaries(files);
+    },
+    onSuccess: async () => {
+      setExtracted(null);
+      setSkipped(new Set());
+      if (inputRef.current) inputRef.current.value = "";
+      await queryClient.invalidateQueries({ queryKey: ["tennis-matrix-audit"] });
+    },
+    onError: (cause: Error) => setError(cause.message),
+  });
+
+  const toggle = (key: string) =>
+    setSkipped((current) => {
+      const next = new Set(current);
+      if (next.has(key)) next.delete(key); else next.add(key);
+      return next;
+    });
+
+  return (
+    <div className="space-y-4">
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-base">Upload match summaries</CardTitle>
+          <p className="text-xs text-muted-foreground">
+            PDF summaries are parsed into matchups. Nothing is written until you commit, and a
+            re-upload of the same match updates that match rather than creating a duplicate.
+          </p>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          <div className="flex flex-wrap items-center gap-2">
+            <input
+              ref={inputRef}
+              type="file"
+              accept="application/pdf,.pdf"
+              multiple
+              className="hidden"
+              onChange={(event) => {
+                const files = Array.from(event.target.files ?? []);
+                if (files.length) extract.mutate(files);
+              }}
+            />
+            <Button
+              size="sm"
+              className="gap-2"
+              onClick={() => inputRef.current?.click()}
+              disabled={extract.isPending || commit.isPending}
+            >
+              {extract.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4" />}
+              {extract.isPending ? "Reading PDFs…" : "Choose PDFs"}
+            </Button>
+            {extracted && (
+              <span className="text-xs text-muted-foreground">
+                {selectedCount} of {detected} detected matchup{detected === 1 ? "" : "s"} selected
+              </span>
+            )}
+          </div>
+
+          {error && (
+            <div className="flex items-start gap-2 rounded-md border border-red-500/30 bg-red-500/10 p-3 text-xs text-red-300">
+              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" /> <span>{error}</span>
+            </div>
+          )}
+
+          {readFailures.map((failure) => (
+            <div key={failure.filename} className="flex items-start gap-2 rounded-md border border-amber-500/30 bg-amber-500/10 p-3 text-xs text-amber-200">
+              <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
+              <span><span className="font-medium">{failure.filename}</span> could not be read: {failure.message}</span>
+            </div>
+          ))}
+
+          {commit.data && (
+            <div className="space-y-2 rounded-md border border-emerald-500/30 bg-emerald-500/10 p-3 text-xs text-emerald-200">
+              <p className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 shrink-0" />
+                {commit.data.created} new match{commit.data.created === 1 ? "" : "es"}, {commit.data.reused} updated,
+                {" "}{commit.data.versions} summary version{commit.data.versions === 1 ? "" : "s"} recorded.
+              </p>
+              {commit.data.errors.length > 0 && (
+                <ul className="list-inside list-disc space-y-0.5 text-amber-200">
+                  {commit.data.errors.map((failure) => (
+                    <li key={failure.match}>{failure.match}: {failure.message}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {extracted?.map((file, fileIndex) => (
+        <Card key={`${file.filename}-${fileIndex}`}>
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2 text-sm">
+              <FileText className="h-4 w-4 shrink-0 text-muted-foreground" />
+              <span className="truncate">{file.filename}</span>
+            </CardTitle>
+            <p className="text-xs text-muted-foreground">
+              {file.pages.length} page{file.pages.length === 1 ? "" : "s"} · {file.matchups.length} matchup
+              {file.matchups.length === 1 ? "" : "s"} detected
+            </p>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {!file.matchups.length ? (
+              <p className="text-xs text-muted-foreground">
+                No matchups were recognised in this file. Nothing from it will be committed.
+              </p>
+            ) : (
+              file.matchups.map((matchup, index) => {
+                const key = `${fileIndex}:${index}`;
+                const include = !skipped.has(key);
+                const field = (name: string) =>
+                  matchup.fields.find((f) => f.field_key === name)?.normalized_value ?? null;
+                const context = [field("tournament"), field("round"), field("surface"), field("scheduled_date")]
+                  .filter(Boolean).join(" · ");
+                return (
+                  <div
+                    key={key}
+                    className={`rounded-md border px-3 py-2 ${include ? "border-border" : "border-dashed border-border opacity-50"}`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <Checkbox
+                        checked={include}
+                        onCheckedChange={() => toggle(key)}
+                        aria-label={`Include ${matchup.player1_name} vs ${matchup.player2_name}`}
+                        className="mt-0.5"
+                      />
+                      <div className="min-w-0 flex-1 space-y-1">
+                        <p className="text-sm">
+                          {matchup.player1_name} <span className="text-muted-foreground">vs</span> {matchup.player2_name}
+                        </p>
+                        <p className="text-xs text-muted-foreground">{context || "No context resolved"}</p>
+                        <p className="text-[11px] text-muted-foreground">
+                          page {matchup.page_number} · {matchup.fields.length} field
+                          {matchup.fields.length === 1 ? "" : "s"} parsed
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })
+            )}
+          </CardContent>
+        </Card>
+      ))}
+
+      {extracted && detected > 0 && (
+        <div className="flex flex-wrap items-center gap-2">
+          <Button size="sm" onClick={() => commit.mutate()} disabled={commit.isPending || selectedCount === 0} className="gap-2">
+            {commit.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCircle2 className="h-4 w-4" />}
+            {commit.isPending ? "Committing…" : `Commit ${selectedCount} matchup${selectedCount === 1 ? "" : "s"}`}
+          </Button>
+          <Button
+            variant="ghost" size="sm"
+            onClick={() => { setExtracted(null); setSkipped(new Set()); setReadFailures([]); if (inputRef.current) inputRef.current.value = ""; }}
+            disabled={commit.isPending}
+          >
+            Discard
+          </Button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function TennisMatrixAudit() {
   const [openMatchId, setOpenMatchId] = useState<string | null>(null);
 
@@ -362,9 +576,22 @@ export default function TennisMatrixAudit() {
         </p>
       </header>
 
-      {openMatchId
-        ? <MatchWorkspace matchId={openMatchId} onBack={() => setOpenMatchId(null)} />
-        : <SlateView onOpen={setOpenMatchId} />}
+      {openMatchId ? (
+        <MatchWorkspace matchId={openMatchId} onBack={() => setOpenMatchId(null)} />
+      ) : (
+        <Tabs defaultValue="slate">
+          <TabsList className="flex-wrap">
+            <TabsTrigger value="slate">Slate</TabsTrigger>
+            <TabsTrigger value="upload">Upload summaries</TabsTrigger>
+          </TabsList>
+          <TabsContent value="slate" className="mt-4">
+            <SlateView onOpen={setOpenMatchId} />
+          </TabsContent>
+          <TabsContent value="upload" className="mt-4">
+            <UploadView />
+          </TabsContent>
+        </Tabs>
+      )}
 
       <footer className="flex items-center gap-2 pt-2 text-[11px] text-muted-foreground">
         <Activity className="h-3.5 w-3.5" />

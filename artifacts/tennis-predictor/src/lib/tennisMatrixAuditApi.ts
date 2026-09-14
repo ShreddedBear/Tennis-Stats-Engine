@@ -121,6 +121,45 @@ export const clearAuditSlate = () =>
     body: JSON.stringify({ confirm: "CLEAR SLATE" }),
   });
 
+// --- INGESTION ---------------------------------------------------------------------
+export interface ParsedField {
+  field_key: string; raw_value: string | null; normalized_value: string | null;
+  extraction_status: string; confidence: number; page_number: number;
+}
+export interface ParsedMatchup {
+  player1_name: string; player2_name: string; page_number: number;
+  fields: ParsedField[]; confidence: number;
+}
+export interface ExtractedPdf { filename: string; pages: string[]; matchups: ParsedMatchup[] }
+
+/** Reads the PDFs and reports what was detected. Writes nothing. */
+export const extractSummaries = (files: Array<{ filename: string; base64: string }>) =>
+  request<{ files: ExtractedPdf[]; failures: Array<{ filename: string; message: string }> }>(
+    "/api/tennis-matrix-audit/ingest/extract",
+    { method: "POST", body: JSON.stringify({ files }) },
+  );
+
+/** Persists the reviewed matchups. Match identity is resolved server-side. */
+export const commitSummaries = (files: ExtractedPdf[]) =>
+  request<{ created: number; reused: number; versions: number; matchIds: string[]; errors: Array<{ match: string; message: string }> }>(
+    "/api/tennis-matrix-audit/ingest/commit",
+    { method: "POST", body: JSON.stringify({ files }) },
+  );
+
+/** Reads a File as base64 without File.arrayBuffer(), which some WebKit uploads lack. */
+export function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onerror = () => reject(reader.error ?? new Error("Could not read the selected file"));
+    reader.onload = () => {
+      const result = String(reader.result ?? "");
+      const comma = result.indexOf(",");
+      resolve(comma >= 0 ? result.slice(comma + 1) : result);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
 /** Tailwind classes for an audit colour. Presentation only -- never used to derive a winner. */
 export function colorClasses(color: AuditColor | string | null | undefined): string {
   switch (color) {

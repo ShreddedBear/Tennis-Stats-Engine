@@ -37,6 +37,7 @@ const SupportTicketPage = lazy(() => import('@/pages/SupportTicketPage'));
 const AdminSupportCenter = lazy(() => import('@/pages/AdminSupportCenter'));
 const AdminUsersPage = lazy(() => import('@/pages/AdminUsers'));
 const AdminParlayBuilder = lazy(() => import('@/pages/AdminParlayBuilder'));
+const TennisMatrixAudit = lazy(() => import('@/pages/TennisMatrixAudit'));
 
 const queryClient = new QueryClient();
 
@@ -274,6 +275,9 @@ function Router() {
               </Route>
               <Route path="/admin/parlay-builder">
                 {() => <AdminRoute component={AdminParlayBuilder} />}
+              </Route>
+              <Route path="/admin/tennis-matrix-audit">
+                {() => <AdminRoute component={TennisMatrixAudit} />}
               </Route>
               <Route path="/support/tickets/:id">
                 {() => <ProtectedRoute component={SupportTicketPage} />}

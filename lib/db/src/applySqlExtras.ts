@@ -26,6 +26,10 @@ async function main() {
   const regularFiles = [
     "sql/immutability-trigger.sql",
     "sql/predictions-forward-compat.sql",
+    // Tennis Matrix Audit: run leasing, the evidence-warehouse upsert, Clear Slate, and
+    // the indexes the pipeline depends on. Plain plpgsql and plain indexes -- nothing
+    // platform-specific, and it names no table belonging to the prediction engine.
+    "sql/tennis-matrix-audit.sql",
   ];
 
   // Files whose statements must run one-by-one outside any transaction block.

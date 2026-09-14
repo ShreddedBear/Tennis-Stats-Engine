@@ -28,3 +28,5 @@ export * from "./support";
 export * from "./adminUsers";
 export * from "./savedCards";
 export * from "./canonicalIdentity";
+// Tennis Matrix Audit (the Truth Engine's own tables — additive, shared with nothing above)
+export * from "./tennisMatrixAudit";

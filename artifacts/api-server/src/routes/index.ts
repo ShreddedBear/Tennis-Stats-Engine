@@ -17,6 +17,7 @@ import recommendationCalibrationRouter from "./recommendationCalibration";
 import supportRouter from "./support";
 import adminUsersRouter from "./adminUsers";
 import adminParlayRouter from "./adminParlay";
+import tennisMatrixAuditRouter from "./tennisMatrixAudit";
 import savedCardsRouter from "./savedCards";
 
 const router: IRouter = Router();
@@ -39,6 +40,8 @@ router.use(recommendationCalibrationRouter);
 router.use(supportRouter);
 router.use(adminUsersRouter);
 router.use(adminParlayRouter);
+// Tennis Matrix Audit — a separate engine sharing this shell; see routes/tennisMatrixAudit.ts
+router.use(tennisMatrixAuditRouter);
 router.use(savedCardsRouter);
 
 export default router;

@@ -23,6 +23,7 @@ const NAV_LINKS = [
 const ADMIN_NAV_LINKS = [
   { href: "/admin/users", label: "Users & Subs", icon: Users, exact: false },
   { href: "/admin/parlay-builder", label: "Parlay Builder", icon: Layers, exact: false },
+  { href: "/admin/tennis-matrix-audit", label: "Tennis Matrix Audit", icon: ShieldCheck, exact: false },
   { href: "/evaluation/dashboard", label: "Accuracy Dashboard", icon: LineChart, exact: false },
   { href: "/evaluation/log", label: "Prediction Log", icon: ClipboardList, exact: false },
   { href: "/backtesting", label: "Backtesting", icon: FlaskConical, exact: false },
@@ -47,6 +48,7 @@ const MOBILE_MORE_SUBSCRIBER = [
 const MOBILE_MORE_ADMIN = [
   { href: "/admin/users", label: "Users & Subs", icon: Users, exact: false },
   { href: "/admin/parlay-builder", label: "Parlay Builder", icon: Layers, exact: false },
+  { href: "/admin/tennis-matrix-audit", label: "Tennis Matrix Audit", icon: ShieldCheck, exact: false },
   { href: "/evaluation/dashboard", label: "Accuracy", icon: LineChart, exact: false },
   { href: "/evaluation/log", label: "Prediction Log", icon: ClipboardList, exact: false },
   { href: "/backtesting", label: "Backtesting", icon: FlaskConical, exact: false },

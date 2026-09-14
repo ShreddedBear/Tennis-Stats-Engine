@@ -13,9 +13,10 @@
 // That is what canonicalKey (from the engine package) and the reuse search below exist for;
 // getting it wrong in either direction is a data-integrity failure, not a UX annoyance.
 // ----------------------------------------------------------------------------
-import { canonicalKey, normalizeName, parseSummaryText, type ParsedMatchup } from "@workspace/truth-engine";
+import { canonicalKey, parseSummaryText, type ParsedMatchup } from "@workspace/truth-engine";
 import { LOCAL_WORKSPACE_ID } from "@workspace/truth-engine";
 import { pool } from "@workspace/db";
+import { compatible, dedupeMatchups, fieldValue, nameTokens, samePair } from "./ingest-identity.js";
 
 export interface ExtractedPdf {
   filename: string;
@@ -62,39 +63,6 @@ export async function extractMatchups(filename: string, base64: string): Promise
     const message = error instanceof Error ? error.message : String(error);
     throw new Error(`PDF text extraction failed for ${filename || "uploaded PDF"}: ${message}`);
   }
-}
-
-const fieldValue = (matchup: ParsedMatchup, key: string) =>
-  matchup.fields.find((field) => field.field_key === key)?.normalized_value ?? "";
-
-const nameTokens = (name: string) => normalizeName(name).split(" ").filter(Boolean);
-
-/** Two parses describe the same pair if their normalised names agree in either order. */
-function samePair(a1: string, a2: string, b1: string, b2: string): boolean {
-  const [x, y] = [normalizeName(a1), normalizeName(a2)].sort();
-  const [p, q] = [normalizeName(b1), normalizeName(b2)].sort();
-  return x === p && y === q;
-}
-
-/** Absent context never contradicts present context; two present values must agree. */
-const compatible = (a: string | null | undefined, b: string | null | undefined) =>
-  !a || !b || String(a).toLowerCase().trim() === String(b).toLowerCase().trim();
-
-export function dedupeMatchups(matchups: ParsedMatchup[]): ParsedMatchup[] {
-  const byKey = new Map<string, ParsedMatchup>();
-  for (const matchup of matchups) {
-    const key = canonicalKey({
-      tournament: fieldValue(matchup, "tournament") || null,
-      round: fieldValue(matchup, "round") || null,
-      date: fieldValue(matchup, "scheduled_date") || null,
-      p1: matchup.player1_name,
-      p2: matchup.player2_name,
-    });
-    const existing = byKey.get(key);
-    // Keep the richer parse: more fields means more context survived extraction.
-    if (!existing || matchup.fields.length > existing.fields.length) byKey.set(key, matchup);
-  }
-  return [...byKey.values()];
 }
 
 /**

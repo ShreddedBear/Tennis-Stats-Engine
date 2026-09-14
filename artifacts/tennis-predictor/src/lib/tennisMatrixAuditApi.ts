@@ -132,6 +132,13 @@ export interface ParsedMatchup {
 }
 export interface ExtractedPdf { filename: string; pages: string[]; matchups: ParsedMatchup[] }
 
+/**
+ * The context fields shown for review before a parse is committed. Mirrors the server's
+ * REVIEW_FIELDS: these are the fields that decide which match row a parse resolves to, so
+ * they are the ones a person has to be able to see and correct.
+ */
+export const REVIEW_FIELDS = ["tournament", "event_level", "round", "scheduled_date", "surface", "best_of"];
+
 /** Reads the PDFs and reports what was detected. Writes nothing. */
 export const extractSummaries = (files: Array<{ filename: string; base64: string }>) =>
   request<{ files: ExtractedPdf[]; failures: Array<{ filename: string; message: string }> }>(

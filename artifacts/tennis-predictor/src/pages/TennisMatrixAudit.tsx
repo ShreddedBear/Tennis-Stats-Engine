@@ -18,12 +18,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   clearAuditSlate, colorClasses, commitSummaries, extractSummaries, fileToBase64,
   getActiveMetrics, getAuditMatch, getAuditSlate, runAuditSlice,
-  type AuditRow, type ExtractedPdf, type MatchDetail, type SlateEntry,
+  REVIEW_FIELDS,
+  type AuditRow, type ExtractedPdf, type MatchDetail, type ParsedField, type ParsedMatchup,
+  type SlateEntry,
 } from "@/lib/tennisMatrixAuditApi";
 
 const text = (value: unknown): string => {
@@ -405,6 +408,42 @@ function UploadView() {
     onError: (cause: Error) => setError(cause.message),
   });
 
+  /** Apply an edit to one staged matchup, leaving every other parse untouched. */
+  const editMatchup = (
+    fileIndex: number,
+    matchupIndex: number,
+    change: (matchup: ParsedMatchup) => ParsedMatchup,
+  ) =>
+    setExtracted((current) =>
+      (current ?? []).map((file, fi) =>
+        fi !== fileIndex
+          ? file
+          : { ...file, matchups: file.matchups.map((m, mi) => (mi === matchupIndex ? change(m) : m)) },
+      ),
+    );
+
+  const editName = (fileIndex: number, matchupIndex: number, side: "player1_name" | "player2_name", value: string) =>
+    editMatchup(fileIndex, matchupIndex, (matchup) => ({ ...matchup, [side]: value }));
+
+  const editField = (fileIndex: number, matchupIndex: number, fieldKey: string, value: string) =>
+    editMatchup(fileIndex, matchupIndex, (matchup) => {
+      const existing = matchup.fields.find((field) => field.field_key === fieldKey);
+      // A corrected value is recorded as DIRECT: it came from a person reading the source,
+      // which is a stronger provenance than anything the parser can claim for itself.
+      const edited: ParsedField = existing
+        ? { ...existing, normalized_value: value, extraction_status: "DIRECT" }
+        : {
+            field_key: fieldKey, raw_value: null, normalized_value: value,
+            extraction_status: "DIRECT", confidence: 1, page_number: matchup.page_number,
+          };
+      return {
+        ...matchup,
+        fields: existing
+          ? matchup.fields.map((field) => (field.field_key === fieldKey ? edited : field))
+          : [...matchup.fields, edited],
+      };
+    });
+
   const toggle = (key: string) =>
     setSkipped((current) => {
       const next = new Set(current);
@@ -504,10 +543,6 @@ function UploadView() {
               file.matchups.map((matchup, index) => {
                 const key = `${fileIndex}:${index}`;
                 const include = !skipped.has(key);
-                const field = (name: string) =>
-                  matchup.fields.find((f) => f.field_key === name)?.normalized_value ?? null;
-                const context = [field("tournament"), field("round"), field("surface"), field("scheduled_date")]
-                  .filter(Boolean).join(" · ");
                 return (
                   <div
                     key={key}
@@ -520,15 +555,43 @@ function UploadView() {
                         aria-label={`Include ${matchup.player1_name} vs ${matchup.player2_name}`}
                         className="mt-0.5"
                       />
-                      <div className="min-w-0 flex-1 space-y-1">
-                        <p className="text-sm">
-                          {matchup.player1_name} <span className="text-muted-foreground">vs</span> {matchup.player2_name}
-                        </p>
-                        <p className="text-xs text-muted-foreground">{context || "No context resolved"}</p>
+                      <div className="min-w-0 flex-1 space-y-2">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <Input
+                            className="h-8 w-full font-medium sm:w-44"
+                            value={matchup.player1_name}
+                            aria-label="Player 1 name"
+                            onChange={(event) => editName(fileIndex, index, "player1_name", event.target.value)}
+                          />
+                          <span className="text-xs text-muted-foreground">vs</span>
+                          <Input
+                            className="h-8 w-full font-medium sm:w-44"
+                            value={matchup.player2_name}
+                            aria-label="Player 2 name"
+                            onChange={(event) => editName(fileIndex, index, "player2_name", event.target.value)}
+                          />
+                        </div>
+                        {/* Names come straight out of the PDF and nothing downstream re-derives
+                            them. They are also what resolves this parse to a match row, so an
+                            OCR slip or a truncated spelling is corrected here, before commit. */}
                         <p className="text-[11px] text-muted-foreground">
-                          page {matchup.page_number} · {matchup.fields.length} field
-                          {matchup.fields.length === 1 ? "" : "s"} parsed
+                          Page {matchup.page_number} · {matchup.fields.length} field
+                          {matchup.fields.length === 1 ? "" : "s"} parsed. Names and context come from the
+                          PDF — correct anything wrong here; nothing downstream re-derives them.
                         </p>
+                        <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                          {REVIEW_FIELDS.map((name) => (
+                            <label key={name} className="text-[11px]">
+                              <span className="text-muted-foreground">{name.replace(/_/g, " ")}</span>
+                              <Input
+                                className="mt-0.5 h-8"
+                                placeholder="UNAVAILABLE"
+                                value={matchup.fields.find((f) => f.field_key === name)?.normalized_value ?? ""}
+                                onChange={(event) => editField(fileIndex, index, name, event.target.value)}
+                              />
+                            </label>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>

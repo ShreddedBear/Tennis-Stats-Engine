@@ -25,8 +25,8 @@ import {
   BoardView, CalibrationView, LogsView, RulesView, SourcesView,
 } from "@/components/TennisMatrixAuditViews";
 import {
-  clearAuditSlate, colorClasses, commitSummaries, extractSummaries, fileToBase64,
-  getActiveMetrics, getAuditMatch, getAuditSlate, runAuditSlice,
+  bootstrapAuditDefinitions, clearAuditSlate, colorClasses, commitSummaries, extractSummaries,
+  fileToBase64, getActiveMetrics, getAuditMatch, getAuditReadiness, getAuditSlate, runAuditSlice,
   REVIEW_FIELDS,
   type AuditRow, type ExtractedPdf, type MatchDetail, type ParsedField, type ParsedMatchup,
   type SlateEntry,
@@ -248,6 +248,62 @@ function MatchWorkspace({ matchId, onBack }: { matchId: string; onBack: () => vo
   );
 }
 
+/**
+ * What the Audit still needs before it can select rather than refuse.
+ *
+ * Shown above the slate because all of these fail the same way from a user's seat — every
+ * match comes back INSUFFICIENT EVIDENCE — and the reason is never the match. Silent when
+ * everything is ready.
+ */
+function ReadinessNotice() {
+  const queryClient = useQueryClient();
+  const { data } = useQuery({ queryKey: ["tennis-matrix-audit", "readiness"], queryFn: getAuditReadiness });
+
+  const bootstrap = useMutation({
+    mutationFn: bootstrapAuditDefinitions,
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tennis-matrix-audit"] }),
+  });
+
+  if (!data) return null;
+  const gaps: Array<{ key: string; message: string }> = [];
+  if (!data.definitions.ready) {
+    gaps.push({
+      key: "definitions",
+      message: `The rule definitions are not loaded (${data.definitions.missing.join(", ")}). Until they are, every audit stops at Definition Instantiation.`,
+    });
+  }
+  if (!data.runtimeIndex.ready) {
+    gaps.push({
+      key: "index",
+      message: "The local tennis index is empty, so the producers that read it have no data. Load it with the audit:load-index script.",
+    });
+  }
+  if (!data.researchProvider.ready) {
+    gaps.push({
+      key: "provider",
+      message: `No research provider key is configured (${data.researchProvider.variable}). The live evidence tier will fail for every metric, and every match will refuse for lack of evidence rather than on its merits.`,
+    });
+  }
+  if (!gaps.length) return null;
+
+  return (
+    <div className="space-y-2 rounded-md border border-amber-500/30 bg-amber-500/10 p-3 text-xs text-amber-200">
+      <p className="flex items-center gap-2 font-medium">
+        <AlertTriangle className="h-4 w-4 shrink-0" /> The Audit is not ready to run
+      </p>
+      <ul className="list-inside list-disc space-y-1">
+        {gaps.map((gap) => <li key={gap.key}>{gap.message}</li>)}
+      </ul>
+      {!data.definitions.ready && (
+        <Button size="sm" variant="outline" onClick={() => bootstrap.mutate()} disabled={bootstrap.isPending}>
+          {bootstrap.isPending ? "Loading definitions…" : "Load rule definitions"}
+        </Button>
+      )}
+      {bootstrap.error && <p className="text-red-300">{(bootstrap.error as Error).message}</p>}
+    </div>
+  );
+}
+
 function SlateView({ onOpen }: { onOpen: (matchId: string) => void }) {
   const queryClient = useQueryClient();
   const { data, isLoading, error } = useQuery({ queryKey: ["tennis-matrix-audit", "slate"], queryFn: getAuditSlate });
@@ -278,6 +334,8 @@ function SlateView({ onOpen }: { onOpen: (matchId: string) => void }) {
 
   return (
     <div className="space-y-4">
+      <ReadinessNotice />
+
       <div className="grid gap-2 text-xs sm:grid-cols-2 lg:grid-cols-5">
         {([["Matches on slate", summary.total], ["Selection made", summary.withWinner],
            ["Insufficient evidence", summary.refused], ["Not yet run", summary.notRun],

@@ -354,6 +354,63 @@ router.post("/api/tennis-matrix-audit/sources/conflict/:id", requireAdmin, async
   }
 });
 
+// --- READINESS ---------------------------------------------------------------------
+// What the Audit needs before it can produce a selection rather than a refusal. This
+// exists because all three failure modes look identical from the slate -- every match
+// refuses with INSUFFICIENT EVIDENCE -- and the reason is never the match.
+router.get("/api/tennis-matrix-audit/readiness", requireAdmin, async (_req, res) => {
+  try {
+    const [documents, index, sources] = await Promise.all([
+      pool.query(
+        `select d.doc_type, v.activation_status, v.parsed_rules, v.expected_rules
+           from rule_documents d left join rule_document_versions v on v.id = d.active_version_id`,
+      ),
+      pool.query(`select player_count, match_count, generated_at from audit_runtime_index
+                   order by generated_at desc limit 1`),
+      pool.query(`select count(*)::int as n from source_definitions`),
+    ]);
+
+    const byType = new Map(
+      (documents.rows as Array<Record<string, unknown>>).map((row) => [String(row["doc_type"]), row]),
+    );
+    const required = ["METRICS", "VERIFICATION", "DISAGREEMENT"];
+    const missingDefinitions = required.filter((type) => byType.get(type)?.["activation_status"] !== "READY");
+
+    const indexRow = index.rows[0] as Record<string, unknown> | undefined;
+    const players = Number(indexRow?.["player_count"] ?? 0);
+
+    res.json({
+      // Without an active rule set the pipeline stops at DEFINITION INSTANTIATION.
+      definitions: {
+        ready: missingDefinitions.length === 0,
+        missing: missingDefinitions,
+        documents: required.map((type) => ({
+          docType: type,
+          status: String(byType.get(type)?.["activation_status"] ?? "NOT LOADED"),
+          parsed: Number(byType.get(type)?.["parsed_rules"] ?? 0),
+          expected: Number(byType.get(type)?.["expected_rules"] ?? 0),
+        })),
+      },
+      sources: { ready: Number((sources.rows[0] as { n: number }).n) > 0, count: Number((sources.rows[0] as { n: number }).n) },
+      // Without the local index, the ~24 producers that read it have no data to compute from.
+      runtimeIndex: {
+        ready: players > 0,
+        players,
+        matches: Number(indexRow?.["match_count"] ?? 0),
+        generatedAt: indexRow?.["generated_at"] ?? null,
+      },
+      // Without a provider key the live research tier fails for every metric, and every
+      // match refuses. Only whether a key is PRESENT is reported -- never the key.
+      researchProvider: {
+        ready: Boolean(process.env["OPENAI_API_KEY"] ?? process.env["RESEARCH_FALLBACK_API_KEY"]),
+        variable: "OPENAI_API_KEY",
+      },
+    });
+  } catch (error) {
+    fail(res, error, "readiness");
+  }
+});
+
 // --- DEFINITION BOOTSTRAP ----------------------------------------------------------
 // Seeds the rule documents, source registry and calibration baseline the Audit cannot run
 // without. Idempotent: every step is skipped when its table already has rows, so this never

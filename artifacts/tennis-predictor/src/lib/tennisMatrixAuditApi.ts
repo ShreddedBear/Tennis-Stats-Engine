@@ -173,6 +173,32 @@ export function fileToBase64(file: File): Promise<string> {
   });
 }
 
+// --- READINESS ---------------------------------------------------------------------
+/**
+ * What the Audit needs before it can produce a selection rather than a refusal. Worth a
+ * dedicated call because all three failure modes look identical from the slate — every
+ * match refuses with INSUFFICIENT EVIDENCE — and the reason is never the match.
+ */
+export interface AuditReadiness {
+  definitions: {
+    ready: boolean;
+    missing: string[];
+    documents: Array<{ docType: string; status: string; parsed: number; expected: number }>;
+  };
+  sources: { ready: boolean; count: number };
+  runtimeIndex: { ready: boolean; players: number; matches: number; generatedAt: string | null };
+  /** Reports only whether a provider key is present. Never the key itself. */
+  researchProvider: { ready: boolean; variable: string };
+}
+
+export const getAuditReadiness = () => request<AuditReadiness>("/api/tennis-matrix-audit/readiness");
+
+export const bootstrapAuditDefinitions = () =>
+  request<{
+    calibration: string; sources: string;
+    documents: Array<{ docType: string; status: string; expected: number; parsed: number; activated: boolean }>;
+  }>("/api/tennis-matrix-audit/bootstrap", { method: "POST" });
+
 // --- MASTER RANKED BOARD -----------------------------------------------------------
 export interface BoardRow {
   matchId: string; matchLabel: string; selection: string | null;

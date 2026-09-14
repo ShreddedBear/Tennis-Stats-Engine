@@ -338,7 +338,7 @@ function makeMemoryDeps(): { deps: PipelineDeps; tables: Record<string, Array<Re
 // deps instance, but it can't prove cross-run isolation because it has no
 // notion of more than one run. makeMultiRunMemoryDeps is a separate,
 // properly run-scoped mock -- every table row and stage record is keyed by
-// the SAME audit_run_id the real Supabase-backed repo scopes by -- built
+// the SAME audit_run_id the real repository scopes by -- built
 // specifically for the Clear Slate regression test below, without touching
 // (or risking) the ~15 existing tests that rely on makeMemoryDeps's shape.
 function makeMultiRunMemoryDeps(): {
@@ -1300,7 +1300,7 @@ describe("Run Audit pipeline", () => {
   }, 60_000);
 
   // Regression: a stage failure whose own FAILED-status DB write also throws (e.g. a
-  // Supabase client that is misconfigured or transiently unreachable while the pipeline
+  // database client that is misconfigured or transiently unreachable while the pipeline
   // is trying to record the error) must not escape runPipeline as an unhandled
   // rejection that loses the stage attribution. Previously this surfaced only as a
   // generic top-level "PIPELINE" failure with no indication of which stage or run was

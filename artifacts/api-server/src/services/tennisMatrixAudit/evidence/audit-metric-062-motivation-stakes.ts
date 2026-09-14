@@ -6,7 +6,7 @@
 //
 // A prior audit pass reported 062 as fully BLOCKED: "confirmed schema gap on both
 // ranking-points-defended and draw/seed/bye metadata." That conclusion was checked against
-// the live 48-table Supabase schema, which genuinely has no such columns -- but it never
+// the live audit schema, which genuinely has no such columns -- but it never
 // checked this repository's raw static-index SOURCE CSVs. `winner_seed`, `loser_seed`,
 // `draw_size`, `winner_rank_points`, and `loser_rank_points` are real columns in the
 // TennisMyLife ATP Challenger normalized CSVs (data/public/tennismylife-challenger/

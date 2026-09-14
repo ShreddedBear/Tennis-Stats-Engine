@@ -196,5 +196,3 @@ export const auditWarehouseDb = {
   },
 };
 
-/** The name the ported modules import. */
-export const supabaseAdmin = auditWarehouseDb;

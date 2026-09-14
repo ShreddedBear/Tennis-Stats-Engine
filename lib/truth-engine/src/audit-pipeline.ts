@@ -6,7 +6,7 @@
 //   -> verification -> disagreement -> dangerous underdog -> stress/removal
 //   -> independent conclusion -> matrix reveal/comparison -> calibration -> gate
 //
-// It never touches Supabase or the AI provider directly; both arrive through
+// It never touches a database or the AI provider directly; both arrive through
 // `PipelineDeps`, which is what makes the regression test possible.
 //
 // MATRIX FIREWALL: no stage before CONCLUSION receives Matrix fields. The

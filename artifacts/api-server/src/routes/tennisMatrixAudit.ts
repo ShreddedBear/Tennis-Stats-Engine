@@ -17,8 +17,8 @@ import { pool } from "@workspace/db";
 import { logger } from "../lib/logger.js";
 import {
   runPipeline, preparePipelineRun, evaluate, canonicalizeStageRows,
-  latestRunsByMatch, activeSlateMatchIds, activeRunIds, resolveActiveRun,
-  activeMetricReadiness, STAGES,
+  latestRunsByMatch, activeSlateMatchIds, activeRunIds, resolveActiveRun, currentAuditRows,
+  activeMetricReadiness, winRate, STAGES,
 } from "@workspace/truth-engine";
 import { makeDeps } from "../services/tennisMatrixAudit/auditRepo";
 import { commitMatchups, extractMatchups, type ExtractedPdf } from "../services/tennisMatrixAudit/ingest";
@@ -351,6 +351,113 @@ router.post("/api/tennis-matrix-audit/sources/conflict/:id", requireAdmin, async
     res.json({ ok: true, resolution });
   } catch (error) {
     fail(res, error, "resolve conflict");
+  }
+});
+
+// --- DASHBOARD ---------------------------------------------------------------------
+// Slate health at a glance: how much of the slate has been audited, how the completed
+// audits distributed across the colours, and which calibration record is in force. Scoped
+// to the active slate and current runs, like every other operational view.
+router.get("/api/tennis-matrix-audit/dashboard", requireAdmin, async (_req, res) => {
+  try {
+    const [matches, runs, decisions, versions, uploads, calibration] = await Promise.all([
+      pool.query(`select id, identity_status, surface_status, result_status from matches`),
+      pool.query(`select id, match_id, run_number, status, independent_decision_committed_at, heartbeat_at from audit_runs`),
+      pool.query(`select audit_run_id, final_audit_color, audit_complete from final_decisions`),
+      pool.query(`select match_id, upload_id, is_active from summary_versions`),
+      pool.query(`select count(*)::int as n from summary_uploads`),
+      pool.query(`select * from calibration_versions where is_active = true limit 1`),
+    ]);
+
+    const onSlate = activeSlateMatchIds(versions.rows as never);
+    const slateMatches = (matches.rows as Array<Record<string, unknown>>).filter((m) => onSlate.has(String(m["id"])));
+    const current = currentAuditRows(slateMatches as never, runs.rows as never, decisions.rows as never);
+
+    const completed = current.filter((entry) => (entry.decision as unknown as Record<string, unknown> | null)?.["audit_complete"]);
+    const colorCounts: Record<string, number> = {};
+    for (const entry of completed) {
+      const color = String((entry.decision as unknown as Record<string, unknown>)["final_audit_color"] ?? "UNKNOWN");
+      colorCounts[color] = (colorCounts[color] ?? 0) + 1;
+    }
+
+    const activeCalibration = (calibration.rows[0] as Record<string, unknown> | undefined) ?? null;
+    const buckets = activeCalibration
+      ? await pool.query(`select bucket_code, wins, graded from calibration_buckets
+                           where calibration_version_id = $1 order by wp_min`, [activeCalibration["id"]])
+      : { rows: [] as Array<Record<string, unknown>> };
+
+    res.json({
+      slate: {
+        matches: slateMatches.length,
+        withRun: current.filter((entry) => entry.run).length,
+        completed: completed.length,
+        // A match on the slate with no current run has simply not been audited yet -- it is
+        // not a failure, and it must not be counted as one.
+        notRun: current.filter((entry) => !entry.run).length,
+        uploads: Number((uploads.rows[0] as { n: number }).n),
+      },
+      colors: colorCounts,
+      calibration: activeCalibration
+        ? {
+            label: activeCalibration["label"],
+            masterSequence: Number(activeCalibration["master_sequence_count"]),
+            gradedSample: Number(activeCalibration["graded_sample_count"]),
+            buckets: (buckets.rows as Array<Record<string, unknown>>).map((b) => ({
+              bucket_code: String(b["bucket_code"]),
+              wins: Number(b["wins"]),
+              graded: Number(b["graded"]),
+              win_rate: winRate(Number(b["wins"]), Number(b["graded"])),
+            })),
+          }
+        : null,
+    });
+  } catch (error) {
+    fail(res, error, "dashboard");
+  }
+});
+
+// --- RUN HISTORY -------------------------------------------------------------------
+// Every run this match has had, current and superseded. Invalidated runs are real history
+// and are never deleted -- a past verdict was genuinely reached under the rules of the day,
+// and hiding it would make the record look cleaner than it was.
+router.get("/api/tennis-matrix-audit/match/:matchId/runs", requireAdmin, async (req, res) => {
+  try {
+    const matchId = String(req.params["matchId"]);
+    const runs = await pool.query(
+      `select id, run_number, status, stale_reason, independent_winner, effective_evidence_count,
+              independent_decision_committed_at, created_at, heartbeat_at
+         from audit_runs where match_id = $1 order by run_number desc`,
+      [matchId],
+    );
+    const ids = (runs.rows as Array<{ id: string }>).map((row) => row.id);
+    const decisions = ids.length
+      ? await pool.query(
+          `select audit_run_id, final_audit_color, action, audit_complete, completion_percent, gate_report
+             from final_decisions where audit_run_id = any($1::uuid[])`,
+          [ids],
+        )
+      : { rows: [] as Array<Record<string, unknown>> };
+
+    const byRun = new Map(
+      (decisions.rows as Array<Record<string, unknown>>).map((d) => [String(d["audit_run_id"]), d]),
+    );
+    const active = resolveActiveRun(runs.rows as never) as Record<string, unknown> | null;
+
+    res.json({
+      runs: (runs.rows as Array<Record<string, unknown>>).map((run) => {
+        const decision = byRun.get(String(run["id"])) ?? null;
+        return {
+          ...run,
+          isCurrent: active !== null && String(active["id"]) === String(run["id"]),
+          decision,
+          selected_player:
+            (decision?.["gate_report"] as { deterministic_decision?: { selected_player?: string | null } } | null)
+              ?.deterministic_decision?.selected_player ?? null,
+        };
+      }),
+    });
+  } catch (error) {
+    fail(res, error, "run history");
   }
 });
 

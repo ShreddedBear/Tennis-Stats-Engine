@@ -1,8 +1,8 @@
-import { supabaseAdmin } from "./postgrestCompat";
+import { auditWarehouseDb } from "./postgrestCompat";
 import type { MetricFinding } from "./audit-pipeline";
 import { metricAllowsObservation } from "./metric-source-family-policy";
 
-const db = supabaseAdmin as any;
+const db = auditWarehouseDb as any;
 const SUPPORTED = new Set(["021", "030", "060", "071"]);
 const KEYS = [
   "temperature_2m",

@@ -22,7 +22,7 @@ import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  BoardView, CalibrationView, LogsView, RulesView, SourcesView,
+  BoardView, CalibrationView, DashboardView, LogsView, RulesView, RunHistoryView, SourcesView,
 } from "@/components/TennisMatrixAuditViews";
 import {
   bootstrapAuditDefinitions, clearAuditSlate, colorClasses, commitSummaries, extractSummaries,
@@ -208,6 +208,8 @@ function MatchWorkspace({ matchId, onBack }: { matchId: string; onBack: () => vo
           <TabsTrigger value="disagreement">Disagreement</TabsTrigger>
           <TabsTrigger value="underdog">Underdog</TabsTrigger>
           <TabsTrigger value="stress">Stress</TabsTrigger>
+          <TabsTrigger value="coverage">Coverage</TabsTrigger>
+          <TabsTrigger value="history">Run history</TabsTrigger>
         </TabsList>
 
         <TabsContent value="stages" className="mt-3">
@@ -242,6 +244,54 @@ function MatchWorkspace({ matchId, onBack }: { matchId: string; onBack: () => vo
           <Card><CardContent className="pt-4">
             <RowTable rows={data.stress} columns={[["test_code", "Test"], ["status", "Status"], ["outcome", "Outcome"], ["winner_before", "Before"], ["winner_after", "After"], ["unavailable_detail", "Detail"]]} />
           </CardContent></Card>
+        </TabsContent>
+        <TabsContent value="coverage" className="mt-3">
+          <Card><CardContent className="space-y-4 pt-4">
+            {/* Per-side coverage, then the per-metric activation the denominator is built
+                from. Both are shown because "how much evidence" and "which metrics were
+                eligible to need any" are different questions. */}
+            <RowTable rows={data.coverage} columns={[
+              ["player_side", "Side"], ["direct_count", "Direct"], ["reconstructed_count", "Reconstructed"],
+              ["partial_count", "Partial"], ["unavailable_count", "Unavailable"], ["excluded_count", "Excluded"],
+              ["total_count", "Total"], ["usable_coverage_percent", "Usable %"],
+            ]} />
+            {readiness && (
+              <div>
+                <p className="mb-2 text-xs text-muted-foreground">
+                  {readiness.usable} of {readiness.expected} active metrics usable · eligible denominator{" "}
+                  {readiness.eligible} ({readiness.eligiblePercent}%). A metric excused from the denominator
+                  is one the evidence rules say could not apply to this match — not one that was skipped.
+                </p>
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[32rem] text-left text-xs">
+                    <thead className="text-muted-foreground">
+                      <tr>
+                        <th className="px-2 py-1.5 font-medium">Code</th>
+                        <th className="px-2 py-1.5 font-medium">Outcome</th>
+                        <th className="px-2 py-1.5 font-medium">P1</th>
+                        <th className="px-2 py-1.5 font-medium">P2</th>
+                        <th className="px-2 py-1.5 font-medium">In denominator</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {readiness.byCode.map((entry) => (
+                        <tr key={entry.code} className="border-t border-border">
+                          <td className="px-2 py-1.5 tabular-nums">{entry.code}</td>
+                          <td className="px-2 py-1.5">{entry.outcome}</td>
+                          <td className="px-2 py-1.5">{entry.activation.p1}</td>
+                          <td className="px-2 py-1.5">{entry.activation.p2}</td>
+                          <td className="px-2 py-1.5">{entry.activation.countsTowardDenominator ? "YES" : "no"}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+          </CardContent></Card>
+        </TabsContent>
+        <TabsContent value="history" className="mt-3">
+          <Card><CardContent className="pt-4"><RunHistoryView matchId={matchId} /></CardContent></Card>
         </TabsContent>
       </Tabs>
     </div>
@@ -703,8 +753,9 @@ export default function TennisMatrixAudit() {
       {openMatchId ? (
         <MatchWorkspace matchId={openMatchId} onBack={() => setOpenMatchId(null)} />
       ) : (
-        <Tabs defaultValue="slate">
+        <Tabs defaultValue="dashboard">
           <TabsList className="flex-wrap">
+            <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             <TabsTrigger value="slate">Slate</TabsTrigger>
             <TabsTrigger value="upload">Upload</TabsTrigger>
             <TabsTrigger value="board">Board</TabsTrigger>
@@ -713,6 +764,7 @@ export default function TennisMatrixAudit() {
             <TabsTrigger value="rules">Rules</TabsTrigger>
             <TabsTrigger value="logs">Logs</TabsTrigger>
           </TabsList>
+          <TabsContent value="dashboard" className="mt-4"><DashboardView /></TabsContent>
           <TabsContent value="slate" className="mt-4"><SlateView onOpen={setOpenMatchId} /></TabsContent>
           <TabsContent value="upload" className="mt-4"><UploadView /></TabsContent>
           <TabsContent value="board" className="mt-4"><BoardView /></TabsContent>

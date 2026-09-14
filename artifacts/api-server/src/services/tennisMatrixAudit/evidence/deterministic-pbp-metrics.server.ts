@@ -1,4 +1,4 @@
-import { supabaseAdmin } from "./postgrestCompat";
+import { auditWarehouseDb } from "./postgrestCompat";
 import type { MetricFinding, SourceRef } from "./audit-pipeline";
 import { evidenceNameMatches, safeEvidenceAliases } from "./evidence-player-alias";
 import { metricAllowsObservation } from "./metric-source-family-policy";
@@ -16,7 +16,7 @@ import { isBeforeCutoff } from "./temporal-boundary";
 // the match, so it is excluded rather than assumed prior. This tier is shared by every
 // POINT_BY_POINT metric (002/003/009/016/018/032/034/053), so the fix applies to all of
 // them at once. See truth-engine-temporal-integrity.leakage.test.ts.
-const db = supabaseAdmin as any;
+const db = auditWarehouseDb as any;
 const LEGACY_SUPPORTED = new Set(["016","024","025","033","042","043","044","060"]);
 // "034" and "053" added: both are computed by reconstructPbpScoreState (add("034",...)/
 // add("053",...)) and, once the matching bsd-*-pbp.server.ts PBP_CODES allowlist gap is

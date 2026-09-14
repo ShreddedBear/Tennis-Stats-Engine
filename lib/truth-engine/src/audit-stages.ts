@@ -107,7 +107,7 @@ export const STAGE_DEPENDENCIES: Readonly<Record<Stage, readonly Stage[]>> = Obj
 );
 
 // Structural, not the full StageRow -- both audit-pipeline.ts's StageRow and
-// audit-repo.server.ts's raw Supabase rows already satisfy this shape.
+// The repository's raw rows already satisfy this shape.
 export interface StageStatusRow {
   stage: string;
   status: string;

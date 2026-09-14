@@ -173,6 +173,28 @@ export function fileToBase64(file: File): Promise<string> {
   });
 }
 
+// --- DASHBOARD & RUN HISTORY -------------------------------------------------------
+export interface AuditDashboard {
+  slate: { matches: number; withRun: number; completed: number; notRun: number; uploads: number };
+  colors: Record<string, number>;
+  calibration: {
+    label: string; masterSequence: number; gradedSample: number;
+    buckets: Array<{ bucket_code: string; wins: number; graded: number; win_rate: number | null }>;
+  } | null;
+}
+
+export const getAuditDashboard = () => request<AuditDashboard>("/api/tennis-matrix-audit/dashboard");
+
+export interface RunHistoryEntry extends AuditRow {
+  isCurrent: boolean;
+  decision: AuditRow | null;
+  selected_player: string | null;
+}
+
+/** Every run this match has had — superseded runs included, never deleted. */
+export const getMatchRunHistory = (matchId: string) =>
+  request<{ runs: RunHistoryEntry[] }>(`/api/tennis-matrix-audit/match/${encodeURIComponent(matchId)}/runs`);
+
 // --- READINESS ---------------------------------------------------------------------
 /**
  * What the Audit needs before it can produce a selection rather than a refusal. Worth a

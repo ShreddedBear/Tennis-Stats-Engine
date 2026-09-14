@@ -1,4 +1,4 @@
-import { supabaseAdmin } from "./postgrestCompat";
+import { auditWarehouseDb } from "./postgrestCompat";
 import { evidencePairMatches, safeEvidenceAliases } from "./evidence-player-alias";
 import { metricAllowsObservation, observationFamily, policyForMetric } from "./metric-source-family-policy";
 import { classifyEvidenceTourFamily, type EvidenceTourFamily } from "./evidence-match-identity";
@@ -8,7 +8,7 @@ import { buildBsdWtaMainPbpContext } from "./bsd-wta-main-pbp.server";
 import { buildBsdAtpChallengerPbpContext } from "./bsd-atp-challenger-pbp.server";
 import { buildBsdWtaChallengerPbpContext } from "./bsd-wta-challenger-pbp.server";
 
-const db = supabaseAdmin as any;
+const db = auditWarehouseDb as any;
 
 type MetricLike = { code: string; name: string };
 type ObservationRow = {

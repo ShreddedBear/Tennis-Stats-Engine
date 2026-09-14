@@ -1,4 +1,4 @@
-import { supabaseAdmin } from "./postgrestCompat";
+import { auditWarehouseDb } from "./postgrestCompat";
 import type { MetricFinding, SourceRef } from "./audit-pipeline";
 import { sameTournamentHistory } from "./tournament-history-reconstruction";
 import { evidenceNameMatches, safeEvidenceAliases } from "./evidence-player-alias";
@@ -17,7 +17,7 @@ import {
   type EvidenceTourFamily,
 } from "./evidence-match-identity";
 
-const db = supabaseAdmin as any;
+const db = auditWarehouseDb as any;
 const SCHEDULE_SUPPORTED = new Set(["012", "028", "030", "064", "071", "076", "077", "081"]);
 const HISTORICAL_SUPPORTED = new Set<string>(TASK18A_HISTORICAL_RESULTS_CODES);
 

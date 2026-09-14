@@ -16,8 +16,9 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
-  colorClasses, getAuditBoard, getAuditLogs, getAuditRules, getAuditSources, getCalibration,
-  getCalibrationHistory, getCalibrationPrefill, gradeCalibrationResult, resolveSourceConflict,
+  colorClasses, getAuditBoard, getAuditDashboard, getAuditLogs, getAuditRules, getAuditSources,
+  getCalibration, getCalibrationHistory, getCalibrationPrefill, getMatchRunHistory,
+  gradeCalibrationResult, resolveSourceConflict,
   RESULT_TYPES, type AuditRow, type BoardRow, type CalibrationBucket,
 } from "@/lib/tennisMatrixAuditApi";
 
@@ -648,5 +649,144 @@ export function LogsView() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+// --- DASHBOARD ---------------------------------------------------------------------
+
+/** Colours in the order the board ranks them, so both screens read the same way. */
+const DASHBOARD_COLORS = ["DOUBLE GREEN", "GREEN", "YELLOW", "RED / PASS", "INSUFFICIENT EVIDENCE"];
+
+export function DashboardView() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["tennis-matrix-audit", "dashboard"],
+    queryFn: getAuditDashboard,
+  });
+
+  if (isLoading) return <Skeleton className="h-64 w-full" />;
+  if (error) return <ErrorNote error={error} />;
+  if (!data) return null;
+
+  const { slate, colors, calibration } = data;
+
+  return (
+    <div className="space-y-4">
+      <div className="grid gap-2 text-xs sm:grid-cols-2 lg:grid-cols-5">
+        {([
+          ["Matches on slate", slate.matches],
+          ["Audited", slate.withRun],
+          ["Complete", slate.completed],
+          // Not a failure: a match with no current run simply has not been audited yet.
+          ["Not yet run", slate.notRun],
+          ["Summaries uploaded", slate.uploads],
+        ] as const).map(([label, value]) => (
+          <div key={label} className="rounded-md border border-border px-3 py-2">
+            <p className="text-[10px] uppercase tracking-wide text-muted-foreground">{label}</p>
+            <p className="text-lg tabular-nums">{value}</p>
+          </div>
+        ))}
+      </div>
+
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-sm">Completed audits by colour</CardTitle>
+          <p className="text-xs text-muted-foreground">
+            Only audits that actually completed are counted. An unfinished audit has no colour to report.
+          </p>
+        </CardHeader>
+        <CardContent>
+          {!Object.keys(colors).length ? (
+            <Empty>No completed audits yet.</Empty>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {DASHBOARD_COLORS.filter((color) => colors[color]).map((color) => (
+                <Badge key={color} variant="outline" className={`${colorClasses(color)} gap-2`}>
+                  {color} <span className="tabular-nums">{colors[color]}</span>
+                </Badge>
+              ))}
+              {/* Anything outside the known set is still shown rather than silently dropped. */}
+              {Object.keys(colors).filter((color) => !DASHBOARD_COLORS.includes(color)).map((color) => (
+                <Badge key={color} variant="outline" className="gap-2">
+                  {color} <span className="tabular-nums">{colors[color]}</span>
+                </Badge>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-sm">Calibration in force</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {!calibration ? (
+            <Empty>No calibration version is active.</Empty>
+          ) : (
+            <>
+              <p className="text-xs text-muted-foreground">
+                {calibration.label} · master sequence{" "}
+                <span className="tabular-nums">{calibration.masterSequence}</span> · graded sample{" "}
+                <span className="tabular-nums">{calibration.gradedSample}</span>
+              </p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {calibration.buckets.map((bucket) => (
+                  <span key={bucket.bucket_code} className="rounded-md border border-border px-2 py-1 text-[11px]">
+                    {bucket.bucket_code}{" "}
+                    <span className="tabular-nums text-muted-foreground">
+                      {bucket.win_rate === null ? "—" : `${bucket.win_rate}%`} ({bucket.wins}/{bucket.graded})
+                    </span>
+                  </span>
+                ))}
+              </div>
+            </>
+          )}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+// --- RUN HISTORY -------------------------------------------------------------------
+
+/**
+ * Every run a match has had. Superseded runs are kept, not hidden: a past verdict was
+ * genuinely reached under the rules of the day, and dropping it would make the record look
+ * cleaner than it was. Only one run is ever marked current.
+ */
+export function RunHistoryView({ matchId }: { matchId: string }) {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["tennis-matrix-audit", "match", matchId, "runs"],
+    queryFn: () => getMatchRunHistory(matchId),
+  });
+
+  if (isLoading) return <Skeleton className="h-32 w-full" />;
+  if (error) return <ErrorNote error={error} />;
+  if (!data?.runs.length) return <Empty>No runs recorded for this match yet.</Empty>;
+
+  return (
+    <Scroller min="52rem">
+      <Head columns={["Run", "Status", "Colour", "Selection", "Evidence", "Committed", "Superseded because"]} />
+      <tbody>
+        {data.runs.map((run) => (
+          <tr key={String(run["id"])} className={`border-t border-border align-top ${run.isCurrent ? "" : "opacity-60"}`}>
+            <td className="px-2 py-1.5 tabular-nums">
+              #{text(run["run_number"])}
+              {run.isCurrent && <span className="ml-2 text-[10px] text-emerald-400">CURRENT</span>}
+            </td>
+            <td className="px-2 py-1.5">{text(run["status"])}</td>
+            <td className="px-2 py-1.5">
+              <Badge variant="outline" className={colorClasses(run.decision?.["final_audit_color"] as string)}>
+                {text(run.decision?.["final_audit_color"] ?? "—")}
+              </Badge>
+            </td>
+            <td className="px-2 py-1.5">{run.selected_player ?? <span className="text-muted-foreground">No side selected</span>}</td>
+            <td className="px-2 py-1.5 tabular-nums">{text(run["effective_evidence_count"])}</td>
+            <td className="whitespace-nowrap px-2 py-1.5 tabular-nums">{when(run["independent_decision_committed_at"])}</td>
+            <td className="px-2 py-1.5 text-muted-foreground">{text(run["stale_reason"])}</td>
+          </tr>
+        ))}
+      </tbody>
+    </Scroller>
   );
 }

@@ -26,7 +26,7 @@
 // (price context IS one of 044's nine named similarity dimensions, and
 // pre-match favorite designation is one of 043's named inputs) rather than
 // leaving the code with nothing. It is not merged into these engines
-// directly because deterministicMarketMetric is an async Supabase-backed
+// directly because deterministicMarketMetric is an async database-backed
 // call while every other module in this batch (and #036/#046/#051 before
 // it) is a synchronous, static-index-only replay -- keeping them separate
 // tiers preserves that consistent, already-tested contract instead of

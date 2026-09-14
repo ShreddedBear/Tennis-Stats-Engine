@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { build as esbuild } from "esbuild";
 import esbuildPluginPino from "esbuild-plugin-pino";
-import { rm } from "node:fs/promises";
+import { cp, rm } from "node:fs/promises";
 
 // Plugins (e.g. 'esbuild-plugin-pino') may use `require` to resolve dependencies
 globalThis.require = createRequire(import.meta.url);
@@ -126,6 +126,16 @@ globalThis.__dirname = __bannerPath.dirname(globalThis.__filename);
     `,
     },
   });
+
+  // The Tennis Matrix Audit's three definition documents are read from disk at runtime, not
+  // bundled, so they stay diffable as documents. Without them the Audit's DEFINITION
+  // INSTANTIATION stage cannot activate a rule set and no match can be audited at all --
+  // so they are copied next to the bundle rather than left to a deployment step.
+  await cp(
+    path.resolve(artifactDir, "src/services/tennisMatrixAudit/seed"),
+    path.resolve(distDir, "seed"),
+    { recursive: true },
+  );
 }
 
 buildAll().catch((err) => {

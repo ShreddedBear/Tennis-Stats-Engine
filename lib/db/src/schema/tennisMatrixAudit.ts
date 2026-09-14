@@ -512,6 +512,40 @@ export const sourceObservations = pgTable("source_observations", {
   createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
 });
 
+/**
+ * The source registry: which sources the Audit is allowed to draw on, in what order of
+ * precedence, and how reliable each is held to be. Priority and reliability are what decide
+ * which value wins when two sources disagree -- so this table is part of the evidence rules,
+ * not configuration.
+ */
+export const sourceDefinitions = pgTable("source_definitions", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: uuid("user_id").notNull(),
+  sourceName: text("source_name").notNull(),
+  domain: text("domain"),
+  category: text("category").default("TIER 2").notNull(),
+  priority: integer("priority").default(100).notNull(),
+  reliability: numeric("reliability").default("0.8").notNull(),
+  supportedData: text("supported_data").array().default(sql`'{}'::text[]`).notNull(),
+  refreshMinutes: integer("refresh_minutes").default(1440).notNull(),
+  active: boolean("active").default(true).notNull(),
+  approved: boolean("approved").default(true).notNull(),
+  blacklisted: boolean("blacklisted").default(false).notNull(),
+  blacklistReason: text("blacklist_reason"),
+  lastFetchAt: timestamp("last_fetch_at", { withTimezone: true }),
+  errorHistory: jsonb("error_history").default(sql`'[]'::jsonb`).notNull(),
+  accessMethod: text("access_method").default("MANUAL").notNull(),
+  termsStatus: text("terms_status").default("UNKNOWN").notNull(),
+  termsUrl: text("terms_url"),
+  quotaPerDay: integer("quota_per_day"),
+  quotaUsed: integer("quota_used").default(0).notNull(),
+  quotaResetAt: timestamp("quota_reset_at", { withTimezone: true }),
+  consecutiveFailures: integer("consecutive_failures").default(0).notNull(),
+  healthStatus: text("health_status").default("HEALTHY").notNull(),
+  fallbackSourceId: uuid("fallback_source_id"),
+  createdAt: timestamp("created_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
 export const sourceSnapshots = pgTable("source_snapshots", {
   id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
   userId: uuid("user_id").notNull(),

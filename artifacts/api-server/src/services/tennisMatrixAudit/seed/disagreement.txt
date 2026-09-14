@@ -1,0 +1,3749 @@
+                       TENNIS MATRIX — DISAGREEMENT / TRAP AUDIT
+UPDATED WITH NEW VERIFIED WIN/LOSS LEARNING + CURRENT CALIBRATION RULES
+NEW POST-RESULT LEARNING / 120-MATCH CALIBRATION ENFORCEMENT
+
+These rules are additive and override any earlier rule that would allow a candidate to bypass them.
+
+
+1. UPDATED CALIBRATION POSITION
+The current verified calibration/backtest must run AFTER the Verification Audit, Disagreement/Trap Audit, Dangerous-Underdog screen, stress tests, and
+removal case, but BEFORE the final color/output. Recompute from the newest verified sample every time it changes. Never reuse stale bucket rates.
+
+
+2. NO-EDGE / LOW-PROBABILITY FLOOR
+- Headline or independently reconstructed favorite probability <=55%: automatic PASS/RED; never Green.
+
+- 56-64%: cannot be Green unless the favorite defeats every major underdog pathway with at least two independent high-reliability evidence families and no
+unresolved critical contradiction.
+
+- A Red/PASS classification means "selection is not reliable enough"; it does NOT automatically mean flip to the opponent.
+
+
+3. INDEPENDENT FLIP STANDARD
+Never FLIP solely because of one contradictory family, recent form alone, opponent-adjustment alone, H2H alone, ranking alone, or generic external narrative.
+
+A FLIP requires:
+
+(a) at least 2 genuinely independent high-reliability underdog evidence families;
+
+(b) at least 1 independent external confirmation;
+
+(c) the underdog survives component-removal and conservative stress testing;
+
+(d) the favorite fails the strongest evidence-based defense.
+
+If these are not met, DOWNGRADE/PASS rather than FLIP.
+
+
+4. DANGEROUS UNDERDOG CEILING OVERRIDE
+For every underdog, explicitly search for a recent ceiling event:
+
+- win over Top 10/20/50 or clearly elite/high-level opponent;
+
+- repeated competitive performances against much stronger opposition;
+
+- rapid ranking/Elo acceleration;
+
+- qualifying-to-main-draw or level-jump surge;
+
+- major same-surface breakthrough;
+
+- recent hold/break/serve/return performance materially above long-run rating;
+
+- comeback/deciding-set/tiebreak resilience against high-quality opposition.
+
+A qualifying ceiling event triggers mandatory escalation. It cannot be dismissed merely because the favorite leads aggregate Elo, market, Monte Carlo, or
+model vote count.
+
+
+5. PRESENT-STRENGTH / RATING-LAG TEST
+Compare long-run ratings against last 30/60/90-day and same-surface performance. Explicitly classify each player:
+
+CURRENTLY REPRESENTATIVE / POSSIBLY STALE / CLEARLY LAGGING.
+
+If the underdog's rating is lagging rapid improvement, historical Elo/ranking receives reduced decision authority.
+
+
+6. ELITE-FAVORITE EXEMPTION PROHIBITED
+No 80%, 85%, 90%+ favorite is exempt from the full underdog audit. High headline probability, Strong Agreement, Elite recommendation, or high Monte Carlo
+cannot suppress a demonstrated dangerous-underdog signal.
+
+
+7. H2H QUALITY CONTROL
+H2H must be weighted for recency, surface, tour level, age/development stage, current player level, and sample size. Old/thin/non-comparable H2H cannot
+veto stronger present-strength evidence.
+8. CORRELATED AGREEMENT COMPRESSION
+Surface Elo, General, Specialist, Monte Carlo, headline probability, and market may share inputs. Count effective independent evidence families, not raw
+agreeing metrics. Strong Agreement is not sufficient for Green if effective independent evidence is low.
+
+
+9. GREEN / DOUBLE-GREEN EXIT STANDARD
+Before Green, the favorite must:
+
+- defeat the underdog's 5 strongest pre-match arguments;
+
+- survive the conservative probability stress range;
+
+- survive removal of the strongest favorite component;
+
+- have no unresolved Dangerous-Underdog ceiling trigger;
+
+- have sufficient CRITICAL evidence coverage;
+
+- survive updated historical calibration.
+
+Double Green requires all Green conditions plus exceptionally strong independent evidence and no material unresolved contradiction.
+
+
+10. POST-RESULT LEARNING LEDGER
+Every completed match must be appended to the verified calibration. For every Green/Double-Green loss, classify the pre-match failure mechanism using only
+evidence available before first serve. For every successful downgrade/removal and every false downgrade/flip, record why. Recurrent structures become future
+downgrade or anti-overreaction rules.
+
+
+DISAGREEMENT-SPECIFIC ADDITIONS
+
+A. FALSE-POSITIVE TRAP DEFENSE
+
+For every proposed downgrade/flip, construct the strongest case that the apparent disagreement is noise/correlation/stale evidence. If that defense survives,
+do not flip.
+
+B. DISAGREEMENT QUALITY > DISAGREEMENT COUNT
+
+Report each contradiction as INDEPENDENT / PARTIALLY CORRELATED / DUPLICATIVE and HIGH / MEDIUM / LOW reliability. A pile of correlated
+disagreement cannot outweigh multiple independent favorite families.
+
+C. FLIP VS PASS SEPARATION
+
+The audit must output KEEP / DOWNGRADE / REMOVE-PASS / FLIP separately. Never convert "favorite unsafe" into "underdog is the pick" without satisfying
+the Independent Flip Standard.
+
+D. RECENT-FORM OVERREACTION GUARD
+
+Recent form and opponent adjustment can create CAUTION or removal, but cannot independently force a flip when Elo, serve/return, market, and other
+independent evidence remain materially opposite.
+
+E. CEILING-EVENT HANDOFF
+
+Any verified underdog ceiling event must be carried verbatim into the final trap packet and stress test. The final gate must explicitly state why the favorite still
+survives it, or Green is blocked.
+         120-MATCH EMPIRICAL DISAGREEMENT / TRAP OVERLAY
+This section is additive. It updates how the existing Disagreement/Trap Audit interprets contradictions; it does not delete the original audit.
+
+A. Governing empirical rule
+Disagreement QUALITY outranks disagreement COUNT. A contradiction becomes decision-relevant only after checking independence,
+reliability, sample, magnitude, recency, surface relevance, and opponent adjustment. Raw vote count is not a Green or Red rule.
+
+B. Mandatory high-risk structures
+Close / coin-flip structure: current 120-match record was 14/27 (51.9%). Treat this as a major trap zone. Green requires unusually
+strong independent evidence and successful stress testing.
+Elo separation under 50 points: current record was 32/52 (61.5%) versus 43/53 (81.1%) when the Matrix pick held an Elo gap of at
+least 50. A sub-50 gap is a material disagreement/fragility flag, not an automatic flip.
+Monte Carlo below 55%: current record was 14/22 (63.6%). This is downgrade pressure. MC >=70% was 11/12, but that sample is too
+small to function as a standalone Green rule.
+Specialist support below 65%: current record was 12/22 (54.5%). This becomes a major warning when the headline probability is
+materially higher.
+
+C. Correlated-agreement penalty
+General Model, Specialist Model, Surface Elo, headline probability, Monte Carlo, and Market may share inputs. Do not count them as
+independent simply because they all agree. Strong Model Agreement is contextual only; it cannot rescue a weak independent-family
+structure.
+
+D. Metrics demoted to contextual status
+Data Quality, Upset Risk, Recommendation label, raw disagreement count, fatigue alone, H2H alone, and a single Recent Form
+contradiction are not standalone downgrade/flip triggers. They remain reportable context.
+E. Required trap decision sequence
+1. Check Matchup Closeness and headline WP burden zone. 2. Measure Elo separation and Surface Elo support with reliability/sample.
+3. Compare MC support and headline-vs-MC gap. 4. Test recent-form differential, but require opponent adjustment. 5. Search for
+dangerous-underdog ceiling events and demonstrated matchup pathways. 6. Separate independent evidence from correlated Matrix
+outputs. 7. Remove the favorite's strongest family and rerun. 8. Output KEEP / DOWNGRADE / REMOVE-PASS / FLIP separately.
+
+F. Empirical combinations
+Elo gap >=50 + MC >=55: 40/49 = 81.6%. Elo gap >=50 + recent-form advantage >10: 17/20 = 85.0%. Close + MC <55: 7/13 = 53.8%.
+Close + Elo gap <50: 11/21 = 52.4%. These combinations are calibration overlays, not permanent laws.
+
+G. Green-blocking rule added
+A candidate cannot receive Green solely because the Matrix headline, Recommendation, Strong Agreement, General Model, Specialist
+Model, and Surface Elo all point the same way. Green requires independent-family support and must survive the underdog ceiling,
+present-strength, matchup, and component-removal tests.
+                                  ORIGINAL AUDIT — PRESERVED IN FULL
+Page 1
+
+TENNIS MATRIX AI — DISAGREEMENT AUDIT (Reusable
+
+Template)
+
+Purpose: For any matchup, don't ask "is the pick probably right." Actively hunt for every distinct signal in the Matrix data that disagrees
+
+with, undercuts, or contradicts the predicted winner. Rank matches by how many independent disagreement signals exist against the
+
+pick, most-contested first. A 0-disagreement match isn't "safe" in any outside sense — it just means nothing in the data pushes back on
+
+it.
+
+Nothing in a completed audit should be invented — every line must trace to a specific field in the Matrix export or the backtest
+
+workbook. Where a category has nothing to report for a given match, leave it out of that match's list rather than padding it.
+
+Categories to check for disagreement — every match, every time
+
+1. Each live model component individually (Surface Elo, Serve/Return, Recent Form, Market, General Model, Specialist Model) —
+
+does it name the opponent instead of the Matrix pick?
+
+2. H2H — check separately. If reliability is near-zero/excluded (as it typically is on thin sample), note it but don't count it as real signal.
+
+3. Component vote breadth — does a majority of live (non-excluded) components actually back the pick, or does the pick win only
+
+because one heavily-weighted component carries it?
+
+4. Monte Carlo —
+
+- Does the simulated win probability fall under 50% for the pick even though it's still the named favorite?
+
+- Does the simulated probability diverge sharply (≥15 points) from the headline win probability?
+
+- How far down does the simulation's downside range go (e.g., a range floor at 30% or below is worth flagging)?
+
+5. Fatigue — is the picked player actually more fatigued (higher fatigue index) than the opponent?
+
+6. The Matrix's own self-reported flags —
+
+- Upset Risk (Moderate / High / EXTREME)
+
+- Data Quality (flag anything under ~70%)
+
+- Model Agreement label (High Disagreement / Mixed — the components disagree with each other, not just with the pick)
+
+- Recommendation label itself (Data Incomplete, Low Confidence, etc.)
+
+7. The historical backtest overlay — does this match's closeness tier / win-probability band / recommendation label historically
+
+underperform in the verified backtest sample? (See reference table below — recompute if the backtest workbook changes.)
+
+Backtest reference table (recompute whenever a new/updated verified-results workbook is
+
+supplied — do not reuse old numbers on a different sample)
+
+| Pattern | Sample | Win rate |
+
+|---|---|---|
+
+| Overall | — | — |
+
+| Closeness: Clear favorite | — | — |
+
+| Closeness: Moderate lean | — | — |
+
+| Closeness: Close matchup | — | — |
+
+| WP band: 60–65% | — | — |
+
+| WP band: 65–70% | — | — |
+
+| WP band: 70–75% | — | — |
+
+| WP band: 75–80% | — | — |
+
+| WP band: 80–85% | — | — |
+
+| WP band: 85–90% | — | — |
+
+Page 2
+
+| WP band: 90%+ | — | — |
+| Recommendation: Elite | — | — |
+
+| Recommendation: High Confidence | — | — |
+
+| Recommendation: Moderate Confidence | — | — |
+
+| Recommendation: Highest Confidence | — | — |
+
+| Model Agreement: Strong | — | — |
+
+| Model Agreement: Mixed | — | — |
+
+| Model Agreement: High Disagreement | — | — |
+
+| Model Agreement: Moderate | — | — |
+
+| Upset Risk: Low | — | — |
+
+| Upset Risk: Moderate | — | — |
+
+*Flag any bucket with a small sample (roughly under 10) as "suggestive only, not usable as a standalone rule."*
+
+Ranked summary table (fill in per batch of matchups)
+
+| # Disagreements | Match | Matrix Pick | WP | Color |
+
+|---|---|---|---|---|
+
+||||||
+
+Per-match entry template (copy this block for every matchup)
+
+[Player 1] vs [Player 2] — [N] disagreement signal(s) found
+
+Matrix pick: [Player] ([WP]% headline WP) | Current color: [Green/Yellow/Red]
+
+- Surface Elo favors [opponent], contributing [X] pts against the pick. *(omit if it favors the pick)*
+
+- Serve/Return favors [opponent]... *(omit if it favors the pick)*
+
+- Recent Form favors [opponent]... *(omit if it favors the pick)*
+
+- Market favors [opponent]... *(omit if it favors the pick)*
+
+- General Model favors [opponent]... *(omit if it favors the pick)*
+
+- Specialist Model favors [opponent]... *(omit if it favors the pick)*
+
+- H2H nominally favors [opponent], but reliability is near-zero/excluded — noted, not counted as real signal. *(omit if H2H favors the pick
+
+or has real sample)*
+
+- Vote breadth: only [X] of [Y] live components actually back [pick] — [majority/tie] favors the opponent. *(omit if unanimous)*
+
+- Monte Carlo disagrees numerically: simulation gives [pick] only [X]% (below 50%) despite being named favorite. *(omit if MC ≥50%)*
+
+- Headline-vs-simulation gap: headline WP is [X]% but Monte Carlo only supports [Y]% — a [gap]-point gap. *(omit if gap <15)*
+
+- Monte Carlo downside range reaches as low as [X]% for [pick] across simulation runs. *(omit if floor >30%)*
+
+- Fatigue favors the opponent: [pick]'s fatigue index ([X]) is worse than the opponent's ([Y]). *(omit if pick is fresher or equal)*
+
+- Matrix's own Upset Risk flag is '[level]' — the system itself is signaling doubt. *(omit if Low)*
+
+- Data Quality is only [X]% — too thin to fully trust the pick either way. *(omit if ≥70%)*
+
+- Matrix's own Model Agreement label is '[label]' — the components disagree with each other. *(omit if Strong/Moderate)*
+
+- Historical pattern: this match's closeness tier ('[tier]') hit [X]% ([n]/[N]) in the backtest. *(include the actual number from the reference
+
+table above; flag explicitly if it's a weak/underperforming tier)*
+
+- Historical pattern: WP [X]% sits in the [band] bucket, which hit [Y]% in the backtest. *(include only if that band is notably weak)*
+
+Page 3
+
+- Historical pattern: recommendation label '[label]' hit [X]% in the backtest. *(include only if that label is notably weak, e.g. "High
+
+Confidence" underperforming "Moderate Confidence")*
+
+*(If no category produced a hit): No disagreement signal found in any category. Every live component, the vote count, Monte Carlo,
+
+fatigue, the Matrix's own flags, and the backtest profile all line up behind this pick.*
+
+Reading the finished audit
+
+- A high disagreement count does not automatically mean "flip the pick" — it means the pick is surviving real pushback in the data, which
+
+is more useful to know than a clean confidence score alone.
+- Zero-disagreement matches are the only ones where nothing in the dataset pushes back at all — still not a guarantee, just the cleanest
+
+read available.
+
+- This document deliberately isolates the opposing case only. Pair it with a separate confirming-evidence pass
+
+(component-by-component P1 vs P2 differential, contradiction check, final Green/Yellow/Red) rather than using disagreement count
+
+alone as the verdict.
+
+- State plainly if either the independent Green-list cross-reference source or full external (live) validation wasn't available/run for a given
+
+batch — don't drop those steps silently.
+
+PART 2 — PREDICTED-LOSER / TRAP-GAME DETECTION (same
+
+extensiveness as the original verification audit, run in the opposite direction)
+
+Purpose: Part 1 asks "what disagrees with the favorite." Part 2 builds the strongest honest case *for the underdog* — the player the
+
+Matrix predicts to lose — using the same full metric-family sweep as a full verification audit, just pointed at the other player. A "trap
+
+game" is a match where the underdog's case is unusually strong even though the Matrix still favors the other player.
+
+Same rule as Part 1: nothing invented. Every line traces to a real field. Mark UNAVAILABLE where the data doesn't exist rather than
+
+guessing.
+
+2.1 — What the backtest actually shows about upsets (recompute this block from the
+
+current verified workbook — these are reusable *categories*, the numbers must be
+
+refreshed each time)
+
+Historical mining of the verified-results workbook should always include:
+
+| Question | How to compute | What it's for |
+
+|---|---|---|
+
+| Upset rate by Closeness tier | losses in tier / total in tier | Which closeness label most often hides a live
+
+underdog |
+
+| Upset rate by Recommendation label | losses in label / total in label | Which confidence label is actually least
+
+trustworthy |
+
+| Upset rate by WP band | losses in band / total in band | Which probability range is most upset-prone |
+
+| **Self-flagged Upset Risk vs actual upsets** | % of actual upsets that were flagged "Low" upset risk by the
+
+Matrix itself | Tests whether the Matrix's own upset warning is worth anything |
+
+| Data Quality: losses vs wins (mean) | compare average DQ between the two groups | Tests whether thin data
+
+actually predicts upsets, or is a red herring |
+
+| Model Agreement: losses vs wins | upset rate within "Strong" vs "Mixed" vs "High Disagreement" | Tests whether
+
+stated agreement protects against upsets |
+
+| Monte Carlo support < 55% for the favorite | % of upsets vs % of correct picks where MC support was under 55% |
+
+A live, checkable early-warning threshold |
+
+| Monte Carlo support < 50% for the favorite | same, at the 50% line (simulation numerically disagrees with
+
+headline) | Flags matches in territory the backtest sample may not even contain — treat as *more* uncertain than
+
+the sample average, not less |
+
+Page 4
+
+| Headline-vs-MC gap size, losses vs wins | mean/median gap in each group | Tests whether a big
+
+headline-vs-simulation gap alone is diagnostic (in the one sample run, it was NOT strongly diagnostic on its own —
+
+worth re-testing on fresh data, not assuming) |
+
+| Straight-set probability gap, losses vs wins | compare predicted-winner vs opponent straight-set % |
+
+Weak/inconclusive in the one sample tested — don't over-weight this alone |
+
+Findings from the sample run on file (100 matches, 30 upsets) — treat as a prior to test against future data, not a permanent
+
+law:
+
+- The Matrix's own "Upset Risk" flag caught almost none of the actual upsets — 29 of 30 upsets were labeled "Low" upset risk
+beforehand. Do not use the Matrix's self-flag alone to rule a match safe from being a trap game.
+
+- Data Quality was statistically identical between upsets and correct picks (~80% either way). Thin data is not what predicts upsets in
+
+this sample — don't lean on DQ as a trap-game filter.
+
+- "Moderate lean" produced the *most* upsets in raw count (57% of all upsets) even though "Close matchup" had the *highest rate* (50%
+
+vs 27%). A trap-game scan has to cover the full "Moderate lean" pool, not just matches literally labeled a coin flip — most
+
+upsets by volume come from there simply because there are more of those matches.
+
+- "High Confidence" recommendation carried the single highest upset rate of any label (41.7%) — higher than "Moderate Confidence"
+
+(30%) and "Elite" (27%). Treat "High Confidence" as a caution flag, not reassurance, consistent with Part 1.
+
+- Monte Carlo support under 55% for the favorite showed up in 26.7% of upsets vs 18.6% of correct picks — a real but modest lean; not a
+
+standalone trigger by itself.
+
+- Monte Carlo never actually dropped below 50% for the stated favorite anywhere in the sample tested. Any live match where it does is
+
+outside the historical envelope — flag it as higher-uncertainty than anything the backtest can vouch for, not lower.
+
+2.2 — Underdog case-building: full metric-family sweep
+
+For every match, run the underdog through the same families a full verification audit would run the favorite through. Mark each FOR
+
+(helps the underdog), AGAINST (helps the favorite), or UNAVAILABLE.
+
+Matrix Headline & Confidence
+
+- Headline WP margin — how close to 50% is it really?
+
+- Recommendation label — is it one of the historically weak labels (see 2.1)?
+
+- Upset Risk as self-flagged — note it, but weight it low per the finding above.
+
+- Model Agreement label — "Strong" does not reliably rule out an upset (see 2.1); check anyway for what it's worth.
+
+- Data Quality — note it, but don't treat low DQ as the reason to expect an upset, or high DQ as protection.
+
+Surface / Elo
+
+- Underdog's Surface Elo raw probability and reliability/sample — is it actually close to the favorite's once you set aside the blend
+
+weighting?
+
+- Underdog's Elo trend — improving, stable, or declining independent of the raw number.
+
+- Surface specialization label — is the underdog the surface specialist here even though they're not the overall favorite?
+
+Serve / Return
+
+- Underdog's Serve/Return raw probability and reliability.
+
+- Does the underdog's return profile specifically attack the favorite's serve profile (style/matchup fit), separate from the raw number?
+
+Recent Form
+
+- Underdog's Recent Form raw probability, trend direction, and reliability.
+
+- Any explicit "improving" trend flag on the underdog, especially paired with a "declining" or "stable" flag on the favorite.
+
+- Opponent-adjusted form for the underdog, if present — are their recent results against tougher or weaker competition than the raw form
+
+score implies?
+
+Page 5
+
+H2H
+
+- Raw H2H number and reliability/sample. In most Matrix exports seen so far this is near-zero and excluded — say so plainly rather than
+
+treating a 50/50 H2H number as a real signal either way.
+
+Market
+
+- Does the market component favor the underdog, or at least sit closer to 50/50 than the headline WP? A market that disagrees with (or is
+
+much less confident than) the model's own headline is one of the more credible trap-game signals, since market data aggregates
+
+outside information the Matrix's other components may not have.
+
+General / Specialist Model
+
+- Underdog's raw probability on each, and reliability/sample/status (Active vs Excluded, Low vs High availability). A specialist model
+
+favoring the underdog on a thin sample is weaker evidence than the same signal on a deep one — say which it is.
+Fatigue / Physical
+
+- Underdog's fatigue index vs the favorite's. A fresher underdog against a fatigued favorite is one of the more concrete, checkable
+
+trap-game signals available in this data.
+
+- Matches played in the trailing window for both, if present.
+
+Monte Carlo / Set Score
+
+- Underdog's implied probability (100 − favorite's MC%).
+
+- Is the favorite's MC support under 55% (modest historical upset lean) or under 50% (numerically favors the underdog, outside the
+
+historical sample entirely — flag as high-uncertainty)?
+
+- How far does the simulation range extend in the underdog's favor?
+
+- Does the predicted set score (e.g., 2-0) actually match what the simulation supports, or is a 2-1/underdog-competitive outcome more
+
+consistent with the range?
+
+Style / Matchup
+
+- Style labels for both players (e.g., all-court, clay specialist, big server) — does the underdog's style specifically counter the favorite's,
+
+independent of the surface Elo number?
+
+Ranking / External
+
+- UNAVAILABLE unless a dedicated external-validation pass has actually been run (see Part 1's completion-check note) — do not infer
+
+ranking trajectory or current form from Matrix fields that don't contain it.
+
+2.3 — Trap Game Score (composite)
+
+For each match, count how many of the following are true for the underdog. This is a simple point count, not a probability — it exists to
+
+surface matches worth a second look, not to replace the audit above.
+
+[ ] Underdog favored by at least one live model component (Elo, S/R, Form, Market, General, or Specialist)
+
+[ ] Underdog favored by two or more live model components
+
+[ ] Market specifically favors the underdog, or sits materially closer to 50/50 than the headline WP
+
+[ ] Favorite's Monte Carlo support is under 55%
+
+[ ] Favorite's Monte Carlo support is under 50% (outside the historical sample envelope entirely)
+
+[ ] Underdog has a better (lower) fatigue index than the favorite
+
+[ ] Underdog's Recent Form trend is flagged "improving" while favorite's is "stable" or "declining"
+
+[ ] Match is labeled "Moderate lean" or closer (not "Clear favorite") — this is the pool where most historical upsets actually live
+
+[ ] Recommendation label is "High Confidence" specifically (the weakest-performing label in the one sample tested)
+
+Page 6
+
+[ ] Style/specialization label favors the underdog on this surface
+
+Scoring guide (recalibrate against a larger sample if the pattern doesn't hold):
+
+- 0–1 checked: no meaningful trap-game case — the audit found the underdog case, but it's thin.
+
+- 2–4 checked: Trap Game Watch — worth a second look before treating the favorite as safe.
+
+- 5+ checked: High Trap Risk — the underdog's case is comparable in breadth to what Part 1 flags as a heavily-disagreed-with favorite.
+
+Treat the favorite pick with real skepticism.
+
+2.4 — Per-match underdog entry template (copy for every matchup, alongside the Part 1
+
+block for the same match)
+
+[Underdog] — case as predicted loser vs [Favorite] ([favorite's headline WP]%)
+
+Trap Game Score: [X] / 10 checked → [No case / Trap Game Watch / High Trap Risk]
+
+- Component support: [list any of Elo/S-R/Form/Market/General/Specialist favoring the underdog, with contribution and reliability]
+
+- Market read: [favors underdog / closer to 50-50 than headline / unavailable]
+
+- Monte Carlo: favorite supported at [X]% ([above 55% - no lean / 50-55% - modest lean / below 50% - outside historical sample, flag
+
+high]); simulation range extends to [low]% for favorite, i.e. up to [100-low]% for underdog in some simulated outcomes
+
+- Fatigue: underdog [fresher/more fatigued] than favorite ([underdog FI] vs [favorite FI])
+- Form trend: underdog [improving/stable/declining], favorite [improving/stable/declining]
+
+- Closeness/label context: labeled '[closeness]', recommendation '[label]' — [note if this is one of the historically weak/upset-prone labels
+
+from 2.1]
+
+- Style/surface fit: [note if underdog's style or specialization counters the favorite]
+
+- Ranking/external: UNAVAILABLE unless external validation was run for this match
+
+Verdict: [No meaningful trap-game case / Worth a second look / High trap risk — treat favorite skeptically]
+
+PART 3 — FULL PREDICTED-LOSER VERIFICATION AUDIT (Mirror of the
+
+Winner Verification Audit)
+
+Purpose: This is the anti-favorite version of the full verification audit. The goal is not merely to find disagreement with the Matrix pick.
+
+The goal is to determine whether the player predicted to lose has a *real, repeatable, opponent-specific pathway to winning* that the
+
+favorite-side model may be underweighting.
+
+For every matchup, treat the predicted loser as a candidate winner and run the entire verification framework in reverse. Do not stop after
+
+finding one attractive underdog statistic. The underdog must survive the same reliability, sample-size, opponent-adjustment,
+
+historical-validation, and external-validation standards as a projected winner.
+
+3.1 — Mandatory evidence classification
+
+Every item evaluated for the predicted loser must receive one of these labels:
+
+- UD+ STRONG: materially supports the predicted loser, with reliable sample/relevance.
+
+- UD+ WEAK: supports the predicted loser but sample/reliability/relevance is limited.
+
+- FAV+ STRONG: materially supports the favorite and directly weakens the trap-game case.
+
+- FAV+ WEAK: mildly supports the favorite.
+
+- CONFLICT: credible evidence exists on both sides.
+
+Page 7
+
+- UNAVAILABLE: no trustworthy data supplied/found.
+
+- EXCLUDED: field exists but should carry zero decision weight because the Matrix itself excludes it or reliability is effectively unusable.
+
+Do not count UD+ WEAK the same as UD+ STRONG. Do not count five correlated metrics as five independent signals.
+
+3.2 — Full underdog metric families
+
+A. Headline / Calibration Vulnerability
+
+Evaluate:
+
+- Favorite headline WP and underdog implied WP.
+
+- Distance from 50/50.
+
+- Headline probability vs Monte Carlo probability.
+
+- Headline probability vs market no-vig probability.
+
+- Headline probability vs General model.
+
+- Headline probability vs Specialist model.
+
+- Headline probability vs Surface Elo probability.
+
+- Headline probability vs Serve/Return probability.
+
+- Headline probability vs Recent Form probability.
+
+- Maximum component disagreement spread.
+
+- Whether the headline appears to be carried by one heavily weighted model.
+
+- Whether the confidence label historically overstates actual win rate.
+
+- Whether this probability bucket is overconfident in the verified backtest.
+
+- Favorite calibration error by price/probability bucket, if enough sample exists.
+
+Trap signal: headline says "safe favorite" while independent components cluster materially closer to 50/50.
+
+B. Surface Strength / Surface Mispricing
+
+Evaluate both players:
+- Surface Elo.
+
+- Elo differential.
+
+- Surface Elo probability.
+
+- Surface sample depth.
+
+- Effective weighted sample.
+
+- Surface Elo reliability.
+
+- Surface Elo trend/momentum.
+
+- Last-52-week surface record.
+
+- Current surface swing.
+
+- Surface-transition performance.
+
+- Fast/medium/slow hard split where available.
+
+- Indoor/outdoor split where available.
+
+- Tournament-specific surface history.
+
+- Court-speed fit.
+
+- Ball-type fit.
+
+Page 8
+
+- Altitude/weather interaction when applicable.
+
+- Style-adjusted Elo.
+
+Trap signal: favorite owns the higher generic Elo, but underdog has the more relevant current-surface, court-speed, or style-adjusted
+
+profile.
+
+C. Serve Profile — Favorite Vulnerability vs Underdog Attack
+
+Evaluate:
+
+- Hold %.
+
+- Service points won %.
+
+- First-serve-in %.
+
+- First-serve points won %.
+
+- Second-serve points won %.
+
+- Ace rate.
+
+- Double-fault rate.
+
+- Break points saved %.
+
+- Clean-hold rate.
+
+- Hold vulnerability.
+
+- Serve-out reliability.
+
+- Serve speed/first-serve decay by set.
+
+- Second-serve deterioration.
+
+- Serve dependency index.
+
+- Serve placement predictability when available.
+
+- End-of-set serve deterioration.
+
+Then ask specifically:
+
+- Can the underdog attack the favorite's second serve?
+
+- Does the favorite rely too heavily on first-serve dominance?
+
+- Is the favorite vulnerable when serve quality drops even slightly?
+
+Trap signal: favorite's entire advantage depends on a serve level the underdog is specifically equipped to neutralize.
+
+D. Return Profile — Underdog Upset Weapon
+
+Evaluate:
+- Break %.
+
+- Return points won %.
+
+- First-serve return points won.
+
+- Second-serve return points won.
+
+- Break points created per return game.
+
+- Break-point conversion %.
+
+- Return pressure rate.
+
+- Clean-break rate.
+
+- Return-game threat consistency.
+
+- Return +1 effectiveness.
+
+Page 9
+
+- Second-serve attack rate.
+
+- Return position compatibility.
+
+- Return-quality trend.
+
+- Return dependency index.
+
+Trap signal: underdog owns the strongest opponent-specific weapon in the matchup: a return profile that attacks the favorite's known
+
+serve weakness.
+
+E. Serve-vs-Return Interaction
+
+Compute or assess:
+
+- Favorite expected hold vs this underdog.
+
+- Underdog expected hold vs this favorite.
+
+- Favorite expected break vs this underdog.
+
+- Underdog expected break vs this favorite.
+
+- Expected hold/break differential.
+
+- Serve-vs-return compatibility score.
+
+- Return-vs-serve compatibility score.
+
+- Second-serve mismatch index.
+
+- Serve–return interaction residual.
+
+- Opponent-specific break expectancy.
+
+- Opponent-specific hold expectancy.
+
+Trap signal: raw serve/return averages favor the favorite, but the matchup-specific interaction favors the underdog.
+
+F. Recent Form — Real vs Fake Form
+
+For both players evaluate:
+
+- Last 5.
+
+- Last 10.
+
+- Current streak.
+
+- Form score.
+
+- Trend direction.
+
+- Performance acceleration.
+
+- Quality of last 3–5 matches.
+
+- Opponent-adjusted recent form.
+
+- Opponent-quality-adjusted record trend.
+
+- Hidden improvement despite losses.
+
+- Hidden decline despite wins.
+
+- Observed vs expected W/L.
+- Quality win rate.
+
+- Bad-loss rate.
+
+- Bad-loss severity.
+
+- Blowout-loss frequency.
+
+- Post-breakthrough performance.
+
+Page 10
+
+- Post-upset regression.
+
+- Post-title/final hangover.
+
+- Post-long-run fatigue.
+
+- Grand Slam hangover.
+
+Trap signal: favorite looks better in raw W/L, but underdog is improving against stronger opposition while favorite's recent wins are
+
+low-quality or unsustainable.
+
+G. Loss Autopsy — How the Favorite Actually Loses
+
+For the favorite's recent losses evaluate:
+
+- Favorite status in each loss.
+
+- Opponent quality.
+
+- Surface.
+
+- Point differential.
+
+- Break differential.
+
+- Serve deterioration.
+
+- Return deterioration.
+
+- Lost after leading.
+
+- Lost Set 1.
+
+- Deciding-set loss.
+
+- Tiebreak loss.
+
+- Physical issue.
+
+- Match length.
+
+- Competitive vs blowout.
+
+- Bad-loss severity.
+
+Then compare today's underdog to those opponents:
+
+- Similar Elo?
+
+- Similar serve style?
+
+- Similar return quality?
+
+- Similar rally profile?
+
+- Similar handedness?
+
+- Similar court preference?
+
+Trap signal: today's underdog resembles the exact player archetype that repeatedly causes the favorite to fail.
+
+H. Underdog Win Autopsy — Are the Upsets Repeatable?
+
+For the underdog's strongest recent wins evaluate:
+
+- Was the opponent actually favored?
+
+- Surface relevance.
+
+- Opponent Elo/ranking.
+
+- Did underdog win through serve dominance, return pressure, long rallies, tiebreak variance, or opponent collapse?
+
+- Was the win point-dominant or clutch-dependent?
+
+- Was it retirement-distorted?
+Page 11
+
+- Was it a one-off outlier or part of a repeatable pattern?
+
+- Quality win rate.
+
+- Upset-quality score.
+
+Trap signal: underdog has recently beaten players similar to today's favorite using a repeatable pathway, not random variance.
+
+I. Common Opponents / Network Evidence
+
+Evaluate:
+
+- Direct common opponents.
+
+- Divergent outcomes.
+
+- Scoreline comparison.
+
+- Same-surface common opponents.
+
+- Same-level common opponents.
+
+- Recency-weighted common-opponent results.
+
+- Opponent-strength weighting.
+
+- Common-opponent point differential.
+
+- Hold differential.
+
+- Break differential.
+
+- Straight-set differential.
+
+- Set-1 differential.
+
+- Second-degree opponent network.
+
+- Transitive performance score.
+
+- Network Elo.
+
+Trap signal: underdog consistently performs better than favorite against shared or highly comparable opposition.
+
+J. H2H / Rematch Dynamics
+
+Evaluate:
+
+- Overall H2H.
+
+- Same-surface H2H.
+
+- Recency.
+
+- Scoreline.
+
+- Match competitiveness.
+
+- Junior/ITF H2H when relevant.
+
+- Tactical pattern from previous meeting.
+
+- Rematch adjustment.
+
+- Revenge/rematch tactical differential.
+
+- Whether prior loser corrected the exact weakness exposed previously.
+
+Trap signal: underdog has demonstrated an opponent-specific tactical solution that generic model components fail to capture.
+
+K. Set-1 / Slow-Start Trap Risk
+
+Evaluate both players:
+
+- Set-1 win rate.
+
+Page 12
+
+- First-break frequency.
+
+- Opening service-game hold %.
+
+- Opening return-game break %.
+
+- First-four-games differential.
+
+- First-six-games point differential.
+- Early break-conceded frequency.
+
+- Time to first break.
+
+- Set-1 slow-start index.
+
+- First-set recovery after early break.
+
+- Warm-up dependency.
+
+Trap signal: favorite is a chronic slow starter while underdog frequently breaks first and protects early leads.
+
+L. Comeback / Closing / Lead Durability
+
+Evaluate:
+
+- Record after losing Set 1.
+
+- Record after winning Set 1.
+
+- Second-set performance after losing Set 1.
+
+- Deciding-set win rate.
+
+- Break-back rate.
+
+- Break-consolidation rate.
+
+- Serving-for-set conversion.
+
+- Serving-for-match conversion.
+
+- Lead durability.
+
+- Deficit survivability.
+
+- Double-break creation/surrender.
+
+- Rebreak-window probability.
+
+- Opponent one-set-up collapse rate.
+
+- Opponent serving-for-match failure rate.
+
+Trap signal: favorite often gets into winning positions but fails to close, while underdog is unusually resilient from behind.
+
+M. Pressure / Tiebreak / Clutch Sustainability
+
+Evaluate:
+
+- Pressure-point performance.
+
+- Clutch hold/break.
+
+- Tiebreak record.
+
+- Expected vs actual tiebreak wins.
+
+- Expected vs actual deciding-set wins.
+
+- Deuce-game win %.
+
+- Break-point quality.
+
+- Break opportunities needed per break.
+
+- Multiple-BP survival/conversion.
+
+Page 13
+
+- Extended-deuce endurance.
+
+- Tiebreak entry quality.
+
+- Mini-break recovery/consolidation.
+
+Trap signal: favorite's record depends heavily on unsustainably good clutch outcomes, while underdog's underlying point dominance is
+
+stronger than results indicate.
+
+N. Straight-Set / Match-Length Vulnerability
+
+Evaluate:
+
+- Favorite straight-set win rate.
+
+- Underdog straight-set loss rate.
+
+- Straight-set rate vs comparable opposition.
+- MC straight-set probability for each player.
+
+- Matrix 2-0 call vs actual simulation support.
+
+- Probability match reaches Set 3.
+
+- Favorite performance when forced to Set 3.
+
+- Underdog decider performance.
+
+- Long-match resilience.
+
+- Physical-cliff probability.
+
+Trap signal: Matrix predicts 2-0, but matchup is structurally likely to reach a decider where underdog becomes much more dangerous.
+
+O. Fatigue / Scheduling / Recovery
+
+Evaluate:
+
+- Fatigue index.
+
+- Matches in 7/14/30 days.
+
+- Minutes on court.
+
+- Sets/games played.
+
+- Recent three-setters.
+
+- Late finishes.
+
+- Rest hours.
+
+- Qualifying workload.
+
+- Consecutive-day play.
+
+- Consecutive tournament count.
+
+- Travel/time zones.
+
+- Recovery hours.
+
+- Back-to-back long-match penalty.
+
+- Tournament adaptation advantage.
+
+- Qualifier adaptation bonus.
+
+- Accumulated workload debt.
+
+- Recovery efficiency.
+
+- Circadian mismatch.
+
+Trap signal: favorite is stronger on paper but enters with a material physical/recovery disadvantage that the underdog can exploit.
+
+Page 14
+
+P. Injury / Availability / Physical Decline
+
+Evaluate:
+
+- Injuries.
+
+- Recent withdrawals.
+
+- Retirements.
+
+- Medical timeouts.
+
+- Illness.
+
+- Layoff.
+
+- Return-from-injury form.
+
+- Match fitness.
+
+- Movement asymmetry.
+
+- Serve velocity decline.
+
+- First-serve decline.
+
+- Return-quality decline.
+
+- Late-match physical decline.
+Trap signal: favorite's nominal rating is stale because current physical capacity is below the level represented by Elo/ranking.
+
+Q. Ranking / Development / Mispricing
+
+Evaluate:
+
+- Current ranking.
+
+- Ranking trajectory.
+
+- Rapid riser/faller.
+
+- Ranking-performance disconnect.
+
+- Age/development curve.
+
+- Ranking catch-up estimate.
+
+- Elo catch-up estimate.
+
+- Protected-ranking status.
+
+- Tour-level transition performance.
+
+- Post-breakthrough sustainability.
+
+Trap signal: underdog is a rapidly improving player whose ranking/Elo has not caught up to current level.
+
+R. Style / Rally / Tactical Collision
+
+Evaluate where available:
+
+- Rally-length profile.
+
+- First-strike efficiency.
+
+- Neutral-rally efficiency.
+
+- Long-rally tolerance.
+
+- Forehand/backhand effectiveness.
+
+- Weak-wing exploitation.
+
+- Movement exploitation.
+
+- Net-point frequency/success.
+
+Page 15
+
+- Passing-shot success.
+
+- High-ball/low-ball tolerance.
+
+- Slice exposure.
+
+- Lefty/righty interaction.
+
+- One-handed vs two-handed backhand interaction.
+
+- Serve-placement matchup.
+
+- Return-position compatibility.
+
+- Preferred-pattern collision.
+
+- Plan-B effectiveness.
+
+- Matchup adaptability.
+
+Trap signal: favorite's preferred pattern feeds directly into underdog's best tactical pattern.
+
+S. Market Trap Detection
+
+Evaluate:
+
+- Multi-book moneyline consensus.
+
+- No-vig probability.
+
+- Opening price.
+
+- Current price.
+
+- Closing price if available.
+
+- Direction/magnitude of line movement.
+
+- Sharp vs recreational book divergence.
+- Market disagreement dispersion.
+
+- Prediction-market consensus.
+
+- Late-line acceleration.
+
+- Model-vs-market divergence.
+
+- Player-specific price calibration.
+
+- Favorite performance by price bucket.
+
+Flag especially:
+
+- Matrix 70%+ but market only ~55–60%.
+
+- Favorite drifting materially despite positive public-facing model signals.
+
+- Underdog shortening across sharper books.
+
+- Books disagree sharply with one another.
+
+Trap signal: independent market information persistently prices the underdog stronger than the Matrix does.
+
+T. Favorite Fragility / Underdog Upset Compatibility
+
+Evaluate:
+
+- Favorite Fragility Index.
+
+- Upset resistance.
+
+- Favorite failure-mode profile.
+
+- Opponent failure-mode compatibility.
+
+- Underdog upset compatibility score.
+
+Page 16
+
+- Favorite performance when opponent holds first 3 service games.
+
+- Favorite after failing early break chances.
+
+- Favorite after losing first break.
+
+- Favorite at 4-4.
+
+- Favorite in tiebreak sets.
+
+- Favorite when forced to Set 3.
+
+Trap signal: the underdog's strengths map directly onto the favorite's documented failure conditions.
+
+U. Motivation / Context / Venue
+
+Use only documented, reliable information:
+
+- Points-defending pressure.
+
+- Seeding implications.
+
+- Career milestone pressure.
+
+- Home-country effect.
+
+- Crowd support.
+
+- Tournament-specific history.
+
+- Prior-year round reached.
+
+- Short-notice entry.
+
+- Lucky-loser status.
+
+- Wildcard effect.
+
+- Walkover rhythm effect.
+
+- Coaching changes.
+
+- Equipment changes.
+
+- Travel friction.
+
+- Weather sensitivity.
+
+- Venue familiarity.
+Do not invent psychology. Only count documented context when evidence exists.
+
+PART 4 — FAVORITE FAILURE-MODE AUDIT
+
+For every favorite, answer these questions explicitly.
+
+4.1 — What must go right for the favorite to win?
+
+List the favorite's top 3–5 dependencies:
+
+- first serve must dominate?
+
+- must break early?
+
+- must keep rallies short?
+
+- must avoid Set 3?
+
+- must win tiebreaks?
+
+- must prevent underdog attacking second serve?
+
+- must maintain movement/endurance?
+
+Page 17
+
+4.2 — What causes this favorite to lose?
+
+Use recent-loss autopsy and historical tendencies to identify 3–5 failure modes.
+
+4.3 — Can today's underdog actually create those conditions?
+
+For each favorite failure mode assign:
+
+- YES — strong evidence
+
+- POSSIBLY — partial evidence
+
+- NO — underdog lacks the weapon
+
+- UNAVAILABLE
+
+4.4 — Failure-Mode Compatibility Count
+
+Count the number of favorite failure modes today's underdog can realistically trigger.
+
+- 0: low trap compatibility.
+
+- 1: mild.
+
+- 2: meaningful.
+
+- 3+: high trap compatibility.
+
+This is more important than simply counting how many raw metrics disagree with the favorite.
+
+PART 5 — UNDERDOG WIN-PATHWAY AUDIT
+
+For every predicted loser, assess each distinct pathway to victory.
+
+1. Serve-through pathway — can underdog hold often enough to force high-variance sets/tiebreaks?
+
+2. Return-pressure pathway — can underdog repeatedly attack favorite's serve?
+
+3. Second-serve exploitation pathway.
+
+4. Short-rally pathway.
+
+5. Long-rally pathway.
+
+6. Movement/physical pathway.
+
+7. Slow-start pathway — favorite gives away Set 1 often.
+
+8. Deciding-set pathway.
+
+9. Tiebreak pathway.
+
+10. Fatigue pathway.
+
+11. Style mismatch pathway.
+
+12. Market-information pathway.
+
+13. Favorite-collapse pathway.
+
+14. Surface-transition pathway.
+
+15. Recent-improvement / ranking-lag pathway.
+For each pathway label:
+
+- REALISTIC
+
+- WEAK
+
+Page 18
+
+- NOT SUPPORTED
+
+- UNAVAILABLE
+
+Then report Underdog Win Pathways Count = number of REALISTIC distinct pathways.
+
+Important: two pathways built on the same underlying fact should not be counted as independent.
+
+PART 6 — INDEPENDENT EVIDENCE / CIRCULARITY AUDIT
+
+A trap can be missed when five model outputs all agree because they recycle the same underlying data.
+
+For every matchup:
+
+- Count raw agreeing components.
+
+- Estimate genuinely independent evidence families.
+
+- Identify likely overlap between General and Specialist models.
+
+- Identify overlap between Surface Elo and opponent-strength adjustments.
+
+- Identify overlap between Recent Form and Specialist/General inputs.
+
+- Identify market as an outside-information family when truly independent.
+
+- Identify external injury/news as another independent family.
+
+Report:
+
+- Raw Favorite Agreement Count: X
+
+- Independent Favorite Evidence Count: Y
+
+- Raw Underdog Agreement Count: X
+
+- Independent Underdog Evidence Count: Y
+
+- Evidence Independence Risk: Low / Moderate / High
+
+Trap signal: favorite appears to have 5–6 supporting components but only 2 genuinely independent evidence families.
+
+PART 7 — FAVORITE STRESS TEST / WINNER-SWITCH THRESHOLD
+
+For every favorite, deliberately worsen the favorite's assumptions within realistic bounds:
+
+- reduce favorite Elo edge modestly.
+
+- reduce favorite recent-form edge.
+
+- reduce favorite serve strength.
+
+- improve underdog return strength.
+
+- increase favorite fatigue.
+
+- move market toward underdog.
+
+- remove the single strongest model component.
+
+- remove General Model.
+
+- remove Specialist Model.
+
+- remove market.
+
+- remove recent form.
+
+Page 19
+
+- remove Elo.
+
+Then ask:
+
+- Does the favorite still remain the predicted winner?
+
+- How many single-component removals flip the winner?
+
+- What is the smallest realistic input change that flips the pick?
+
+Report:
+- Favorite Robustness: Strong / Moderate / Fragile.
+
+- Winner-Switch Threshold: High / Medium / Low.
+
+- Counterfactual Survival: X of Y removals.
+
+Trap signal: favorite flips under one modest assumption change or after removing one dominant component.
+
+PART 8 — HISTORICAL TRAP-TWIN SEARCH
+
+Search the verified workbook for matches most similar to the current favorite/underdog profile using as many available dimensions as
+
+possible:
+
+- headline WP.
+
+- closeness.
+
+- recommendation.
+
+- upset risk.
+
+- DQ.
+
+- model agreement.
+
+- Elo gap.
+
+- serve/return gap.
+
+- recent-form gap.
+
+- market direction.
+
+- active disagreement count.
+
+- MC support.
+
+- headline-vs-MC gap.
+
+- straight-set gap.
+
+- fatigue gap.
+
+- opponent-adjusted form.
+
+For every current match identify:
+
+- Top positive twins where favorite won.
+
+- Top negative twins where favorite lost.
+
+- Similarity score or explanation.
+
+- Number of comparable historical matches.
+
+- Favorite win rate within those comparable matches.
+
+Do not call a historical pattern strong if fewer than ~10 genuinely comparable examples exist.
+
+Trap signal: nearest historical twins contain a disproportionately high favorite-loss rate.
+
+Page 20
+
+PART 9 — EXTERNAL TRAP VALIDATION
+
+Only after the internal disagreement/underdog audit, verify both players externally.
+
+At minimum check:
+
+- current ranking.
+
+- ranking movement.
+
+- last 5 results.
+
+- last 10 results.
+
+- same-surface record.
+
+- current tournament results.
+
+- current field/draw validity.
+
+- H2H.
+
+- injuries.
+
+- withdrawals.
+- recent retirements.
+
+- medical concerns.
+
+- rest/fatigue context.
+
+- travel.
+
+- recent notable wins/losses.
+
+- current sportsbook market from multiple books when available.
+
+- current prediction-market information when available.
+
+For lower-tour players, check multiple reliable result/stat sources where possible because identity and stale data issues are more
+
+common.
+
+External evidence must be classified:
+
+- CONFIRMS TRAP
+
+- WEAKLY CONFIRMS TRAP
+
+- NEUTRAL
+
+- WEAKENS TRAP
+
+- INVALIDATES TRAP
+
+Never use external validation to cherry-pick only the underdog case. Search for evidence that strengthens the favorite too.
+
+PART 10 — ENHANCED TRAP GAME SCORE
+
+Do not rely on one raw count. Build four sub-scores.
+
+A. Internal Disagreement Score (0–10)
+
+Points for meaningful, reliable disagreement:
+
+- +2 market favors underdog.
+
+Page 21
+
+- +2 two or more reliable live components favor underdog.
+
+- +1 one reliable live component favors underdog.
+
+- +1 favorite MC <55%.
+
+- +2 favorite MC <50%.
+
+- +1 headline-MC gap ≥15.
+
+- +1 favorite is more fatigued.
+
+- +1 underdog recent-form trend better.
+
+- +1 meaningful H2H/same-surface H2H advantage with real sample.
+
+- +1 style/surface matchup favors underdog.
+
+Cap at 10.
+
+B. Favorite Fragility Score (0–10)
+
+- +2 favorite depends heavily on one component.
+
+- +2 winner flips when strongest component removed.
+
+- +1 poor historical calibration bucket.
+
+- +1 close/moderate-lean tier.
+
+- +1 favorite has recent physical concern.
+
+- +1 favorite slow-start risk aligns with underdog strength.
+
+- +1 favorite weak deciding-set/closing profile.
+
+- +1 favorite has recent bad-loss pattern vs similar opponents.
+
+- +1 favorite's current ranking/Elo looks stale vs current form.
+
+Cap at 10.
+
+C. Underdog Win-Pathway Score (0–10)
+
++1 for each genuinely independent REALISTIC pathway from Part 5, cap at 10.
+D. Historical / External Confirmation Score (0–10)
+
+- +2 negative historical twins strongly resemble current match.
+
+- +1 current backtest bucket is upset-prone.
+
+- +2 external market confirms underdog strength.
+
+- +2 current form/external results confirm underdog.
+
+- +1 H2H confirms underdog.
+
+- +1 physical/fatigue evidence confirms underdog.
+
+- +1 current-surface evidence confirms underdog.
+
+Cap at 10.
+
+Composite Trap Risk = A + B + C + D (0–40)
+
+Suggested interpretation — recalibrate using future results:
+
+- 0–7: LOW TRAP RISK
+
+- 8–14: WATCH
+
+- 15–21: MODERATE TRAP
+
+Page 22
+
+- 22–28: HIGH TRAP RISK
+
+- 29–40: EXTREME TRAP / FAVORITE SHOULD BE RE-AUDITED BEFORE USE
+
+Never convert this score directly into a win probability unless separately calibrated on a large enough sample.
+
+PART 11 — TRAP-SPECIFIC RED FLAGS THAT OVERRIDE A GREEN LABEL
+
+A favorite cannot remain "clean Green" without explicit review if any of these occur:
+
+1. Market favors the underdog while Matrix headline is ≥65% favorite.
+
+2. Favorite MC support <55%.
+
+3. Favorite MC <50%.
+
+4. Headline-MC gap ≥20 points.
+
+5. Two or more high-reliability independent components favor underdog.
+
+6. Favorite's biggest supporting component is low-sample/low-reliability.
+
+7. Favorite has active injury/return-from-injury concern.
+
+8. Underdog has strong same-surface H2H with adequate sample.
+
+9. Underdog has better current form after opponent adjustment.
+
+10. Favorite recently lost repeatedly to the same archetype as today's underdog.
+
+11. Favorite is materially more fatigued and underdog has a physical/long-match pathway.
+
+12. External market moves materially toward underdog.
+
+13. Match is in historically weak favorite bucket *and* underdog owns at least two independent pathways.
+
+14. Favorite pick flips under one realistic stress-test adjustment.
+
+15. Historical nearest-neighbor matches show materially elevated upset rate.
+
+Any override flag requires a written explanation before assigning Green.
+
+PART 12 — FINAL PER-MATCH TRAP AUDIT OUTPUT
+
+For every matchup, output this block:
+
+[Favorite] vs [Underdog]
+
+Matrix favorite: [name] — [headline WP]%
+
+Predicted loser / underdog: [name]
+
+Current Matrix color: [if supplied]
+
+1. Favorite headline/calibration:
+
+- Headline WP:
+
+- MC:
+- Market no-vig:
+
+- Headline-MC gap:
+
+- Headline-market gap:
+
+- Historical calibration bucket:
+
+Page 23
+
+2. Predicted loser evidence:
+
+- Surface/Elo:
+
+- Serve:
+
+- Return:
+
+- Recent form:
+
+- Opponent adjustment:
+
+- Common opponents:
+
+- H2H/rematch:
+
+- Pressure/closing:
+
+- Fatigue/physical:
+
+- Ranking/development:
+
+- Style/matchup:
+
+- Market:
+
+- Monte Carlo/set-score:
+
+3. Reliability / sample check:
+
+- Strong underdog evidence:
+
+- Weak underdog evidence:
+
+- Excluded evidence:
+
+- Missing/unavailable evidence:
+
+4. Favorite contradictions:
+
+- [all meaningful contradictions]
+
+5. Favorite failure modes:
+
+- Failure mode 1 → can underdog trigger? [Yes/Possibly/No]
+
+- Failure mode 2 → ...
+
+- Failure mode 3 → ...
+
+6. Underdog realistic win pathways:
+
+- [pathway + evidence]
+
+- Total independent realistic pathways: [N]
+
+7. Circularity / evidence independence:
+
+- Raw favorite agreement:
+
+- Independent favorite evidence:
+
+- Raw underdog agreement:
+
+- Independent underdog evidence:
+
+8. Favorite stress test:
+
+- Robustness:
+
+- Winner-switch threshold:
+
+- Counterfactual survival:
+
+9. Historical trap twins:
+
+Page 24
+
+- Positive favorite twins:
+- Negative/upset twins:
+
+- Comparable sample:
+
+- Historical favorite win rate:
+
+10. External validation:
+
+- Ranking/current form:
+
+- Same surface:
+
+- Injury/availability:
+
+- H2H:
+
+- Market:
+
+- Current draw validity:
+
+- External verdict: [confirms/neutral/weakens/invalidates trap]
+
+11. Trap scoring:
+
+- Internal Disagreement: [x/10]
+
+- Favorite Fragility: [x/10]
+
+- Underdog Win Pathways: [x/10]
+
+- Historical/External Confirmation: [x/10]
+
+- Composite Trap Risk: [x/40]
+
+12. Final trap verdict:
+
+- LOW TRAP / WATCH / MODERATE / HIGH / EXTREME
+
+- Favorite status: KEEP / DOWNGRADE / REMOVE / FLIP / PASS
+
+- Evidence winner:
+
+- Reason:
+
+PART 13 — BATCH-LEVEL OUTPUT
+
+After all matches are audited, produce:
+
+A. Predicted Losers Most Likely to Win
+
+Rank underdogs from strongest upset case to weakest.
+
+| Rank | Predicted Loser | Favorite | Composite Trap Risk | Independent Win Pathways | Market Conflict |
+
+Historical Twin Risk | Final Action |
+
+|---|---|---|---:|---:|---|---|---|
+
+B. Favorite Trap Games
+
+Rank favorite picks most likely to fail.
+
+C. False Greens
+
+List any Green favorite that triggered one or more override flags.
+
+D. False Confidence Labels
+
+Page 25
+
+List "Elite," "High Confidence," or "Strong Agreement" favorites whose underlying evidence is materially contested.
+
+E. Matrix Picks to Flip
+
+Only include flips where underdog has stronger *reliable* evidence overall.
+
+F. Pass / No-Edge Matches
+
+List matches where neither side earns a reliable edge.
+
+G. Safest Favorites After Trap Audit
+
+Favorites that survived every underdog/failure-mode/stress-test layer.
+
+PART 14 — COMPLETION CHECK — NO SHORTCUTS
+
+Before claiming the disagreement/trap audit is complete, verify:
+
+[ ] Entire verified backtest workbook recalculated from actual rows.
+[ ] All current matchups extracted and deduplicated.
+
+[ ] Favorite evaluated separately.
+
+[ ] Predicted loser evaluated separately.
+
+[ ] Entire master metrics list screened for both players.
+
+[ ] Missing metrics explicitly marked unavailable rather than neutral.
+
+[ ] Reliability/sample/status checked for every model component.
+
+[ ] General/Specialist overlap/circularity considered.
+
+[ ] Direct favorite-vs-underdog differential completed.
+
+[ ] Favorite loss-autopsy completed where data exists.
+
+[ ] Underdog win-autopsy completed where data exists.
+
+[ ] Common-opponent/network layer completed where available.
+
+[ ] Set-1/slow-start layer completed where available.
+
+[ ] Deciding-set/closing layer completed where available.
+
+[ ] Fatigue/physical layer completed.
+
+[ ] Favorite failure modes identified.
+
+[ ] Underdog win pathways identified.
+
+[ ] Favorite stress test performed.
+
+[ ] Winner-switch threshold assessed.
+
+[ ] Historical trap twins searched.
+
+[ ] External validation run for both players.
+
+[ ] Current market checked from multiple sources where available.
+
+[ ] Current draw/withdrawal validity checked.
+
+[ ] Composite Trap Risk built from documented inputs only.
+
+[ ] Green override flags checked.
+
+[ ] Final KEEP/DOWNGRADE/REMOVE/FLIP/PASS assigned only after every prior step.
+
+If any required source is missing, state exactly which layer is incomplete. Do not say "complete" if it is not.
+
+Page 26
+
+PART 15 — PRIMARY OPERATING PRINCIPLE
+
+The disagreement audit is not finished when it proves that the favorite has weaknesses. It is finished only when it answers both
+
+questions:
+
+1. Why can the favorite lose?
+
+2. Does this specific underdog possess the actual weapons, form, physical condition, matchup fit, market support, and
+
+historical profile required to make those failure modes happen today?
+
+A true trap game requires both sides of that equation. The goal is to detect the predicted loser *before the upset happens*, without
+
+turning every imperfect favorite into a fake trap signal.
+
+PART 16 — NON-NEGOTIABLE EXECUTION ENFORCEMENT
+
+This section is mandatory and exists specifically to prevent incomplete or shortcut audits from being presented as complete.
+
+Before producing ANY final trap verdict, the assistant must create an internal completion ledger for every matchup.
+
+For each matchup, the ledger must contain:
+
+1. Favorite-side metric sweep completed: YES/NO
+
+2. Underdog-side metric sweep completed: YES/NO
+
+3. Reliability/sample/status reviewed: YES/NO
+
+4. Direct differential completed: YES/NO
+
+5. Favorite loss-autopsy completed or explicitly UNAVAILABLE: YES/NO
+
+6. Underdog win-autopsy completed or explicitly UNAVAILABLE: YES/NO
+7. Failure-mode compatibility completed: YES/NO
+
+8. Independent win-pathways counted: YES/NO
+
+9. Circularity/independent-evidence review completed: YES/NO
+
+10. Stress test performed: YES/NO
+
+11. Winner-switch threshold assessed: YES/NO
+
+12. Historical trap twins searched: YES/NO
+
+13. External validation completed for BOTH players: YES/NO
+
+14. Current market checked from multiple sources where available: YES/NO
+
+15. Draw/withdrawal validity checked: YES/NO
+
+16. Green override rules checked: YES/NO
+
+17. Composite Trap Risk calculated from documented evidence only: YES/NO
+
+HARD STOP RULE
+
+If ANY required ledger item is NO, the assistant may NOT:
+
+- call the audit complete,
+
+- label a match a confirmed trap,
+
+- issue a final FLIP,
+
+- issue a final safest-favorites list,
+
+Page 27
+
+- or claim all instructions were followed.
+
+Instead, the assistant must say exactly:
+
+INCOMPLETE AUDIT — missing: [specific layer/source].
+
+NO COMPRESSION RULE
+
+A batch summary may only be produced AFTER every matchup has its full per-match audit block completed.
+
+NO INFERENCE SUBSTITUTION
+
+Do not substitute:
+
+- prior assistant verdicts,
+
+- earlier Green lists,
+
+- old market odds,
+
+- old injury information,
+
+- old rankings,
+
+- remembered H2H,
+
+- or generic player reputation
+
+for current verification.
+
+NO SILENT SKIPPING
+
+Every unavailable requested metric must be explicitly classified UNAVAILABLE, EXCLUDED, or PARTIAL.
+
+Missing data may never be treated as neutral, 50/50, or evidence for either player.
+
+NO FAVORITE BIAS
+
+The Matrix favorite begins the audit with zero presumption of correctness.
+
+The predicted loser must be treated as a legitimate candidate winner until the full audit is complete.
+
+NO TRAP BIAS
+
+Do not manufacture a trap because the favorite has imperfections.
+
+A trap requires BOTH:
+
+A) a documented favorite failure mode,
+
+AND
+
+B) a documented, opponent-specific underdog pathway capable of triggering it.
+FINAL CERTIFICATION
+
+At the end of every completed batch audit, include:
+
+AUDIT CERTIFICATION
+
+- Matchups expected: [N]
+
+- Matchups completed: [N]
+
+- Favorite audits completed: [N/N]
+
+- Underdog audits completed: [N/N]
+
+Page 28
+
+- Historical overlays completed: [N/N]
+
+- External validations completed: [N/N]
+
+- Stress tests completed: [N/N]
+
+- Trap scores completed: [N/N]
+
+- Missing required sources: [NONE or list]
+
+Only if every required count equals N and no mandatory source is missing may the assistant write:
+
+FULL DISAGREEMENT/TRAP AUDIT COMPLETE — NO REQUIRED STEP SKIPPED.
+
+If any count is below N or any mandatory source is missing, the assistant must not use that completion statement.
+
+PART 17 — ENFORCEMENT OVERRIDE PRECEDENCE
+
+If any instruction elsewhere in this audit conflicts with Part 16, Part 16 controls.
+
+The assistant must prioritize verifiability over speed, brevity, or convenience.
+
+A shorter answer is never a valid reason to omit a required audit layer.
+
+A lack of available data is never permission to guess.
+
+A previous answer is never evidence unless the underlying source is independently re-checked in the current audit.
+
+The goal is not merely to produce a trap list. The goal is to produce a trap list that can be traced back through every required evidence
+
+layer without hidden omissions.
+
+PART 18 - FRESH ONLINE RESEARCH PROTOCOL - MANDATORY EVERY
+
+RUN
+
+This section is a NON-NEGOTIABLE execution requirement.
+
+Existing verification reports, previous assistant research, cached external validation, earlier Green audits, old web searches, and
+
+previously collected online information DO NOT satisfy the online-research requirement.
+
+For EVERY matchup, perform a NEW online research cycle during the CURRENT disagreement/trap-audit run.
+
+Research BOTH:
+
+A) the predicted favorite
+
+B) the predicted loser
+
+The predicted loser must receive at least the same online-research depth as the favorite.
+
+18.1 CURRENT MATCH VALIDITY
+
+Freshly verify:
+
+- tournament
+
+- tournament level
+
+- surface
+
+- round
+
+Page 29
+
+- exact matchup
+
+- both players remain in the draw
+
+- withdrawal status
+
+- replacement/lucky-loser status
+- walkover status
+
+- schedule/status when available
+
+The exact matchup must be confirmed from a current reliable source whenever such a source is available.
+
+If exact current draw validation cannot be obtained, mark:
+
+CURRENT DRAW VALIDATION: INCOMPLETE
+
+Do not silently rely on an older prediction sheet as proof that the match is still valid.
+
+18.2 CURRENT PLAYER STATUS - BOTH PLAYERS
+
+Freshly research BOTH players for:
+
+- current ranking
+
+- ranking movement/trajectory
+
+- last 5 matches
+
+- last 10 matches when obtainable
+
+- current winning/losing streak
+
+- same-surface recent record
+
+- recent tournament results
+
+- recent quality wins
+
+- recent bad losses
+
+- opponent quality
+
+- current workload
+
+- recent sets/games/minutes when obtainable
+
+- travel
+
+- qualifying workload
+
+- late finishes
+
+- injury
+
+- illness
+
+- retirement
+
+- withdrawal
+
+- medical timeout
+
+- return from injury
+
+- current match fitness
+
+Do not use generic reputation as a substitute for current status.
+
+18.3 FAVORITE LOSS AUTOPSY - FRESH WEB RESEARCH
+
+Page 30
+
+Research the favorite's recent losses.
+
+For each relevant recent loss, determine when supported:
+
+- opponent
+
+- opponent quality
+
+- surface
+
+- tournament level
+
+- score
+
+- whether the favorite won or lost Set 1
+
+- whether the favorite held a lead
+
+- whether the favorite collapsed after leading
+
+- opponent style
+
+- favorite serve performance
+- favorite return performance
+
+- first-serve/second-serve issues
+
+- break-point performance
+
+- break consolidation problems
+
+- tiebreak problems
+
+- short-rally problems
+
+- long-rally problems
+
+- fatigue/injury/physical issue
+
+- tactical pattern responsible for the loss
+
+The purpose is to extract REPEATABLE FAVORITE FAILURE MODES.
+
+Do not merely state:
+
+"Favorite recently lost."
+
+Determine HOW and WHY the favorite lost.
+
+If detailed match statistics are unavailable, state which loss-autopsy fields are unavailable.
+
+18.4 UNDERDOG WIN AUTOPSY - FRESH WEB RESEARCH
+
+Research the predicted loser's recent wins.
+
+For each relevant recent win, determine when supported:
+
+- opponent
+
+- opponent quality
+
+- surface
+
+- tournament level
+
+- score
+
+- whether opponent was favored/higher ranked
+
+- whether the underdog lost Set 1 and recovered
+
+- whether the underdog protected a lead
+
+Page 31
+
+- serve dominance
+
+- return pressure
+
+- first-strike ability
+
+- second-serve attacking
+
+- break-point performance
+
+- comeback ability
+
+- tiebreak performance
+
+- rally tolerance
+
+- pace tolerance
+
+- tactical pattern
+
+- physical endurance
+
+- closing ability
+
+The purpose is to extract REPEATABLE UNDERDOG WINNING WEAPONS.
+
+Do not merely state:
+
+"Underdog has upset wins."
+
+Determine HOW those wins were created.
+
+18.5 FAVORITE FAILURE MODE VS UNDERDOG WEAPON COMPATIBILITY
+
+This comparison is mandatory.
+
+Compare:
+Favorite's demonstrated failure modes
+
+VERSUS
+
+Underdog's demonstrated winning weapons
+
+A favorite weakness counts as meaningful trap evidence ONLY when this specific underdog has demonstrated an ability to exploit it.
+
+Example:
+
+Favorite struggles against:
+
+- big first serves
+
+- aggressive second-serve returns
+
+- low-rally-length tennis
+
+Underdog demonstrates:
+
+- strong recent first-serve effectiveness
+
+- aggressive return positioning
+
+- strong 0-4 shot performance
+
+Result:
+
+MATCHUP-SPECIFIC TRAP PATHWAY
+
+Generic favorite weakness without opponent compatibility receives reduced weight.
+
+Page 32
+
+Generic underdog strength that does not attack a favorite weakness also receives reduced weight.
+
+The audit must distinguish:
+
+- theoretical pathway
+
+- demonstrated pathway
+
+- same-surface demonstrated pathway
+
+- direct-H2H demonstrated pathway
+
+18.6 SAME-SURFACE DIRECT EVIDENCE
+
+Freshly search for:
+
+- overall H2H
+
+- same-surface H2H
+
+- recent same-surface meetings
+
+- scorelines
+
+- set-by-set pattern
+
+- match statistics
+
+- winners/errors when available
+
+- first/second serve performance
+
+- return performance
+
+- break-point performance
+
+- tiebreaks
+
+- momentum changes
+
+- retirement/injury context
+
+- whether the meeting occurred before a major player-level change
+
+Same-surface recent H2H receives substantially more weight than old, different-surface H2H.
+
+A direct H2H result is not automatically decisive. Determine whether the mechanism of that result remains relevant to the current
+
+matchup.
+
+18.7 COMMON-OPPONENT ONLINE RESEARCH
+
+Freshly search recent common opponents.
+
+Compare:
+- result
+
+- scoreline
+
+- surface
+
+- tournament level
+
+- recency
+
+- opponent ranking/strength
+
+- opponent physical condition
+
+- whether the common opponent played a similar tactical match
+
+- whether the comparison is actually meaningful
+
+Page 33
+
+Do NOT treat common-opponent results as transitive proof.
+
+Use them as contextual evidence only.
+
+18.8 CURRENT MARKET RESEARCH
+
+Search CURRENT odds during the CURRENT audit run.
+
+Attempt multiple independent sportsbooks and/or reputable odds aggregators when available.
+
+Record when obtainable:
+
+- source/sportsbook
+
+- favorite price
+
+- underdog price
+
+- implied probability
+
+- no-vig probability
+
+- opening price
+
+- current price
+
+- line movement
+
+- disagreement between books
+
+- whether market direction agrees with Matrix
+
+- whether market movement strengthens the underdog trap case
+
+If current odds cannot be reliably obtained, explicitly record:
+
+CURRENT MARKET: UNAVAILABLE
+
+Do NOT substitute Matrix Market Consensus for a fresh market check.
+
+Do NOT use stale odds as current odds.
+
+18.9 CURRENT NEWS SEARCH
+
+Freshly search BOTH player names individually.
+
+Look for:
+
+- injury
+
+- illness
+
+- fatigue
+
+- comments about physical condition
+
+- travel problems
+
+- scheduling issues
+
+- recent retirement
+
+- recent withdrawal
+
+- medical timeout
+
+- emotional/mental comments when reliably reported
+
+- coaching changes
+Page 34
+
+- equipment changes
+
+- unusually heavy workload
+
+- return from injury
+
+- comments about surface adaptation
+
+- current tournament comments
+
+Separate:
+
+- verified reporting
+
+- player/coach statements
+
+- statistical inference
+
+- speculation
+
+Speculation receives no decision weight unless independently supported.
+
+18.10 SOURCE DIVERSITY REQUIREMENT
+
+Do not call external research complete based on one website when other reliable evidence is reasonably available.
+
+Attempt to use multiple source types:
+
+1. official tournament/tour/draw source
+
+2. results/statistics source
+
+3. reputable current-news source
+
+4. market source when available
+
+One source may support multiple facts, but a single source must not constitute the entire external audit when other reliable evidence is
+
+available.
+
+Source quality must be considered.
+
+Prefer:
+
+- official ATP/WTA/ITF/tournament sources
+
+- reputable statistical databases
+
+- reputable news organizations
+
+- established odds/market sources
+
+Low-quality aggregation or scraped pages should not override stronger primary/reputable evidence.
+
+18.11 FRESHNESS REQUIREMENT
+
+For CURRENT:
+
+- injury
+
+- illness
+
+- draw
+
+- matchup validity
+
+- market
+
+- form
+
+- ranking
+
+Page 35
+
+- workload
+
+- physical condition
+
+- tournament status
+
+prefer information from the current tournament/week whenever available.
+
+Older information may be used for:
+
+- H2H
+
+- historical surface tendencies
+- long-term style
+
+- career patterns
+
+- historical failure modes
+
+but it must be labeled historical.
+
+Do not present old information as current.
+
+18.12 RESEARCH RECENCY LABELS
+
+Every external item that materially affects the verdict should be classified as one of:
+
+- CURRENT TOURNAMENT
+
+- CURRENT WEEK
+
+- RECENT - LAST 30 DAYS
+
+- RECENT - LAST 90 DAYS
+
+- HISTORICAL
+
+Current information receives more weight for physical condition, form, workload, and market.
+
+Historical information may receive strong weight when it demonstrates stable style or same-surface matchup compatibility.
+
+18.13 ONLINE FAVORITE FAILURE LEDGER
+
+For every favorite, record:
+
+- Recent losses searched: YES/NO
+
+- Relevant losses found: [N]
+
+- Same-surface losses found: [N]
+
+- Failure mode 1:
+
+- Failure mode 2:
+
+- Failure mode 3:
+
+- Physical failure evidence:
+
+- Closing failure evidence:
+
+- Serve failure evidence:
+
+- Return failure evidence:
+
+- Tactical failure evidence:
+
+- Reliability of failure-mode evidence: HIGH/MEDIUM/LOW
+
+Page 36
+
+- Current relevance: HIGH/MEDIUM/LOW
+
+If no repeatable failure mode is found, explicitly record:
+
+NO STRONG REPEATABLE FAVORITE FAILURE MODE FOUND
+
+18.14 ONLINE UNDERDOG WEAPON LEDGER
+
+For every predicted loser, record:
+
+- Recent wins searched: YES/NO
+
+- Relevant wins found: [N]
+
+- Same-surface wins found: [N]
+
+- Higher-ranked/favored opponents beaten:
+
+- Weapon 1:
+
+- Weapon 2:
+
+- Weapon 3:
+
+- Serve-based pathway:
+
+- Return-based pathway:
+
+- Rally-based pathway:
+
+- pressure/closing pathway:
+- fatigue/endurance pathway:
+
+- tactical pathway:
+
+- Reliability of weapon evidence: HIGH/MEDIUM/LOW
+
+- Current relevance: HIGH/MEDIUM/LOW
+
+If no meaningful underdog weapon is found, explicitly record:
+
+NO STRONG DEMONSTRATED UNDERDOG WIN PATHWAY FOUND
+
+18.15 FRESH ONLINE TRAP PATHWAY COUNT
+
+After fresh research, count ONLY independent, documented pathways.
+
+Do not double-count correlated evidence.
+
+Example:
+
+- strong first serve
+
+- high ace count
+
+- high first-serve points won
+
+may represent ONE serve-dominance pathway, not three independent pathways.
+
+Classify each pathway:
+
+1. PROVEN DIRECT PATHWAY
+
+- demonstrated against this favorite, preferably same surface
+
+2. PROVEN COMPARABLE PATHWAY
+
+Page 37
+
+- demonstrated against similar/high-quality opponents
+
+3. THEORETICAL PATHWAY
+
+- stylistically plausible but not demonstrated strongly enough
+
+Only proven direct/comparable pathways receive full trap weight.
+
+18.16 FRESH ONLINE STRESS TEST
+
+After online research, re-run the favorite verdict under adverse but plausible assumptions.
+
+At minimum test:
+
+Stress Test A - Remove strongest favorite model family
+
+Would the favorite still be favored?
+
+Stress Test B - Give greater weight to current form
+
+Would the predicted loser become competitive?
+
+Stress Test C - Give greater weight to same-surface evidence
+
+Would the predicted loser become competitive?
+
+Stress Test D - Give greater weight to current physical/news evidence
+
+Would the favorite remain stable?
+
+Stress Test E - Give greater weight to current market
+
+Would the winner change?
+
+Stress Test F - Assume one-break/tiebreak match
+
+Does the underdog's pathway become substantially stronger?
+
+Record:
+
+- winner under each stress test
+
+- whether verdict flips
+
+- how many plausible stress tests flip the favorite
+
+A favorite that flips under several plausible stress tests receives a major trap-risk increase.
+
+18.17 CURRENT MARKET VS MATRIX MARKET SEPARATION
+
+The audit must explicitly separate:
+MATRIX MARKET CONSENSUS
+
+from
+
+FRESH CURRENT ONLINE MARKET
+
+These are not the same evidence source.
+
+Record both separately.
+
+If they agree:
+
+MANDATORY MARKET CONSENSUS ENFORCEMENT -
+
+DISAGREEMENT / TRAP AUDIT
+
+This page is part of the audit, not an optional appendix. It strengthens Sections 18.8 and 18.17 and controls
+
+every market-read, trap-market, Market-Veto, and final KEEP/DOWNGRADE/REMOVE/FLIP/PASS decision.
+
+1. Sportsbook source minimum. For every current match, attempt at least 3 independent sportsbooks when available. Prefer
+
+one sharp/reference or high-liquidity book plus two mainstream regulated books. An odds aggregator may help locate
+
+prices, but it does not count as multiple independent books unless the underlying books are individually identified.
+
+2. Same-market / same-time rule. Capture both players from the same match-winner market and the same book at
+
+approximately the same timestamp. Record sportsbook, timestamp, favorite price, underdog price, and source URL.
+
+Suspended, stale, one-sided, or mismatched-round prices are not valid consensus inputs.
+
+3. De-vig each sportsbook separately. Convert both sides to raw implied probability, then compute the book-level no-vig
+
+favorite probability as qFav / (qFav + qDog). Build the live sportsbook consensus from the median no-vig probability across
+
+valid books; also record low/high range and dispersion.
+
+4. Prediction markets are separate. Kalshi and other prediction markets must be recorded as a separate evidence family.
+
+Never treat Kalshi American-style display odds as ordinary sportsbook moneylines, never blend them into sportsbook
+
+consensus, and never use them as a substitute for a two-sided sportsbook quote.
+
+5. Kalshi coherence check. When Kalshi is used, prefer the underlying contract price/probability and liquidity/spread
+
+information. If its displayed American-style numbers produce an extreme synthetic overround, cannot be reconciled with
+
+complementary contract probabilities, or materially conflict with the underlying contract price, label the display
+
+NON-COMPARABLE / DISPLAY-STRUCTURE WARNING and give it no sportsbook-consensus weight.
+
+6. Market integrity thresholds. A sportsbook-consensus vs Matrix-market gap of 5+ percentage points requires
+
+investigation; 8+ pp is a MATERIAL MARKET CONFLICT; 12+ pp is a CRITICAL MARKET CONFLICT and blocks Green/Keep
+
+until explained. Apply the same 5/8/12 pp ladder to Kalshi vs sportsbook consensus, but treat the result as a
+
+prediction-market discrepancy rather than sportsbook evidence.
+
+7. Book-dispersion warning. If valid sportsbook no-vig probabilities span 8+ pp, mark MARKET DISPERSION HIGH and do not
+
+claim a precise consensus. Investigate stale lines, limits/liquidity, player identity, tournament/round, withdrawals, and news
+
+before assigning decision weight.
+
+8. Source-count downgrade. Three or more valid books = COMPLETE. Two valid books = PARTIAL and reduced market
+
+weight. One valid book = SINGLE-SOURCE ONLY and cannot independently unlock Green. Zero reliable books = CURRENT
+
+SPORTSBOOK MARKET UNAVAILABLE.
+
+9. No market double-counting. Matrix Market Consensus, live sportsbook consensus, and prediction-market information
+
+must remain three distinct fields. Agreement may strengthen confidence; disagreement must be explained. Do not count
+
+multiple books as multiple independent tennis signals; they form one Market evidence family.
+
+10. Market cannot be silently ignored. A material/critical conflict must appear in the contradiction ledger, trap score, stress
+
+tests, removal case, and final decision rationale. If unresolved, downgrade/remove/pass rather than certifying Green.
+
+Mandatory per-match market ledger
+
+Field
+
+Required entry
+
+Sportsbooks
+Book 1 / Book 2 / Book 3+; prices; timestamp; URL
+
+No-vig consensus
+
+Median; low-high range; dispersion; valid source count
+
+Matrix market
+
+Separate Matrix Market Consensus probability
+
+Prediction market
+
+Kalshi/other contract probability, liquidity/spread; separate
+
+Conflict flags
+
+Matrix-vs-sportsbook pp gap; prediction-vs-sportsbook pp gap
+
+Integrity status
+
+COMPLETE / PARTIAL / SINGLE-SOURCE / UNAVAILABLE
+
+Decision effect
+
+CONFIRMS / NEUTRAL / WEAKENS / MATERIAL CONFLICT / CRITICAL VETO
+
+DISAGREEMENT/TRAP OVERRIDE: A CRITICAL market conflict or non-comparable Kalshi display cannot be
+
+used to support the favorite. The audit must investigate the underdog pathway and present the unresolved
+
+conflict before final classification.
+
+Page 38
+
+- agreement may strengthen the favorite/underdog case.
+
+If they disagree:
+
+- investigate timing, line movement, injury/news, and possible stale Matrix inputs.
+
+Never report Matrix market data as if it were a fresh live market check.
+
+18.18 FRESH ONLINE RESEARCH LEDGER - REQUIRED FOR EVERY MATCH
+
+For EVERY matchup report:
+
+- Favorite fresh research: COMPLETE / INCOMPLETE
+
+- Underdog fresh research: COMPLETE / INCOMPLETE
+
+- Current draw verified: YES / NO
+
+- Current tournament verified: YES / NO
+
+- Current surface verified: YES / NO
+
+- Current round verified: YES / NO / UNAVAILABLE
+
+- Recent favorite losses researched: YES / NO
+
+- Favorite failure modes extracted: YES / NO / NONE FOUND
+
+- Recent underdog wins researched: YES / NO
+
+- Underdog winning weapons extracted: YES / NO / NONE FOUND
+
+- Same-surface evidence researched: YES / NO
+
+- H2H researched: YES / NO
+
+- Common opponents researched: YES / NO
+
+- Current injury/status researched - favorite: YES / NO
+
+- Current injury/status researched - underdog: YES / NO
+
+- Current workload researched - favorite: YES / NO
+
+- Current workload researched - underdog: YES / NO
+
+- Current market researched: YES / UNAVAILABLE
+
+- Matrix market separated from live market: YES / NO
+
+- Current news researched: YES / NO
+
+- Multiple source types attempted: YES / NO
+
+- Source freshness classified: YES / NO
+- Failure-mode compatibility test completed: YES / NO
+
+- Fresh online stress test completed: YES / NO
+
+- Independent trap pathways counted: YES / NO
+
+18.19 HARD STOP - FRESH ONLINE RESEARCH
+
+Previous research DOES NOT count toward the Part 18 ledger.
+
+Every required field must be newly researched during the CURRENT audit execution.
+
+If mandatory fresh research has not been performed for BOTH players, the matchup cannot receive a final:
+
+- KEEP
+
+Page 39
+
+- DOWNGRADE
+
+- REMOVE
+
+- FLIP
+
+- confirmed trap
+
+- safest-favorite certification
+
+It must instead say:
+
+INCOMPLETE FRESH-ONLINE AUDIT - missing: [specific online research item/source].
+
+If current market is genuinely unavailable after a documented search attempt, it may be marked UNAVAILABLE rather than NO. That
+
+alone does not automatically block completion, provided the audit clearly states the limitation and does not invent or substitute odds.
+
+If current draw/match validity cannot be verified, the matchup CANNOT receive final certification.
+
+18.20 NO PREVIOUS-RESEARCH SUBSTITUTION
+
+The following DO NOT satisfy Part 18:
+
+- earlier assistant web searches
+
+- previous audit external-validation text
+
+- prior Green verification
+
+- cached injury notes
+
+- remembered rankings
+
+- old odds
+
+- old draw information
+
+- previous H2H summaries
+
+- previous news summaries
+
+Those materials may be used as leads for what to re-check, but the relevant facts must be freshly verified during the current run.
+
+18.21 BATCH CERTIFICATION ADDITION
+
+The final AUDIT CERTIFICATION must now also include:
+
+- Fresh favorite web audits completed: [N/N]
+
+- Fresh underdog web audits completed: [N/N]
+
+- Current draw validations completed: [N/N]
+
+- Favorite loss autopsies completed: [N/N]
+
+- Underdog win autopsies completed: [N/N]
+
+- Same-surface online checks completed: [N/N]
+
+- H2H online checks completed: [N/N]
+
+- Common-opponent online checks completed: [N/N]
+
+- Injury/status online checks completed: [N/N]
+
+- Current market searches attempted: [N/N]
+
+- Fresh news searches completed: [N/N]
+
+- Failure-mode compatibility tests completed: [N/N]
+Page 40
+
+- Fresh online stress tests completed: [N/N]
+
+- Source-diversity requirement satisfied: [N/N or documented exceptions]
+
+Only when the original completion ledger AND this Fresh Online Research ledger satisfy all mandatory requirements may the assistant
+
+write:
+
+FULL DISAGREEMENT/TRAP AUDIT COMPLETE - NO REQUIRED STEP SKIPPED.
+
+18.22 ENFORCEMENT PRECEDENCE
+
+Part 18 is mandatory and works together with Part 16.
+
+If any earlier section can be interpreted as allowing previous/cached external research to satisfy current online validation, Part 18
+
+overrides that interpretation.
+
+A disagreement/trap audit is not fully executed merely because online research exists somewhere in a previous report.
+
+The research must be FRESH, MATCH-SPECIFIC, PLAYER-SPECIFIC, OPPONENT-SPECIFIC, and performed during the CURRENT
+
+audit run.
+
+FINAL ENFORCEMENT PRINCIPLE
+
+The disagreement audit must answer two separate questions with current evidence:
+
+1. WHY CAN THE FAVORITE LOSE?
+
+2. DOES THIS SPECIFIC PREDICTED LOSER CURRENTLY POSSESS THE TOOLS TO MAKE THAT LOSS HAPPEN?
+
+The first question requires a fresh favorite loss autopsy.
+
+The second requires a fresh underdog win autopsy.
+
+A trap verdict requires BOTH.
+
+If either side has not been freshly researched, the trap audit is incomplete.
+
+ADDED DISAGREEMENT RULES - FALSE-FAVORITE ESCALATION
+
+These rules are mandatory additions to the Disagreement/Trap Audit. Their purpose is to force removal or downgrade review when a
+
+historically strong favorite faces a rapidly improving, match-sharp, or under-ranked opponent.
+
+FALSE-FAVORITE ESCALATION GATE - GREEN LOCK
+
+If the favorite has meaningful inactivity or no current-condition evidence AND the opponent shows rapid improvement, ranking lag, recent elite wins,
+
+or unusually strong opponent-adjusted form, GREEN and DOUBLE GREEN are LOCKED until the escalation below is completed.
+
+1. Current-Strength Revaluation
+
+Estimate both players' present strength separately from career/name value using recent opponent-adjusted results, surface performance,
+
+serve/return trajectory, ranking/Elo velocity, and quality of opposition.
+
+2. Rapid-Riser / Ranking-Lag Override
+
+If the underdog's recent level is materially ahead of ranking/Elo, long-term ratings cannot dismiss the underdog. Quantify the gap between trailing
+
+baseline and recent current-strength estimate.
+
+3. Recent Elite-Win Escalation
+
+Investigate recent high-quality wins for repeatability using underlying points/games, serve/return, opponent quality, surface, and follow-up
+
+performance.
+
+4. Favorite Rust / Layoff Penalty
+
+Meaningful inactivity widens the favorite's floor and blocks clean confidence based primarily on historical strength. Compare layoff length, match
+
+sharpness, current-surface adaptation, and first-match-back history when reconstructable.
+
+5. No Current-Tournament Evidence Penalty
+
+If the underdog has current-condition evidence and the favorite has none, increase favorite uncertainty and require affirmative current-strength
+
+support before Green.
+
+6. Rust x Momentum Cross-Feature
+
+Directly test returning established favorite versus match-sharp / rapidly improving opponent. This interaction can create trap risk even when each
+
+factor alone is moderate.
+7. Underdog Ceiling Revaluation
+
+Recent elite-quality performances update the underdog's realistic upper range. Recalculate favorite-floor vs underdog-ceiling overlap.
+
+8. Favorite Floor Revaluation
+
+Layoff, volatility, uncertain current condition, or recent decline widens the favorite's lower tail. Recalculate distribution overlap.
+
+9. Information-Asymmetry Penalty
+
+If present-level evidence is much richer for the underdog than the favorite, do not let historical certainty substitute for current evidence.
+
+10. Legacy / Name Bias Test
+
+Ignore names, titles, reputation, and career accomplishments. Re-evaluate using recent 10-20 matches, surface, opponent quality, serve/return
+
+trajectory, workload, and current-condition evidence. If the color changes, flag LEGACY/NAME BIAS RISK.
+
+11. Market-Veto Investigation
+
+Large unexplained market disagreement blocks Green. Investigate line level/movement, source quality, current availability news, and whether the
+
+market is pricing a present-level risk the historical metrics miss.
+
+12. Probability Compression
+
+When present-level uncertainty is high, reject extreme certainty. Widen the probability interval and test whether the pick remains favorable under
+
+conservative current-strength assumptions.
+
+13. Mandatory Removal Question
+
+Before any Green list is finalized, answer: What is the strongest evidence that this favorite should be REMOVED? If the audit cannot convincingly
+
+defeat that case with independent reliable evidence, remove or downgrade the favorite.
+
+14. Adversarial Breakthrough Case
+
+Construct the strongest evidence-based case that the improving underdog is already better than the long-term rating suggests. Test it against
+
+surface, opponent adjustment, serve/return, current tournament, market, and sample reliability.
+
+15. Green Burden-of-Proof Rule
+
+In an escalation match, absence of proof for the underdog is not proof for the favorite. The favorite must affirmatively demonstrate current
+
+superiority after all adjustments.
+
+16. False-Green Historical Feedback
+
+Every Green/Double-Green loss becomes a structural failure case. Store the pre-match warning configuration and use it as a future downgrade
+
+trigger when the same pattern recurs.
+
+17. No Future Leakage
+
+Only pre-match information may explain whether the pick should have been removed. In-match illness, vomiting, injury, medical timeout, or
+
+performance cannot be used retroactively unless publicly known before first serve.
+
+18. Escalation Exit Standard
+
+GREEN unlocks only if the favorite survives current-strength revaluation, trajectory differential, floor/ceiling overlap, market investigation,
+
+adversarial underdog case, and removal-question review. Otherwise downgrade to YELLOW/RED/PASS as supported.
+
+DANGEROUS UNDERDOG SCREEN
+
+MANDATORY FALSE-FAVORITE ESCALATION - RUN BEFORE VALIDATING THE FAVORITE
+
+Purpose: detect an under-ranked, rapidly improving, match-sharp, or matchup-dangerous opponent before historical reputation,
+
+ranking, Elo, or Matrix probability can push the favorite onto the Green list.
+
+Five-Dimension Screen
+
+CURRENT LEVEL - Is the underdog materially better now than long-term ranking/Elo indicates?
+
+TRAJECTORY - Is the underdog improving quickly across ranking, opponent-adjusted performance, serve, return, and quality of opposition?
+
+PROVEN CEILING - Has the underdog already produced matchup-winning performance against strong opposition, and is that ceiling repeatable?
+
+MATCHUP ACCESS - Does the underdog possess one or more credible, opponent-specific pathways that attack the favorite's documented
+
+weaknesses?
+
+FAVORITE EXPOSURE - Is the favorite's historical edge less trustworthy today because of inactivity, decline, surface, current-condition uncertainty,
+
+weak underlying performance, or matchup vulnerability?
+3-of-5 GREEN LOCK
+
+If 3 or more dimensions trigger STRONGLY, GREEN and DOUBLE GREEN are unavailable until the favorite completes the full
+
+Dangerous Underdog Escalation. Absence of proof for the underdog is not proof for the favorite.
+
+Required Screen Output
+
+- Current Level: LOW / MODERATE / HIGH threat
+
+- Trajectory: LOW / MODERATE / HIGH threat
+
+- Proven Ceiling: LOW / MODERATE / HIGH threat
+
+- Matchup Access: LOW / MODERATE / HIGH threat
+
+- Favorite Exposure: LOW / MODERATE / HIGH threat
+
+- Strong triggers: [0-5]
+
+- GREEN LOCK: YES / NO
+
+- Strongest evidence for removal: [state it before defending the favorite]
+
+ADDITIONAL DISAGREEMENT ENFORCEMENT - RULES
+
+/ SIGNALS 1-70
+
+All items use public observations or transparently reconstructed values. DIRECT, RECONSTRUCTED, PARTIAL, UNAVAILABLE,
+
+and EXCLUDED must remain distinguished. Correlated metrics are not independent votes.
+
+1. Underdog Threat Score - mandatory - Build a separate threat score without using the Matrix probability: recent opponent-adjusted performance,
+
+ranking velocity, surface performance, elite wins, serve/return improvement, current-tournament performance, quality of losses, volatility/upside,
+
+common-opponent performance, and market strength.
+
+2. Favorite Vulnerability Score - mandatory - Separately measure inactivity, recent bad losses, declining serve/return, ranking-performance disconnect,
+
+closing failures, break-lead surrender, tiebreak dependence, weak-win frequency, workload, and surface/current-condition uncertainty.
+
+3. Recent-Level Elo - Reconstruct strength over multiple windows such as 52, 26, 12, and approximately 6 weeks where inputs permit. Compare with
+
+long-term Elo and label all reconstructed ratings.
+
+4. Ranking Velocity + Acceleration - Measure ranking change and whether the rate of improvement/decline itself is accelerating.
+
+5. Opponent-Quality Acceleration - Test whether recent performance is occurring against progressively stronger opposition.
+
+6. Upset Capability Index - Measure recent performance against Top 10/20/50/100, higher-rated opponents, and betting favorites where historical
+
+pricing is available.
+
+7. Upset Recency Index - Weight recent high-quality upsets more heavily than old upsets while preserving sample reliability.
+
+8. Near-Upset Index - Capture competitive losses to elite opponents using sets, tiebreaks, game/point dominance, break differential, and closeness.
+
+9. Hidden Improvement Index - Detect rising point%, hold%, break%, second-serve, return, and opponent-adjusted performance even when W/L
+
+remains mediocre.
+
+10. Quality-of-Loss Trend - Determine whether recent losses are increasingly restricted to stronger opponents and whether underlying performance in
+
+those losses is improving.
+
+11. Favorite Bad-Loss Frequency - Count losses to materially lower-ranked/lower-rated opponents over multiple recency windows and on the relevant
+
+surface.
+
+12. Favorite Escape Frequency - Count wins where the favorite survived despite weak underlying point/game/break performance or repeated pressure
+
+exposure.
+
+13. Expected-Wins vs Actual-Wins Gap - Compare recent actual W/L with expected results from transparent pre-match strength or point/game
+
+performance estimates.
+
+14. Opponent-Adjusted Point Dominance Trend - Track point-level dominance after opponent-strength adjustment and compare trend direction for
+
+both players.
+
+15. Serve Residual Trend - Actual serve performance minus expected serve performance against the returners faced.
+
+16. Return Residual Trend - Actual return performance minus expected return performance against the servers faced.
+
+17. Second-Serve Survival Trend - Track second-serve points won and exposure after opponent adjustment, especially against aggressive return
+
+profiles.
+18. Break Creation Trend - Track break-point opportunities generated per return game and its recent/surface/opponent-adjusted trajectory.
+
+19. Break Prevention Trend - Track break-point opportunities conceded per service game and trajectory.
+
+20. Pressure Opportunity Differential - Compare how frequently each player creates and faces high-leverage break situations, not merely conversion
+
+percentages.
+
+21. Match-Control Without Scoreline - Reconstruct control from points, service points, return points, breaks, and break opportunities while deliberately
+
+ignoring the final result.
+
+22. Performance Stability vs Strong Opposition - Measure whether performance deteriorates sharply or remains stable as opponent quality increases.
+
+23. Opponent Strength Elasticity - Estimate how much point/serve/return performance changes as opponent strength rises.
+
+24. Surface Strength Elasticity - Estimate whether the matchup gap expands or compresses on today's surface relative to overall performance.
+
+25. Favorite Advantage Compression - Measure how much the favorite's edge shrinks through overall -> surface -> recent -> opponent-adjusted ->
+
+current-tournament filters.
+
+26. Underdog Threat Expansion - Measure whether the underdog's estimated strength rises as stale/irrelevant historical information is removed.
+
+27. Peak-Recent-Performance Frequency - Count how often the underdog has actually reached an elite or matchup-winning performance band
+
+recently.
+
+28. Ceiling Repeatability - Distinguish one outlier peak from repeated high-level performances over the recent sample.
+
+29. Performance Change-Point Detection - Use transparent statistical change-point or segmented-trend methods where sample permits to identify
+
+meaningful shifts in current level.
+
+30. EWMA Current Form - Exponentially weight recent point/game/serve/return performance so the newest evidence matters more without discarding
+
+older observations.
+
+31. Separate Serve EWMA and Return EWMA - Maintain independent exponentially weighted serve and return trajectories.
+
+32. Current-Level Confidence Interval - Every reconstructed current-strength estimate must include uncertainty/range and sample basis.
+
+33. Probability Range Instead of Single Probability - Report a plausible reconstructed probability interval, not only a single point estimate.
+
+34. Worst-Reasonable-Case Simulation - Stress-test lower-bound favorite assumptions against upper-bound underdog assumptions. If modest
+
+changes flip the winner, Green is fragile.
+
+35. Monte Carlo Parameter Uncertainty - Sample plausible serve/return/hold parameters from uncertainty ranges instead of fixing one estimate.
+
+36. Upset Monte Carlo - Estimate how often plausible favorite-floor/underdog-ceiling combinations produce the upset.
+
+37. Path-to-Upset Simulation - Estimate plausible upset routes: straight sets, decider, break-heavy, tiebreak, second-serve attack, closing failure, etc.
+
+38. Multiple Independent Upset Routes - Count independent credible pathways by which the underdog can win. Multiple routes materially increase trap
+
+risk.
+
+39. Network Strength Rating - Build a transparent player-opponent graph from recent public results to identify players whose ranking may lag their
+
+competitive network position.
+
+40. Temporal Network Rating - Recency-weight the network so current opponent relationships matter more than stale ones.
+
+41. Second-Degree Opponent Strength - Evaluate not only who a player beat, but the recent strength/results of those opponents' opponents.
+
+42. Quality-Win Network Density - Test whether strong results form a connected pattern against genuinely strong competition rather than isolated
+
+anomalies.
+
+43. Common-Opponent Recency - Weight recent same-surface common opponents more heavily than old comparisons.
+
+44. Common-Opponent Performance Residual - Compare each player's performance against shared opponents relative to expected performance.
+
+45. Archetype-Neighborhood Analysis - Find statistically similar recent opponents using observable surface, strength, serve/return, rally, and style
+
+variables rather than broad labels alone.
+
+46. Nearest-Opponent Match Search - Construct a transparent similarity vector and retrieve the closest historical opponent profiles for each player.
+
+47. Favorite Failure Twins - Find past favorite losses/struggles against opponents most similar to today's underdog.
+
+48. Underdog Success Twins - Find underdog wins/near-wins against opponents most similar to today's favorite.
+
+49. Twin Outcome Rate - Calculate outcomes across the comparable-match sample instead of relying on anecdotal similarities.
+
+50. Twin Reliability Gate - No historical-twin conclusion without sample size, similarity strength, recency, and surface relevance.
+
+51. Superstar / Name-Value Guard - Automatically escalate historically elite favorites when the opponent's current level is rising materially faster than
+ranking recognition.
+
+52. Career-vs-Current Strength Divergence - Quantify the gap between long-term/career strength and current reconstructed strength for both players.
+
+53. Historical Reputation Contribution - Recalculate the favorite's advantage after excluding evidence older than 12 months where possible; report how
+
+much the edge changes.
+
+54. Favorite Recognition Bias Alarm - If career evidence strongly favors the favorite but recent/surface/opponent-adjusted evidence is close, force
+
+downgrade review.
+
+55. Freshness Asymmetry Alarm - If most favorite-supporting evidence is old while underdog-supporting evidence is recent, lock Green pending
+
+escalation.
+
+56. Current Evidence Coverage Ratio - Report what percentage of decision evidence comes from last 4/8/12/26 weeks.
+
+57. Independent Evidence Effective Count - Reduce correlated statistics into effective independent evidence families rather than counting every metric
+
+as a separate vote.
+
+58. Contradiction Concentration - Distinguish many contradictions from one correlated family versus contradictions across multiple independent
+
+families.
+
+59. Underdog Evidence Diversity Score - Count and weight independent evidence families supporting the upset case.
+
+60. Favorite Evidence Diversity Score - Require comparable diversity in the favorite's case before Green.
+
+61. Break-After-Break Momentum Profile - From game/point logs, reconstruct break consolidation and immediate rebreak patterns for both players.
+
+62. Interruption Sensitivity Proxy - Where logs and public interruption data support it, compare observable performance before/after delays or
+
+interruptions; do not infer psychology.
+
+63. Error Pressure Profile - When charting exists, distinguish winners, forced errors, unforced errors, and double faults under opponent pressure.
+
+64. Error Spike Vulnerability - Identify whether favorite losses repeatedly contain abrupt double-fault/unforced-error deterioration under return pressure.
+
+65. Underdog Error-Induction Ability - Determine whether the underdog repeatedly causes stronger opponents to produce worse serve/shot outcomes
+
+than their baselines.
+
+66. Match-State Resilience - Reconstruct performance after being broken, losing a set, failing to serve out a set, or losing a tiebreak.
+
+67. Favorite Shock Response - Specifically test favorite performance after losing the first break/set against lower-rated opposition.
+
+68. Underdog Lead Protection vs Better Players - Measure whether the underdog can consolidate and close leads against higher-rated opponents.
+
+69. Upset Conversion Rate - Among matches where the underdog reaches a break/set lead against materially stronger players, measure how often the
+
+upset is completed.
+
+70. Dangerous-Underdog Gate - If rapid-riser/ranking-lag + current-strength improvement + credible elite-opponent performance trigger together, Green
+
+is unavailable until the Dangerous Underdog Screen is completed.
+
+MANDATORY EXIT TEST
+
+The favorite cannot unlock GREEN merely because it remains the higher-ranked or historically stronger player. GREEN unlocks
+
+only after the audit defeats the strongest removal case using multiple independent, reliable, current, surface-relevant,
+
+opponent-adjusted evidence families and the conclusion survives uncertainty/sensitivity testing.
+
+DATA-COVERAGE RULE
+
+When advanced point/shot/charting data are unavailable for a player, mark the affected metric PARTIAL or UNAVAILABLE and continue. Missing
+
+charting data must increase uncertainty; it must never be replaced with invented observations or silently interpreted as evidence for the favorite.
+
+INTEGRATED VETO & HANDOFF ARCHITECTURE
+
+Mandatory addition to the Disagreement/Trap Audit. This section gives the disagreement system explicit veto/handoff authority inside the
+
+combined workflow.
+
+1. Final Combined Decision Gate
+
+A candidate reaches the Final Green List only if the Verification Audit approves it AND the Disagreement/Trap Audit fails to falsify it AND the
+
+Dangerous Underdog Screen is clear AND the final stress/removal tests are passed. Failure at any required stage blocks Green.
+
+2. Disagreement Veto Power
+
+A RED/PASS, unresolved CRITICAL contradiction, or active Dangerous Underdog GREEN LOCK from the Disagreement Audit automatically prevents
+
+Green regardless of the Matrix probability or Verification approval.
+3. Hard Downgrade Triggers
+
+Specified combinations must mechanically downgrade rather than merely warn. Example: rapid-riser/ranking-lag opponent + credible recent elite
+
+performance + favorite inactivity/current-level uncertainty locks Green until escalation is passed.
+
+4. Minimum Independent-Evidence Requirement
+
+Do not approve from raw metric count. Green requires at least 4 genuinely independent reliable evidence families supporting the candidate after
+
+contradictions; Double Green requires at least 6. Correlated metrics collapse into one effective family.
+
+5. Contradiction Budget
+
+Double Green: zero unresolved CRITICAL contradictions and no more than one unresolved MAJOR contradiction. Green: zero unresolved CRITICAL
+
+contradictions and only limited MAJOR contradictions that are explicitly defeated. Otherwise downgrade.
+
+6. Evidence Freshness Score
+
+Report how much decisive evidence comes from the last 4/8/12/26 weeks and how much is older. Stale evidence cannot carry the same confidence as
+
+fresh, surface-relevant, opponent-adjusted evidence.
+
+7. Historical Strength vs Current Strength Split
+
+Finish every match with separate Historical Strength and Current Estimated Strength assessments. A material divergence is a mandatory warning and
+
+triggers deeper current-level review.
+
+8. Probability Stress Range
+
+Report Base, Conservative, and Optimistic reconstructed probability/range. If reasonable conservative assumptions push the favorite near 50% or flip
+
+the winner, Green is fragile and must be downgraded unless independently resolved.
+
+9. Removal-First Final Stage
+
+Before approval, construct the strongest evidence-based REMOVE CASE against the Matrix winner. The candidate must defeat that case using
+
+independent reliable evidence. Failure to defeat it blocks Green.
+
+10. False-Green Learning Ledger
+
+Every Green/Double-Green loss receives a pre-match failure classification using only information available before first serve: rapid riser missed, stale
+
+rating, weak-win inflation, current decline, matchup collision, market contradiction, inactivity, etc. Recurrent structures become future downgrade
+
+triggers.
+
+11. Calibration by Audit Color
+
+Track actual outcomes separately for Double Green, Green, Yellow, Red, and PASS/removed candidates. If higher colors do not materially outperform
+
+lower colors over adequate samples, tighten thresholds.
+
+12. Audit Confidence Is Not Win Probability
+
+Always report Audit Confidence separately from estimated win probability. A high estimated probability with incomplete/low-quality evidence cannot
+
+receive equally high audit confidence.
+
+13. Minimum Coverage Threshold
+
+Report Audit Coverage %. Double Green requires very high coverage of CRITICAL evidence families; Green requires sufficient critical coverage.
+
+Missing supplemental metrics alone do not block approval.
+
+14. Critical-Metric Coverage
+
+Classify audit fields as CRITICAL / IMPORTANT / SUPPLEMENTAL. Missing current surface form, serve/return, opponent quality, availability, or
+
+present-strength evidence matters far more than missing an obscure tactical statistic.
+
+15. Effective Independent Evidence Count
+
+Final output must report the number of effective independent evidence families after correlated-data compression. Do not allow dozens of correlated
+
+metrics to create false unanimity.
+
+16. Mandatory Strongest-Underdog Table
+
+For every proposed Green, list the underdog's 5 strongest pre-match arguments, reliability/sample, evidence family, and whether each was
+
+DEFEATED / UNRESOLVED / SUPPORTS REMOVAL.
+
+17. Final Rejection Reason
+
+Every removed/downgraded favorite receives one concise human-readable reason identifying the decisive structural risk rather than merely listing
+metrics.
+
+Disagreement-Specific Handoff Rule
+
+The Disagreement Audit must explicitly return one of: CLEAR / CAUTION / GREEN LOCK / RED VETO / PASS VETO. CLEAR permits progression;
+
+CAUTION requires final stress review; GREEN LOCK/RED VETO/PASS VETO blocks Green.
+
+Dangerous Underdog Handoff Rule
+
+A 3-of-5 strong Dangerous Underdog trigger cannot be ignored by the combined decision gate. The favorite must pass the full escalation exit standard
+
+before the lock can be cleared.
+
+FINAL INTEGRATED WORKFLOW
+
+MANDATORY WORKFLOW: Tennis Matrix Candidate -> Verification Audit -> Disagreement/Trap Audit -> Dangerous Underdog Screen ->
+
+Stress Test -> Removal Case -> FINAL GREEN LIST
+
+No candidate may bypass a stage. A blocked stage must be resolved or the candidate remains downgraded/removed. The purpose is filtering, not
+
+forcing a winner.
+

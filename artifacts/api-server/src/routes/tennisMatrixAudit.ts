@@ -23,6 +23,7 @@ import {
 import { makeDeps } from "../services/tennisMatrixAudit/auditRepo";
 import { commitMatchups, extractMatchups, type ExtractedPdf } from "../services/tennisMatrixAudit/ingest";
 import { readBoard } from "../services/tennisMatrixAudit/board";
+import { bootstrapAuditDefinitions } from "../services/tennisMatrixAudit/bootstrap";
 import {
   gradeResult, matrixCalibrationInputs, readCalibration, readCalibrationHistory,
 } from "../services/tennisMatrixAudit/calibration";
@@ -350,6 +351,18 @@ router.post("/api/tennis-matrix-audit/sources/conflict/:id", requireAdmin, async
     res.json({ ok: true, resolution });
   } catch (error) {
     fail(res, error, "resolve conflict");
+  }
+});
+
+// --- DEFINITION BOOTSTRAP ----------------------------------------------------------
+// Seeds the rule documents, source registry and calibration baseline the Audit cannot run
+// without. Idempotent: every step is skipped when its table already has rows, so this never
+// rolls a calibration that has since been graded back to the baseline.
+router.post("/api/tennis-matrix-audit/bootstrap", requireAdmin, async (_req, res) => {
+  try {
+    res.json(await bootstrapAuditDefinitions());
+  } catch (error) {
+    fail(res, error, "bootstrap");
   }
 });
 

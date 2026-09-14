@@ -273,34 +273,3 @@ create index if not exists calibration_buckets_version_idx on public.calibration
 create index if not exists calibration_ledger_sequence_idx on public.calibration_ledger (master_sequence desc);
 create index if not exists source_snapshots_retrieved_idx  on public.source_snapshots (retrieved_at desc);
 create index if not exists execution_logs_created_idx      on public.execution_logs (created_at desc);
-
--- --- Calibration bootstrap ---------------------------------------------------------
--- The calibration ledger needs an active version to grade against, and grading creates
--- the NEXT version from the current one -- so without a v1 the first grading has nothing
--- to advance from.
---
--- The bucket STRUCTURE seeded here (the eight WP bands and their codes) is the Audit's
--- frozen definition and is carried over unchanged. The COUNTS are deliberately zero. A
--- verified win rate is a claim about results this installation actually graded; seeding
--- one would be asserting a track record that does not exist here, and every board row and
--- calibration snapshot downstream would inherit that claim. Buckets fill up as results
--- are graded, and until then they honestly read as small-sample with no rate at all.
-insert into public.calibration_versions (user_id, version_number, label, master_sequence_count, graded_sample_count, is_active)
-select '00000000-0000-0000-0000-000000000001'::uuid, 1, 'Calibration v1', 0, 0, true
-where not exists (select 1 from public.calibration_versions);
-
-insert into public.calibration_buckets (user_id, calibration_version_id, bucket_code, bucket_label, wp_min, wp_max, wins, graded, small_sample)
-select '00000000-0000-0000-0000-000000000001'::uuid, v.id, b.code, b.label, b.wp_min, b.wp_max, 0, 0, true
-  from public.calibration_versions v
-  cross join (values
-    ('ORANGE', 'Orange · ≤55%',   0,  55),
-    ('TAN',    'Tan · 56–64%',   56,  64),
-    ('PURPLE', 'Purple · 65–69%', 65,  69),
-    ('BLUE',   'Blue · 70–74%',   70,  74),
-    ('PINK',   'Pink · 75–79%',   75,  79),
-    ('BROWN',  'Brown · 80–84%',  80,  84),
-    ('INDIGO', 'Indigo · 85–89%', 85,  89),
-    ('GOLD',   'Gold · 90%+',     90, 100)
-  ) as b(code, label, wp_min, wp_max)
- where v.is_active
-   and not exists (select 1 from public.calibration_buckets where calibration_version_id = v.id);

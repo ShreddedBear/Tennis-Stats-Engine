@@ -127,7 +127,15 @@ export { STAT_CATALOG, STAT_BY_KEY, familyOf } from "./reconstruction/stat-catal
 // match row across uploads, and what keeps two genuinely different matches apart.
 export { parseSummaryText, canonicalKey, normalizeName } from "./summary-parser";
 export type { ParsedMatchup, ParsedField, ExtractionStatus } from "./summary-parser";
-export { parseRuleDocument } from "./rule-parser";
+export { parseRuleDocument, activationStatus } from "./rule-parser";
+export type { ParseReport, ParsedRule } from "./rule-parser";
 
 // --- Definition documents ----------------------------------------------------
-export { UNDERDOG_PATHWAYS, STRESS_TESTS, LOCAL_WORKSPACE_ID } from "./constants";
+export {
+  UNDERDOG_PATHWAYS, STRESS_TESTS, LOCAL_WORKSPACE_ID,
+  // The frozen calibration baseline and source registry. These are DEFINITIONS of the
+  // audited engine -- the eight WP bands with the historical record they were defined
+  // with, and the source precedence that decides which value wins a disagreement -- not
+  // data any particular installation accumulated.
+  CALIBRATION_BUCKETS, MASTER_RECORD_START, SMALL_SAMPLE_THRESHOLD, DEFAULT_SOURCES,
+} from "./constants";

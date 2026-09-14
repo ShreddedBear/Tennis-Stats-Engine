@@ -459,19 +459,17 @@ async function insertMany(table: string, rows: Array<Record<string, unknown>>): 
   const columns = [...new Set(rows.flatMap((r) => Object.keys(r)))];
   const cols = columns.map(quoteIdent).join(", ");
   const params: unknown[] = [];
-  const tuples = rows.map((row) => {
-    const placeholders = columns.map((c) => {
-      params.push(normalize(row[c]));
-      return `$${params.length}`;
-    });
-    return `(${placeholders.join(", ")})`;
-  });
+  const tuples: string[] = [];
+  for (const row of rows) {
+    const values = await normalizeRow(table, columns, (column) => row[column]);
+    tuples.push(`(${values.map((value) => `$${params.push(value)}`).join(", ")})`);
+  }
   await pool.query(`insert into ${quoteIdent(table)} (${cols}) values ${tuples.join(", ")}`, params);
 }
 
 async function insertReturning(table: string, row: Record<string, unknown>): Promise<Record<string, unknown> | null> {
   const columns = Object.keys(row);
-  const params = columns.map((c) => normalize(row[c]));
+  const params = await normalizeRow(table, columns, (column) => row[column]);
   const placeholders = columns.map((_, i) => `$${i + 1}`).join(", ");
   const result = await pool.query(
     `insert into ${quoteIdent(table)} (${columns.map(quoteIdent).join(", ")}) values (${placeholders}) returning *`,
@@ -483,11 +481,9 @@ async function insertReturning(table: string, row: Record<string, unknown>): Pro
 async function updateByColumns(table: string, keyColumn: string, keyValue: string, patch: Record<string, unknown>): Promise<void> {
   const columns = Object.keys(patch);
   if (!columns.length) return;
+  const values = await normalizeRow(table, columns, (column) => patch[column]);
   const params: unknown[] = [];
-  const assignments = columns.map((c) => {
-    params.push(normalize(patch[c]));
-    return `${quoteIdent(c)} = $${params.length}`;
-  });
+  const assignments = columns.map((c, index) => `${quoteIdent(c)} = $${params.push(values[index])}`);
   params.push(keyValue);
   await pool.query(
     `update ${quoteIdent(table)} set ${assignments.join(", ")} where ${quoteIdent(keyColumn)} = $${params.length}`,
@@ -499,13 +495,11 @@ async function upsertMany(table: string, rows: Array<Record<string, unknown>>, c
   if (!rows.length) return;
   const columns = [...new Set(rows.flatMap((r) => Object.keys(r)))];
   const params: unknown[] = [];
-  const tuples = rows.map((row) => {
-    const placeholders = columns.map((c) => {
-      params.push(normalize(row[c]));
-      return `$${params.length}`;
-    });
-    return `(${placeholders.join(", ")})`;
-  });
+  const tuples: string[] = [];
+  for (const row of rows) {
+    const values = await normalizeRow(table, columns, (column) => row[column]);
+    tuples.push(`(${values.map((value) => `$${params.push(value)}`).join(", ")})`);
+  }
   const updates = columns
     .filter((c) => !conflictColumns.includes(c))
     .map((c) => `${quoteIdent(c)} = excluded.${quoteIdent(c)}`);
@@ -529,13 +523,67 @@ async function callLeaseFn(fn: "claim_audit_run" | "renew_audit_run_lease", runI
   return (result.rows[0] as { claimed: boolean } | undefined)?.claimed === true;
 }
 
+// ----------------------------------------------------------------------------
+// Value normalisation, driven by the database's own column types.
+//
+// A JavaScript array means two completely different things depending on the column it is
+// bound to. For a jsonb column it must be serialised to JSON text; for a Postgres array
+// column (text[]) it must be passed through, because node-postgres renders a JS array as
+// an array literal and a JSON string like "[]" is rejected outright as a malformed array
+// literal. The engine hands over plain `Record<string, unknown>` patches and cannot tell
+// us which is which, so the column types are read from the catalog once per table and
+// cached -- rather than hard-coding a list of array columns that would silently rot the
+// first time the schema gains one.
+// ----------------------------------------------------------------------------
+
+/** column name -> its Postgres data type, per table. Populated on first write to a table. */
+const columnTypes = new Map<string, Promise<Map<string, string>>>();
+
+function typesFor(table: string): Promise<Map<string, string>> {
+  const cached = columnTypes.get(table);
+  if (cached) return cached;
+  const loading = pool
+    .query<{ column_name: string; data_type: string }>(
+      `select column_name, data_type from information_schema.columns
+        where table_schema = 'public' and table_name = $1`,
+      [table],
+    )
+    .then((result) => new Map(result.rows.map((row) => [row.column_name, row.data_type])))
+    .catch((error) => {
+      // Never cache a failed lookup: a transient error would otherwise make every later
+      // write to this table normalise against an empty type map.
+      columnTypes.delete(table);
+      throw error;
+    });
+  columnTypes.set(table, loading);
+  return loading;
+}
+
 /**
- * jsonb columns receive objects/arrays; everything else passes through. `undefined` is
- * normalised to null so an omitted key clears rather than throwing -- the engine builds
- * patches by spreading, and a deleted key means "leave as null", never "leave as-is".
+ * `undefined` is normalised to null so an omitted key clears rather than throwing -- the
+ * engine builds patches by spreading, and a deleted key means "leave as null", never
+ * "leave as-is". Objects and arrays are serialised for json/jsonb columns and passed
+ * through for Postgres array columns; see the note above.
  */
-function normalize(value: unknown): unknown {
+function normalizeFor(dataType: string | undefined, value: unknown): unknown {
   if (value === undefined) return null;
-  if (value !== null && typeof value === "object" && !(value instanceof Date)) return JSON.stringify(value);
-  return value;
+  if (value === null || typeof value !== "object" || value instanceof Date) return value;
+  if (dataType === "ARRAY") return value;
+  return JSON.stringify(value);
+}
+
+/**
+ * Normalise a whole row against the table's real column types.
+ *
+ * Exported so the regression test can exercise the array/jsonb distinction directly against
+ * the live catalog -- the defect this guards against was not a wrong value but a write path
+ * that never consulted column types at all, which no pure unit test would have caught.
+ */
+export async function normalizeRow(
+  table: string,
+  columns: string[],
+  read: (column: string) => unknown,
+): Promise<unknown[]> {
+  const types = await typesFor(table);
+  return columns.map((column) => normalizeFor(types.get(column), read(column)));
 }

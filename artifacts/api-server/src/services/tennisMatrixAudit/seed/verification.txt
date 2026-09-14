@@ -1,0 +1,2991 @@
+                           TENNIS MATRIX — FULL VERIFICATION AUDIT
+UPDATED WITH NEW VERIFIED WIN/LOSS LEARNING + CURRENT CALIBRATION RULES
+NEW POST-RESULT LEARNING / 120-MATCH CALIBRATION ENFORCEMENT
+
+These rules are additive and override any earlier rule that would allow a candidate to bypass them.
+
+
+1. UPDATED CALIBRATION POSITION
+The current verified calibration/backtest must run AFTER the Verification Audit, Disagreement/Trap Audit, Dangerous-Underdog screen, stress tests, and
+removal case, but BEFORE the final color/output. Recompute from the newest verified sample every time it changes. Never reuse stale bucket rates.
+
+
+2. NO-EDGE / LOW-PROBABILITY FLOOR
+- Headline or independently reconstructed favorite probability <=55%: automatic PASS/RED; never Green.
+
+- 56-64%: cannot be Green unless the favorite defeats every major underdog pathway with at least two independent high-reliability evidence families and no
+unresolved critical contradiction.
+
+- A Red/PASS classification means "selection is not reliable enough"; it does NOT automatically mean flip to the opponent.
+
+
+3. INDEPENDENT FLIP STANDARD
+Never FLIP solely because of one contradictory family, recent form alone, opponent-adjustment alone, H2H alone, ranking alone, or generic external narrative.
+
+A FLIP requires:
+
+(a) at least 2 genuinely independent high-reliability underdog evidence families;
+
+(b) at least 1 independent external confirmation;
+
+(c) the underdog survives component-removal and conservative stress testing;
+
+(d) the favorite fails the strongest evidence-based defense.
+
+If these are not met, DOWNGRADE/PASS rather than FLIP.
+
+
+4. DANGEROUS UNDERDOG CEILING OVERRIDE
+For every underdog, explicitly search for a recent ceiling event:
+
+- win over Top 10/20/50 or clearly elite/high-level opponent;
+
+- repeated competitive performances against much stronger opposition;
+
+- rapid ranking/Elo acceleration;
+
+- qualifying-to-main-draw or level-jump surge;
+
+- major same-surface breakthrough;
+
+- recent hold/break/serve/return performance materially above long-run rating;
+
+- comeback/deciding-set/tiebreak resilience against high-quality opposition.
+
+A qualifying ceiling event triggers mandatory escalation. It cannot be dismissed merely because the favorite leads aggregate Elo, market, Monte Carlo, or
+model vote count.
+
+
+5. PRESENT-STRENGTH / RATING-LAG TEST
+Compare long-run ratings against last 30/60/90-day and same-surface performance. Explicitly classify each player:
+
+CURRENTLY REPRESENTATIVE / POSSIBLY STALE / CLEARLY LAGGING.
+
+If the underdog's rating is lagging rapid improvement, historical Elo/ranking receives reduced decision authority.
+
+
+6. ELITE-FAVORITE EXEMPTION PROHIBITED
+No 80%, 85%, 90%+ favorite is exempt from the full underdog audit. High headline probability, Strong Agreement, Elite recommendation, or high Monte Carlo
+cannot suppress a demonstrated dangerous-underdog signal.
+
+
+7. H2H QUALITY CONTROL
+H2H must be weighted for recency, surface, tour level, age/development stage, current player level, and sample size. Old/thin/non-comparable H2H cannot
+veto stronger present-strength evidence.
+8. CORRELATED AGREEMENT COMPRESSION
+Surface Elo, General, Specialist, Monte Carlo, headline probability, and market may share inputs. Count effective independent evidence families, not raw
+agreeing metrics. Strong Agreement is not sufficient for Green if effective independent evidence is low.
+
+
+9. GREEN / DOUBLE-GREEN EXIT STANDARD
+Before Green, the favorite must:
+
+- defeat the underdog's 5 strongest pre-match arguments;
+
+- survive the conservative probability stress range;
+
+- survive removal of the strongest favorite component;
+
+- have no unresolved Dangerous-Underdog ceiling trigger;
+
+- have sufficient CRITICAL evidence coverage;
+
+- survive updated historical calibration.
+
+Double Green requires all Green conditions plus exceptionally strong independent evidence and no material unresolved contradiction.
+
+
+10. POST-RESULT LEARNING LEDGER
+Every completed match must be appended to the verified calibration. For every Green/Double-Green loss, classify the pre-match failure mechanism using only
+evidence available before first serve. For every successful downgrade/removal and every false downgrade/flip, record why. Recurrent structures become future
+downgrade or anti-overreaction rules.
+
+
+VERIFICATION-SPECIFIC ADDITIONS
+
+A. MANDATORY UNDERDOG PRESENT-STRENGTH PACKET
+
+For every match, independently verify the underdog's last 3/5/10 matches, same-surface results, opponent quality, best recent wins, competitive losses,
+ranking/Elo trajectory, serve/return trend, workload, and availability. Do this even for 85%+ favorites.
+
+B. CEILING-EVENT SEARCH
+
+Search specifically for the underdog's strongest recent win(s) and strongest recent performance(s), not merely average form. Identify whether these show a
+level that long-run ratings have not yet absorbed.
+
+C. FAVORITE VULNERABILITY MATCH
+
+Take the favorite's recent loss archetypes and test whether this exact underdog has demonstrated the tools to reproduce them. Generic "favorite is stronger"
+language cannot close this test.
+
+D. STALENESS / RECENCY RECONCILIATION
+
+When career/52-week numbers disagree with 30/60/90-day or current-surface evidence, show both and explain which deserves more weight. Do not silently
+average away a rapid rise or decline.
+
+E. CRITICAL DATA COMPLETENESS
+
+Present strength, current surface form, serve/return, opponent quality, physical availability, and recent ceiling events are CRITICAL. A Green cannot be issued
+if a critical family is genuinely unresolved unless the remaining independent evidence is overwhelming and the uncertainty is explicitly stress-tested.
+        120-MATCH EMPIRICAL VERIFICATION WEIGHTING UPDATE
+This section is additive and sits above the original Verification Audit. It changes evidence priority and Green/Yellow/Red gating without
+deleting any existing verification requirement.
+
+A. Empirical evidence hierarchy
+Primary empirical separators: Elo separation, Matchup Closeness, Monte Carlo support, meaningful recent-form differential after
+opponent adjustment, Surface Elo support with valid sample/reliability, and current market confirmation when available.
+Secondary/contextual: fatigue/workload, ranking trajectory, pressure/closing, common opponents, style, straight-set call, and
+recommendation labels.
+Weak standalone evidence: H2H, Data Quality, Upset Risk, Strong Agreement, raw model-vote count, and one recent-form
+contradiction.
+
+B. Green gate changes
+Close / coin-flip structure is a major Green blocker because the current sample was 14/27 (51.9%). Elo gap <50 is downgrade pressure
+because the current sample was 32/52 (61.5%), compared with 43/53 (81.1%) at Elo gap >=50.
+MC <55% is downgrade pressure (14/22, 63.6%). MC >=55% is supportive (61/83, 73.5%). MC >=70% is strong but currently
+small-sample (11/12).
+A Recent Form advantage >10 was 30/38 (78.9%), but Recent Form must remain opponent-adjusted and cannot independently force a
+flip.
+Surface Elo support >=70% was 23/28 (82.1%). Specialist support <65% was 12/22 (54.5%) and should trigger a deeper contradiction
+review.
+C. Independence and correlation enforcement
+General Model and Specialist Model are treated as potentially highly correlated with Surface Elo/headline/MC. Agreement across these
+outputs increases confidence only after independent evidence families confirm it. Do not award multiple full-strength votes for overlapping
+outputs.
+
+D. Empirical combination tests
+Elo gap >=50 + MC >=55: 40/49 = 81.6%. Elo gap >=50 + recent-form advantage >10: 17/20 = 85.0%. Market >=60 + Elo gap >=50:
+10/11 = 90.9% (small sample). Close + MC <55: 7/13 = 53.8%. Close + Elo gap <50: 11/21 = 52.4%.
+
+E. Final classification changes
+DOUBLE GREEN: requires strong independent-family agreement, no Close/Coin-Flip structure, successful component-removal stress
+test, no dangerous-underdog ceiling trigger, and strong empirical calibration support. Small-sample combinations may support but never
+create Double Green alone.
+GREEN: favorite remains favored after opponent adjustment and removal of its strongest family; no multiple independent underdog
+pathways; empirical structure is not in a demonstrated weak zone unless overwhelming independent evidence survives stress testing.
+YELLOW: use when Elo separation is thin, MC is weak, closeness is dangerous, current form conflicts with long-run strength, or one
+meaningful opponent-specific pathway remains.
+RED/PASS: use when multiple independent reliable families contradict the favorite, or weak empirical structure combines with a
+demonstrated underdog pathway. RED/PASS does not automatically mean FLIP.
+                                  ORIGINAL AUDIT — PRESERVED IN FULL
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 1
+
+TENNIS MATRIX AI
+
+REUSABLE FULL VERIFICATION AUDIT
+
+MAX METRICS PLUS - PUBLIC / RECONSTRUCTABLE EDITION
+
+MASTER TEMPLATE - NO MATCHES INCLUDED
+
+Expanded with advanced charting, score-state, opponent-adjusted residual, volatility, floor/ceiling, archetype, current-tournament, schedule,
+
+environmental, and opponent-specific cross-feature layers. Use only public or transparently reconstructed inputs.
+
+EXECUTION RULES - READ BEFORE EVERY AUDIT
+
+Execute the entire audit exactly as written for every matchup. Search and reconstruct every applicable public metric. Do not skip a metric
+
+because it is time-consuming. DIRECT, RECONSTRUCTED, PARTIAL, UNAVAILABLE and EXCLUDED must be distinguished. Do not
+
+invent missing observations. Do not produce the final color list until every matchup has passed the completion ledger.
+
+The audit's job is not to prove the Tennis Matrix prediction correct. Its job is to attempt to falsify it. Start from a neutral position, construct
+
+the strongest evidence-based case for both competitors, and award Green only when the Matrix winner survives the attempt to disprove
+
+it.
+
+ENFORCEMENT RULES 1-60
+
+1. No Metric Counting Rule - 20 metrics favoring Player 1 does not automatically beat 8 favoring Player 2. Correlated statistics cannot be treated as separate
+independent
+
+votes.
+
+2. Evidence-Family Rule - Collapse evidence into independent families before deciding: Strength/Elo, Serve, Return, Form, Surface, Opponent-Specific
+Matchup,
+
+Pressure/Closing, Workload, Tactical/Charting, Market, Availability, and Current-Tournament evidence.
+
+3. Reliability Beats Quantity Rule - One HIGH-reliability contradiction can outweigh several LOW-reliability supporting metrics. Every decisive metric gets
+HIGH/MEDIUM/LOW
+
+reliability and FULL/REDUCED/CONTEXT/ZERO weight.
+
+4. Sample Floor Rule - Small samples cannot receive full weight. Surface splits, H2H, tiebreaks, deciding sets, archetype results, charting, and environmental
+splits need
+
+explicit sample checks.
+
+5. Recency x Sample Balance Rule - Do not automatically prefer recent or career data. Recent evidence is relevant but noisy; large historical samples are
+stable but can be
+
+stale. Reconcile both.
+
+6. Opponent-Adjustment Requirement - Raw form cannot be decisive until opponent strength is considered.
+
+7. Surface Requirement - Overall numbers cannot override strong surface-specific evidence without explanation.
+
+8. Tour-Level Translation Rule - ITF -> Challenger -> ATP/WTA performance must be adjusted for competition level.
+
+9. No H2H Worship Rule - Reduce H2H weight when old, on another surface, based on few meetings, or when player level/style has materially changed.
+
+10. No Tiebreak/Clutch Worship Rule - Strong tiebreak, break-point, or deciding-set records must be tested for regression before being considered durable
+skill.
+
+11. Underlying Performance Rule - Results and scorelines must be checked against points, games, hold/break, and opponent strength.
+
+12. Winner/Loss Quality Rule - Distinguish strong wins, weak wins, strong losses, and bad losses.
+
+13. Scoreline Deception Rule - Never infer dominance from 2-0/3-0 alone. Check games, points, breaks, and pressure situations whenever available.
+
+14. Current-Tournament Override Check - Current tournament serve, return, movement, workload, and conditions receive a dedicated check against historical
+profile.
+
+15. Skill-Divergence Rule - Recent Form cannot remain one number. Determine whether improvement/decline comes from serve, return, both, or
+pressure-point variance.
+
+16. Matchup Interaction Rule - Explicitly ask whether one player possesses the exact weapon that attacks the opponent's documented weakness.
+
+17. Bidirectional Matchup Rule - Every interaction must be tested in both directions.
+18. Failure-Mode Replication Rule - Identify how the favorite has actually been losing and determine whether today's opponent can reproduce those conditions.
+
+19. Underdog Pathway Minimum Rule - Major trap concern requires one exceptionally strong pathway or multiple independent credible pathways.
+
+20. Favorite Floor Rule - Green requires analysis of the favorite's bad-day performance, not only average or ceiling performance.
+
+21. Underdog Ceiling Rule - Analyze the underdog's credible upper range, not only average performance.
+
+22. Distribution Before Point Estimate Rule - Report uncertainty and performance-distribution overlap rather than relying only on headline probabilities.
+
+23. Uncertainty Penalty Rule - Missing data, lower-tour identity uncertainty, surface transitions, small samples, and high volatility must reduce confidence.
+
+24. Missing-Data Asymmetry Rule - Check whether missing information disproportionately affects one player. Sparse data cannot silently benefit the
+better-known favorite.
+
+25. Charting Coverage Rule - Tactical charting cannot receive full weight without reporting charted matches, surfaces, dates, and opponent quality.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 2
+
+26. Market Independence Rule - Market information is validation, not automatically truth. Multiple books are not automatically multiple independent signals.
+
+27. Market Movement Context Rule - Line movement requires magnitude, timing, source/liquidity quality, and corroborating tennis evidence before receiving
+major weight.
+
+28. No Double-Counting Matrix Outputs Rule - General, Specialist, Surface Elo, Recent Form, and other outputs must not be assumed independent when their
+inputs may
+
+overlap.
+
+29. Unknown Correlation Penalty Rule - When exact model overlap is unknown, classify independence as UNKNOWN and reduce confidence in apparent
+unanimity.
+
+30. Reconstruction Transparency Rule - Every reconstructed number must show the formula or method, inputs, and source observations.
+
+31. No Reconstruction From Reconstruction Rule - Avoid repeatedly stacking uncertain derived estimates into additional metrics that masquerade as
+independent evidence.
+
+32. Source Hierarchy Rule - Prefer official tour/tournament statistics, then established statistical databases, reputable reporting, and only then lower-authority
+contextual
+
+sources.
+
+33. Cross-Source Verification Rule - Critical facts such as withdrawals, injuries, match status, and surprising statistics should be checked against a second
+source whenever
+
+practical.
+
+34. Identity Verification Rule - Especially for Challenger/ITF players, verify identity before joining statistics.
+
+35. Data Timestamp Rule - Record when data was retrieved and whether it includes the player's most recent match.
+
+36. No Future Leakage Rule - In retrospective audits, only information available before the match began may be used.
+
+37. Pre-Match Lock Rule - For live predictions, establish a cutoff timestamp. Information after first serve cannot retroactively improve the prediction.
+
+38. Retirement/Walkover Rule - Separate normal completed matches from retirements, walkovers, and abnormal matches when calculating form/performance.
+
+39. Injury Evidence Rule - Do not infer injury from poor performance alone. Injury requires credible public evidence.
+
+40. Outlier Rule - One extreme match cannot dominate the conclusion. Test results with and without major outliers.
+
+41. Sensitivity Rule - Rerun the conclusion after reducing/removing each major evidence family. If the winner flips easily, the pick is fragile.
+
+42. Winner-Switch Rule - For reconstructed models, estimate how much Elo, hold%, break%, form, or market probability must change before the projected
+winner switches.
+
+43. Leave-One-Family-Out Rule - Remove Serve, Return, Elo, Form, Market, etc. one family at a time and test whether the conclusion survives.
+
+44. Adversarial Underdog Rule - Intentionally construct the strongest evidence-based case for the underdog, then try to disprove it.
+
+45. Adversarial Favorite Rule - Do the reverse for the favorite. The audit must be capable of defending whichever side survives scrutiny.
+
+46. Contradiction Severity Rule - Classify contradictions as MINOR / MODERATE / MAJOR / CRITICAL.
+
+47. Unresolved Contradiction Rule - A CRITICAL unresolved contradiction automatically blocks Double Green.
+
+48. Double Green Qualification Rule - Double Green requires strong independent-family agreement, adequate samples, low distribution overlap, no major
+availability concern,
+
+no strong opponent-specific counter, and survival of stress testing.
+
+49. Green Qualification Rule - Green requires the favorite to remain favored after opponent adjustment and reasonable stress tests, with no multiple
+independent high-quality
+
+underdog pathways.
+50. Automatic Yellow Rule - Yellow if evidence is genuinely split, sample quality is poor, distribution overlap is substantial, current form conflicts with long-term
+strength, or one
+
+major opponent-specific vulnerability remains unresolved.
+
+51. Automatic Red Rule - Red when multiple independent reliable evidence families contradict the Matrix favorite, or a documented favorite weakness aligns
+strongly with an
+
+opponent strength and survives reliability checks.
+
+52. PASS Rule - PASS is valid even if the Matrix says 80%. Confidence in the Matrix number and confidence in independent verification are separate.
+
+53. No Forced Winner Rule - If evidence cannot distinguish the players reliably, say so. Verification is filtering, not manufacturing action.
+
+54. Final Probability Reconciliation Rule - Report Matrix probability, independent reconstructed probability/range, and market no-vig probability separately.
+
+55. Probability-Gap Alarm - Large Matrix vs reconstructed vs market disagreement automatically triggers deeper investigation before Green.
+
+56. Confidence Ceiling Rule - Final confidence cannot exceed the reliability of the evidence supporting it.
+
+57. Audit Completion Gate - No final color until every mandatory section is COMPLETE, PARTIAL with explanation, UNAVAILABLE after attempted sourcing,
+or legitimately
+
+EXCLUDED.
+
+58. No Shortcut Declaration - Final output includes a completion percentage and explicitly lists unavailable sections.
+
+59. Evidence Ledger Rule - Finish each match with: Evidence Family | P1 | P2 | Reliability | Sample | Winner | Contradiction? | Weight.
+
+60. Decision Trace Rule - Final classification must state exactly which 3-5 independent evidence families drove the decision and what evidence could
+realistically overturn it.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 3
+
+Web-Reconstructable / Public-Source Edition
+
+Purpose: Preserve the original verification structure and match-by-match Matrix evidence while removing the specific private, proprietary,
+
+physiological, tracking, and unavailable-source items identified for deletion. Replace those items only with metrics an AI can reconstruct from the
+
+supplied Matrix summary/export or retrieve/reconstruct from current public web sources.
+
+Allowed evidence families in this edition
+
+■ Matrix-export fields actually supplied: headline probability, recommendation, upset risk, data quality, model agreement, closeness, component votes,
+
+reliability/sample/status, Surface Elo output, Serve/Return output, Recent Form output, H2H output, Market output, General/Specialist output, fatigue
+
+index if exported, Monte Carlo if exported, set-score call if exported.
+
+■ Public ranking/form: current ranking, ranking movement, last 5/10, streak, same-surface record, tournament results, quality wins, bad losses, opponent
+
+quality.
+
+■ Public serve/return statistics: hold/break rates, service/return points won, first/second-serve performance, aces, double faults, break points
+
+saved/converted, where a reliable source publishes them.
+
+■ Public match-log reconstruction: Set 1 outcomes, deciding sets, tiebreaks, comeback/closing patterns, scoreline progression, common opponents,
+
+surface transitions, tournament workload, qualifying load, rest intervals.
+
+■ Public availability/context: injuries, withdrawals, retirements, medical timeouts, return-from-injury reports, coaching/equipment changes, venue history,
+
+draw status, lucky-loser/walkover status.
+
+■ Public market validation: multi-book moneyline consensus, no-vig probability, opening/current/closing movement when obtainable, and
+
+prediction-market information when available.
+
+■ Reconstructable matchup proxies: expected hold/break from public serve/return data, second-serve attack mismatch, common-opponent differential,
+
+surface-adjusted recent form, workload differential, and documented tactical/style interaction.
+
+■ Public historical analogs: comparable public matches selected from reconstructable dimensions. Do not claim they are the private 100-match
+
+workbook, and do not invent proprietary similarity scores.
+
+Explicitly removed
+
+The edition does not require or claim access to: an independent private Green list; hidden General/Specialist features, weights, calibration or exact
+
+overlap; proprietary internal indices/formulas; the unsupplied private 100-match workbook or its exact trap twins; private physiological measurements;
+
+or instrumented player/ball tracking data.
+Operating rule
+
+Missing public data is marked UNAVAILABLE or PARTIAL. It is never guessed. Original Matrix outputs may be reported as outputs, but hidden model
+
+internals are not reverse-engineered or invented. Any original final color retained below is an original audit classification unless a fresh
+
+public-source rerun is explicitly performed.
+
+MANDATORY MASTER METRICS SWEEP
+
+Non-negotiable rule: Before issuing DOUBLE GREEN, GREEN, YELLOW, RED, or PASS, search for or reconstruct every applicable
+
+metric below for both players. A metric may be used only when it is (A) present in the supplied Tennis Matrix export, (B) obtainable
+
+from a current/reliable public source, or (C) transparently reconstructed from public inputs. Never invent missing data.
+
+For every applicable metric use this comparison chain:
+
+Player 1 value -> Player 2 value -> direct differential -> surface-adjusted differential -> recent differential -> opponent-adjusted differential ->
+
+reliability/sample -> evidence direction.
+
+Every field must be labeled:
+
+■ DIRECT - published/supplied value.
+
+■ RECONSTRUCTED - calculated transparently from public inputs.
+
+■ PARTIAL - some required inputs are missing.
+
+■ UNAVAILABLE - cannot be obtained reliably.
+
+■ EXCLUDED - supplied but unusable by status/reliability.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 4
+
+A. Ranking / Rating / Opposition Strength
+
+■ Current ATP/WTA ranking.
+
+■ Ranking points.
+
+■ Ranking movement: 1/4/8/12/26/52 weeks where reconstructable.
+
+■ Career-high ranking.
+
+■ Ranking trajectory and velocity.
+
+■ Ranking differential.
+
+■ Elo / overall Elo when publicly available.
+
+■ Surface Elo when publicly available.
+
+■ Elo differential.
+
+■ Elo-implied win probability.
+
+■ Recent Elo trend.
+
+■ Peak Elo.
+
+■ Average opponent ranking.
+
+■ Average opponent Elo where available.
+
+■ Strength of schedule.
+
+■ Opponent-quality percentile.
+
+■ Tour-level-adjusted strength.
+
+■ Performance vs Top 10/20/50/100/200/500.
+
+■ Upset win rate.
+
+■ Loss rate to lower-ranked opponents.
+
+■ Ranking-performance disconnect.
+
+■ Ranking-lag / rapid-riser proxy.
+
+■ Age/development trajectory.
+
+B. Surface / Conditions
+
+■ Career hard/clay/grass record and win%.
+■ Last-52-week surface record.
+
+■ Last 20/10/5 matches on surface.
+
+■ Surface Elo and differential.
+
+■ Surface hold%.
+
+■ Surface break%.
+
+■ Surface service-points-won%.
+
+■ Surface return-points-won%.
+
+■ Surface first-serve points won%.
+
+■ Surface second-serve points won%.
+
+■ Surface first-serve return points won%.
+
+■ Surface second-serve return points won%.
+
+■ Surface tiebreak%.
+
+■ Surface deciding-set%.
+
+■ Surface opponent quality.
+
+■ Surface quality-win rate.
+
+■ Surface bad-loss rate.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 5
+
+■ Indoor vs outdoor.
+
+■ Fast/medium/slow court split when court-speed classification is public.
+
+■ Altitude record/context.
+
+■ Tournament-specific record.
+
+■ Venue history.
+
+■ Surface-transition record.
+
+■ First match after surface switch.
+
+■ Surface-adjusted recent form.
+
+■ Weather/temperature/humidity/wind when relevant and publicly obtainable.
+
+■ Ball type/court speed only when reliably documented.
+
+C. Serve
+
+■ Ace%.
+
+■ Aces per match/set/service game.
+
+■ Double-fault%.
+
+■ Double faults per match/set/service game.
+
+■ Ace-to-double-fault ratio.
+
+■ First-serve-in%.
+
+■ First-serve points won%.
+
+■ Second-serve points won%.
+
+■ Service points won%.
+
+■ Hold/service-games-won%.
+
+■ Break-points-saved%.
+
+■ Break points faced per service game.
+
+■ Unreturned serve%.
+
+■ Serve winner%.
+
+■ Service in-play points won%.
+
+■ First-serve effectiveness.
+■ Second-serve effectiveness.
+
+■ Serve rating where source formula is known.
+
+■ Clean-hold rate when reconstructable.
+
+■ Love-hold rate when reconstructable.
+
+■ Hold after facing break point.
+
+■ Hold after 0-30 / 15-30 when point logs support it.
+
+■ Serve-out-set conversion.
+
+■ Serve-out-match conversion.
+
+■ First-serve performance under pressure.
+
+■ Second-serve performance under pressure.
+
+■ Serve deterioration by set.
+
+■ First-serve percentage by set.
+
+■ Ace rate by set.
+
+■ Double-fault rate by set.
+
+■ Hold% by set.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 6
+
+■ First/second serve speed where published.
+
+■ Serve-speed trend where published.
+
+■ First-to-second serve speed ratio where published.
+
+■ Maximum-to-average serve speed ratio where published.
+
+■ Serve +1 / <=3-shot win% when charting exists.
+
+■ Serve Impact when charting exists.
+
+D. Return
+
+■ Return points won%.
+
+■ Return games won / break%.
+
+■ First-serve return points won%.
+
+■ Second-serve return points won%.
+
+■ Break-point conversion%.
+
+■ Break points created per return game.
+
+■ Return-in-play%.
+
+■ Return-in-play win%.
+
+■ Return winner%.
+
+■ Return unforced-error% where charted.
+
+■ Return depth / Return Depth Index where charted.
+
+■ Slice/chip return% where charted.
+
+■ Ace-against%.
+
+■ Opponent double-fault rate.
+
+■ Clean-break rate when reconstructable.
+
+■ Love-break rate when reconstructable.
+
+■ Return pressure frequency.
+
+■ Break opportunity frequency.
+
+■ Second-serve attack effectiveness.
+
+■ Return performance by surface.
+
+■ Return performance vs comparable servers.
+■ Return performance by opponent handedness where sample permits.
+
+■ Break-back rate.
+
+■ Immediate rebreak rate.
+
+■ Return +1 effectiveness where charted.
+
+E. Opponent-Specific Serve-vs-Return Interaction
+
+■ P1 hold% vs P2 break%.
+
+■ P2 hold% vs P1 break%.
+
+■ Expected hold for each player.
+
+■ Expected break for each player.
+
+■ Expected hold differential.
+
+■ Expected break differential.
+
+■ P1 first-serve strength vs P2 first-serve return.
+
+■ P2 first-serve strength vs P1 first-serve return.
+
+■ P1 second serve vs P2 second-serve return.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 7
+
+■ P2 second serve vs P1 second-serve return.
+
+■ Second-serve mismatch differential.
+
+■ Ace production vs ace suppression.
+
+■ Double-fault vulnerability vs return pressure.
+
+■ Break-point saving vs break-point conversion.
+
+■ Serve dominance vs return strength.
+
+■ Projected service-game advantage.
+
+■ Opponent-specific serve/return residual.
+
+■ Expected number of breaks.
+
+■ Projected tiebreak likelihood.
+
+All interaction metrics must expose the inputs/formula and be labeled RECONSTRUCTED.
+
+F. Recent Form / Momentum
+
+■ Last 3/5/10/20 record.
+
+■ Last-52-week record.
+
+■ Current streak.
+
+■ Recent sets won/lost.
+
+■ Recent games won/lost.
+
+■ Recent point differential where available.
+
+■ Form score.
+
+■ Recency-weighted form.
+
+■ Opponent-adjusted form.
+
+■ Surface-adjusted form.
+
+■ Opponent-and-surface-adjusted form.
+
+■ Quality of last 3/5/10 opponents.
+
+■ Quality wins.
+
+■ Bad losses.
+
+■ Average ranking/Elo beaten.
+
+■ Average ranking/Elo lost to.
+
+■ Expected vs actual wins.
+■ Straight-set win%.
+
+■ Straight-set loss%.
+
+■ Games won%.
+
+■ Sets won%.
+
+■ Total-points-won%.
+
+■ Hold trend.
+
+■ Break trend.
+
+■ Serve trend.
+
+■ Return trend.
+
+■ Performance acceleration/deceleration.
+
+■ Improvement despite losses.
+
+■ Decline despite wins.
+
+G. Favorite Loss Autopsy
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 8
+
+For recent relevant losses reconstruct:
+
+■ Opponent.
+
+■ Opponent ranking/rating/quality.
+
+■ Surface.
+
+■ Tournament level.
+
+■ Score.
+
+■ Set 1 result.
+
+■ Won Set 1 then lost?
+
+■ Break lead surrendered?
+
+■ Deciding-set loss?
+
+■ Tiebreak loss?
+
+■ Serve decline.
+
+■ Return decline.
+
+■ Second-serve weakness.
+
+■ Double-fault spike.
+
+■ Break-point failures.
+
+■ Break-consolidation failures.
+
+■ Serve-out failures.
+
+■ Competitive vs blowout.
+
+■ Match duration/workload.
+
+■ Opponent archetype.
+
+■ Repeatable tactical failure pattern.
+
+■ Loss frequency to lower-ranked players.
+
+■ Repeated loss archetypes.
+
+H. Predicted-Loser Win Autopsy
+
+For strongest/relevant recent wins reconstruct:
+
+■ Opponent quality.
+
+■ Opponent ranking/rating.
+
+■ Surface.
+
+■ Tournament level.
+■ Score.
+
+■ Whether opponent was higher ranked/favored.
+
+■ Straight-set vs deciding-set.
+
+■ Comeback after losing Set 1.
+
+■ Deciding-set win.
+
+■ Tiebreak win.
+
+■ Serve dominance.
+
+■ Return dominance.
+
+■ Break differential.
+
+■ Point dominance.
+
+■ Second-serve attack.
+
+■ Lead protection.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 9
+
+■ Win over comparable favorite.
+
+■ Repeatability of winning pathway.
+
+■ Quality-win frequency.
+
+I. Point / Game / Set Dominance
+
+■ Total points won%.
+
+■ Service points won%.
+
+■ Return points won%.
+
+■ Games won%.
+
+■ Service games won%.
+
+■ Return games won%.
+
+■ Sets won%.
+
+■ Matches won%.
+
+■ Points Dominance Ratio.
+
+■ In-play Points Dominance Ratio.
+
+■ Second-serve in-play dominance.
+
+■ Games Dominance Ratio.
+
+■ Break Points Ratio.
+
+■ Point-to-game conversion.
+
+■ Point-to-set conversion.
+
+■ Point-to-match conversion.
+
+■ Service-points-to-service-games overperformance.
+
+■ Return-points-to-return-games overperformance.
+
+■ Points-to-tiebreak overperformance.
+
+■ Break-points overperformance.
+
+■ Break-points-saved overperformance.
+
+■ Break-points-converted overperformance.
+
+■ Dominance vs opponent quality.
+
+J. Set 1 / Start Speed
+
+■ Set-1 win%.
+
+■ First-break frequency.
+
+■ First break conceded%.
+■ Opening service-game hold%.
+
+■ Opening return-game break%.
+
+■ First-four-games differential.
+
+■ First-six-games differential.
+
+■ Early-break frequency.
+
+■ Early-break recovery%.
+
+■ Set-1 tiebreak%.
+
+■ Set-1 point/game differential.
+
+■ Games/time until first break where reconstructable.
+
+■ Performance after holding first service game.
+
+■ Performance after being broken first.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 10
+
+■ Slow-start frequency.
+
+■ Fast-start frequency.
+
+K. Comeback / Closing / Lead Durability
+
+■ Win% after winning Set 1.
+
+■ Win% after losing Set 1.
+
+■ Set-2 response after losing Set 1.
+
+■ Deciding-set win%.
+
+■ Comeback win%.
+
+■ Loss after winning Set 1%.
+
+■ Break-back%.
+
+■ Break-consolidation%.
+
+■ Serving-for-set conversion%.
+
+■ Serving-for-match conversion%.
+
+■ Lead durability.
+
+■ Break-lead surrender rate.
+
+■ Double-break surrender.
+
+■ Opponent-serving-for-match break rate.
+
+■ Performance from break down.
+
+■ Performance from break ahead.
+
+L. Tiebreak / Pressure / Clutch Sustainability
+
+■ Career tiebreak%.
+
+■ Recent tiebreak%.
+
+■ Surface tiebreak%.
+
+■ Tiebreak frequency.
+
+■ First-set tiebreak%.
+
+■ Deciding-set tiebreak%.
+
+■ Tiebreak point differential where chartable.
+
+■ Expected-vs-actual tiebreak performance.
+
+■ Break-points saved%.
+
+■ Break-points converted%.
+
+■ Break opportunities per return game.
+
+■ Break points faced per service game.
+■ Deuce-game performance when reconstructable.
+
+■ Break consolidation.
+
+■ Break-back.
+
+■ Serve-out rates.
+
+■ Pressure hold%.
+
+■ Pressure return%.
+
+■ Deciding-set performance.
+
+■ Clutch over/underperformance relative to underlying point strength.
+
+M. Match Length / Endurance Proxies
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 11
+
+■ Average match duration.
+
+■ Recent minutes on court.
+
+■ Recent games played.
+
+■ Recent sets played.
+
+■ Recent three-setters/five-setters.
+
+■ Consecutive long matches.
+
+■ Deciding-set frequency.
+
+■ Record in long matches.
+
+■ Performance by set number.
+
+■ Third-set hold/break%.
+
+■ Fifth-set performance when applicable.
+
+■ Late-set performance.
+
+■ Serve deterioration later in matches.
+
+■ Return improvement/decline later in matches.
+
+N. Workload / Recovery Proxies
+
+■ Matches in last 3/7/14/30 days.
+
+■ Sets in last 7/14/30.
+
+■ Games in last 7/14/30.
+
+■ Public minutes on court.
+
+■ Consecutive-day play.
+
+■ Qualifying workload.
+
+■ Matches this tournament.
+
+■ Recent three-/five-setters.
+
+■ Late finishes.
+
+■ Hours since previous match when reconstructable.
+
+■ Tournament-to-tournament travel.
+
+■ Time-zone change.
+
+■ Surface change.
+
+■ Consecutive tournaments.
+
+■ Walkover/rest advantage.
+
+■ Bye/rest advantage.
+
+These are observable workload proxies only; never convert them into claims about private biological fatigue.
+
+O. H2H / Rematch
+
+■ Overall H2H.
+■ Surface H2H.
+
+■ Recent H2H.
+
+■ H2H set record.
+
+■ H2H game differential.
+
+■ Straight-set frequency.
+
+■ Deciding-set meetings.
+
+■ Tiebreak meetings.
+
+■ First-break patterns where reconstructable.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 12
+
+■ Prior-meeting serve/return performance.
+
+■ Score progression.
+
+■ Rematch turnaround.
+
+■ Time since previous meeting.
+
+■ Same-tournament/venue H2H.
+
+■ Junior/ITF H2H when reliable.
+
+■ Documented tactical adjustments.
+
+P. Common Opponents / Network Evidence
+
+■ Common-opponent W/L.
+
+■ Same-surface common opponents.
+
+■ Recent common opponents.
+
+■ Score differential.
+
+■ Set differential.
+
+■ Game differential.
+
+■ Point differential where available.
+
+■ Hold differential.
+
+■ Break differential.
+
+■ Performance against similar ranking.
+
+■ Performance against similar Elo.
+
+■ Performance against similar archetypes.
+
+■ Recency-weighted common-opponent score.
+
+■ Opponent-strength-weighted common-opponent score.
+
+■ Second-degree common opponents.
+
+■ Transparent transitive-performance estimate.
+
+■ Transparent network-strength estimate.
+
+Do not present reconstructed network scores as proprietary Tennis Matrix metrics.
+
+Q. Rally / Shot / Charting Metrics - only when public charting exists
+
+■ Rally length.
+
+■ 0-4 shot performance.
+
+■ 5-8 shot performance.
+
+■ 9+ shot performance.
+
+■ Short-rally win%.
+
+■ Medium-rally win%.
+
+■ Long-rally win%.
+
+■ First-strike efficiency.
+■ Serve +1.
+
+■ Return +1.
+
+■ Forehand winner/error rates.
+
+■ Backhand winner/error rates.
+
+■ Winners.
+
+■ Unforced errors.
+
+■ Forced errors.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 13
+
+■ Winner-to-unforced-error ratio.
+
+■ Net approach frequency.
+
+■ Net points won%.
+
+■ Net effectiveness.
+
+■ Passing-shot success.
+
+■ Drop-shot frequency/success.
+
+■ Slice frequency.
+
+■ Return depth.
+
+■ Serve placement.
+
+■ Return position.
+
+■ Direction patterns.
+
+Coverage must be checked; charted samples may be small and non-representative.
+
+R. Style / Tactical Matchup
+
+■ Handedness.
+
+■ One- vs two-handed backhand.
+
+■ Big server vs elite returner.
+
+■ Aggressive baseliner vs counterpuncher.
+
+■ First-strike vs rally tolerance.
+
+■ Net attacker vs passing ability.
+
+■ Second-serve vulnerability vs aggressive returner.
+
+■ Weak-wing exposure where documented.
+
+■ Pace generation vs pace absorption.
+
+■ Surface/style compatibility.
+
+■ Return-position compatibility.
+
+■ Short-rally vs long-rally advantage.
+
+■ Rematch tactical adaptability.
+
+■ Documented preferred-pattern collision.
+
+Do not invent subjective style labels when reliable evidence is absent.
+
+S. Market / Price Validation
+
+■ Current moneyline.
+
+■ Implied probability.
+
+■ No-vig probability.
+
+■ Multi-book consensus.
+
+■ Opening probability.
+
+■ Current probability.
+
+■ Closing probability when available.
+■ Line movement.
+
+■ Magnitude of movement.
+
+■ Favorite drift/steam.
+
+■ Underdog shortening.
+
+■ Book disagreement/dispersion.
+
+MANDATORY MARKET CONSENSUS ENFORCEMENT - FULL
+
+VERIFICATION AUDIT
+
+This page is part of the audit, not an optional appendix. It strengthens S. Market / Price Validation, the
+
+Probability-Gap Alarm, Market-Veto Investigation, stress testing, and Final Green eligibility.
+
+1. Sportsbook source minimum. For every current match, attempt at least 3 independent sportsbooks when available. Prefer
+
+one sharp/reference or high-liquidity book plus two mainstream regulated books. An odds aggregator may help locate
+
+prices, but it does not count as multiple independent books unless the underlying books are individually identified.
+
+2. Same-market / same-time rule. Capture both players from the same match-winner market and the same book at
+
+approximately the same timestamp. Record sportsbook, timestamp, favorite price, underdog price, and source URL.
+
+Suspended, stale, one-sided, or mismatched-round prices are not valid consensus inputs.
+
+3. De-vig each sportsbook separately. Convert both sides to raw implied probability, then compute the book-level no-vig
+
+favorite probability as qFav / (qFav + qDog). Build the live sportsbook consensus from the median no-vig probability across
+
+valid books; also record low/high range and dispersion.
+
+4. Prediction markets are separate. Kalshi and other prediction markets must be recorded as a separate evidence family.
+
+Never treat Kalshi American-style display odds as ordinary sportsbook moneylines, never blend them into sportsbook
+
+consensus, and never use them as a substitute for a two-sided sportsbook quote.
+
+5. Kalshi coherence check. When Kalshi is used, prefer the underlying contract price/probability and liquidity/spread
+
+information. If its displayed American-style numbers produce an extreme synthetic overround, cannot be reconciled with
+
+complementary contract probabilities, or materially conflict with the underlying contract price, label the display
+
+NON-COMPARABLE / DISPLAY-STRUCTURE WARNING and give it no sportsbook-consensus weight.
+
+6. Market integrity thresholds. A sportsbook-consensus vs Matrix-market gap of 5+ percentage points requires
+
+investigation; 8+ pp is a MATERIAL MARKET CONFLICT; 12+ pp is a CRITICAL MARKET CONFLICT and blocks Green/Keep
+
+until explained. Apply the same 5/8/12 pp ladder to Kalshi vs sportsbook consensus, but treat the result as a
+
+prediction-market discrepancy rather than sportsbook evidence.
+
+7. Book-dispersion warning. If valid sportsbook no-vig probabilities span 8+ pp, mark MARKET DISPERSION HIGH and do not
+
+claim a precise consensus. Investigate stale lines, limits/liquidity, player identity, tournament/round, withdrawals, and news
+
+before assigning decision weight.
+
+8. Source-count downgrade. Three or more valid books = COMPLETE. Two valid books = PARTIAL and reduced market
+
+weight. One valid book = SINGLE-SOURCE ONLY and cannot independently unlock Green. Zero reliable books = CURRENT
+
+SPORTSBOOK MARKET UNAVAILABLE.
+
+9. No market double-counting. Matrix Market Consensus, live sportsbook consensus, and prediction-market information
+
+must remain three distinct fields. Agreement may strengthen confidence; disagreement must be explained. Do not count
+
+multiple books as multiple independent tennis signals; they form one Market evidence family.
+
+10. Market cannot be silently ignored. A material/critical conflict must appear in the contradiction ledger, trap score, stress
+
+tests, removal case, and final decision rationale. If unresolved, downgrade/remove/pass rather than certifying Green.
+
+Mandatory per-match market ledger
+
+Field
+
+Required entry
+
+Sportsbooks
+
+Book 1 / Book 2 / Book 3+; prices; timestamp; URL
+No-vig consensus
+
+Median; low-high range; dispersion; valid source count
+
+Matrix market
+
+Separate Matrix Market Consensus probability
+
+Prediction market
+
+Kalshi/other contract probability, liquidity/spread; separate
+
+Conflict flags
+
+Matrix-vs-sportsbook pp gap; prediction-vs-sportsbook pp gap
+
+Integrity status
+
+COMPLETE / PARTIAL / SINGLE-SOURCE / UNAVAILABLE
+
+Decision effect
+
+CONFIRMS / NEUTRAL / WEAKENS / MATERIAL CONFLICT / CRITICAL VETO
+
+VERIFICATION GREEN VETO: A MATERIAL conflict requires explicit resolution before Green. A CRITICAL
+
+conflict automatically blocks Green/Double-Green until the cause is identified and the favorite still survives
+
+the reconstructed evidence after the market discrepancy is accounted for.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 14
+
+■ Matrix-vs-market gap.
+
+■ Elo-vs-market gap.
+
+■ Market-vs-form gap.
+
+■ Price-bucket historical performance when reconstructable.
+
+■ Closing-line accuracy when historical prices exist.
+
+■ Prediction-market probability when available.
+
+T. Tournament / Venue / Match Context
+
+■ Tournament level.
+
+■ Round.
+
+■ Qualifying vs main draw.
+
+■ Qualifier status.
+
+■ Lucky-loser status.
+
+■ Wildcard status.
+
+■ Protected-ranking status.
+
+■ Seed status.
+
+■ Defending-points context.
+
+■ Previous-year result.
+
+■ Tournament history.
+
+■ Venue history.
+
+■ Home-country performance.
+
+■ Altitude.
+
+■ Indoor/outdoor.
+
+■ Court speed when documented.
+
+■ Ball type when documented.
+
+■ Weather.
+
+■ Schedule time/day-night.
+
+■ Current draw validity.
+
+■ Opponent replacement.
+■ Walkover status/history.
+
+■ Rest advantage.
+
+U. Public Availability / Physical Evidence
+
+Use only public/observable information:
+
+■ Reported injury.
+
+■ Reported body area.
+
+■ Withdrawal.
+
+■ Retirement.
+
+■ Medical timeout.
+
+■ Illness.
+
+■ Layoff length.
+
+■ Matches since return.
+
+■ Record since return.
+
+■ Serve-speed decline where published.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 15
+
+■ First-serve/hold decline after return.
+
+■ Publicly documented movement concern.
+
+■ Repeated retirements/withdrawals.
+
+■ Current participation status.
+
+Never claim private sleep, hydration, soreness, pain, treatment, medication, physiological recovery, muscle fatigue, cardiovascular fatigue, or private
+
+training load.
+
+V. Stability / Regression / Variance
+
+■ Tiebreak overperformance.
+
+■ Deciding-set overperformance.
+
+■ Break-point overperformance.
+
+■ Match-win% vs point-win% overperformance.
+
+■ Set-win% vs point-win% overperformance.
+
+■ Game-win% vs point-win% overperformance.
+
+■ Clutch sustainability.
+
+■ Recent win% vs underlying point%.
+
+■ Recent record vs Elo expectation.
+
+■ Ace/double-fault regression.
+
+■ Break-point conversion regression.
+
+■ Break-point save regression.
+
+■ Opponent conversion variance.
+
+■ Strength-of-schedule adjustment.
+
+■ Luck/variance indicator.
+
+W. Transparent Matchup Probability Reconstruction
+
+When enough public inputs exist, independently reconstruct:
+
+■ Elo probability.
+
+■ Surface-Elo probability.
+
+■ Ranking-derived baseline.
+
+■ Hold/break Markov estimate.
+
+■ Serve/return probability estimate.
+■ Recent-form estimate.
+
+■ Surface-form estimate.
+
+■ Common-opponent estimate.
+
+■ Market no-vig probability.
+
+■ Transparent ensemble estimate.
+
+■ Monte Carlo from public hold/break assumptions.
+
+■ Straight-set probability.
+
+■ Deciding-set probability.
+
+■ Expected sets.
+
+■ Expected games.
+
+■ Tiebreak probability.
+
+■ Upset probability.
+
+■ Uncertainty interval.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 16
+
+Every result here must be labeled RECONSTRUCTED OUTSIDE ESTIMATE, never a Tennis Matrix proprietary output.
+
+X. Reliability / Sample / Source Quality
+
+For every metric record:
+
+■ Matches in sample.
+
+■ Surface matches in sample.
+
+■ Service/return points or games in sample when known.
+
+■ Recency.
+
+■ Opponent quality.
+
+■ Source coverage.
+
+■ Charted-match coverage.
+
+■ Missing-stat rate.
+
+■ Confidence interval where calculable.
+
+■ Effective sample size where calculable.
+
+■ Reliability grade.
+
+■ Cross-source agreement.
+
+■ Player-identity confidence, especially lower tours.
+
+■ Stale-data flag.
+
+■ Retirement-distorted sample flag.
+
+■ Small-sample warning.
+
+MASTER METRICS ENFORCEMENT
+
+1. Do not stop after finding enough evidence to support the Matrix favorite.
+
+2. Player 1 and Player 2 receive the same metric families and research depth.
+
+3. Search every applicable family A-X.
+
+4. Missing metrics are explicitly PARTIAL, UNAVAILABLE, or EXCLUDED.
+
+5. Do not count correlated metrics as independent evidence merely because they have different names.
+
+6. Do not treat reconstructed metrics as direct observations.
+
+7. Do not reverse-engineer hidden General/Specialist internals.
+
+8. Do not use private physiological or instrumented tracking information unless actually published.
+
+9. Preserve source URLs/citations for public evidence in the completed audit.
+
+10. Final color is prohibited until the Master Metrics Sweep and the existing Completion Ledger are both satisfied.
+Y. ADVANCED PUBLIC / RECONSTRUCTABLE DECIDING SIGNALS
+
+Coverage rule: Run every item below when the necessary public inputs exist. Charting-derived fields must include charted-match
+
+sample size and coverage warnings. Derived fields must expose their inputs and be labeled RECONSTRUCTED. If inputs are
+
+insufficient, mark PARTIAL or UNAVAILABLE.
+
+Y1. Serve +1 / Return Neutralization
+
+■ Serve +1 conversion / <=3-shot service-point win%.
+
+■ Serve Impact where publicly charted.
+
+■ Return-in-play%.
+
+■ Return-in-play win%.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 17
+
+■ Return neutralization rate.
+
+■ Return winner%.
+
+■ Return Aggression Score where charted.
+
+■ Deep Return Rate / Return Depth Index.
+
+■ First-serve return depth.
+
+■ Second-serve return depth.
+
+■ Return slice/chip frequency.
+
+■ Return-depth differential.
+
+■ Serve +1 vs opponent return-neutralization differential.
+
+Y2. Rally-Length Matchup
+
+■ Average rally length.
+
+■ Rally length on service points.
+
+■ Rally length on return points.
+
+■ 1-3 shot win%.
+
+■ 4-6 shot win%.
+
+■ 7-9 shot win%.
+
+■ 10+ shot win%.
+
+■ Rally-length distribution by bucket.
+
+■ Rally-length matchup differential.
+
+■ Likely-rally-distribution advantage.
+
+■ Rally-Length Control Score.
+
+■ Short-rally advantage.
+
+■ Medium-rally advantage.
+
+■ Long-rally advantage.
+
+■ Rally Aggression Score where charted.
+
+Y3. Wing / Direction / Tactical Shot Patterns
+
+■ Forehand potency per match and per 100 forehands.
+
+■ Backhand potency per match and per 100 backhands.
+
+■ Forehand share of groundstrokes / forehand dependency.
+
+■ Backhand slice frequency.
+
+■ Forehand winner%.
+
+■ Forehand down-the-line winner%.
+
+■ Forehand inside-out winner%.
+
+■ Backhand winner%.
+■ Backhand down-the-line winner%.
+
+■ Serve-and-volley frequency.
+
+■ Serve-and-volley win%.
+
+■ Net frequency.
+
+■ Net win%.
+
+■ Net effectiveness.
+
+■ Drop-shot frequency.
+
+■ Drop-shot winner/effectiveness%.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 18
+
+■ Serve direction wide/body/T when charted.
+
+■ Serve-direction predictability/concentration.
+
+■ Serve-location matchup matrix.
+
+■ Return direction/depth patterns.
+
+■ Crosscourt/down-the-line/inside-out/inside-in tendencies when charted.
+
+■ Directional Vulnerability Score.
+
+■ Weak-Wing Targetability.
+
+■ Pattern Exploitability Score.
+
+■ Plan-B Score.
+
+All tactical scores not directly published must be transparently reconstructed from charted inputs.
+
+Y4. Serve / Return Dependency & Exposure
+
+■ Serve Dependency Score.
+
+■ Return Dependency Score.
+
+■ First-Serve Miss Penalty.
+
+■ Second-Serve Exposure Rate.
+
+■ Second-Serve Punishment Differential.
+
+■ Break-Point Creation Quality.
+
+■ Break Opportunity -> Break Conversion Pipeline.
+
+■ Hold Under Pressure Differential.
+
+■ Break Consolidation Differential.
+
+■ Rebreak Vulnerability.
+
+■ Immediate rebreak vulnerability.
+
+■ Serve quality when first-serve percentage falls below player baseline.
+
+■ Return quality when opponent first serve exceeds baseline.
+
+Y5. Score-State / Closing Dynamics
+
+When point/game logs support reconstruction:
+
+■ Closing Degradation Index.
+
+■ Lead Conversion Curve.
+
+■ Deficit Recovery Curve.
+
+■ One-break-up conversion.
+
+■ One-set-up conversion.
+
+■ Set-plus-break-up conversion.
+
+■ One-break-down recovery.
+
+■ One-set-down recovery.
+
+■ Set-plus-break-down recovery.
+■ Score-state performance at 0-0, 15-15, 30-30, deuce and break point.
+
+■ Pressure Leverage Performance using transparent win-probability leverage.
+
+■ Pressure Regression Score.
+
+■ Tiebreak Entry Quality.
+
+■ Decider Entry Quality.
+
+■ Late-set hold/break differential.
+
+■ 4-4 / 5-5 performance when sample permits.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 19
+
+Y6. Match-Control / Scoreline Quality
+
+■ Match Control Index.
+
+■ Scoreline Deception Index.
+
+■ Dominant-Loss detection.
+
+■ Weak-Win detection.
+
+■ Underlying point dominance in wins/losses.
+
+■ Performance vs Expected Opponent Strength.
+
+■ Actual-minus-expected point win%.
+
+■ Actual-minus-expected hold%.
+
+■ Actual-minus-expected break%.
+
+These must be reconstructed with stated baselines and sample windows.
+
+Y7. Opponent-Adjusted Skill Residuals
+
+■ Opponent-adjusted point win%.
+
+■ Opponent-adjusted hold%.
+
+■ Opponent-adjusted break%.
+
+■ Opponent-adjusted first-serve points won%.
+
+■ Opponent-adjusted second-serve points won%.
+
+■ Opponent-adjusted first-serve return points won%.
+
+■ Opponent-adjusted second-serve return points won%.
+
+■ Opponent-adjusted return points won%.
+
+■ Expected-vs-Actual Serve Performance.
+
+■ Expected-vs-Actual Return Performance.
+
+■ Residual Serve Form.
+
+■ Residual Return Form.
+
+■ Skill Momentum - serve.
+
+■ Skill Momentum - return.
+
+■ Serve/Return Divergence.
+
+■ Surface x recency x opponent-adjusted serve rating.
+
+■ Surface x recency x opponent-adjusted return rating.
+
+Y8. Distribution / Volatility / Floor-Ceiling
+
+■ Rolling match-level performance volatility.
+
+■ Serve volatility.
+
+■ Return volatility.
+
+■ Point-win volatility.
+
+■ Hold/break volatility.
+
+■ Consistency Score.
+■ Performance floor: 10th/20th percentile.
+
+■ Performance ceiling: 80th/90th percentile.
+
+■ Bad-Day Vulnerability.
+
+■ Upside Frequency.
+
+■ Favorite Floor vs Underdog Ceiling Overlap.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 20
+
+■ Underdog Floor vs Favorite Ceiling Overlap.
+
+■ Full Performance Distribution Overlap.
+
+■ Matchup Uncertainty Score.
+
+■ Small-sample uncertainty expansion.
+
+■ Lower-tour uncertainty expansion.
+
+■ Surface-transition uncertainty expansion.
+
+■ Missing-data uncertainty expansion.
+
+Y9. Shrinkage / Sample Stabilization
+
+When enough historical data exists:
+
+■ Bayesian/shrinkage serve strength.
+
+■ Bayesian/shrinkage return strength.
+
+■ Shrunk hold%.
+
+■ Shrunk break%.
+
+■ Shrunk first-serve points won%.
+
+■ Shrunk second-serve points won%.
+
+■ Shrunk return-points-won%.
+
+■ Surface-specific partial pooling.
+
+■ Recency-weighted partial pooling.
+
+■ Tour-level prior adjustment.
+
+■ Effective sample-size adjustment.
+
+Always show the prior/baseline and method; label as RECONSTRUCTED OUTSIDE ESTIMATE.
+
+Y10. Opponent Archetype / Similarity
+
+■ Objectively defined opponent archetype.
+
+■ Performance vs big servers.
+
+■ Performance vs elite returners.
+
+■ Performance vs aggressive baseliners.
+
+■ Performance vs defensive/counterpunch profiles.
+
+■ Performance vs short-rally specialists.
+
+■ Performance vs long-rally specialists.
+
+■ Archetype-adjusted win rate.
+
+■ Archetype-adjusted point win%.
+
+■ Transparent Archetype Elo/strength estimate.
+
+■ Similarity-Weighted Opponent Performance.
+
+■ Similar-opponent surface performance.
+
+■ Similar-opponent serve/return performance.
+
+■ Handedness-adjusted serve/return splits.
+
+■ Lefty serve-pattern exposure.
+
+■ One-handed vs two-handed backhand split where sufficient sample exists.
+Y11. Rematch Learning / Tactical Adaptation
+
+■ Rematch Learning Rate.
+
+■ Performance change across repeated meetings.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 21
+
+■ Serve-placement change between meetings.
+
+■ Return-position change.
+
+■ Rally-length change.
+
+■ Net-frequency change.
+
+■ Second-serve attack change.
+
+■ Tactical Adaptation Score.
+
+■ Prior-loss correction evidence.
+
+■ Prior-win repeatability evidence.
+
+Y12. Current-Tournament Form
+
+■ Round-by-round performance progression.
+
+■ Current-Tournament Serve Form.
+
+■ Current-Tournament Return Form.
+
+■ Current-Tournament Point Dominance.
+
+■ Current-Tournament Hold/Break Differential.
+
+■ Current-Tournament Opponent-Adjusted Dominance.
+
+■ Current-Tournament Tiebreak/pressure results.
+
+■ Current-Tournament Set-1 performance.
+
+■ Current-Tournament closing performance.
+
+■ Current-Tournament workload efficiency.
+
+■ Efficiency of Wins.
+
+■ Cost of Advancement.
+
+Y13. Schedule / Adaptation / Travel Proxies
+
+■ Rest-Adjusted Workload Differential.
+
+■ Schedule Compression Index.
+
+■ Travel Burden Proxy.
+
+■ Time zones crossed.
+
+■ Days between previous and current tournament.
+
+■ Surface Adaptation Time.
+
+■ Matches already played on current surface.
+
+■ Qualifier Adaptation Effect.
+
+■ Qualifier Workload Cost.
+
+■ Bye/Rust Effect.
+
+■ Walkover rhythm/rest effect.
+
+■ Consecutive-tournament burden.
+
+Never convert these proxies into private physiological claims.
+
+Y14. Environmental Sensitivity
+
+When historical weather/venue data can be joined reliably:
+
+■ Weather Serve Sensitivity.
+
+■ Weather Return Sensitivity.
+
+■ Heat performance split.
+■ Humidity performance split.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 22
+
+■ Wind Sensitivity Proxy.
+
+■ Ace change in wind.
+
+■ Double-fault change in wind.
+
+■ First-serve-in change in wind.
+
+■ Altitude Serve Boost Sensitivity.
+
+■ Altitude return penalty/benefit.
+
+■ Court-Speed Sensitivity.
+
+■ Fast-court serve uplift.
+
+■ Slow-court return uplift.
+
+■ Day/night split.
+
+■ Best-of-3 vs Best-of-5 translation when applicable.
+
+Require meaningful sample size; otherwise mark suggestive/partial.
+
+Y15. ADVANCED MATCHUP CROSS-FEATURES
+
+Do not evaluate the advanced metrics only in isolation. Build the following opponent-specific cross-features when inputs exist:
+
+■ P1 Serve +1 vs P2 Return Neutralization.
+
+■ P2 Serve +1 vs P1 Return Neutralization.
+
+■ P1 second-serve exposure x P2 second-serve punishment.
+
+■ P2 second-serve exposure x P1 second-serve punishment.
+
+■ P1 short-rally win% vs P2 short-rally defense.
+
+■ P1 long-rally win% vs P2 long-rally tolerance.
+
+■ Reverse all rally interactions for P2.
+
+■ Serve-direction concentration vs opponent return-direction strength.
+
+■ Weak-wing targetability vs opponent directional preference.
+
+■ Net frequency/success vs opponent passing effectiveness.
+
+■ Drop-shot use vs opponent forward-movement vulnerability when publicly supported.
+
+■ Favorite closing degradation vs underdog deficit recovery.
+
+■ Favorite rebreak vulnerability vs underdog break-back strength.
+
+■ Favorite floor vs underdog ceiling.
+
+■ Favorite volatility vs underdog upside frequency.
+
+■ Favorite current-tournament serve form vs underdog current-tournament return form.
+
+■ Favorite current-tournament return form vs underdog current-tournament serve form.
+
+■ Favorite schedule compression vs underdog rest/adaptation advantage.
+
+■ Similarity-weighted underdog performance vs favorite archetype.
+
+■ Similarity-weighted favorite performance vs underdog archetype.
+
+Y16. ADVANCED METRICS RELIABILITY GATE
+
+For every Y-family signal record:
+
+■ Public source(s).
+
+■ Direct vs reconstructed.
+
+■ Date/window.
+
+■ Surface.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 23
+■ Number of matches.
+
+■ Number of charted matches if applicable.
+
+■ Number of points/service games/return games if known.
+
+■ Opponent-strength adjustment status.
+
+■ Coverage bias risk.
+
+■ Reliability: HIGH / MEDIUM / LOW.
+
+■ Decision weight: FULL / REDUCED / CONTEXT ONLY / ZERO.
+
+■ Whether the signal is independent or correlated with another metric.
+
+Charting warning: Match Charting Project samples can represent only a fraction of a player's matches and may be
+
+surface/opponent-skewed. Never give a charting-derived signal full weight without reporting coverage.
+
+Y17. FALSE-FAVORITE / TRAP RANGE TEST
+
+Before a favorite can receive DOUBLE GREEN or GREEN, explicitly test:
+
+1. Does the favorite's realistic performance floor overlap the underdog's realistic ceiling?
+
+2. Does the underdog own at least one high-reliability opponent-specific cross-feature?
+
+3. Is the favorite's recent record stronger than its underlying point/hold/break performance?
+
+4. Is the favorite benefiting from unsustainable tiebreak/break-point/deciding-set overperformance?
+
+5. Does opponent adjustment materially shrink the favorite's apparent edge?
+
+6. Does current-tournament form contradict the longer-term rating?
+
+7. Does workload/schedule compression materially narrow the matchup?
+
+8. Does archetype/similarity evidence favor the underdog?
+
+9. Do charted tactical patterns reveal a direct exploitable collision?
+
+10. Does distribution overlap make the headline probability look too certain?
+
+Report:
+
+■ Floor/Ceiling Overlap: LOW / MODERATE / HIGH.
+
+■ Distribution Overlap: LOW / MODERATE / HIGH.
+
+■ Opponent-Specific Cross-Feature Risk: LOW / MODERATE / HIGH.
+
+■ Regression Risk: LOW / MODERATE / HIGH.
+
+■ Advanced Trap Evidence Count: [N], counting only genuinely independent reliable signals.
+
+REUSABLE PER-MATCH EXECUTION TEMPLATE
+
+Match Identification
+
+■ Player 1: [PLAYER 1]
+
+■ Player 2: [PLAYER 2]
+
+■ Tournament: [TOURNAMENT]
+
+■ Level: [LEVEL]
+
+■ Surface: [SURFACE]
+
+■ Round: [ROUND]
+
+■ Matrix predicted winner: [PLAYER]
+
+■ Headline win probability: [WP]
+
+■ Recommendation: [LABEL]
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 24
+
+■ Upset Risk: [LEVEL]
+
+■ Data Quality: [DQ]
+
+■ Model Agreement: [LABEL]
+
+■ Matchup Closeness: [LABEL]
+1. Matrix Component Verification
+
+For every supplied live component, record:
+
+■ Surface Elo: favored player, raw probability, effective weight/contribution, reliability, availability, sample, status.
+
+■ Serve & Return: favored player, raw probability, effective weight/contribution, reliability, availability, sample, status.
+
+■ Recent Form: favored player, raw probability, effective weight/contribution, reliability, availability, sample, status.
+
+■ H2H: favored player, raw probability, reliability, sample, status; exclude from decision weight when the Matrix excludes it.
+
+■ Market Consensus: favored player, raw probability, effective weight/contribution, reliability, availability, sample, status.
+
+■ General Model: report the supplied output only. Do not invent or reverse-engineer hidden internal features, weights, training logic, calibration, or exact
+
+evidence overlap.
+
+■ Specialist Model: report the supplied output only. Do not invent or reverse-engineer hidden internal features, weights, training logic, calibration, or exact
+
+evidence overlap.
+
+■ Monte Carlo: favorite support, simulation range, straight-set probabilities, and headline-vs-MC gap when supplied.
+
+2. Player 1 Public Verification
+
+Research and classify each item as STRONG, WEAK, CONFLICT, UNAVAILABLE, or EXCLUDED:
+
+■ Current ranking and ranking trajectory.
+
+■ Last 5 and last 10 results.
+
+■ Current streak.
+
+■ Same-surface recent record.
+
+■ Current tournament results.
+
+■ Quality wins and bad losses.
+
+■ Opponent quality.
+
+■ Public serve/return statistics where available.
+
+■ Set 1 record and early-start pattern where reconstructable.
+
+■ Deciding-set and tiebreak record where reconstructable.
+
+■ Break-point and closing evidence where reconstructable.
+
+■ Common-opponent performance.
+
+■ H2H and same-surface H2H.
+
+■ Recent workload: matches, sets, games, minutes, consecutive-day play, qualifying workload, late finishes.
+
+■ Public injury, illness, withdrawal, retirement, medical-timeout, or return-from-injury information.
+
+■ Publicly documented travel/rest context.
+
+■ Public tactical/style evidence: handedness, serve profile, return profile, rally tolerance, surface specialization, and documented matchup tendencies.
+
+■ Current market and line movement where available.
+
+3. Player 2 Public Verification
+
+Run the exact same public verification fields and evidence classifications used for Player 1. Do not give the Matrix favorite more research depth than
+
+the opponent.
+
+4. Direct Player 1 vs Player 2 Differential
+
+Compare both players directly on:
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 25
+
+■ Surface strength.
+
+■ Current form.
+
+■ Opponent-adjusted recent performance.
+
+■ Serve.
+
+■ Return.
+
+■ Second-serve vulnerability/attack.
+■ Set 1 performance.
+
+■ Deciding-set performance.
+
+■ Tiebreak performance.
+
+■ Closing/lead durability.
+
+■ Common opponents.
+
+■ H2H/rematch evidence.
+
+■ Workload/rest.
+
+■ Injury/availability.
+
+■ Ranking trajectory/development.
+
+■ Style/tactical matchup.
+
+■ Current market.
+
+■ Monte Carlo and expected match length.
+
+5. Favorite Loss Autopsy
+
+Using recent publicly documented losses:
+
+■ Opponent and opponent quality.
+
+■ Surface and tournament level.
+
+■ Score.
+
+■ Set 1 result.
+
+■ Lead/collapse evidence.
+
+■ Serve and return performance where published.
+
+■ First-/second-serve issues where published.
+
+■ Break-point and break-consolidation evidence.
+
+■ Tiebreak/deciding-set evidence.
+
+■ Short-rally/long-rally evidence where publicly documented.
+
+■ Physical/injury evidence only when publicly reported.
+
+■ Repeatable tactical failure modes.
+
+Report 3-5 documented favorite failure modes when evidence supports them.
+
+6. Predicted-Loser Win Autopsy
+
+Using recent publicly documented wins:
+
+■ Opponent and opponent quality.
+
+■ Surface and tournament level.
+
+■ Score.
+
+■ Whether opponent was favored/higher ranked.
+
+■ Set 1 recovery or lead protection.
+
+■ Serve dominance.
+
+■ Return pressure.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 26
+
+■ Second-serve attack.
+
+■ Break-point performance.
+
+■ Comeback/closing.
+
+■ Tiebreak performance.
+
+■ Rally/pace tolerance where documented.
+
+■ Repeatable tactical pathway.
+
+Separate repeatable pathways from one-off variance.
+7. Opponent-Specific Interaction Reconstruction
+
+When public statistics support it, reconstruct or estimate transparently:
+
+■ Expected hold differential.
+
+■ Expected break differential.
+
+■ Second-serve attack mismatch.
+
+■ Serve-vs-return matchup.
+
+■ Surface-adjusted form differential.
+
+■ Common-opponent differential.
+
+■ Workload/rest differential.
+
+Any reconstructed metric must show its public inputs and method. Do not label an outside approximation as a proprietary Tennis Matrix metric.
+
+8. Favorite Failure-Mode Compatibility
+
+For each documented favorite failure mode, ask whether this opponent can create it:
+
+■ YES - strong evidence.
+
+■ POSSIBLY - partial evidence.
+
+■ NO - opponent lacks the weapon.
+
+■ UNAVAILABLE - evidence cannot be reconstructed.
+
+Report the compatibility count.
+
+9. Underdog Win Pathways
+
+Assess all 15 reusable pathways:
+
+1. Serve-through.
+
+2. Return-pressure.
+
+3. Second-serve exploitation.
+
+4. Short-rally.
+
+5. Long-rally.
+
+6. Movement/physical using only public observable/reportable proxies.
+
+7. Slow-start/Set 1.
+
+8. Deciding-set.
+
+9. Tiebreak.
+
+10. Workload/fatigue proxy.
+
+11. Style mismatch.
+
+12. Market-information.
+
+13. Favorite-collapse/closing.
+
+14. Surface-transition.
+
+15. Recent-improvement/ranking-lag.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 27
+
+Label each REALISTIC, WEAK, NOT SUPPORTED, or UNAVAILABLE. Count only genuinely independent REALISTIC pathways.
+
+10. Evidence Independence
+
+Do not claim exact hidden General/Specialist circularity. Instead:
+
+■ Count raw supplied component agreement.
+
+■ Separate clearly independent public evidence families.
+
+■ Flag possible/unknown model overlap as UNKNOWN when internal composition is not supplied.
+
+■ Treat market as a separate evidence family when sourced independently.
+
+■ Treat current injury/news as a separate family when publicly documented.
+
+Report Evidence Independence Risk: LOW / MODERATE / HIGH / UNKNOWN.
+11. Public/Reconstructable Stress Test
+
+Do not claim to recompute the proprietary Tennis Matrix engine unless its real blending/calibration formula is supplied.
+
+Instead test transparent outside scenarios:
+
+■ Reduce the observed Elo edge.
+
+■ Reduce recent-form edge.
+
+■ Reduce serve edge.
+
+■ Improve opponent return assumptions.
+
+■ Worsen public workload/rest assumptions.
+
+■ Move market probability toward the opponent.
+
+■ Remove one supplied component from the qualitative evidence count.
+
+Report whether the external evidence case remains robust, becomes contested, or becomes fragile. Label this an OUTSIDE STRESS TEST, not an
+
+exact Matrix winner-switch threshold.
+
+12. Public Historical Analogs
+
+Search public/reconstructable match history for comparable matches using available dimensions such as:
+
+■ Ranking/Elo gap.
+
+■ Surface.
+
+■ Recent-form gap.
+
+■ Serve/return profile.
+
+■ Market probability.
+
+■ Workload.
+
+■ Style/archetype.
+
+■ Tournament level.
+
+Report comparable examples and explain similarity. Do not claim they are the private 100-match workbook or use invented proprietary similarity
+
+scores.
+
+13. Fresh External Validation
+
+Freshly verify both players:
+
+■ Exact matchup/current draw validity.
+
+■ Tournament, level, surface, round.
+
+■ Withdrawal/replacement/walkover status.
+
+■ Rankings.
+
+■ Last 5/10.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 28
+
+■ Same-surface form.
+
+■ H2H.
+
+■ Injuries/availability.
+
+■ Current tournament workload.
+
+■ Current market from multiple sources where available.
+
+■ Current draw/status.
+
+Classify external evidence as CONFIRMS FAVORITE, WEAKLY CONFIRMS FAVORITE, NEUTRAL, WEAKLY CONFIRMS UNDERDOG, or
+
+CONFIRMS UNDERDOG.
+
+14. Contradiction Ledger
+
+List every meaningful contradiction:
+
+■ Matrix headline vs Surface Elo.
+
+■ Matrix headline vs Serve/Return.
+■ Matrix headline vs Recent Form.
+
+■ Matrix headline vs Market.
+
+■ Matrix headline vs General output.
+
+■ Matrix headline vs Specialist output.
+
+■ Matrix headline vs Monte Carlo.
+
+■ Matrix headline vs current public form.
+
+■ Matrix headline vs same-surface evidence.
+
+■ Matrix headline vs injury/workload evidence.
+
+■ Matrix headline vs current market.
+
+Do not count unavailable or excluded evidence as disagreement.
+
+15. Final Verification Classification
+
+Assign only after all available layers are completed:
+
+■ DOUBLE GREEN - strongest alignment between Matrix evidence and independent public verification, with no material unresolved contradiction.
+
+■ GREEN - favorable overall, with limited non-critical contradictions.
+
+■ YELLOW - meaningful conflict, thin evidence, or opponent has credible independent win pathways.
+
+■ RED - material reliable evidence undermines the Matrix pick or the favorite has multiple opponent-specific failure conditions.
+
+■ PASS / INCOMPLETE - required current information cannot be verified sufficiently.
+
+Report:
+
+■ Evidence winner.
+
+■ Strongest 3 reasons.
+
+■ Strongest contradiction.
+
+■ Independent realistic underdog pathways count.
+
+■ Public-source confidence.
+
+■ Final color/action.
+
+■ Missing or partial fields.
+
+COMPLETION LEDGER - EVERY MATCH
+
+Before calling a match complete, verify:
+
+■ Matrix favorite evaluated separately.
+
+Tennis Matrix AI - Reusable MAX Metrics Plus Audit
+
+Page 29
+
+■ Opponent evaluated separately.
+
+■ Every supplied Matrix component checked for reliability/sample/status.
+
+■ Fresh public research completed for both players.
+
+■ Direct differential completed.
+
+■ Favorite loss autopsy completed or marked UNAVAILABLE.
+
+■ Predicted-loser win autopsy completed or marked UNAVAILABLE.
+
+■ Common-opponent layer completed or marked UNAVAILABLE.
+
+■ Set 1 / deciding-set / tiebreak layer completed or marked UNAVAILABLE.
+
+■ Workload/rest layer completed or marked PARTIAL/UNAVAILABLE.
+
+■ Injury/availability layer completed or marked UNAVAILABLE.
+
+■ Favorite failure modes identified.
+
+■ Opponent-specific compatibility assessed.
+
+■ All 15 win pathways classified.
+
+■ Evidence-independence review completed without inventing hidden model internals.
+
+■ Outside stress test completed without claiming proprietary recomputation.
+■ Public historical analog search completed or marked UNAVAILABLE.
+
+■ Current market checked from multiple sources where available.
+
+■ Current draw/withdrawal validity checked.
+
+■ Contradiction ledger completed.
+
+■ Advanced Y1-Y14 metric families screened for both players.
+
+■ Advanced Y15 opponent-specific cross-features built where inputs exist.
+
+■ Y16 advanced-metrics reliability gate completed.
+
+■ Y17 false-favorite / trap range test completed.
+
+■ Charting coverage/sample bias explicitly checked where charting data was used.
+
+■ Floor/ceiling and performance-distribution overlap assessed where enough data exists.
+
+■ Final classification assigned only after the above.
+
+Hard Stop Rule
+
+If a mandatory layer has not been run and is not legitimately UNAVAILABLE/PARTIAL, report:
+
+INCOMPLETE AUDIT - missing: [specific layer/source].
+
+Never claim private physiological measurements, instrumented tracking data, hidden model internals, the private independent Green list, or the private
+
+100-match workbook unless those sources are actually supplied.
+
+ADDED VALIDATION RULES - CURRENT-STRENGTH & FALSE-GREEN
+
+CONTROL
+
+These rules are mandatory additions to the Full Verification Audit. They use only public or transparently reconstructable evidence and
+
+are designed to prevent long-term reputation/rating strength from masking present-level uncertainty.
+
+Current-Strength / Ranking-Lag Gate
+
+Calculate current-strength separately from long-term ranking/Elo when recent opponent-adjusted performance materially exceeds the player's
+
+trailing baseline. Include ranking velocity, Elo velocity where available, serve/return trajectory, quality-of-opposition progression, and recent surface
+
+performance.
+
+Recent Elite-Win Escalation
+
+A recent Top-10/20/50 quality win triggers a repeatability check: underlying points/games, serve/return performance, opponent condition, surface,
+
+and whether the performance repeated across multiple matches.
+
+Breakthrough-Player Detection
+
+Flag players whose last 8-12 weeks materially outperform their trailing 12-month baseline. Reweight recent opponent-adjusted evidence upward
+
+only when supported by adequate sample and underlying performance.
+
+Trajectory Differential
+
+Compare both players' ranking velocity, Elo/strength velocity, opponent-adjusted form velocity, serve trajectory, return trajectory,
+
+quality-of-opposition progression, and current-surface trajectory.
+
+Current-Tournament Evidence Gate
+
+Compare current-tournament serve, return, point dominance, hold/break, opponent quality, workload, conditions, and round-by-round progression.
+
+A player with no current-condition matches receives added uncertainty rather than assumed historical form.
+
+Long-Layoff / Rust Uncertainty
+
+A meaningful competitive layoff widens the player's performance distribution. Historical strength may remain relevant but cannot erase uncertainty
+
+about present floor, current conditions, and match sharpness.
+
+Rust x Momentum Interaction
+
+Explicitly test established/returning favorite versus match-sharp or rapidly improving opponent. Treat the interaction as a cross-feature, not two
+
+unrelated notes.
+
+Information-Asymmetry Penalty
+
+When one player's present level is well observed and the other's evidence is mainly historical, reduce confidence in the less-observed player's
+
+current estimate.
+Probability Compression Under Uncertainty
+
+When present-level uncertainty is high, widen the interval and compress extreme reconstructed probabilities toward a more conservative range.
+
+State the reason and method.
+
+Floor / Ceiling Revaluation
+
+Re-estimate the favorite's realistic lower tail after layoff/inactivity and the underdog's upper tail after recent elite-quality performances. Re-run
+
+distribution overlap.
+
+Age x Layoff Interaction
+
+Age alone is not a removal signal. Age combined with meaningful inactivity, absent current-condition evidence, and declining/recently volatile
+
+performance increases uncertainty and widens the floor distribution.
+
+Legacy / Name Bias Check
+
+Remove player names and career accomplishments conceptually. Ask whether last 10-20 matches, surface evidence, opponent quality, trajectory,
+
+workload, and current-condition evidence still support the same verification color.
+
+Market-Veto Investigation
+
+A major gap between Matrix/independent strength and a liquid market temporarily blocks Green until the discrepancy is investigated. Market is not
+
+automatically correct, but unexplained disagreement is a mandatory contradiction.
+
+False-Green Feedback Rule
+
+Every Green/Double-Green loss receives a pre-match failure review. Record which public signals existed before first serve, which gates failed to
+
+trigger, and whether the pattern should downgrade future structurally similar matches.
+
+Pre-Match Removal Question
+
+Before Green, answer: What is the strongest evidence that this favorite should be removed? Green requires an evidence-based explanation for
+
+why that removal case is insufficient.
+
+INTEGRATED FINAL DECISION ARCHITECTURE
+
+Mandatory addition to the Verification Audit. This section controls how Verification, Disagreement, Dangerous Underdog, stress testing,
+
+and final list eligibility interact.
+
+1. Final Combined Decision Gate
+
+A candidate reaches the Final Green List only if the Verification Audit approves it AND the Disagreement/Trap Audit fails to falsify it AND the
+
+Dangerous Underdog Screen is clear AND the final stress/removal tests are passed. Failure at any required stage blocks Green.
+
+2. Disagreement Veto Power
+
+A RED/PASS, unresolved CRITICAL contradiction, or active Dangerous Underdog GREEN LOCK from the Disagreement Audit automatically prevents
+
+Green regardless of the Matrix probability or Verification approval.
+
+3. Hard Downgrade Triggers
+
+Specified combinations must mechanically downgrade rather than merely warn. Example: rapid-riser/ranking-lag opponent + credible recent elite
+
+performance + favorite inactivity/current-level uncertainty locks Green until escalation is passed.
+
+4. Minimum Independent-Evidence Requirement
+
+Do not approve from raw metric count. Green requires at least 4 genuinely independent reliable evidence families supporting the candidate after
+
+contradictions; Double Green requires at least 6. Correlated metrics collapse into one effective family.
+
+5. Contradiction Budget
+
+Double Green: zero unresolved CRITICAL contradictions and no more than one unresolved MAJOR contradiction. Green: zero unresolved CRITICAL
+
+contradictions and only limited MAJOR contradictions that are explicitly defeated. Otherwise downgrade.
+
+6. Evidence Freshness Score
+
+Report how much decisive evidence comes from the last 4/8/12/26 weeks and how much is older. Stale evidence cannot carry the same confidence as
+
+fresh, surface-relevant, opponent-adjusted evidence.
+
+7. Historical Strength vs Current Strength Split
+
+Finish every match with separate Historical Strength and Current Estimated Strength assessments. A material divergence is a mandatory warning and
+
+triggers deeper current-level review.
+8. Probability Stress Range
+
+Report Base, Conservative, and Optimistic reconstructed probability/range. If reasonable conservative assumptions push the favorite near 50% or flip
+
+the winner, Green is fragile and must be downgraded unless independently resolved.
+
+9. Removal-First Final Stage
+
+Before approval, construct the strongest evidence-based REMOVE CASE against the Matrix winner. The candidate must defeat that case using
+
+independent reliable evidence. Failure to defeat it blocks Green.
+
+10. False-Green Learning Ledger
+
+Every Green/Double-Green loss receives a pre-match failure classification using only information available before first serve: rapid riser missed, stale
+
+rating, weak-win inflation, current decline, matchup collision, market contradiction, inactivity, etc. Recurrent structures become future downgrade
+
+triggers.
+
+11. Calibration by Audit Color
+
+Track actual outcomes separately for Double Green, Green, Yellow, Red, and PASS/removed candidates. If higher colors do not materially outperform
+
+lower colors over adequate samples, tighten thresholds.
+
+12. Audit Confidence Is Not Win Probability
+
+Always report Audit Confidence separately from estimated win probability. A high estimated probability with incomplete/low-quality evidence cannot
+
+receive equally high audit confidence.
+
+13. Minimum Coverage Threshold
+
+Report Audit Coverage %. Double Green requires very high coverage of CRITICAL evidence families; Green requires sufficient critical coverage.
+
+Missing supplemental metrics alone do not block approval.
+
+14. Critical-Metric Coverage
+
+Classify audit fields as CRITICAL / IMPORTANT / SUPPLEMENTAL. Missing current surface form, serve/return, opponent quality, availability, or
+
+present-strength evidence matters far more than missing an obscure tactical statistic.
+
+15. Effective Independent Evidence Count
+
+Final output must report the number of effective independent evidence families after correlated-data compression. Do not allow dozens of correlated
+
+metrics to create false unanimity.
+
+16. Mandatory Strongest-Underdog Table
+
+For every proposed Green, list the underdog's 5 strongest pre-match arguments, reliability/sample, evidence family, and whether each was
+
+DEFEATED / UNRESOLVED / SUPPORTS REMOVAL.
+
+17. Final Rejection Reason
+
+Every removed/downgraded favorite receives one concise human-readable reason identifying the decisive structural risk rather than merely listing
+
+metrics.
+
+FINAL INTEGRATED WORKFLOW
+
+MANDATORY WORKFLOW: Tennis Matrix Candidate -> Verification Audit -> Disagreement/Trap Audit -> Dangerous Underdog Screen ->
+
+Stress Test -> Removal Case -> FINAL GREEN LIST
+
+No candidate may bypass a stage. A blocked stage must be resolved or the candidate remains downgraded/removed. The purpose is filtering, not
+
+forcing a winner.
+

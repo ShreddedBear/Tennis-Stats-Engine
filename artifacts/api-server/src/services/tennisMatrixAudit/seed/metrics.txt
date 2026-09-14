@@ -1,0 +1,1270 @@
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+
+                                     TENNIS MATRIX AI
+                                       TENNIS VERIFICATION METRICS
+
+                                    PUBLIC / RECONSTRUCTABLE EDITION
+SCOPE RULE
+This edition contains only metrics that can be obtained from reliable public sources or transparently reconstructed
+from public observations. Private/proprietary model internals, unsupplied private datasets, and non-public
+physiological measurements have been removed.
+
+
+Evidence labels: DIRECT • RECONSTRUCTED • PARTIAL • UNAVAILABLE • EXCLUDED
+
+
+
+1. Surface Strength
+
+• Surface Elo: a player's Elo rating calculated specifically for the surface being played on.
+• Elo Win Probability: the win probability implied purely by the Elo rating differential between the two players.
+• Surface Sample Depth: the number of matches available to calculate a player's surface-specific rating.
+• Effective Weighted Sample: the sample size after applying recency and quality weighting rather than a raw count.
+• Surface Elo Trend/Momentum: the recent direction of change in a player's surface-specific Elo rating.
+• Peak Elo vs Current Elo: the gap between a player's highest-ever Elo and their present rating.
+• Hard-Court Record: a player's overall win-loss record on hard courts.
+• Last-52-Week Hard-Court Record: a player's hard-court win-loss record limited to the past year.
+
+2. Serve Profile
+
+• Hold %: the percentage of a player's own service games that they win.
+• Service Points Won %: the percentage of all points won while serving.
+• First-Serve-In %: the percentage of first serves landed in play.
+• First-Serve Points Won %: the percentage of points won when the first serve goes in.
+• Second-Serve Points Won %: the percentage of points won when the player must hit a second serve.
+• Ace Rate: the percentage of service points won outright with an unreturned serve.
+• Double-Fault Rate: the percentage of service points lost due to a double fault.
+• Break Points Saved %: the percentage of break points against the player that they successfully defend.
+• Service Games Held: the count of service games won without being broken.
+• Serve-Out Reliability: how consistently a player successfully closes out a set or match while serving for it.
+
+3. Return Profile
+
+• Break %: the percentage of opponent service games a player successfully breaks.
+• Return Points Won %: the percentage of all points won while returning serve.
+• First-Serve Return Points Won: the percentage of return points won against the opponent's first serve.
+• Second-Serve Return Points Won: the percentage of return points won against the opponent's second serve.
+• Break Points Created per Return Game: the average number of break-point opportunities generated in each
+  return game.
+
+                                            Tennis Verification Metrics • Page 1
+                   120-MATCH EMPIRICAL METRIC-PRIORITY OVERLAY
+This overlay does not remove any public/reconstructable metric in the master list. It adds an empirical priority layer showing which
+supplied metrics have separated wins from losses most clearly in the current 120-match calibration.
+
+Current empirical priority table
+     Empirical condition                                    Record            Win rate   Audit treatment
+
+     Overall                                                85/120            70.8%      Baseline only
+
+     WP <=64%                                               14/26             53.8%      High-burden / PASS-heavy zone
+
+     Close / coin-flip structure                            14/27             51.9%      Major trap / Green blocker unless exceptional
+
+     Moderate lean / clear favorite                         71/93             76.3%      Structurally stronger
+
+     Elo gap >=50 for Matrix pick                           43/53             81.1%      Primary favorable separator
+
+     Elo gap <50                                            32/52             61.5%      Caution / downgrade pressure
+
+     Recent-form advantage >10                              30/38             78.9%      Useful independent confirmation
+
+     Surface Elo support >=70%                              23/28             82.1%      Strong when sample/reliability valid
+
+     Specialist support <65%                                12/22             54.5%      Major warning; do not hide with headline WP
+
+     MC <55%                                                14/22             63.6%      Downgrade pressure
+
+     MC >=55%                                               61/83             73.5%      Supportive
+
+     MC >=70%                                               11/12             91.7%*     Strong but small sample
+
+     Market support >=60%                                   15/18             83.3%*     Promising independent confirmation
+
+
+*Small-sample condition. Use as supportive evidence only, not a standalone rule.
+
+Priority tiers for the master metrics list
+Tier 1 - Primary: Elo differential / surface-strength separation; Matchup Closeness structure; Monte Carlo support; opponent-adjusted
+recent-form differential; Surface Elo support with reliability/sample; current market confirmation when available.
+Tier 2 - Confirming: serve/return matchup, hold/break mismatch, common-opponent quality, current-surface form, fatigue/workload,
+ranking trajectory/rating lag, pressure/closing, and opponent-specific tactical compatibility.
+Tier 3 - Context only unless independently validated: Recommendation label, Upset Risk, Data Quality, Strong Agreement label, raw
+model-vote count, H2H, straight-set call, and fatigue alone.
+Anti-double-counting rule for metrics
+Metrics derived from or strongly overlapping with the same information source must be grouped into one evidence family before final
+weighting. General Model, Specialist Model, Surface Elo, headline probability, Monte Carlo, and Market may not be assumed
+independent. Report each output, but apply a correlation penalty when converting them into evidence strength.
+
+Required derived metrics added to the metrics workflow
+For every match where inputs exist, calculate and report: Elo gap; Recent Form gap; Serve/Return gap; headline-vs-MC gap; MC
+support bucket (<55 / 55-69 / >=70); Surface Elo support bucket; Specialist support bucket; Matchup Closeness risk tier; number
+of independent contradiction families; and leave-one-family-out winner stability.
+
+Interpretation rules
+A large number of agreeing metrics is not automatically strong evidence. Reliability, sample, independence, surface relevance, opponent
+adjustment, and magnitude determine weight. Likewise, a single disagreement is not automatically a trap. The metrics layer must identify
+which evidence is independent and which is duplicative.
+
+Recalibration rule
+Every time verified results are added, recompute these empirical bucket records from the newest sample. Never freeze the percentages
+above as permanent thresholds. If a bucket has a small sample, label it SUGGESTIVE / TOO SMALL rather than treating it as a rule.
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Break-Point Conversion %: the percentage of break-point opportunities that are successfully converted.
+• Return Pressure Rate: how frequently a player's returns force the server into a defensive position.
+
+4. Combined Efficiency
+
+• Dominance Ratio: the ratio of a player's return points won percentage to their opponent's return points won
+  percentage.
+• Opponent-Adjusted Dominance Ratio: Dominance Ratio recalculated after accounting for the relative strength of
+  the opponents faced.
+• Total Points Won %: the overall percentage of all points won in the match, combining serve and return.
+• Matchup-Specific Expected Hold %: the hold percentage a player would be expected to achieve against this specific
+  opponent.
+• Matchup-Specific Expected Break %: the break percentage a player would be expected to achieve against this
+  specific opponent.
+• Expected Hold/Break Differential: the projected gap between expected hold rate and expected break rate for this
+  matchup.
+
+5. Recent Form
+
+• Last 5 Match Performance: summary results and underlying stats from the player's five most recent matches.
+• Last 10 Match Performance: summary results and underlying stats from the player's ten most recent matches.
+• Current Hard-Court Swing: performance specifically within the player's current run of hard-court tournaments.
+• Trend Direction: whether recent performance is improving, declining, or stable.
+• Recent-Performance Acceleration: the rate at which recent performance is improving or declining, not just the
+  direction.
+• Quality of Last 3–5 Performances: an assessment of opponent strength and dominance level in the most recent
+  handful of matches.
+• Average Games/Sets Conceded in Wins: the typical number of games or sets given up during recent victories.
+• Straight-Set Control Rate: the percentage of recent wins completed in straight sets.
+
+6. Opponent Quality
+
+• Opponent-Adjusted Strength of Schedule: an assessment of how difficult a player's recent opponents have been,
+  weighted by quality.
+• Ranking-Adjusted Performance: performance evaluated relative to what would be expected given opponents'
+  rankings.
+• Performance Against Comparable-Ranked Players: results specifically against opponents of similar ranking to the
+  player.
+• Performance Against Specific Archetypes: results against particular playing styles (e.g., big servers,
+  counterpunchers).
+• Bad-Loss Rate: the frequency of losses to significantly lower-ranked or weaker opponents.
+
+7. Common-Opponent Network
+
+• Direct Common Opponents: opponents that both players in the matchup have played.
+• Who Beat/Lost to the Same Players: a comparison of results each player achieved against shared opponents.
+• Scoreline Comparison: how the scorelines compare between each player's matches against the same common
+  opponents.
+                                          Tennis Verification Metrics • Page 2
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Recency Weighting: adjusting common-opponent comparisons so more recent results count more heavily.
+• Surface Matching: ensuring common-opponent comparisons only use matches played on the same surface.
+• Tournament-Level Matching: ensuring common-opponent comparisons only use matches from comparable
+  tournament tiers.
+• Opponent-Strength Weighting: adjusting common-opponent comparisons based on the strength of the shared
+  opponent.
+• Transitive Opponent Network Chains: extending the common-opponent comparison through opponents-of-
+  opponents to build a wider strength network.
+
+8. Set Profile
+
+• Set-1 Win Rate: the percentage of matches in which a player wins the first set.
+• Set-2 Win Rate: the percentage of matches in which a player wins the second set.
+• Set-3/Deciding-Set Win Rate: the percentage of matches in which a player wins the deciding set.
+• First-Break Frequency: how often a player achieves the first break of serve in a match.
+• Record After Losing Set 1: a player's overall win-loss record in matches where they lost the first set.
+• Record After Winning Set 1: a player's overall win-loss record in matches where they won the first set.
+• Second-Set Performance After Losing Set 1: how a player performs specifically in the second set after dropping
+  the first.
+• Deciding-Set Win Rate: the percentage of deciding (final) sets a player wins.
+• Break-Back Rate: how often a player who has just been broken immediately breaks back.
+• Hold/Return Improvement Set 1 → Sets 2/3: whether a player's hold and return numbers materially improve after
+  the first set.
+
+9. Comeback/Pressure Behavior
+
+• Wins From Behind: the frequency with which a player wins matches after trailing.
+• Break-Consolidation Rate: the percentage of service games held immediately after breaking the opponent.
+• Serving-for-Set Conversion: the percentage of times a player successfully closes out a set while serving for it.
+• Serving-for-Match Conversion: the percentage of times a player successfully closes out a match while serving for
+  it.
+• Pressure-Point Performance: how a player performs specifically on break points, set points, and match points
+  combined.
+• Clutch Hold/Break Performance: hold and break rates measured specifically in high-leverage game situations.
+• Tiebreak Record: a player's overall win-loss record in tiebreaks.
+
+10. Straight-Set / 2–0 Metrics
+
+• Straight-Set Win Rate: the percentage of matches a player wins without dropping a set.
+• Straight-Set Rate vs Comparable Opposition: straight-set win rate calculated only against opponents of similar
+  strength.
+• Monte Carlo Straight-Set Probability (Both Players): a simulation-based estimate of each player's probability of
+  winning in straight sets.
+
+11. Volatility/Floor
+
+• Performance Variance: how much a player's match-to-match performance level fluctuates.
+
+                                           Tennis Verification Metrics • Page 3
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Floor vs Ceiling: the range between a player's worst realistic and best realistic performance levels.
+• Close-Match Dependency: how often a player's wins depend on narrow margins rather than clear dominance.
+• Deciding-Set/Tiebreak Reliance: how often a player's wins require a deciding set or tiebreak to be settled.
+• Upset Resistance: how consistently a player avoids losing to lower-ranked opponents.
+
+12. Fatigue/Workload
+
+• Matches in 7 Days: the number of matches a player has completed in the past week.
+• Actual Minutes on Court: total time spent playing across recent matches.
+• Sets/Games Played (Recent): the total number of sets and games completed in recent matches.
+• Three-Setters (Recent Count): how many of a player's recent matches went the distance.
+• Late Finishes: matches that concluded unusually late at night, potentially affecting recovery.
+• Rest Hours: the amount of time between a player's most recent match and the upcoming one.
+• Qualifying Workload: additional matches played in qualifying rounds before the main draw.
+• Recent Travel Distance/Time Zones: the distance and time-zone shift involved in a player's recent travel.
+
+13. Availability
+
+• Injuries: any current or recent injury affecting a player's availability or performance.
+• Recent Withdrawals: tournaments a player has pulled out of recently.
+• Retirements: matches a player has failed to finish due to injury or illness.
+• Medical Timeouts: recent instances of on-court medical treatment.
+• Layoffs: extended periods away from competition.
+• Return-From-Injury Form: performance level specifically in matches played shortly after returning from injury.
+
+14. Ranking Context
+
+• Current Ranking: the player's present official ranking.
+• Ranking Trajectory: the recent direction of movement in a player's ranking.
+• Rapid Riser/Faller Status: whether a player is moving unusually quickly up or down the rankings.
+• Ranking–Performance Disconnect: the gap between a player's current ranking and what their underlying
+  performance suggests it should be.
+
+15. Market Layer
+
+• Sportsbook Moneyline Consensus: the average implied win probability across multiple sportsbooks.
+• Multiple-Book Comparison: a side-by-side comparison of odds offered across different sportsbooks.
+• Opening Price vs Current/Closing Price: how much the betting line has moved from open to close.
+• Market Movement: the direction and magnitude of line movement leading up to the match.
+• No-Vig Implied Probability: the market's implied win probability after removing the bookmaker's margin.
+• Model-vs-Market Divergence: the gap between the model's probability and the market's implied probability.
+• Prediction-Market Consensus: implied probabilities drawn from prediction markets rather than sportsbooks.
+
+16. Point-by-Point & Score-State Metrics
+
+• Point-by-Point Sequencing: analysis of the order and pattern of points won and lost, not just aggregate totals.
+• Score-State Performance (0-30): win rate for points/games specifically from a 0-30 score state.
+
+                                           Tennis Verification Metrics • Page 4
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Score-State Performance (15-30): win rate for points/games specifically from a 15-30 score state.
+• Score-State Performance (30-30): win rate for points/games specifically from a 30-30 score state.
+• Score-State Performance (Deuce): win rate for points/games specifically at deuce.
+• Score-State Performance (Advantage): win rate for points/games specifically at advantage.
+• Score-State Performance (Break Point): win rate for points/games specifically at break point.
+• Score-State Performance (Set Point): win rate for points/games specifically at set point.
+• Score-State Performance (Match Point): win rate for points/games specifically at match point.
+• Serve-Direction Patterns: tendencies toward serving wide, body, or T, and how effectively the opponent returns
+  each direction.
+• Return Positioning and Depth/Quality: where a player stands to return and the depth and quality of the resulting
+  return shot.
+• Rally-Length Performance (0–4 Shots): win rate in short rallies.
+• Rally-Length Performance (5–8 Shots): win rate in medium-length rallies.
+• Rally-Length Performance (9+ Shots): win rate in extended rallies.
+• Winner/Unforced-Error Differential: the gap between winners and unforced errors, and how it shifts under
+  pressure.
+• Forced-Error Generation: how often a player's shots force an opponent into an error.
+
+17. Shot & Rally Metrics
+
+• Forehand/Backhand Effectiveness: the relative effectiveness of each groundstroke wing, and how well opponents
+  exploit the weaker one.
+• Net-Point Frequency and Success: how often a player comes to net and their win rate when doing so.
+• Court-Position/Aggression Metrics: measures such as average baseline depth and frequency of attacking play.
+• Break-Point Quality: whether break-point opportunities came from sustained return dominance or isolated
+  opponent errors, rather than raw conversion rate.
+• Hold Vulnerability: how often a player's service games reach 30-30, deuce, or break point even when they
+  ultimately hold.
+• Return-Game Threat Consistency: the percentage of a player's return games that reach 30-30, deuce, or break
+  point.
+• Set-Level Dominance: how often a player wins sets by lopsided scores (e.g., 6-0/6-1/6-2) versus needing 7-5 or a
+  tiebreak.
+• Garbage-Time Effects: distinguishing meaningful statistical dominance from stats accumulated after a set was
+  already decided.
+
+18. Momentum & Closing Metrics
+
+• Performance Following Momentum Events: how a player performs immediately after breaking, being broken, or
+  winning/losing a tiebreak.
+• Closing Ability: the probability of winning from a one-break-up, one-set-up, or serving-for-match position.
+• Opponent Comeback Susceptibility: how prone the opponent is to allowing comebacks after building a lead.
+
+19. Market Calibration
+
+• Upset History by Implied Market Probability: how often a player underperforms relative to their market-implied
+  probability as a favorite.
+
+                                           Tennis Verification Metrics • Page 5
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Favorite Performance by Price Bucket: win rate broken down by odds range (e.g., -150 to -199, -200 to -299, -300+).
+• Player-Specific Calibration: whether markets or models systematically overrate or underrate a particular player.
+
+20. Level/Tour Transition
+
+• Performance vs Opponent Elo Differential: results measured against the exact Elo gap rather than ranking bands.
+• Tour-Level Transition Performance: results when moving between tour levels (e.g., ITF to Challenger to ATP/WTA,
+  or qualifying to main draw).
+• Post-Strong/Weak-Tournament Performance: results following unusually strong or weak tournament runs, to
+  detect regression to the mean.
+
+21. Surface & Environmental Context
+
+• Surface-Transition Performance: results in the first one to three matches after switching surfaces.
+• Tournament-Round Performance: results broken down by round (qualifying, R1, R2, QF, SF/F).
+• Home-Country/Home-Continent Effects: statistically justified performance differences when playing near home.
+• Altitude Sensitivity: how a player's performance changes at high altitude.
+• Ball/Court-Speed Interaction: how a player's serve and return style interacts with different ball and court speeds.
+• Weather Sensitivity: historical performance in heat, humidity, and wind based on actual match data.
+• Age/Development Curve: a player's expected performance trajectory based on age and recent improvement rate.
+• Inactivity Decay: expected performance loss after specific lengths of layoff.
+• Schedule Density (14/30 Days): match load measured over two-week and one-month windows rather than just one
+  week.
+• Opponent Retirement-Adjusted Records: win totals adjusted so incomplete wins via opponent retirement don't
+  inflate perceived form.
+• Match-Quality-Adjusted Straight-Set Rate: straight-set win rate adjusted for the quality of opposition faced.
+• Expected-Games vs Actual-Games Dominance: comparing expected games won to actual games won to detect
+  unsustainable clutch results.
+• Luck/Regression Indicators: unusually high tiebreak, break-point, or deciding-set success rates likely to regress
+  toward the mean.
+• Bayesian Uncertainty/Confidence Intervals: confidence ranges applied to every key statistic so small-sample
+  numbers aren't treated the same as large-sample numbers.
+• Data-Source Agreement: comparing independent data providers and flagging discrepancies in identity, surface,
+  score, ranking, or statistics.
+
+22. Serve/Return Shot-Level Efficiency
+
+• Serve +1 Effectiveness: how often the server wins the point on the very next shot after the serve.
+• Return +1 Effectiveness: how often the returner wins the point within one to two shots after returning serve.
+• Unreturned Serve Rate: the percentage of serves that are aces or otherwise never come back into play, broader
+  than ace rate alone.
+• Return-in-Play Rate: the percentage of opponent serves successfully returned into court, split by first and second
+  serve.
+• Second-Serve Attack Rate: how aggressively and successfully a player attacks an opponent's second serve.
+• Second-Serve Punishment Differential: the difference between a player's second-serve return points won and
+  their opponent's normal second-serve points won rate.
+
+                                           Tennis Verification Metrics • Page 6
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• First-Strike Win Rate: the percentage of short points won when the player lands the first attacking shot.
+• Neutral-Rally Win Rate: the percentage of points won once a rally becomes neutral rather than serve- or return-
+  dominated.
+• Defensive Conversion Rate: the percentage of points won after initially being placed on defense.
+• Attack-to-Defense Transition Efficiency: how successfully a player turns a defensive rally into an attacking one.
+• Forced Short-Ball Generation: how frequently a player forces the opponent into a short, attackable ball.
+• Short-Ball Conversion Rate: how often attackable short balls actually become won points.
+• Depth Consistency: the percentage of groundstrokes landing beyond the service line, in the deep third of the court.
+• Baseline Error Tolerance: unforced-error frequency measured per neutral rally rather than per match.
+• Backhand Tolerance Under Pressure: the backhand's error/winner profile when repeatedly attacked on that wing.
+• Forehand Damage Rate: winners plus forced errors generated by the forehand relative to opportunities.
+• Backhand Damage Rate: winners plus forced errors generated by the backhand relative to opportunities.
+• Crosscourt vs Down-the-Line Efficiency: effectiveness comparison between crosscourt and down-the-line shot
+  patterns.
+• Inside-Out Forehand Effectiveness: how effective a player's inside-out forehand is, particularly against weaker
+  backhands.
+• Slice Exposure Rate: how often a player is forced to hit low, uncomfortable slice balls and how well they handle
+  them.
+• High-Ball Tolerance: effectiveness against high, topspin-heavy balls.
+• Low-Ball Tolerance: effectiveness against low, skidding balls from slice or flat hitters on faster courts.
+• Wide-Ball Recovery Rate: the probability of winning the point after being pulled wide of the singles sideline.
+• Court Recovery Speed Proxy: an estimate of the time or distance required to regain a neutral court position after
+  being stretched.
+• Net-Approach Quality: success rate at net conditioned on whether the approach shot itself was strong.
+• Passing-Shot Success Rate: how often a player successfully passes an opponent at net.
+• Lob Effectiveness: how effective a player's lob is, particularly against frequent net attackers.
+
+23. Matchup-Adjusted Metrics
+
+• Serve-vs-Return Compatibility Score: how a player's specific serving strengths line up against the opponent's
+  specific return weaknesses.
+• Return-vs-Serve Compatibility Score: how a player's specific return strengths line up against the opponent's
+  specific serve weaknesses.
+• Second-Serve Mismatch Index: identifies when a vulnerable second serve meets an elite second-serve returner.
+• Rally Tolerance Mismatch: which player benefits more as rallies extend in length.
+• Preferred-Pattern Collision: whether one player's typical point construction feeds directly into the opponent's best
+  shot.
+• Weak-Wing Exploitation Score: the ability to repeatedly attack an opponent's weaker forehand or backhand side.
+• Movement Exploitation Score: the ability to expose an opponent's lateral or forward movement weaknesses.
+• Serve-Placement Matchup: performance against specific serve patterns (left/right/body/T/wide).
+• Return-Position Compatibility: whether a deep or aggressive return position is effective against this particular
+  server.
+• Style-Adjusted Elo: an Elo rating weighted toward opponents who play similarly to today's opponent.
+
+                                            Tennis Verification Metrics • Page 7
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+24. Hidden Performance Quality
+
+• Score-Adjusted Point Dominance: point-winning statistics with points played after the outcome was essentially
+  decided removed.
+• Competitive-Point Win %: win rate measured only during stretches where games and sets remain genuinely
+  competitive.
+• Non-Tiebreak Point Differential: point differential with potentially noisy tiebreak results stripped out.
+• Non-Break-Point Performance: underlying performance excluding break points, to check whether BP results are
+  masking weaker tennis.
+• Expected vs Actual Break Conversion: comparison of expected break-point conversion rate to actual conversion
+  rate.
+• Expected vs Actual Hold Rate: comparison of expected service-hold rate to actual hold rate.
+• Expected vs Actual Tiebreak Wins: comparison of expected tiebreak win total to actual tiebreak wins.
+• Expected vs Actual Deciding-Set Wins: comparison of expected deciding-set win total to actual deciding-set wins.
+• Opponent-Error Dependency: how much of a player's success stems from opponent unforced errors rather than
+  self-generated offense.
+• Winner Sustainability: whether an unusually high winner count is repeatable given the player's historical
+  baseline.
+• Performance Without Aces: performance level when aces are excluded, to identify servers whose advantage
+  disappears without them.
+• Second-Shot Dominance: performance specifically on the shot immediately following the serve or return.
+
+25. Match Deterioration Metrics
+
+• Serve-Speed Decay by Set: how much serve speed drops from set to set.
+• First-Serve % Decay by Set: how much first-serve percentage drops from set to set.
+• Second-Serve Effectiveness Decay: how much second-serve effectiveness drops as the match progresses.
+• Return-Quality Decay: how much return quality declines as the match progresses.
+• Movement Deterioration: how much court movement quality declines as the match progresses.
+• Rally-Tolerance Decay: how much a player's ability to sustain rallies declines as the match progresses.
+• Unforced-Error Acceleration: how quickly the rate of unforced errors increases as the match progresses.
+• Double-Fault Acceleration: how quickly the rate of double faults increases as the match progresses.
+• Hold-Rate Set 1 → Set 2 → Set 3: how a player's service hold rate changes across sets.
+• Break-Rate Set 1 → Set 2 → Set 3: how a player's break rate changes across sets.
+• Point-Dominance Set 1 → Set 2 → Set 3: how a player's overall point-winning dominance changes across sets.
+• Late-Match Physical Decline Index: a composite measure of physical decline in matches lasting beyond 60–90
+  minutes.
+
+26. Early-Warning / Slow-Start Metrics
+
+• Opening Service-Game Hold %: hold rate specifically in a player's first service game of the match.
+• Opening Return-Game Break %: break rate specifically in a player's first return game of the match.
+• First Four Games Win Differential: the games-won differential specifically over the first four games of the match.
+• First Six Games Point Differential: the point-won differential specifically over the first six games of the match.
+• Early Break-Conceded Frequency: how often a player is broken within their first few service games.
+                                           Tennis Verification Metrics • Page 8
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Time-to-First-Break: how quickly, in games, the first break of serve typically occurs in a player's matches.
+• Set-1 Slow-Start Index: a composite measure of how often and how badly a player starts sets slowly.
+• First-Set Recovery After Early Break: how often a player recovers to win the first set after being broken early.
+• Early-Error Rate: unforced-error rate specifically during the opening stages of a match.
+• Early First-Serve Efficiency: first-serve effectiveness specifically during the opening stages of a match.
+• Early Return Pressure: return pressure generated specifically during the opening stages of a match.
+• Warm-Up Dependency Index: the degree to which a player's performance consistently improves the deeper a
+  match progresses.
+
+27. Opponent Finishing Ability
+
+• Opponent Lead Protection %: how often the opponent successfully protects a lead once established.
+• Opponent Set-1 → Match Conversion: how often the opponent converts a first-set win into a match win.
+• Opponent Break-First → Match Conversion: how often the opponent converts breaking first into winning the
+  match.
+• Opponent Break-First → Straight-Set Conversion: how often the opponent converts breaking first into a straight-
+  set win.
+• Opponent One-Set-Up Collapse Rate: how often the opponent fails to close out a match after leading by a set.
+• Opponent Serving-for-Match Failure Rate: how often the opponent fails to close out a match while serving for it.
+• Opponent Deciding-Set Closing Rate: how often the opponent successfully closes out matches in a deciding set.
+
+28. Scheduling/Context
+
+• Days Since Last Competitive Match: the number of days elapsed since a player's most recent competitive match.
+• Optimal-Rest Deviation: how far a player's current rest period deviates from their historically optimal amount, in
+  either direction.
+• Consecutive Tournament Count: the number of tournaments a player has played in a row without a break.
+• Matches Over Previous 30/60 Days: total match count across the past one and two months.
+• Travel-to-Rest Ratio: the proportion of recent time spent traveling versus resting.
+• Night → Day Match Transition: the effect of transitioning from a night match to a day match.
+• Day → Night Transition: the effect of transitioning from a day match to a night match.
+• Previous-Match Finishing Time: the clock time at which the player's previous match ended.
+• Recovery Hours After Previous Match: the number of hours available to recover since the previous match ended.
+• Back-to-Back Long-Match Penalty: performance impact of playing consecutive lengthy matches.
+• Tournament Adaptation Advantage: the number of matches already played under the current event's exact
+  conditions.
+• Qualifier Adaptation Bonus: the potential edge a qualifier holds from extra matches played under the same court
+  and ball conditions, despite added fatigue.
+• New-Ball Adjustment: performance change immediately following a ball change during a match.
+• Court Assignment Effects: performance differences tied to specific court assignments, where data supports it.
+
+29. Psychological/Behavioral Proxies
+
+• Response After Losing a Close Set: how a player performs in the set immediately following a narrowly lost set.
+• Response After Blowing Set Points: how a player performs after failing to convert set points.
+
+                                           Tennis Verification Metrics • Page 9
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Response After Failing to Serve Out a Set: how a player performs after failing to close out a set while serving for
+  it.
+• Response After Losing a Tiebreak: how a player performs immediately after losing a tiebreak.
+• Performance Immediately After Saving Match Points: how a player performs right after saving one or more
+  match points.
+• Performance Immediately After Wasting Match Points: how a player performs right after failing to convert
+  match points.
+• Consecutive-Error Recovery: how quickly a player stabilizes after a run of consecutive unforced errors.
+• Break-Point Resilience After Previous BP Loss: how a player performs on the next break point after losing the
+  previous one.
+• Pressure Error Differential: the change in unforced-error rate specifically under high-pressure situations.
+• Front-Runner vs Comeback Profile: whether a player performs better when leading or when trailing.
+• Scoreboard-Pressure Sensitivity: how sensitive a player's performance is to the pressure of a close scoreboard.
+
+30. Tournament-Specific Strength
+
+• Fast-Hard Elo: Elo rating calculated specifically for fast hard courts.
+• Medium-Hard Elo: Elo rating calculated specifically for medium-speed hard courts.
+• Slow-Hard Elo: Elo rating calculated specifically for slow hard courts.
+• Outdoor-Hard Elo: Elo rating calculated specifically for outdoor hard courts.
+• Indoor-Hard Elo: Elo rating calculated specifically for indoor hard courts.
+• Altitude-Adjusted Elo: Elo rating adjusted for the altitude of the venue.
+• Tournament-Specific Historical Elo: Elo rating calculated using only matches from this exact tournament.
+• Court-Speed-Adjusted Serve Advantage: serve advantage recalculated for the specific speed of the court being
+  played.
+• Court-Speed-Adjusted Return Advantage: return advantage recalculated for the specific speed of the court being
+  played.
+• Ball-Type Compatibility: how well a player's game matches the specific ball brand/type used at this event.
+• Historical Performance at This Exact Tournament: a player's win-loss record and underlying stats specifically at
+  this tournament.
+• Performance in Comparable Environmental Conditions: results in past matches with similar weather and court
+  conditions to today's.
+
+31. Extended Opponent-Network Metrics
+
+• Common-Opponent Adjusted Point Differential: point differential against shared opponents, adjusted for
+  opponent strength.
+• Common-Opponent Hold Differential: hold-rate differential against shared opponents.
+• Common-Opponent Break Differential: break-rate differential against shared opponents.
+• Common-Opponent Straight-Set Differential: straight-set-win differential against shared opponents.
+• Common-Opponent Set-1 Differential: first-set-win differential against shared opponents.
+• Common-Opponent Performance Within Last 30/60/90 Days: how recently the common-opponent results
+  occurred.
+• Second-Degree Opponent Network: performance data drawn from opponents of the players' common opponents.
+
+
+                                           Tennis Verification Metrics • Page 10
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Network Elo Strength: an Elo-style rating derived from the broader opponent network rather than direct results
+  alone.
+• Transitive Performance Score: a strength estimate propagated through chains of opponent relationships.
+• Loss-Quality Score: an assessment of how meaningful a loss was based on the strength of the opponent and
+  closeness of the match.
+• Win-Quality Score: an assessment of how meaningful a win was based on the strength of the opponent and
+  dominance of the match.
+• Upset-Quality Score: an assessment of how significant an upset win was based on the ranking/rating gap overcome.
+• Bad-Loss Severity: how severe a bad loss was, based on the ranking gap and manner of the loss.
+• Opponent-Strength Weighted Game Differential: games-won differential weighted by the strength of the
+  opponents faced.
+
+32. Point-to-Game Conversion Efficiency
+
+• Points-Won % → Games-Won % Conversion: how efficiently a player's overall points-won percentage translates
+  into games won.
+• Return-Points-Won → Break Conversion Efficiency: how efficiently return points won translate into actual breaks
+  of serve.
+• Service-Points-Won → Hold Conversion Efficiency: how efficiently service points won translate into actual holds
+  of serve.
+• Expected vs Actual Games Won: comparison of statistically expected games won to actual games won.
+• Expected vs Actual Sets Won: comparison of statistically expected sets won to actual sets won.
+• Deuce-Game Win %: the percentage of games reaching deuce that a player wins.
+• Games Won From 0–30/15–30: the percentage of games won after falling behind 0-30 or 15-30.
+• Games Lost From 30–0/40–15: the percentage of games lost despite leading 30-0 or 40-15.
+• Break Opportunities Needed per Successful Break: the average number of break points required before one is
+  converted.
+• Hold Efficiency Relative to Underlying Serve Points: how a player's actual hold rate compares to what their raw
+  service-points-won rate would predict.
+
+33. Break Quality Differential
+
+• Sustainable Break Score: an assessment of whether breaks of serve came from sustained return pressure versus
+  opponent donations like double faults and unforced errors.
+
+34. Scoreline Deception Index
+
+• Scoreline vs Point Dominance: comparison of the final scoreline to the underlying percentage of points won.
+• Scoreline vs Expected Games: comparison of the final scoreline to the number of games the underlying stats
+  would predict.
+• Scoreline vs Break Opportunities: comparison of the final scoreline to the number of break points generated.
+• Scoreline vs Dominance Ratio: comparison of the final scoreline to the match's Dominance Ratio.
+• Clutch-Performance Dependency: how much a scoreline's outcome depended on clutch performance in a small
+  number of key points.
+
+
+
+
+                                           Tennis Verification Metrics • Page 11
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+35. False-Form Detector
+
+• Observed vs Expected W/L: the gap between a player's actual win-loss record and the record their underlying
+  performance statistically supports.
+
+36. Loss Autopsy Metrics
+
+• Loss Favorite Status: whether the player was favored in each recent loss.
+• Loss Opponent Quality: the strength of the opponent in each recent loss.
+• Loss Surface: the surface on which each recent loss occurred.
+• Loss Point Differential: the point-won differential in each recent loss.
+• Loss Break Differential: the break-point differential in each recent loss.
+• Loss Serve Deterioration: the degree of serve decline observed during each recent loss.
+• Loss Return Deterioration: the degree of return decline observed during each recent loss.
+• Lost After Leading: whether the player lost after having held a lead in the match.
+• Lost Set 1: whether the player lost the first set in each recent loss.
+• Loss in Deciding Set: whether each recent loss was decided in a final set.
+• Loss in Tiebreak: whether a tiebreak factored into each recent loss.
+• Loss Physical Problem: whether a physical issue was evident during each recent loss.
+• Loss Match Length: the duration of each recent loss.
+• Competitive vs Blowout Loss: whether each recent loss was closely contested or one-sided.
+• Bad-Loss Severity Index: a composite score weighting how damaging a loss was based on opponent quality and
+  match competitiveness.
+
+37. Win Autopsy Metrics
+
+• Win Type Classification: categorization of each win as dominant, routine, competitive/deserved, an
+  escape/fortunate result, an opponent collapse, or retirement-distorted.
+• Quality Win Rate: a win rate calculation that weights wins by their quality classification rather than counting them
+  all equally.
+
+38. Opponent-Adjusted Residual Performance
+
+• Hold Residual vs Opponent Norm: how a player's hold rate against a given opponent compares to how other
+  players typically hold against that same opponent.
+• Break Residual vs Opponent Norm: how a player's break rate against a given opponent compares to how other
+  players typically break against that same opponent.
+• Total-Points Residual vs Opponent Norm: how a player's total points won against a given opponent compares to
+  the norm against that opponent.
+• Games Residual vs Opponent Norm: how a player's games won against a given opponent compares to the norm
+  against that opponent.
+• Sets Residual vs Opponent Norm: how a player's sets won against a given opponent compares to the norm against
+  that opponent.
+• Dominance-Ratio Residual vs Opponent Norm: how a player's Dominance Ratio against a given opponent
+  compares to the norm against that opponent.
+
+
+
+                                            Tennis Verification Metrics • Page 12
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Serve-Points Residual vs Opponent Norm: how a player's serve points won against a given opponent compares to
+  the norm against that opponent.
+• Return-Points Residual vs Opponent Norm: how a player's return points won against a given opponent compares
+  to the norm against that opponent.
+
+39. Performance Surprise Rating
+
+• Match-Level Performance Surprise: the difference between a player's actual performance and their pre-match
+  expected performance, calculated per match.
+• Rolling Performance Surprise (Last 10): the trend of match-level performance surprise across the last ten
+  matches, used to detect improvement or decline faster than rankings/Elo would show.
+
+40. Hidden Decline Detector
+
+• Serve Velocity Trend: the recent directional trend in a player's serve speed.
+• Ace Rate Trend: the recent directional trend in a player's ace rate.
+• First-Serve Points Won Trend: the recent directional trend in first-serve points won.
+• Second-Serve Points Won Trend: the recent directional trend in second-serve points won.
+• Return Points Won Trend: the recent directional trend in return points won.
+• Break Opportunities Trend: the recent directional trend in break points generated.
+• Hold Vulnerability Trend: the recent directional trend in how often service games reach danger scores.
+• Double-Fault Trend: the recent directional trend in double-fault rate.
+• Match Duration Trend: the recent directional trend in how long a player's matches are lasting.
+• Three-Set Dependency Trend: the recent directional trend in how often a player's matches go the distance.
+
+41. Hidden Improvement Detector
+
+• Opponent-Quality-Adjusted Record Trend: whether a player's win-loss record is understating improvement
+  because it comes against tougher opponents.
+• Underlying-Metric Improvement Despite Losses: whether hold rate, return points won, Dominance Ratio, and
+  break points created are improving even while the win-loss record lags.
+
+42. Opponent Win Pathways
+
+• Opponent Win Pathway – Serve Dominance: the probability the underdog wins primarily through serve
+  dominance.
+• Opponent Win Pathway – Return Pressure: the probability the underdog wins primarily through return pressure.
+• Opponent Win Pathway – Tiebreaks: the probability the underdog wins primarily through tiebreak success.
+• Opponent Win Pathway – Long Rallies: the probability the underdog wins primarily through extended rallies.
+• Opponent Win Pathway – Short Rallies: the probability the underdog wins primarily through short, fast points.
+• Opponent Win Pathway – Favorite Collapse: the probability the underdog wins primarily because the favorite
+  collapses.
+• Opponent Win Pathway – Three-Set Battle: the probability the underdog wins primarily by extending the match to
+  three sets.
+• Opponent Win Pathway – Second-Serve Exploitation: the probability the underdog wins primarily by exploiting
+  the favorite's second serve.
+
+
+
+                                           Tennis Verification Metrics • Page 13
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Opponent Win Pathway – Physical Advantage: the probability the underdog wins primarily through superior
+  physical conditioning.
+• Opponent Win Pathways Count: the total number of realistic, distinct pathways by which the underdog could win.
+
+43. Favorite Failure-Mode Score
+
+• Favorite Failure-Mode Profile: the specific conditions under which the favored player historically tends to lose
+  (e.g., low first-serve %, high opponent return points won, match reaching a third set).
+• Opponent Failure-Mode Compatibility: whether today's opponent is specifically capable of creating the conditions
+  under which the favorite historically fails.
+
+44. Opponent Upset Compatibility
+
+• Upset Compatibility Score: how often the underdog has upset favorites who resemble today's favorite in Elo, serve
+  style, return quality, court surface, ranking, handedness, rally style, price, and tournament level.
+
+45. Favorite Fragility Under Resistance
+
+• Performance When Opponent Holds First 3 Service Games: how the favorite performs when the opponent avoids
+  an early break.
+• Performance After Failing Early Break Chances: how the favorite performs after missing early break-point
+  opportunities.
+• Performance After Losing First Break: how the favorite performs after being broken first.
+• Performance When Set Reaches 4-4: how the favorite performs when the first set reaches a 4-4 scoreline.
+• Performance When Set Reaches a Tiebreak: how the favorite performs when the first set goes to a tiebreak.
+• Performance When Opponent Forces Set 3: how the favorite performs when pushed to a deciding set.
+
+46. Match-State Elo
+
+• Elo After Winning Set 1: a player's Elo-style rating conditioned specifically on having won the first set.
+• Elo After Losing Set 1: a player's Elo-style rating conditioned specifically on having lost the first set.
+• Elo in Deciding Sets: a player's Elo-style rating conditioned specifically on deciding-set play.
+• Elo in Tiebreak-Heavy Matches: a player's Elo-style rating conditioned specifically on matches with multiple
+  tiebreaks.
+• Elo Against Big Servers: a player's Elo-style rating conditioned specifically on facing big-serving opponents.
+• Elo Against Strong Returners: a player's Elo-style rating conditioned specifically on facing strong-returning
+  opponents.
+
+47. Uncertainty-Adjusted Advantage
+
+• Confidence-Interval-Adjusted Metric Comparison: comparing two players' statistics with confidence intervals
+  applied, so a small, uncertain edge isn't treated the same as a large, well-supported one.
+
+48. Independent-Evidence Count
+
+• Independent Evidence Count: the estimated number of genuinely independent signals among those that agree,
+  after accounting for overlapping underlying data.
+
+
+
+
+                                            Tennis Verification Metrics • Page 14
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+49. Data Contamination / Circularity Score
+
+• Evidence Independence Score: a 0–100 score reflecting how much of the model's apparent consensus comes from
+  genuinely separate data sources versus recycled/overlapping inputs.
+
+50. Robustness Tests
+
+• Pick Robustness Test: rerunning the prediction thousands of times with small, realistic perturbations to inputs (Elo,
+  recent form, hold, break, fatigue, market) to see how often the original winner is retained.
+• Winner-Switch Threshold / Prediction Stability Margin: the smallest realistic change in a single input required to
+  flip the predicted winner.
+
+51. Opponent-Specific Set/Match Probabilities
+
+• Opponent-Specific Break Expectancy: the probability of breaking this exact opponent's serve, rather than a
+  generic break percentage.
+• Opponent-Specific Hold Expectancy: the probability of holding serve against this exact opponent, rather than a
+  generic hold percentage.
+• Set Win Expectancy: point- and game-level statistics converted into an expected probability of winning each set.
+• Expected Set-1 Winner: a probability output from a model built specifically around opening-set performance.
+• Expected Deciding-Set Winner: a probability output from a model built specifically around late-match
+  characteristics.
+• 2–0 Conditional Probability: the probability of winning the second set given that the first set was already won.
+• 2–1 Conditional Probability: the probability of winning the match after the sets have been split 1-1.
+• Break-First → 2-0 Conversion: the probability of winning in straight sets given that the player broke first.
+• Set-1 Win → 2-0 Conversion: the probability of winning in straight sets given that the first set was won.
+• Set-1 Loss → Match-Loss Probability: the probability of losing the match given that the first set was lost.
+
+52. Entropy & Lead Durability
+
+• Set-Score Entropy: how concentrated or spread out the range of plausible final scorelines is for a given win
+  probability.
+• Game-Score Entropy: the same concentration/spread concept applied at the individual game-score level.
+• Lead Durability Index: the probability that a break or set lead is maintained through to the end.
+• Deficit Survivability Index: the probability of recovering from a break or set deficit.
+• Double-Break Creation Rate: how often a single break of serve turns into a two-break cushion.
+• Double-Break Surrender Rate: how often the opponent collapses further after already falling a break behind.
+• Rebreak-Window Probability: the probability of breaking back within the next one to two return games after
+  being broken.
+• Break Clustering: whether breaks of serve are spread evenly across a match or concentrated into one unusual
+  stretch.
+
+53. Pressure & Clean-Game Metrics
+
+• Pressure Accumulation Score: the number of consecutive return games in which a player reaches 30-all, deuce, or
+  break point.
+• Serve Escape Dependency: how often a player's service holds require saving break points, rather than being
+  routine.
+                                           Tennis Verification Metrics • Page 15
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Clean-Hold Rate: the percentage of service games held without reaching deuce or break point.
+• Clean-Break Rate: the percentage of breaks achieved without requiring repeated deuce cycles.
+• Love/15 Hold Rate: the percentage of service games held while conceding zero or fifteen points, indicating
+  dominant serving.
+• Return-Game Abandonment Rate: how often a player generates no further pressure in a return game after falling
+  behind early.
+
+54. Additional Shot-Level Efficiency
+
+• First-Strike Efficiency: points won when the rally length stays at four shots or fewer.
+• Neutral-Rally Efficiency (Post-Advantage): points won once the initial serve or return advantage has disappeared
+  from the rally.
+• Defense-to-Offense Conversion: the ability to turn a defensive court position into an eventual point win.
+• Attack Conversion Rate: points won after establishing an attacking court position.
+• Depth-Pressure Differential: the difference between deep balls a player produces and deep balls they concede.
+• Baseline Territory Differential: which player more frequently controls preferred court position during rallies.
+• Directional Vulnerability: crosscourt and down-the-line patterns that expose a particular wing.
+• Backhand-Under-Pressure Performance: backhand outcomes specifically when the player is under sustained
+  pressure.
+• Forehand-Under-Pressure Performance: forehand outcomes specifically when the player is under sustained
+  pressure.
+• Running-Forehand Effectiveness: effectiveness of the forehand when hit on the run.
+• Running-Backhand Effectiveness: effectiveness of the backhand when hit on the run.
+• Second-Serve Return Aggression: how aggressively a player attacks second serves specifically.
+• First-Ball-After-Return Effectiveness: effectiveness of the shot immediately following a return of serve.
+• Net-Approach Deterrence: whether a player's passing-shot quality discourages opponents from approaching the
+  net.
+
+55. Trajectory / Rolling Metrics
+
+• Rolling 5-Match Elo Change: the change in Elo rating over the most recent five matches.
+• Rolling 10-Match Elo Change: the change in Elo rating over the most recent ten matches.
+• Rolling Hold-Minus-Break Change: the trend in the gap between hold rate and break rate over recent matches.
+• Rolling Dominance Ratio Slope: the trend direction and steepness of Dominance Ratio over recent matches.
+• Rolling Second-Serve Slope: the trend direction and steepness of second-serve performance over recent matches.
+• Rolling Return-Points Slope: the trend direction and steepness of return points won over recent matches.
+• Rolling Opponent-Quality Slope: the trend in the strength of opponents faced over recent matches.
+• Performance Acceleration: not just whether a player is improving or declining, but how quickly.
+• Inflection-Point Detector: identifies when a declining or improving performance trend actually began.
+• Recent-Match Weighting Half-Life: the rate at which older match results should lose relevance in the model.
+• Post-Breakthrough Performance: whether a rapidly rising player sustains their level after a major breakthrough
+  result.
+• Post-Upset Regression: performance immediately following a win over a significantly stronger opponent.
+• Post-Title/Final Hangover: performance decline following a deep tournament run to a title or final.
+
+                                          Tennis Verification Metrics • Page 16
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Post-Long-Run Fatigue: performance decline following an unusually deep tournament run.
+• Ranking Catch-Up Estimate: where a player's ranking should be based on their current underlying level of play.
+• Elo Catch-Up Estimate: whether Elo is lagging behind a rapidly developing player's true current ability.
+
+56. Data-Integrity Layer
+
+• Sample-Size Adequacy by Metric: whether the sample size backing each individual metric is sufficient.
+
+57. Evidence Freshness & Confirmation
+
+• Evidence Freshness Score: a weighted score combining a metric's value, sample reliability, recency, opponent
+  quality, and surface relevance into a single effective evidence weight.
+• Independent Confirmation Ratio: the number of genuinely independent evidence families that agree, as opposed
+  to the raw count of model outputs that agree.
+
+58. Stress Tests & Scenario Analysis
+
+• Favorite Stress Test: rerunning the prediction with reasonable assumptions deliberately shifted in the opponent's
+  favor (reduced Elo edge, reduced form edge, increased opponent return strength, reduced favorite serve strength,
+  worsened fatigue, reduced market edge) to see how much the favorite's probability drops.
+• Bear Case Probability: the favorite's win probability under a reasonably pessimistic set of assumptions.
+• Base Case Probability: the favorite's win probability under the model's standard assumptions.
+• Bull Case Probability: the favorite's win probability under a reasonably optimistic set of assumptions.
+
+59. Loss Path Probability
+
+• Loss Path – Opponent Serves Through: the probability the pick loses specifically because the opponent serves at
+  an unusually high level.
+• Loss Path – Return Exposed: the probability the pick loses specifically because their return game is exposed.
+• Loss Path – Slow Start/Set-1 Loss: the probability the pick loses specifically due to a slow start or dropped first set.
+• Loss Path – Physical Decline: the probability the pick loses specifically due to physical deterioration during the
+  match.
+• Loss Path – Tiebreak Variance: the probability the pick loses specifically due to tiebreak variance.
+• Loss Path – Three-Set Collapse: the probability the pick loses specifically due to a collapse in a deciding set.
+• Loss Path – Other: the probability the pick loses due to causes not captured by the other defined pathways.
+
+60. Interaction / Matchup Residuals
+
+• Serve–Return Interaction Residual: actual performance against this opponent type minus what each player's
+  normal serve/return numbers would predict.
+• Opponent-Adjusted Shot Tolerance: how well a player's performance survives against opponents who hit harder,
+  deeper, or defend better than average.
+• Neutral-Point Win Rate: the percentage of points won once the rally becomes neutral, with the immediate
+  serve/return advantage removed.
+• First-Strike Dependency: the percentage of a player's success that disappears once rallies extend beyond four
+  shots.
+• Serve Dependency Index: how much a player's overall win probability collapses when their serve performs below
+  its normal level.
+
+
+                                           Tennis Verification Metrics • Page 17
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Return Dependency Index: how much a player's overall win probability collapses when their return performs
+  below its normal level.
+• Primary-Weapon Reliability: how frequently a player's single biggest weapon actually shows up at a high level
+  match to match.
+• Plan-B Effectiveness: how a player performs when their primary weapon is neutralized.
+• Matchup Adaptability: a player's ability to change tactics effectively after losing the first set.
+• In-Match Adjustment Score: second-set performance relative to first-set performance, controlling for serve order
+  and opponent quality.
+• Opponent Adjustment Resistance: whether opponents tend to figure out and neutralize a player's game as a match
+  progresses.
+• Scouting Exposure Penalty: performance decline against opponents who have previously played the player or
+  faced a similar style.
+• Rematch Adjustment: performance differences in second or third meetings compared to the first meeting between
+  two players.
+• Revenge/Rematch Tactical Differential: whether the previous match's loser statistically corrected the specific
+  weakness that caused the earlier loss.
+• Lefty-Adjusted Serve/Return Differential: serve and return performance differential specifically against left-
+  handed opponents, beyond simple win-loss record.
+• Handedness Interaction by Serve Direction: how serve-direction patterns interact with opponent handedness,
+  particularly in the ad and deuce courts.
+• Ad-Court vs Deuce-Court Effectiveness: serving, returning, and break-point performance separated by which
+  court side the point is played on.
+• Break-Point Serve-Location Effectiveness: how effective specific serve locations are on break points.
+• Break-Point Return-Position Effectiveness: how effective specific return positions are on break points.
+• Set-Point Performance Differential: performance differential specifically on set points compared to normal points.
+• Match-Point Creation Rate: the frequency with which a player creates match-point opportunities, not just converts
+  them.
+• Match-Point Exposure Rate: how often a player allows their opponent to reach match point.
+• Multiple-BP Survival: performance specifically at 0-40 or 15-40, rather than a generic break-points-saved
+  percentage.
+• Multiple-BP Conversion: the ability to close out a game when given several break-point opportunities in the same
+  game.
+• Extended-Deuce Endurance: performance in games that reach three or more deuces.
+• Long-Game Aftermath: performance in the game immediately following a physically or mentally demanding
+  service game.
+• Break-Before-Changeover Effect: whether breaks of serve occurring right before a changeover are consolidated
+  differently than other breaks.
+• End-of-Set Serve Deterioration: service performance specifically from 4-4 onward in a set.
+• End-of-Set Return Elevation: whether return performance improves specifically from 4-4 onward in a set.
+• Tiebreak Entry Quality: the underlying point dominance in the games immediately preceding a tiebreak.
+• Tiebreak Serve-Order Adjustment: controlling tiebreak analysis for which player serves first in the tiebreak.
+• Mini-Break Recovery Rate: how often a player recovers after conceding a mini-break in a tiebreak.
+• Mini-Break Consolidation Rate: how often a player successfully protects a mini-break lead in a tiebreak.
+
+                                             Tennis Verification Metrics • Page 18
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Tiebreak Point-Differential Quality: distinguishing dominant tiebreak performances from repeated narrow
+  escapes.
+• Third-Set First-Break Importance: a player-specific probability of winning the match after breaking first in a
+  deciding set.
+• Decider Physical Resilience: deciding-set performance conditioned on the physical workload already accumulated
+  in the match.
+• Long-Match Resilience: performance in matches or match segments lasting beyond 90, 120, or 150 minutes.
+• Physical Cliff Probability: the probability of a measurable performance collapse after a certain match duration.
+• Recovery Efficiency: next-match performance per hour of rest following a long previous match.
+• Accumulated Workload Debt: a weighted measure of minutes played over the past 7/14/30 days, rather than a
+  simple match count.
+• Travel Recovery Efficiency: how well a player historically performs following significant travel.
+• Circadian Mismatch: the mismatch between match start time and a player's recent playing schedule or time zone.
+• Heat-Duration Interaction: whether heat becomes more damaging specifically as match length increases.
+• Wind Serve Penalty: how much a player's serve advantage historically deteriorates in windy conditions.
+• Humidity Endurance Penalty: how much a player's endurance is affected by high-humidity conditions.
+• Altitude Serve Amplification: a player-specific measure of how much serve advantage increases at altitude.
+• Court-Speed Elasticity: how much a player's overall strength changes for each increment of court speed.
+• Surface-Speed Crossover: identifying players who are actually fast-hard or slow-hard specialists rather than
+  generic hard-court players.
+• Ball Degradation Sensitivity: performance change as balls become slower or more worn within a set.
+• New-Ball Serve Boost: individual improvement in serve performance immediately following a ball change.
+• Tournament Adaptation Slope: improvement or decline in performance with each successive match played at the
+  same venue.
+• Venue Familiarity Value: the value of prior experience at a venue, controlled for underlying player strength rather
+  than raw historical win-loss record.
+• Time-of-Day Split: performance differences by time of day, used only when sample size supports it.
+• Round-Adjusted Pressure: whether performance changes in later tournament rounds after adjusting for opponent
+  quality.
+• Favorite-Pressure Elasticity: how performance changes as market expectation of a player increases.
+• Underdog Freedom Effect: whether certain players statistically outperform expectations when priced as a large
+  underdog.
+• Price-Specific Miscalibration: the gap between actual win rate and market-implied probability across different
+  price bands.
+• Closing-Line Value History: whether backing a particular player has historically tended to beat the eventual
+  closing market price.
+• Market Disagreement Dispersion: the spread of odds between different sportsbooks, not just the consensus price.
+• Sharp-vs-Recreational Book Divergence: the difference in odds between sharp and recreational sportsbooks,
+  where measurable.
+• Late-Line Acceleration: the magnitude and rate of betting-line movement close to match time.
+
+
+
+
+                                          Tennis Verification Metrics • Page 19
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+61. Final Advanced Tests
+
+• Counterfactual Winner Test: removing each input metric one at a time and rerunning the prediction to see
+  whether the winner changes, and reporting how many of the removals the pick survives.
+• Opponent Upgrade Test: artificially and realistically strengthening the opponent's key metrics (Elo, return, serve,
+  recent form) to see whether the pick still survives.
+• Historical Twin Match Search: searching the historical database for past matchups most similar in Elo gap,
+  hold/break gap, Dominance Ratio gap, form gap, market price, fatigue gap, age, ranking gap, court speed, model
+  disagreement, Monte Carlo output, and data quality.
+
+62. Motivation / Stakes
+
+• Points-Defending Pressure: how many ranking points a player is protecting from their result at this event last year.
+• Seeding/Bye Implications: whether a win affects a player's seeding at an upcoming Slam or Masters event.
+• Prize-Money/Status Milestones: proximity to a career-high ranking, a Top-100/Top-50 cutoff, or a direct-entry
+  cutoff for majors.
+
+63. Team / Support Context
+
+• Coaching Changes: a recent switch in coach, which often correlates with short-term form swings in either direction.
+• Coaching-Box Presence: whether a player's regular coach is actually present courtside for this event.
+• Equipment Changes: recent changes in racket, string setup, or shoe sponsor that can disrupt timing for several
+  weeks.
+
+64. Draw Context
+
+• Qualifying/Lucky-Loser Fatigue: extra matches played just to reach the main draw.
+• Draw Path Difficulty Beyond This Match: whether looking ahead to a tougher potential later-round opponent
+  affects effort allocation.
+
+65. Physical/Medical (Limited Availability)
+
+• Off-Season/Pre-Season Training Reports: published information on a player's body composition or fitness camp
+  work.
+• Illness Reports: documented minor illness (e.g., flu, stomach bug) that doesn't rise to a formal injury designation
+  but could affect a single match.
+
+66. Equipment / Technical
+
+• Racket/String Setup Changes: mid-season changes in string tension, racket model, or grip size that can disrupt
+  timing and power for several weeks.
+• Shoe/Traction Changes: a new shoe sponsor or model that affects movement on a given surface.
+• String-Tension Weather Adjustment: whether a player adjusts string tension for altitude or humidity, and how
+  well they've historically adapted when doing so.
+
+67. On-Court Behavior / Discipline
+
+• Code-Violation History: frequency of code violations (racket abuse, time violations, verbal warnings) as a proxy for
+  temperament under pressure.
+• Challenge/Hawk-Eye Success Rate: how often a player's replay challenges are upheld, a rough proxy for
+  read/reaction quality.
+                                           Tennis Verification Metrics • Page 20
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Bathroom/Medical-Break Patterns: the frequency and timing of breaks, including whether they cluster around
+  momentum shifts.
+• On-Court Time-Violation Rate: how often a player is warned for slow play, which can compound under a shot
+  clock.
+
+68. Streaks / Milestones
+
+• Current Win/Loss Streak Length: the player's active streak entering the match.
+• Longest Win Streak This Season: context for whether current form represents a new peak or a lull.
+• Tournament Debut Status: whether this is the player's first main-draw appearance at this specific event.
+• Protected-Ranking Status: whether a player is using an injury-protected ranking to enter the draw, which
+  correlates with lower current match fitness.
+
+69. Stakes / Career Context
+
+• Retirement-Tour/Farewell-Run Effects: emotional and crowd dynamics surrounding a player publicly nearing
+  retirement.
+• Anti-Doping Testing Disruption: recent out-of-competition testing that interrupted a player's normal pre-match
+  routine.
+
+70. Support Team / Prep
+
+• Sports-Psychologist Presence: whether a player currently works with a mental-game coach.
+• Short-Notice Draw Entry: lucky-loser or late-alternate entry status, meaning minimal specific preparation time for
+  this opponent.
+• Walkover-Into-Round Effect: whether a player's previous round was a walkover, leaving them without recent
+  match rhythm.
+
+71. Session / Environment
+
+• Roof-Open vs Roof-Closed Split: performance differences at venues with a retractable roof.
+• Fixed Start-Time vs "Not-Before" Uncertainty: whether an unpredictable start time following a long prior match
+  disrupted warm-up routine.
+
+72. Matchup Nuance
+
+• One-Handed vs Two-Handed Backhand Matchup Effectiveness: how a player's backhand style specifically
+  performs against the opponent's dominant shot pattern.
+• Reach/Wingspan Differential: how height and reach advantages affect net coverage and passing-shot vulnerability,
+  separate from raw height alone.
+• Junior/ITF-Era Head-to-Head: earlier meetings between the two players before either reached tour level, if any
+  exist.
+
+73. Sentiment / Integrity
+
+• Player Public-Statement Sentiment: the tone of pre-match interviews or press conferences (confidence versus
+  deflection).
+• Social-Media Engagement Anomalies: unusual activity patterns that occasionally precede a withdrawal
+  announcement.
+
+
+
+                                         Tennis Verification Metrics • Page 21
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Betting-Exchange Matched-Volume Spikes: unusual trading volume without a clear public catalyst, an integrity
+  flag rather than a form signal.
+
+74. Biomechanics / Physical Detail
+
+• Serve Toss Consistency: variability in toss placement, which affects reliability under pressure and second-serve
+  dependency.
+• Racket Specs Matchup: how head size, string pattern, and stiffness interact with spin and power style against a
+  given opponent.
+• Movement Asymmetry History: whether a player favors one side or leg due to a past injury, showing up as
+  directional court-coverage gaps.
+• Grip-Size/Style Changes: recent grip adjustments that can affect shot timing for several weeks.
+
+75. Match Format / Rules Context
+
+• Deciding-Set Tiebreak Format: whether the event uses a 10-point breaker, standard 7-point breaker, or full
+  advantage set in the deciding set.
+• Best-of-3 vs Best-of-5 Adjustment: how a player's profile changes specifically when the match format shifts
+  between three and five sets.
+• Challenge/Review Count Remaining: how many Hawk-Eye challenges a player has left at a given stage of a set.
+
+76. Scheduling Micro-Context
+
+• Match Order on the Day's Schedule: whether a player is first on court or scheduled "not before" a later time,
+  affecting wait time and warm-up timing.
+• Outer-Court vs Stadium-Court Assignment: smaller courts often mean less wind protection and closer crowd
+  proximity.
+• Practice-Court Access Before the Match: how much official hitting time a player got beforehand, especially after a
+  late previous match.
+
+77. Season-Long Fatigue Context
+
+• Olympic/Team-Event Year Load: extra matches from Davis Cup, United Cup, or Olympic competition adding to
+  season totals.
+• Off-Season Rest Length: how many weeks a player took off before the season started.
+• Preseason Exhibition Results: early-year form indicators from non-ranking exhibition events.
+• Grand Slam Hangover Effect: a performance dip in the tournament immediately following a deep major run.
+
+78. Sponsorship / Off-Court Pressure
+
+• Home-Market Commercial Appearances: sponsor or media obligations during a tournament week, especially in a
+  player's home country, that cut into recovery time.
+
+79. Additional Differentiating Metrics
+
+• Chair-Side Coaching Usage Rate: how often a player uses on-court coaching visits when the rule allows them, and
+  whether it correlates with winning the next game.
+• Post-Coaching-Visit Performance: win rate in the game immediately following an on-court coaching visit.
+• Shot-Clock Violation Rate by Set: whether time-violation frequency increases as a player fatigues over the course
+  of a match.
+
+                                          Tennis Verification Metrics • Page 22
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+• Racket-Change-Mid-Match Frequency: how often a player switches rackets mid-match and whether it precedes a
+  performance shift.
+• Sleep-Schedule Disruption: documented late-night matches followed by early next-day matches, based on
+  published start and end times.
+• Hydration-Break Utilization: how often a player takes heat-rule hydration breaks and the outcomes of games
+  following them.
+• Medical-Timeout-to-Win Correlation: historical win rate after a player takes a medical timeout, and the
+  opponent's win rate on the other side of one.
+• First-Point-of-Match Win Rate: how often a player wins the very first point of the match, used as an early-tempo
+  indicator.
+• First-Game Win Rate: how often a player wins the opening game of the match regardless of who serves.
+• Changeover Recovery Rate: point-win rate on the first point after a changeover compared to mid-game average.
+• Odd-Game vs Even-Game Serve Performance: whether a player's hold rate differs depending on serving in odd- or
+  even-numbered games, as a fatigue or rhythm proxy.
+• Return-Game Win Rate by Return Position: return-game effectiveness broken out by whether the player stands
+  deep, neutral, or aggressive to return.
+• Serve-Pattern Predictability Score: a statistical measure of how repetitive a player's serve placement is by score,
+  and how exploitable that pattern is.
+• Opponent-Scouting-Report Public Availability: whether detailed match-charting data exists publicly for the
+  opponent, giving one side a preparation advantage.
+• Post-Injury-Timeout Point-Win Rate: how a player performs in the points immediately after receiving on-court
+  medical treatment.
+• Match-Count at Current Altitude This Season: the number of prior matches played at similar elevation in the
+  current season, as an adaptation proxy distinct from historical altitude Elo.
+• Consecutive-Tournament Surface-Switching Count: how many consecutive events a player has played on
+  different surfaces in a row.
+• First-Tournament-Back-From-Layoff Performance: win rate specifically in a player's first event after any absence,
+  regardless of the layoff's length.
+• Wildcard/Entry-Status Effect: whether a player entered via wildcard, protected ranking, or qualifying, and
+  historical performance differences by entry type.
+• Draw-Seed Protection Benefit: whether a player benefited from seeding that avoided a top opponent until a later
+  round, affecting freshness.
+• Post-Walkover-Round Performance: how a player performs in the round immediately after receiving a walkover,
+  without recent match rhythm.
+• Local Qualifying-Event Carryover: whether a player advanced through the same city's qualifying draw, adding
+  extra local match experience.
+• Fine/Suspension History Recency: any recent disciplinary action from the tour that could affect focus or
+  reputation-related pressure.
+• Coach-Opponent History: whether a player's current coach previously coached the opponent, providing tactical
+  insight.
+• Shot-Selection Variance Under Lead vs Deficit: how much a player's tactical shot selection changes when ahead
+  versus behind, indicating game-plan discipline or panic tendency.
+
+
+
+
+                                            Tennis Verification Metrics • Page 23
+TENNIS MATRIX AI | PUBLIC / RECONSTRUCTABLE METRICS
+
+80. Common-Opponent & Opponent-Caliber Metrics
+
+• Common-Opponent Divergent Outcome: cases where Player A beat a specific opponent but Player B lost to that
+  same opponent, used as a direct proxy comparison between the two.
+• Opponent-Caliber Performance Gap: the gap between a player's best win (or closest near-upset loss) relative to
+  their own level, compared against the gap between their worst loss relative to their own level — a ceiling-vs-floor
+  opponent-quality spread.
+
+81. Further Differentiating Metrics
+
+• Locker-Room/Backstage Conflict History: documented disputes or confrontations involving the player that could
+  affect focus.
+• Anthem/Opening-Ceremony Delay Effect: performance impact from pre-match ceremonies, such as in Davis Cup
+  or opening-night matches.
+• Featured/Center-Court Exposure Rate: how often a player is scheduled on the main show court versus outer
+  courts, and whether performance differs with visibility.
+• Rain-Delay Resumption Performance: how a player performs after a match is halted mid-play and resumed.
+• Overnight-Suspension Resumption Performance: performance the following day after a match is suspended
+  overnight and completed later.
+• Late-Opponent-Substitution Adjustment: performance when the scheduled opponent withdraws and is replaced
+  by a lucky loser or alternate on short notice.
+• Weekday vs Weekend Performance Split: whether results differ playing on weekdays versus weekends.
+• Consecutive-Day-Play Penalty: performance drop from playing back-to-back days with no rest day between
+  rounds.
+• Training-Base Relocation: a recent change in home training academy or base city that could disrupt routine.
+• Prior Withdrawal Pattern at This Event: whether the player has withdrawn from this specific tournament in past
+  years.
+• Electronic-Line-Calling Adjustment Lag: how recently a player has played events using fully electronic line
+  calling, and any adaptation period involved.
+• First-Week vs Second-Week Major Split: whether a player's form historically differs between the first and second
+  week of a Grand Slam.
+• Prior-Year Round Reached at This Exact Event: how far the player advanced at this event last year, as a comfort
+  and confidence marker distinct from raw stats.
+• Support-Staff Turnover (Stringer/Physio): recent changes to non-coaching staff that could affect routine or
+  equipment consistency.
+• Travel-Friction Reports: visa issues, long transit, or missed connections reported en route to the event.
+• Home-Climate Differential: how much hotter, colder, or drier the event is compared to the player's home training
+  climate, distinct from generic heat/humidity sensitivity.
+
+
+
+
+                                           Tennis Verification Metrics • Page 24
+

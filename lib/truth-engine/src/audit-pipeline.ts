@@ -295,6 +295,52 @@ export function preserveSettledOppositeSide(patch:Record<string,unknown>,row:Rec
   return patch;
 }
 
+// ----------------------------------------------------------------------------
+// ROW-LEVEL UNAVAILABILITY RECONCILIATION
+//
+// metric_results carries the per-side reasons (p1_unavailable_reason /
+// p2_unavailable_reason) AND a row-level summary (unavailable_reason). The two sides are
+// written by two different stages, so the row-level summary is computed from whichever pass
+// wrote last -- and that pass only ever holds a finding for the side it is executing. The
+// result was a metric with DIRECT evidence on BOTH sides still carrying a producer-failure
+// reason at row level, because the value was never recomputed once the second side settled.
+//
+// That is precisely the confusion this engine must not create: a metric that produced
+// evidence must never read as a provider failure. The activation taxonomy and the evidence
+// denominator both read the PER-SIDE columns, so the stale summary never altered a decision
+// -- but it is what the metrics screen shows a person, and it said the opposite of the truth.
+//
+// So the summary is derived, here, from the per-side state actually being persisted: the
+// patch where it sets a side, the existing row where it does not.
+// ----------------------------------------------------------------------------
+export function reconcileRowLevelUnavailability(patch:Record<string,unknown>,row:Record<string,unknown>){
+  const settled=(side:"p1"|"p2",field:string)=>
+    Object.prototype.hasOwnProperty.call(patch,`${side}_${field}`)?patch[`${side}_${field}`]:row[`${side}_${field}`];
+  const usable=(side:"p1"|"p2")=>
+    ["DIRECT","RECONSTRUCTED"].includes(String(settled(side,"treatment")??""))&&String(settled(side,"value")??"").trim()!=="";
+  const reasonFor=(side:"p1"|"p2")=>{
+    const reason=settled(side,"unavailable_reason");
+    return reason===null||reason===undefined||reason===""?null:String(reason);
+  };
+
+  // Both sides evidenced: there is no unavailability to report, and saying otherwise would
+  // describe a fully-evidenced metric as a failure.
+  if(usable("p1")&&usable("p2")){
+    patch["unavailable_reason"]=null;
+    patch["unavailable_detail"]=null;
+    return patch;
+  }
+  const p1Reason=reasonFor("p1"),p2Reason=reasonFor("p2");
+  // One side evidenced: the row's unavailability is the OTHER side's, unqualified -- it is
+  // the only side that is actually missing anything.
+  if(usable("p1")&&!usable("p2")){patch["unavailable_reason"]=p2Reason;return patch;}
+  if(usable("p2")&&!usable("p1")){patch["unavailable_reason"]=p1Reason;return patch;}
+  // Neither side evidenced: one shared reason when they agree, and the existing
+  // disagreement convention when they do not.
+  patch["unavailable_reason"]=p1Reason===p2Reason?p1Reason:"MISSING_REQUIRED_INPUT";
+  return patch;
+}
+
 export function preserveUsableCurrentSide(patch:Record<string,unknown>,row:Record<string,unknown>,side:"p1"|"p2"){
   const usable=(treatment:unknown,value:unknown)=>["DIRECT","RECONSTRUCTED","PARTIAL"].includes(String(treatment))&&String(value??"").trim()!=="";
   if(!usable(row[`${side}_treatment`],row[`${side}_value`])||usable(patch[`${side}_treatment`],patch[`${side}_value`]))return patch;
@@ -658,7 +704,7 @@ const runResearchBatch=async(rowsToRun:Array<Record<string,unknown>>):Promise<Ar
   await Promise.all(rowsToRun.map(async row=>{
     const paired=metricPairPatch(byCode.get(String(row["metric_code"])),providerError,retrievedAt);
     const oriented=claimRetrievalForExecutingSideOnly(preserveSettledOppositeSide(paired,row,side),side);
-    const finalPatch=preserveUsableCurrentSide(oriented,row,side);
+    const finalPatch=reconcileRowLevelUnavailability(preserveUsableCurrentSide(oriented,row,side),row);
     await deps.update("metric_results",String(row["id"]),finalPatch);
     const reason=finalPatch[`${side}_unavailable_reason`];
     if(typeof reason==="string"&&RETRIABLE_REASONS.has(reason))stillRetriable.push(row);
@@ -672,7 +718,7 @@ for(let attempt=1;attempt<=MAX_METRIC_RETRY_ATTEMPTS&&retryQueue.length&&Date.no
   retryQueue=await runResearchBatch(retryQueue);
 }
 treatedInPass+=batch.length;await ctx.progress(completedBefore+treatedInPass,rows.length);}
-if(!timedOut&&deps.research.extractStats){const player=side==="p1"?match.player1_name:match.player2_name,run=await deps.getLatestRun(matchId),cached=(run as unknown as{independent_inputs?:Record<string,unknown>}|null)?.independent_inputs?.["dossiers"] as Record<string,string>|undefined;let raw:SourcedStat[]=[],extractionError:string|null=null;try{raw=await deps.research.extractStats({player,dossier:cached?.[player]??dossier,context:digestContext});}catch(error){extractionError=errorDetail(error);}const outcome=reconstruct(raw),reconstructionRows=[...outcome.derived.map(stat=>({audit_run_id:runId,metric_code:stat.key,player_side:player,status:"COMPLETE",output:String(stat.value),formula:stat.formula??null,inputs:stat.inputs?.map(input=>({key:input.key,value:input.value,origin:input.origin,sources:input.sources}))??[],calculation:stat.calculation??null,source_refs:stat.sources,assumptions:null,reliability:.8,unavailable_reason:null,provider_error:null,missing_inputs:[],source_attempts:stat.sources,reconstruction_attempted:true,reconstruction_reason:stat.calculation??null,reconstruction_result:String(stat.value),retrieved_at:deps.now().toISOString()})),...outcome.blocked.map(blocked=>({audit_run_id:runId,metric_code:blocked.output,player_side:player,status:"UNAVAILABLE",output:null,formula:null,inputs:{missing:blocked.missing},calculation:blocked.reason,source_refs:[],assumptions:blocked.reason,reliability:null,unavailable_reason:"RECONSTRUCTION_FAILED",provider_error:null,missing_inputs:blocked.missing,source_attempts:[],reconstruction_attempted:true,reconstruction_reason:blocked.reason,reconstruction_result:null,retrieved_at:deps.now().toISOString()})),...(raw.length||outcome.blocked.length?[]:[{audit_run_id:runId,metric_code:"PASS2_EXTRACTION",player_side:player,status:"UNAVAILABLE",output:null,formula:null,inputs:{missing:["dossier"]},calculation:extractionError??"No catalogued statistics were extracted from the player dossier.",source_refs:[],assumptions:null,reliability:null,unavailable_reason:extractionError?unavailableReason(extractionError):"NO_SOURCE_FOUND",provider_error:extractionError,missing_inputs:["dossier"],source_attempts:[],reconstruction_attempted:true,reconstruction_reason:extractionError??"No catalogued statistics were extracted from the player dossier.",retrieved_at:deps.now().toISOString()}])];if(reconstructionRows.length)await deps.insert("reconstruction_results",reconstructionRows as never);const statsByFamily=new Map<string,SourcedStat[]>();for(const stat of[...raw,...outcome.derived]){const family=familyOf(stat.key);if(!family)continue;statsByFamily.set(family,[...(statsByFamily.get(family)??[]),stat]);}const writeBackContext:Pass2WriteBackContext={p1Name:match.player1_name,p2Name:match.player2_name,retrievedAt:deps.now().toISOString()};for(const row of rows){const patch=pass2WriteBackPatch(row,side,statsByFamily,writeBackContext);if(!patch)continue;await deps.update("metric_results",String(row["id"]),patch);}}
+if(!timedOut&&deps.research.extractStats){const player=side==="p1"?match.player1_name:match.player2_name,run=await deps.getLatestRun(matchId),cached=(run as unknown as{independent_inputs?:Record<string,unknown>}|null)?.independent_inputs?.["dossiers"] as Record<string,string>|undefined;let raw:SourcedStat[]=[],extractionError:string|null=null;try{raw=await deps.research.extractStats({player,dossier:cached?.[player]??dossier,context:digestContext});}catch(error){extractionError=errorDetail(error);}const outcome=reconstruct(raw),reconstructionRows=[...outcome.derived.map(stat=>({audit_run_id:runId,metric_code:stat.key,player_side:player,status:"COMPLETE",output:String(stat.value),formula:stat.formula??null,inputs:stat.inputs?.map(input=>({key:input.key,value:input.value,origin:input.origin,sources:input.sources}))??[],calculation:stat.calculation??null,source_refs:stat.sources,assumptions:null,reliability:.8,unavailable_reason:null,provider_error:null,missing_inputs:[],source_attempts:stat.sources,reconstruction_attempted:true,reconstruction_reason:stat.calculation??null,reconstruction_result:String(stat.value),retrieved_at:deps.now().toISOString()})),...outcome.blocked.map(blocked=>({audit_run_id:runId,metric_code:blocked.output,player_side:player,status:"UNAVAILABLE",output:null,formula:null,inputs:{missing:blocked.missing},calculation:blocked.reason,source_refs:[],assumptions:blocked.reason,reliability:null,unavailable_reason:"RECONSTRUCTION_FAILED",provider_error:null,missing_inputs:blocked.missing,source_attempts:[],reconstruction_attempted:true,reconstruction_reason:blocked.reason,reconstruction_result:null,retrieved_at:deps.now().toISOString()})),...(raw.length||outcome.blocked.length?[]:[{audit_run_id:runId,metric_code:"PASS2_EXTRACTION",player_side:player,status:"UNAVAILABLE",output:null,formula:null,inputs:{missing:["dossier"]},calculation:extractionError??"No catalogued statistics were extracted from the player dossier.",source_refs:[],assumptions:null,reliability:null,unavailable_reason:extractionError?unavailableReason(extractionError):"NO_SOURCE_FOUND",provider_error:extractionError,missing_inputs:["dossier"],source_attempts:[],reconstruction_attempted:true,reconstruction_reason:extractionError??"No catalogued statistics were extracted from the player dossier.",retrieved_at:deps.now().toISOString()}])];if(reconstructionRows.length)await deps.insert("reconstruction_results",reconstructionRows as never);const statsByFamily=new Map<string,SourcedStat[]>();for(const stat of[...raw,...outcome.derived]){const family=familyOf(stat.key);if(!family)continue;statsByFamily.set(family,[...(statsByFamily.get(family)??[]),stat]);}const writeBackContext:Pass2WriteBackContext={p1Name:match.player1_name,p2Name:match.player2_name,retrievedAt:deps.now().toISOString()};for(const row of rows){const patch=pass2WriteBackPatch(row,side,statsByFamily,writeBackContext);if(!patch)continue;await deps.update("metric_results",String(row["id"]),reconcileRowLevelUnavailability(patch,row));}}
 const done=completedBefore+treatedInPass;if(timedOut)return{status:"PARTIAL",done,total:rows.length,message:`${done}/${rows.length} metrics treated so far for ${side.toUpperCase()}.`};return{status:"COMPLETE",done:rows.length,total:rows.length};}
 
 async function executeRules(deps:PipelineDeps,matchId:string,runId:string,kind:"VERIFICATION"|"DISAGREEMENT",ctx:StageCtx):Promise<StageOutcome>{

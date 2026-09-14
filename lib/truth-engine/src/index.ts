@@ -30,6 +30,7 @@ export {
   pass2WriteBackPatch,
   preserveSettledOppositeSide,
   preserveUsableCurrentSide,
+  reconcileRowLevelUnavailability,
   claimRetrievalForExecutingSideOnly,
   enforceStageDependencies,
   deterministicIndependentConclusion,

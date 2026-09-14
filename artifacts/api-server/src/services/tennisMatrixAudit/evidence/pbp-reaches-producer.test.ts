@@ -142,3 +142,66 @@ describe("valid point-by-point data reaches the metric producers", () => {
     assert.ok((recovery.reason ?? "").length > 0, "a rejection must say why");
   });
 });
+
+// ----------------------------------------------------------------------------
+// The reported run #3 failure: tapes with no explicit point winners.
+// ----------------------------------------------------------------------------
+
+/** The same match, but the provider reports only the running score after each point. */
+function scoreOnlyPayload() {
+  const ladder = ["15-0", "30-0", "40-0", "40-15"];
+  const mkGame = (setNo: number, server: "player1" | "player2", winner: "player1" | "player2") => ({
+    set_number: setNo,
+    server,
+    winner,
+    // No `winner` on any point -- only the score after it, which is what the old
+    // reconstructor dropped entirely.
+    points: winner === "player1"
+      ? [{ score: "15-0" }, { score: "30-0" }, { score: "40-0" }, { score: "game" }].slice(0, 3).concat([{ score: "40-15" }])
+      : [{ score: "0-15" }, { score: "0-30" }, { score: "0-40" }, { score: "15-40" }],
+  });
+  void ladder;
+  const games: ReturnType<typeof mkGame>[] = [];
+  for (let setNo = 1; setNo <= 2; setNo++) {
+    let i = 0;
+    for (let g = 0; g < 6; g++) { games.push(mkGame(setNo, i % 2 === 0 ? "player1" : "player2", "player1")); i++; }
+    for (let g = 0; g < (setNo === 1 ? 4 : 3); g++) { games.push(mkGame(setNo, i % 2 === 0 ? "player1" : "player2", "player2")); i++; }
+  }
+  return {
+    available: true,
+    sets: [
+      { set_number: 1, games: games.filter((g) => g.set_number === 1) },
+      { set_number: 2, games: games.filter((g) => g.set_number === 2) },
+    ],
+  };
+}
+
+describe("tapes carrying only a score progression", () => {
+  test("a tape with NO explicit point winners still produces all six metrics", () => {
+    // This is the exact run #3 failure: "tapes lacked explicit point winners".
+    const recovery = reconstructPbpScoreState(scoreOnlyPayload());
+    assert.equal(recovery.valid, true, `reconstruction rejected a readable score tape: ${recovery.reason ?? ""}`);
+    assert.ok(recovery.point_count > 0);
+
+    const derivedCodes = new Set<string>([
+      ...Object.keys(recovery.derived.player1 ?? {}),
+      ...Object.keys(recovery.derived.player2 ?? {}),
+    ]);
+    const missing = POINT_DERIVED.filter((code) => !derivedCodes.has(code));
+    assert.deepEqual(missing, [], `no observation produced for: ${missing.join(", ")}`);
+  });
+
+  test("an ambiguous score tape is still rejected rather than guessed", () => {
+    // Both sides advancing in one step is not a rally. Reading this tape would mean
+    // inventing a point winner, so the whole game must fail instead.
+    const broken = {
+      available: true,
+      sets: [{
+        set_number: 1,
+        games: [{ set_number: 1, server: "player1", winner: "player1", points: [{ score: "15-0" }, { score: "30-15" }] }],
+      }],
+    };
+    const recovery = reconstructPbpScoreState(broken);
+    assert.equal(recovery.valid, false);
+  });
+});

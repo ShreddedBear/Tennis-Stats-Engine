@@ -1,4 +1,5 @@
 import { buildCanonicalEvidenceMatchIdentity, evidenceTourCompatible, type EvidenceTourFamily } from "./evidence-match-identity";
+import { derivePointWinners, scoreProgressionOf } from "./pbp-score-progression";
 
 export type PbpSide = "player1" | "player2";
 export type PbpTour = "ATP_MAIN" | "WTA_MAIN" | "ATP_CHALLENGER" | "WTA_CHALLENGER";
@@ -73,7 +74,20 @@ function codedIndicator(p:any,kind:"ace"|"doubleFault"){const explicit=kind==="a
 function explicitSetNo(v:any):number|null{for(const x of[v?.set_number,v?.setNumber,v?.set_no,v?.setNo,v?.set_index,v?.setIndex]){const n=Number(x);if(Number.isInteger(n)&&n>=0)return n===0?1:n}return null}
 function postGames(v:any):Record<PbpSide,number>|null{const a=Number(v?.player1_games),b=Number(v?.player2_games);return Number.isInteger(a)&&a>=0&&Number.isInteger(b)&&b>=0?{player1:a,player2:b}:null}
 function inferTiebreak(v:any,winner:PbpSide|null,post:Record<PbpSide,number>|null){if(bool(v?.tiebreak??v?.tie_break??v?.is_tiebreak??v?.isTieBreak)===true)return true;if(!winner||!post)return false;const pre={...post};pre[winner]-=1;return pre.player1===6&&pre.player2===6}
-function collectGames(payload:any):Game[]{const out:Game[]=[];const seen=new Set<any>();const walk=(v:any,ctx:{setNo:number|null})=>{if(!v||typeof v!=="object"||seen.has(v))return;seen.add(v);if(Array.isArray(v)){for(const x of v)walk(x,ctx);return}if(Array.isArray(v.points)){const server=slot(v.server??v.server_slot??v.serving_player??v.servingPlayer);if(server){const points:Point[]=[];let complete=v.points.length>0;for(const p of v.points){if(!p||typeof p!=="object"){complete=false;continue}const winner=slot(p.winner??p.point_winner??p.pointWinner??p.winner_slot??p.won_by);if(!winner){complete=false;continue}points.push({winner,ace:codedIndicator(p,"ace"),doubleFault:codedIndicator(p,"doubleFault")})}const winner=slot(v.winner??v.game_winner??v.gameWinner??v.winner_slot),post=postGames(v);if(points.length)out.push({setNo:explicitSetNo(v)??ctx.setNo,server,points,tiebreak:inferTiebreak(v,winner,post),winner,complete:complete&&points.length===v.points.length,postGames:post})}}for(const[k,x]of Object.entries(v)){if(k==="points")continue;if(Array.isArray(x)&&/sets?/i.test(k)){x.forEach((item,i)=>walk(item,{setNo:i+1}));continue}walk(x,{setNo:explicitSetNo(v)??ctx.setNo})}};walk(payload,{setNo:null});return out}
+function collectGames(payload:any):Game[]{const out:Game[]=[];const seen=new Set<any>();const walk=(v:any,ctx:{setNo:number|null})=>{if(!v||typeof v!=="object"||seen.has(v))return;seen.add(v);if(Array.isArray(v)){for(const x of v)walk(x,ctx);return}if(Array.isArray(v.points)){const server=slot(v.server??v.server_slot??v.serving_player??v.servingPlayer);if(server){const points:Point[]=[];let complete=v.points.length>0;for(const p of v.points){if(!p||typeof p!=="object"){complete=false;continue}const winner=slot(p.winner??p.point_winner??p.pointWinner??p.winner_slot??p.won_by);if(!winner){complete=false;continue}points.push({winner,ace:codedIndicator(p,"ace"),doubleFault:codedIndicator(p,"doubleFault")})}const winner=slot(v.winner??v.game_winner??v.gameWinner??v.winner_slot),post=postGames(v);
+   // FALLBACK: a tape that carries the running SCORE after each point but no explicit point
+   // winner is readable -- the winner is whichever side's score went up. Used only when the
+   // explicit path left the game incomplete, and only when the derivation covers exactly the
+   // points the tape reported: a count mismatch means the progression and the point list
+   // disagree, and a game scored from a tape we cannot fully account for is not evidence.
+   // derivePointWinners itself rejects on any ambiguous step rather than guessing.
+   if(!complete){const states=scoreProgressionOf(v as Record<string,unknown>);
+    if(states){const derived=derivePointWinners(states,null);
+     if(derived&&derived.length===v.points.length){
+      points.length=0;
+      for(let di=0;di<derived.length;di++){const src=v.points[di];points.push({winner:derived[di]!.winner,ace:codedIndicator(src,"ace"),doubleFault:codedIndicator(src,"doubleFault")})}
+      complete=true;}}}
+   if(points.length)out.push({setNo:explicitSetNo(v)??ctx.setNo,server,points,tiebreak:inferTiebreak(v,winner,post),winner,complete:complete&&points.length===v.points.length,postGames:post})}}for(const[k,x]of Object.entries(v)){if(k==="points")continue;if(Array.isArray(x)&&/sets?/i.test(k)){x.forEach((item,i)=>walk(item,{setNo:i+1}));continue}walk(x,{setNo:explicitSetNo(v)??ctx.setNo})}};walk(payload,{setNo:null});return out}
 function gameWinner(g:Game):PbpSide|null{if(!g.complete)return null;if(g.winner)return g.winner;if(g.tiebreak)return null;let a=0,b=0;for(const p of g.points){if(p.winner==="player1")a++;else b++;if((a>=4||b>=4)&&Math.abs(a-b)>=2)return a>b?"player1":"player2"}return null}
 function wouldWinGame(s0:number,r0:number,w:"server"|"returner"){const s=s0+(w==="server"?1:0),r=r0+(w==="returner"?1:0);return(s>=4||r>=4)&&Math.abs(s-r)>=2}
 function wouldWinSet(ownGames:number,oppGames:number){const own=ownGames+1;return(own>=6&&own-oppGames>=2)||own===7}

@@ -53,6 +53,8 @@ const DRIZZLE_MANAGED_TABLES = [
   "match_source_links",
   "player_aliases",
   "player_resolution_reviews",
+  // centralized PBP layer
+  "pbp_matches",
 ];
 
 export default defineConfig({

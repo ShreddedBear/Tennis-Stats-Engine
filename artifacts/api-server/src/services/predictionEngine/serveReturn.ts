@@ -1,6 +1,16 @@
 import type { MatchRecord, Surface } from "../tennisData/types";
 import type { OpponentEloLookup } from "./opponentStrength";
 import { realSetGameMargins } from "./setMargins";
+import type { PbpDerivedStats } from "../pbp/types";
+
+/**
+ * Per-match real point-level stats from the centralized PBP layer (services/pbp), keyed by
+ * `MatchRecord.id`, from this player's own orientation (i.e. `.player1` fields already refer to
+ * THIS player, not necessarily the PBP source's own player1/player2 order — callers must resolve
+ * orientation via `orientationMatchesLookup` before building this map; see services/pbp/pbpService.ts).
+ * Optional and defaults to empty everywhere so every existing caller/test is unaffected.
+ */
+export type MatchPbpStatsLookup = Map<string, PbpDerivedStats>;
 
 /**
  * Point-level serve/return breakdown, computed directly from real provider match-level stats
@@ -35,6 +45,15 @@ export interface ServeReturnResult {
   defaulted: boolean;
   note: string | null;
   warnings: string[];
+  /**
+   * Which tier actually produced the headline ratings above — never a proxy masquerading as
+   * point-level truth. "POINT_PBP" only when real derived point-level stats (services/pbp)
+   * resolved for enough matches on BOTH sides; "MATCH_STATS" for the existing provider
+   * match-level real-stats tier; "GAME_MARGIN_PROXY" for the existing margin-based fallback.
+   */
+  primarySource: "POINT_PBP" | "MATCH_STATS" | "GAME_MARGIN_PROXY";
+  /** How many of each side's matches contributed real PBP-derived points, when the PBP tier was consulted at all (0 if MatchPbpStatsLookup was empty/omitted). */
+  pbpSampleSize: number;
 }
 
 const PROXY_NOTE =
@@ -233,13 +252,89 @@ function realRatingsFromStats(
   return { serve, ret, sample: withStats.length, coverage: coveredMatches / withStats.length };
 }
 
+const MIN_PBP_SAMPLE = 3;
+// Real point-level ground truth starts at a higher floor than the provider-match-stats tier,
+// mirroring how that tier already starts higher than the margin proxy — each tier's floor
+// reflects how directly its input measures serve/return outcomes.
+const PBP_RELIABILITY_FLOOR = 75;
+const PBP_RELIABILITY_CAP = 98;
+
+/**
+ * Real, point-derived service/return percentages from the centralized PBP layer, for matches
+ * where a normalized PBP record actually resolved. Requires MIN_PBP_SAMPLE matches per side
+ * (same fair-comparison rule as `realRatingsFromStats`) before this tier is used at all.
+ */
+function realRatingsFromPbp(
+  matches: MatchRecord[],
+  pbpStats: MatchPbpStatsLookup,
+  opponentElo: OpponentEloLookup,
+  surface: Surface,
+): { serve: number; ret: number; sample: number; coverage: number } | null {
+  const withPbp = matches
+    .map((m) => ({ match: m, pbp: pbpStats.get(m.id) }))
+    .filter((entry): entry is { match: MatchRecord; pbp: PbpDerivedStats } => entry.pbp != null && entry.pbp.servicePointsWonPct.player1 != null);
+  if (withPbp.length < MIN_PBP_SAMPLE) return null;
+
+  let serveWeightedSum = 0;
+  let retWeightedSum = 0;
+  let weightTotal = 0;
+  let coveredMatches = 0;
+  for (const { match: m, pbp } of withPbp) {
+    const elo = opponentElo.get(m.id);
+    const strengthFactor = (elo !== undefined ? Math.max(0.6, Math.min(1.6, elo / BASELINE_ELO)) : 1) * surfaceWeight(m, surface);
+    if (elo !== undefined) coveredMatches += 1;
+    // pbp.servicePointsWonPct/returnPointsWonPct are already player1-oriented by the time they
+    // reach this map (see MatchPbpStatsLookup's doc comment) — the caller resolved orientation.
+    serveWeightedSum += (pbp.servicePointsWonPct.player1 ?? 0) * strengthFactor;
+    retWeightedSum += (pbp.returnPointsWonPct.player1 ?? 0) * strengthFactor;
+    weightTotal += strengthFactor;
+  }
+  const avgServicePct = serveWeightedSum / weightTotal;
+  const avgReturnPct = retWeightedSum / weightTotal;
+  const serve = Math.max(5, Math.min(95, 50 + (avgServicePct - TOUR_AVG_SERVICE_POINTS_WON_PCT) * REAL_STATS_RATING_SCALE));
+  const ret = Math.max(5, Math.min(95, 50 + (avgReturnPct - TOUR_AVG_RETURN_POINTS_WON_PCT) * REAL_STATS_RATING_SCALE));
+  return { serve, ret, sample: withPbp.length, coverage: coveredMatches / withPbp.length };
+}
+
 export function computeServeReturnModule(
   player1Matches: MatchRecord[],
   player2Matches: MatchRecord[],
   surface: Surface,
   player1OpponentElo: OpponentEloLookup = new Map(),
   player2OpponentElo: OpponentEloLookup = new Map(),
+  player1PbpStats: MatchPbpStatsLookup = new Map(),
+  player2PbpStats: MatchPbpStatsLookup = new Map(),
 ): ServeReturnResult {
+  // Highest-priority tier: real point-level PBP, when it resolves for enough matches on BOTH
+  // sides (same fairness rule the existing real-stats/proxy fallback already applies). Checked
+  // first because it is real ground truth, not a provider's own aggregated percentages.
+  const p1Pbp = realRatingsFromPbp(player1Matches, player1PbpStats, player1OpponentElo, surface);
+  const p2Pbp = realRatingsFromPbp(player2Matches, player2PbpStats, player2OpponentElo, surface);
+  if (p1Pbp && p2Pbp) {
+    const minSample = Math.min(p1Pbp.sample, p2Pbp.sample);
+    const reliability = Math.max(PBP_RELIABILITY_FLOOR, Math.min(PBP_RELIABILITY_CAP, PBP_RELIABILITY_FLOOR + (minSample - MIN_PBP_SAMPLE) * 4));
+    const warnings: string[] = [];
+    if (minSample < MIN_SAMPLE_FOR_NO_WARNING) {
+      warnings.push(`Only ${minSample} match(es) with real point-by-point data for one player -- confidence is limited despite using ground-truth data.`);
+    }
+    if (p1Pbp.coverage < 0.5 || p2Pbp.coverage < 0.5) {
+      warnings.push("Opponent-strength weighting is only partially available -- some matches are weighted as opponent-neutral.");
+    }
+    return {
+      player1ServeRating: Math.round(p1Pbp.serve),
+      player2ServeRating: Math.round(p2Pbp.serve),
+      player1ReturnRating: Math.round(p1Pbp.ret),
+      player2ReturnRating: Math.round(p2Pbp.ret),
+      player1PointLevel: computePointLevelStats(player1Matches, player1OpponentElo, surface),
+      player2PointLevel: computePointLevelStats(player2Matches, player2OpponentElo, surface),
+      reliability: Math.round(reliability),
+      defaulted: false,
+      note: "Ratings are derived from real point-by-point data (services/pbp) -- server/returner outcome for every point actually played, not an aggregated provider percentage or a score-margin proxy.",
+      warnings,
+      primarySource: "POINT_PBP",
+      pbpSampleSize: minSample,
+    };
+  }
   // Prefer real, provider-reported point-level stats when both players have enough matches with
   // them -- a mix of real stats for one player and a proxy for the other isn't a fair comparison,
   // so the module falls back to the margin-based proxy for both players unless both clear the bar.
@@ -294,6 +389,8 @@ export function computeServeReturnModule(
       defaulted: false,
       note: pointLevelApplied ? `${REAL_STATS_NOTE} Deepened with point-level inputs (first-serve win %, break points saved/converted, estimated service games held).` : REAL_STATS_NOTE,
       warnings,
+      primarySource: "MATCH_STATS",
+      pbpSampleSize: 0,
     };
   }
 
@@ -322,5 +419,7 @@ export function computeServeReturnModule(
     defaulted: p1.sample === 0 || p2.sample === 0,
     note: PROXY_NOTE,
     warnings,
+    primarySource: "GAME_MARGIN_PROXY",
+    pbpSampleSize: 0,
   };
 }

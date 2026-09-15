@@ -3,6 +3,7 @@ import type { OddsQuote } from "../oddsData/types";
 import type { OpponentEloLookup } from "./opponentStrength";
 import type { WeatherConditions } from "./weather";
 import type { CalibrationKnot } from "../evaluation/types";
+import type { MatchPbpStatsLookup } from "./serveReturn";
 
 /** Standard shape returned by every engine module. */
 export interface ModuleResult {
@@ -39,6 +40,21 @@ export interface PredictionEngineInput {
    * which has no run boundary to reset it.
    */
   trackEloFallback?: boolean;
+  /**
+   * Real point-level stats from the centralized PBP layer (services/pbp), pre-resolved and
+   * cutoff-filtered by the caller -- see `buildPbpStatsLookup` in
+   * services/pbp/predictionEngineBridge.ts. Opt-in only, same reasoning as `trackEloFallback`
+   * above: populating this requires one or more async DB round-trips per historical match, which
+   * is fine for a batch-scoped caller (walk-forward evaluation, historical backtesting, the
+   * Truth-Engine-facing status endpoints) that controls its own cutoff/asOfDate rigorously, but is
+   * NOT wired into live per-fixture prediction traffic by default -- ppaulojr's only current
+   * source coverage (2010-2015) essentially never overlaps a live player's current rolling match
+   * window, so unconditionally fetching it on every live request would add real per-request DB
+   * load for close to zero benefit. Omitted/empty maps reproduce the exact pre-PBP behavior
+   * (MATCH_STATS/GAME_MARGIN_PROXY tiers only) -- see `computeServeReturnModule`.
+   */
+  player1PbpStats?: MatchPbpStatsLookup;
+  player2PbpStats?: MatchPbpStatsLookup;
   /**
    * Real forecast conditions for a genuinely upcoming fixture with a known venue, pre-resolved by
    * the caller via `getUpcomingConditions`. Informational only -- never used to adjust the

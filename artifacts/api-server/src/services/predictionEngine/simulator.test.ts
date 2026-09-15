@@ -119,6 +119,8 @@ test("deriveServicePointEstimate: never fabricates certainty beyond the weaker o
     note: null,
     defaulted: false,
     warnings: [],
+    primarySource: "GAME_MARGIN_PROXY",
+    pbpSampleSize: 0,
   };
 
   const estimate = deriveServicePointEstimate(surfaceElo, serveReturn);

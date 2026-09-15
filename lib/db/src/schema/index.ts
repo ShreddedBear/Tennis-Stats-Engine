@@ -28,3 +28,4 @@ export * from "./support";
 export * from "./adminUsers";
 export * from "./savedCards";
 export * from "./canonicalIdentity";
+export * from "./wtaMainPbpEvidence";

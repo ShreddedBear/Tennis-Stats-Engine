@@ -53,6 +53,9 @@ const DRIZZLE_MANAGED_TABLES = [
   "match_source_links",
   "player_aliases",
   "player_resolution_reviews",
+  // shared read-only ground-truth evidence (Prediction Engine + Parlay Builder both read
+  // this directly; see lib/db/src/schema/wtaMainPbpEvidence.ts for the isolation rationale)
+  "wta_main_pbp_evidence",
 ];
 
 export default defineConfig({

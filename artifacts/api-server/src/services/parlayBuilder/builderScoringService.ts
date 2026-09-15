@@ -29,8 +29,8 @@ import { researchPlayerMatchup } from "./webResearchService.js";
 import { scrapeMatchstatPlayer, type MatchstatPlayerData } from "./matchstatScraper.js";
 import type { MatchRecord, Surface } from "../tennisData/types.js";
 import type { CalibrationKnot } from "../evaluation/types.js";
-import { computeSurfaceEloModule } from "../predictionEngine/surfaceElo.js";
-import { computeServeReturnModule } from "../predictionEngine/serveReturn.js";
+import { computeParlaySurfaceRating } from "./parlaySurfaceRating.js";
+import { computeParlayServeReturnPair } from "./parlayServeReturnRating.js";
 import { applyCalibrationOriented } from "../evaluation/calibration.js";
 import { getActiveCalibration } from "../evaluation/calibrationCache.js";
 
@@ -201,12 +201,12 @@ export interface BuilderResult {
 //   - Held-out KEEP tier accuracy: 71.0%  (n=372 held-out legs)
 // ---------------------------------------------------------------------------
 const DEFAULT_WEIGHTS: Record<string, number> = {
-  surfaceElo:            0.153,  // Elo-based win probability (computeSurfaceEloModule) — primary signal
+  surfaceElo:            0.153,  // Elo-based win probability (computeParlaySurfaceRating, independent of Prediction Engine) — primary signal
   surfaceAdvantage:      0.119,  // +13.2pp edge (n=946)
   surfaceRecord:         0.095,  // +13.0pp edge (n=990)
   sourceAgreement:       0.072,  // +10.0pp edge (n=2130) — meta-factor, consensus signal
-  serveAdvantage:        0.071,  // computeServeReturnModule (was unavailable; now computed)
-  returnAdvantage:       0.071,  // computeServeReturnModule (was unavailable; now computed)
+  serveAdvantage:        0.071,  // computeParlayServeReturnPair, independent of Prediction Engine (was unavailable; now computed)
+  returnAdvantage:       0.071,  // computeParlayServeReturnPair, independent of Prediction Engine (was unavailable; now computed)
   recentForm:            0.080,  // +5.8pp edge (n=1154)
   overallAdvantage:      0.061,  // raw rank-adjusted win rate — secondary
   strengthOfSchedule:    0.060,  // +9.3pp edge (n=707)
@@ -516,13 +516,14 @@ function toBuilderSurface(surface: string | null): Surface | null {
 
 /**
  * Convert a builder MatchRow (DB row shape) to the MatchRecord type consumed by
- * computeSurfaceEloModule and computeServeReturnModule.
+ * computeParlaySurfaceRating and computeParlayServeReturnPair (Parlay Builder's own,
+ * Prediction-Engine-independent modules).
  *
  * `setGameMargins` is populated from `game_margins_player1` (player1-perspective storage):
  * - When `playerId` is player1: playerGames = player1Games, opponentGames = player2Games
  * - When `playerId` is player2: flip the perspective (player2 is the target)
  *
- * This gives `computeServeReturnModule` real set-score data for the proxy path.
+ * This gives `computeParlayServeReturnPair` real set-score data for the proxy path.
  * Rows without game_margins_player1 (null or empty) produce empty setGameMargins,
  * which is handled correctly by the module (those rows contribute zero samples).
  */
@@ -1294,7 +1295,7 @@ export async function computeBuilderScore(snapshot: BuilderSnapshot): Promise<Bu
   const selMatchesForModules = selMatches;
   const oppMatchesForModules = oppMatches;
 
-  // Convert MatchRow arrays to MatchRecord format used by prediction-engine modules.
+  // Convert MatchRow arrays to MatchRecord format used by Parlay Builder's own Elo/ServeReturn modules.
   const builderSurface = toBuilderSurface(surface);
   // Minimum 3 rows per player required before passing to Elo/ServeReturn modules.
   const canRunModules = builderSurface != null &&
@@ -1340,15 +1341,15 @@ export async function computeBuilderScore(snapshot: BuilderSnapshot): Promise<Bu
   }
 
   // Factor: Surface Elo (primary Elo-based win probability)
-  // Uses the same computeSurfaceEloModule the Prediction Engine uses, fed with date-bounded rows.
+  // Parlay Builder's OWN independent surface rating -- see parlaySurfaceRating.ts for why this
+  // deliberately does not call Prediction Engine's computeSurfaceEloModule.
   if (canRunModules) {
-    const eloResult = computeSurfaceEloModule(selModuleRecords, oppModuleRecords, builderSurface!);
-    // eloWinProbabilityPlayer1 is already in 0–100 percentage space (Percentage branded type)
-    const eloScore = clamp(Math.round(eloResult.eloWinProbabilityPlayer1 as unknown as number), 5, 95);
+    const eloResult = computeParlaySurfaceRating(selModuleRecords, oppModuleRecords, builderSurface!);
+    const eloScore = clamp(eloResult.winProbabilityPlayer1, 5, 95);
     const eloLabel = eloScore > 55 ? "favors" : eloScore < 45 ? "favors opponent over" : "is neutral for";
     addFactor("surfaceElo", "Surface Elo",
       eloScore,
-      `Surface Elo: ${selectedPlayerName} ${eloResult.player1SurfaceElo} vs ${opponentName} ${eloResult.player2SurfaceElo} — Elo ${eloLabel} ${selectedPlayerName} (win prob ${Math.round(eloResult.eloWinProbabilityPlayer1 as unknown as number)}%, reliability ${eloResult.reliability}%)`
+      `Surface Elo: ${selectedPlayerName} ${eloResult.player1Rating} vs ${opponentName} ${eloResult.player2Rating} — Elo ${eloLabel} ${selectedPlayerName} (win prob ${eloResult.winProbabilityPlayer1}%, reliability ${eloResult.reliability}%)`
     );
   } else {
     addFactor("surfaceElo", "Surface Elo", 50,
@@ -1446,17 +1447,19 @@ export async function computeBuilderScore(snapshot: BuilderSnapshot): Promise<Bu
     addFactor("surfaceRecord", "Surface Record", 50, "Insufficient surface data", true);
   }
 
-  // Factors: Serve and Return — computed from match rows via computeServeReturnModule.
-  // The module uses set-score game margins (populated from game_margins_player1) as the proxy path.
+  // Factors: Serve and Return — Parlay Builder's OWN independent rating, computed from match
+  // rows via computeParlayServeReturnPair. See parlayServeReturnRating.ts for why this
+  // deliberately does not call Prediction Engine's computeServeReturnModule. The module uses
+  // set-score game margins (populated from game_margins_player1) as the proxy path.
   //
-  // When `srResult.defaulted` is true, neither player has any set-score margin data — the module
-  // cannot produce a meaningful rating. In that case we mark the factors UNAVAILABLE (excluded
-  // from the weighted blend) rather than LIMITED (which would add neutral 50 at full weight with
-  // no real evidence behind it).
+  // When `srResult.defaulted` is true, at least one player doesn't clear the module's own
+  // minimum-sample bar — the module cannot produce a meaningful rating. In that case we mark
+  // the factors UNAVAILABLE (excluded from the weighted blend) rather than LIMITED (which
+  // would add neutral 50 at full weight with no real evidence behind it).
   //
   // Hold/Break still unavailable — no point-level data available from historical_matches.
   if (canRunModules) {
-    const srResult = computeServeReturnModule(selModuleRecords, oppModuleRecords, builderSurface!);
+    const srResult = computeParlayServeReturnPair(selModuleRecords, oppModuleRecords, builderSurface!);
     if (srResult.defaulted) {
       // No set-score margin data available for at least one player → genuinely unavailable,
       // not a neutral guess. Weight redistributes to other available factors.

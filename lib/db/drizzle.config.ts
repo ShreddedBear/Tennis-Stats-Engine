@@ -17,6 +17,7 @@ const DRIZZLE_MANAGED_TABLES = [
   "predictions",
   "historical_matches",
   "match_feature_snapshots",
+  "pbp_evidence",
   "calibration_models",
   "evaluation_predictions",
   "evaluation_runs",

@@ -23,6 +23,7 @@ const API_SERVER_DIR = join(__dirname, "../..");
 // tsx binary is in the api-server's own node_modules (not workspace root)
 const TSX_BIN        = join(API_SERVER_DIR, "node_modules/.bin/tsx");
 const PARLAY_DIR     = join(__dirname, "../services/parlayBuilder");
+const PREDICTION_ENGINE_DIR = join(__dirname, "../services/predictionEngine");
 
 function runCheck(): { ok: boolean; stdout: string; stderr: string } {
   try {
@@ -70,4 +71,66 @@ test("checkParlayBoundary: catches a deliberate evaluationPredictionsTable refer
 
   const { ok } = runCheck();
   assert.equal(ok, false, "Expected boundary check to fail when evaluationPredictionsTable is referenced");
+});
+
+// ---------------------------------------------------------------------------
+// Calibration-leak regression guards (docs/CROSS_ENGINE_BOUNDARY.md).
+//
+// builderScoringService.ts read Prediction Engine's live-trained calibration via
+// evaluation/calibration.ts and evaluation/calibrationCache.ts -- neither file lives under
+// predictionEngine/, so the original checker (predictionEngine-import + 5 table names only)
+// missed it entirely. These tests prove the extended checker now catches that whole class,
+// by every route named in the incident: the calibrationModelsTable symbol, an import of
+// either evaluation/calibration file, and a direct call to a Prediction Engine calibration
+// function.
+// ---------------------------------------------------------------------------
+
+test("checkParlayBoundary: catches a deliberate calibrationModelsTable reference", (t) => {
+  const violatingFile = join(PARLAY_DIR, "_boundary_test_violation_calibration_table.ts");
+  writeFileSync(violatingFile, `// Deliberate violation for testing\nconst t = calibrationModelsTable.active;\n`);
+  t.after(() => { if (existsSync(violatingFile)) unlinkSync(violatingFile); });
+
+  const { ok, stdout, stderr } = runCheck();
+  assert.equal(ok, false, "Expected boundary check to fail when calibrationModelsTable is referenced");
+  assert.ok((stdout + stderr).includes("calibrationModelsTable"));
+});
+
+test("checkParlayBoundary: catches a deliberate import from evaluation/calibrationCache.ts", (t) => {
+  const violatingFile = join(PARLAY_DIR, "_boundary_test_violation_calibration_cache_import.ts");
+  writeFileSync(violatingFile, `// Deliberate violation for testing\nimport { getActiveCalibration } from "../evaluation/calibrationCache";\n`);
+  t.after(() => { if (existsSync(violatingFile)) unlinkSync(violatingFile); });
+
+  const { ok, stdout, stderr } = runCheck();
+  assert.equal(ok, false, "Expected boundary check to fail when evaluation/calibrationCache is imported");
+  assert.ok((stdout + stderr).includes("calibrationCache"));
+});
+
+test("checkParlayBoundary: catches a deliberate import from evaluation/calibration.ts", (t) => {
+  const violatingFile = join(PARLAY_DIR, "_boundary_test_violation_calibration_import.ts");
+  writeFileSync(violatingFile, `// Deliberate violation for testing\nimport { applyCalibrationOriented } from "../evaluation/calibration";\n`);
+  t.after(() => { if (existsSync(violatingFile)) unlinkSync(violatingFile); });
+
+  const { ok, stdout, stderr } = runCheck();
+  assert.equal(ok, false, "Expected boundary check to fail when evaluation/calibration is imported");
+  assert.ok((stdout + stderr).includes("evaluation/calibration"));
+});
+
+test("checkParlayBoundary: catches a deliberate call to Prediction Engine's getActiveCalibration() even without a matching import line (defense in depth)", (t) => {
+  const violatingFile = join(PARLAY_DIR, "_boundary_test_violation_calibration_call.ts");
+  writeFileSync(violatingFile, `// Deliberate violation for testing -- simulates a re-exported/aliased import\nasync function x() { return getActiveCalibration(); }\n`);
+  t.after(() => { if (existsSync(violatingFile)) unlinkSync(violatingFile); });
+
+  const { ok, stdout, stderr } = runCheck();
+  assert.equal(ok, false, "Expected boundary check to fail on a call to getActiveCalibration()");
+  assert.ok((stdout + stderr).includes("getActiveCalibration"));
+});
+
+test("checkParlayBoundary: catches a deliberate reverse-direction import (predictionEngine -> parlayBuilder)", (t) => {
+  const violatingFile = join(PREDICTION_ENGINE_DIR, "_boundary_test_violation_reverse_import.ts");
+  writeFileSync(violatingFile, `// Deliberate violation for testing\nimport { computeParlaySurfaceRating } from "../parlayBuilder/parlaySurfaceRating";\n`);
+  t.after(() => { if (existsSync(violatingFile)) unlinkSync(violatingFile); });
+
+  const { ok, stdout, stderr } = runCheck();
+  assert.equal(ok, false, "Expected boundary check to fail when predictionEngine imports from parlayBuilder");
+  assert.ok((stdout + stderr).includes("parlayBuilder"));
 });

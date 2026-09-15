@@ -56,6 +56,9 @@ const DRIZZLE_MANAGED_TABLES = [
   // shared read-only ground-truth evidence (Prediction Engine + Parlay Builder both read
   // this directly; see lib/db/src/schema/wtaMainPbpEvidence.ts for the isolation rationale)
   "wta_main_pbp_evidence",
+  // Parlay Builder's own calibration model -- see lib/db/src/schema/parlayCalibration.ts.
+  // Fit only from parlay_leg_outcomes; never read Prediction Engine's calibration_models.
+  "parlay_calibration_models",
 ];
 
 export default defineConfig({

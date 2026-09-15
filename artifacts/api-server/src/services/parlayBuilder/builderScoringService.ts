@@ -28,11 +28,10 @@ import {
 import { researchPlayerMatchup } from "./webResearchService.js";
 import { scrapeMatchstatPlayer, type MatchstatPlayerData } from "./matchstatScraper.js";
 import type { MatchRecord, Surface } from "../tennisData/types.js";
-import type { CalibrationKnot } from "../evaluation/types.js";
 import { computeParlaySurfaceRating } from "./parlaySurfaceRating.js";
 import { computeParlayServeReturnPair } from "./parlayServeReturnRating.js";
-import { applyCalibrationOriented } from "../evaluation/calibration.js";
-import { getActiveCalibration } from "../evaluation/calibrationCache.js";
+import { applyParlayCalibration } from "./parlayCalibrationFit.js";
+import { getActiveParlayCalibration } from "./parlayCalibrationCache.js";
 
 export const BUILDER_VERSION = "1.0.0";
 
@@ -1993,16 +1992,19 @@ export async function computeBuilderScore(snapshot: BuilderSnapshot): Promise<Bu
 
   // ── 9. Calibration + independent winner selection ─────────────────────────
   //
-  // Apply the same calibration function the Prediction Engine uses to convert the
-  // raw validation score (a weighted average) into a calibrated probability.
-  // If no active calibration model exists, fall back to the raw score.
+  // Apply Parlay Builder's OWN calibration model (parlayCalibrationFit.ts /
+  // parlayCalibrationCache.ts), fit exclusively from parlay_leg_outcomes -- Builder's own
+  // graded-leg ledger. This deliberately never reaches into Prediction Engine's
+  // evaluation/calibration.ts or calibration_models table; see
+  // docs/CROSS_ENGINE_BOUNDARY.md. If no active Builder-owned model exists yet (not enough
+  // resolved legs to fit one responsibly), fall back to the raw score -- never to Prediction
+  // Engine's calibration.
   const rawValidationScore = validationScore;
   let builderCalibratedProbability = validationScore; // fallback: raw score
   try {
-    const { mapping } = await getActiveCalibration();
+    const { mapping } = await getActiveParlayCalibration();
     if (mapping && mapping.length > 0) {
-      const knots = mapping as CalibrationKnot[];
-      const calibrated01 = applyCalibrationOriented(knots, validationScore / 100);
+      const calibrated01 = applyParlayCalibration(mapping, validationScore);
       builderCalibratedProbability = Math.round(calibrated01 * 100);
     }
   } catch {

@@ -71,3 +71,29 @@ test("checkParlayBoundary: catches a deliberate evaluationPredictionsTable refer
   const { ok } = runCheck();
   assert.equal(ok, false, "Expected boundary check to fail when evaluationPredictionsTable is referenced");
 });
+
+test("checkParlayBoundary: catches a deliberate evaluation/calibrationCache import (calibration-leak regression guard)", (t) => {
+  const violatingFile = join(PARLAY_DIR, "_boundary_test_violation_calibration_cache.ts");
+  writeFileSync(
+    violatingFile,
+    `// Deliberate calibration-cache import violation\nimport { getActiveCalibration } from "../evaluation/calibrationCache.js";\n`,
+  );
+  t.after(() => { if (existsSync(violatingFile)) unlinkSync(violatingFile); });
+
+  const { ok, stdout, stderr } = runCheck();
+  assert.equal(ok, false, "Expected boundary check to fail when evaluation/calibrationCache is imported");
+  const combined = stdout + stderr;
+  assert.ok(combined.includes("calibration"), `Expected output to mention calibration. Got: ${combined.slice(0, 400)}`);
+});
+
+test("checkParlayBoundary: catches a deliberate applyCalibrationOriented import (calibration-leak regression guard)", (t) => {
+  const violatingFile = join(PARLAY_DIR, "_boundary_test_violation_calibration_fn.ts");
+  writeFileSync(
+    violatingFile,
+    `// Deliberate calibration-function import violation\nimport { applyCalibrationOriented } from "../evaluation/calibration.js";\n`,
+  );
+  t.after(() => { if (existsSync(violatingFile)) unlinkSync(violatingFile); });
+
+  const { ok } = runCheck();
+  assert.equal(ok, false, "Expected boundary check to fail when applyCalibrationOriented is imported");
+});

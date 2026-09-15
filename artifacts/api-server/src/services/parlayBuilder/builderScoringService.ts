@@ -2,9 +2,13 @@
  * Independent Parlay Builder — Validation Scoring Engine
  *
  * Core architectural principle: this service NEVER reads from the predictions table,
- * NEVER uses calibratedProbability, safetyScore, or any Prediction Engine output.
- * It validates the Prediction Engine's selected winner using only independent evidence:
- * raw historical match data, rankings, and market consensus.
+ * NEVER uses calibratedProbability, safetyScore, or any Prediction Engine output --
+ * including the Prediction Engine's fitted calibration model (calibrationModelsTable /
+ * evaluation/calibration.ts / evaluation/calibrationCache.ts). It validates the
+ * Prediction Engine's selected winner using only independent evidence: raw historical
+ * match data, rankings, and market consensus. checkParlayBoundary.ts enforces this at
+ * the import level; deriveBuilderPick's signature enforces it at the pick level (see
+ * that function for why calibration is currently dropped rather than borrowed).
  *
  * Input:  BuilderSnapshot (who was selected, raw match context)
  * Output: BuilderResult (ValidationScore, RiskScore, Grade, Decision, Reasons)
@@ -28,11 +32,8 @@ import {
 import { researchPlayerMatchup } from "./webResearchService.js";
 import { scrapeMatchstatPlayer, type MatchstatPlayerData } from "./matchstatScraper.js";
 import type { MatchRecord, Surface } from "../tennisData/types.js";
-import type { CalibrationKnot } from "../evaluation/types.js";
 import { computeSurfaceEloModule } from "../predictionEngine/surfaceElo.js";
 import { computeServeReturnModule } from "../predictionEngine/serveReturn.js";
-import { applyCalibrationOriented } from "../evaluation/calibration.js";
-import { getActiveCalibration } from "../evaluation/calibrationCache.js";
 
 export const BUILDER_VERSION = "1.0.0";
 
@@ -160,9 +161,14 @@ export interface BuilderResult {
   matchStatus: "pre-match" | "live";
   /** The player the engine independently selected as more likely to win. */
   builderPickedPlayerId: string;
-  /** Engine's calibrated win probability for builderPickedPlayerId (0–100). */
+  /**
+   * Equal to rawValidationScore below (0–100). Field name kept for API/schema
+   * stability; no calibration is currently applied -- see deriveBuilderPick.
+   * Will diverge from rawValidationScore again only if a Builder-owned
+   * calibration model (never the Prediction Engine's) is introduced.
+   */
   builderCalibratedProbability: number;
-  /** Raw validationScore before calibration was applied. */
+  /** The Builder's own validationScore, unmodified. */
   rawValidationScore: number;
   /** True when the engine's independent pick agrees with the caller's selectedPlayerId. */
   callerAgreesWithEngine: boolean;
@@ -269,6 +275,25 @@ function clamp(v: number, lo: number, hi: number): number {
 /** Convert a selected–opponent difference into a 0–100 factor score (50 = neutral). */
 function diffScore(selVal: number, oppVal: number, scale: number): number {
   return Math.round(50 + clamp((selVal - oppVal) * scale, -50, 50));
+}
+
+/**
+ * Derives the Builder's independent pick and reported probability from its OWN
+ * validationScore alone. Deliberately takes no calibration model, no cache, no
+ * Prediction Engine input of any kind -- this signature is the independence
+ * guarantee: there is no parameter this function could use to reintroduce the
+ * calibration leak even by accident. See builderScoringService.test.ts's
+ * "independence guard" suite for the regression test that pins this down.
+ */
+export function deriveBuilderPick(
+  validationScore: number,
+  selectedPlayerId: string,
+  opponentId: string,
+): { builderCalibratedProbability: number; builderPickedPlayerId: string } {
+  return {
+    builderCalibratedProbability: validationScore,
+    builderPickedPlayerId: validationScore >= 50 ? selectedPlayerId : opponentId,
+  };
 }
 
 function stddev(values: number[]): number {
@@ -1988,27 +2013,27 @@ export async function computeBuilderScore(snapshot: BuilderSnapshot): Promise<Bu
 
   const reasons = generateReasons(factors, sel, opp, surface);
 
-  // ── 9. Calibration + independent winner selection ─────────────────────────
+  // ── 9. Independent winner selection ────────────────────────────────────────
   //
-  // Apply the same calibration function the Prediction Engine uses to convert the
-  // raw validation score (a weighted average) into a calibrated probability.
-  // If no active calibration model exists, fall back to the raw score.
+  // No calibration is applied here. The Builder previously reshaped its own
+  // validationScore through the Prediction Engine's fitted calibration model
+  // (evaluation/calibrationCache.ts -> evaluation/calibration.ts ->
+  // calibrationModelsTable) before picking a winner -- that made the Builder's
+  // actual pick depend on Prediction-Engine-trained parameters, breaking the
+  // Validation Score != Win Probability independence guarantee even though the
+  // score itself was computed independently. See deriveBuilderPick below: the
+  // Builder's pick is a pure function of its own validationScore, nothing else.
+  //
+  // There is currently no Builder-owned calibration model (one trained only on
+  // builder_decision_log outcomes, independent of the Prediction Engine). Per
+  // the independence principle, calibration is dropped rather than borrowed --
+  // builderCalibratedProbability is the Builder's raw score, unmodified. If
+  // builder_decision_log ever accumulates enough clean, independent outcomes,
+  // a genuinely separate Builder-owned calibration model can be fitted from
+  // that data alone as its own follow-up piece of work.
   const rawValidationScore = validationScore;
-  let builderCalibratedProbability = validationScore; // fallback: raw score
-  try {
-    const { mapping } = await getActiveCalibration();
-    if (mapping && mapping.length > 0) {
-      const knots = mapping as CalibrationKnot[];
-      const calibrated01 = applyCalibrationOriented(knots, validationScore / 100);
-      builderCalibratedProbability = Math.round(calibrated01 * 100);
-    }
-  } catch {
-    // Calibration cache unavailable — raw score is the fallback
-  }
-
-  // Independent winner selection: the engine picks the player it favors on its own,
-  // independently of the caller's selection. Used to measure engine accuracy over time.
-  const builderPickedPlayerId = builderCalibratedProbability >= 50 ? selectedPlayerId : opponentId;
+  const { builderCalibratedProbability, builderPickedPlayerId } =
+    deriveBuilderPick(validationScore, selectedPlayerId, opponentId);
   const callerAgreesWithEngine = builderPickedPlayerId === selectedPlayerId;
 
   return {

@@ -32,6 +32,15 @@ const FORBIDDEN: Array<[RegExp, string]> = [
   [/historicalMatchesTable/,                     "direct reference to historicalMatchesTable"],
   [/savedCardsTable/,                            "direct reference to savedCardsTable"],
   [/evaluationRunsTable/,                        "direct reference to evaluationRunsTable"],
+  // Task: calibration-leak fix. calibrationModelsTable above only catches a DIRECT table
+  // reference -- it missed the Builder importing evaluation/calibrationCache.ts, which
+  // wraps that exact table one file away from the scanned directory, and reshaping its
+  // own score through the Prediction Engine's fitted calibration model via
+  // evaluation/calibration.ts. Both import paths and both function names are forbidden
+  // here so this specific indirection can't slip back in unnoticed.
+  [/from\s+['"].*\/evaluation\/calibration(Cache)?(\.js)?['"]/, "import from evaluation/calibration or evaluation/calibrationCache"],
+  [/getActiveCalibration/,                       "reference to getActiveCalibration (Prediction Engine calibration cache)"],
+  [/applyCalibrationOriented/,                   "reference to applyCalibrationOriented (Prediction Engine calibration function)"],
 ];
 
 function getAllTsFiles(dir: string): string[] {

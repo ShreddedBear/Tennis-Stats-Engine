@@ -30,6 +30,9 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+
 import {
   __TEST_computeScoring,
   __TEST_computeAccuracyFromRows,
@@ -44,6 +47,7 @@ import {
   THIN_DATA_RISK_FLOOR,
   MIN_SAMPLE_FOR_TIER_COMPARISON,
   thinDataRiskFloor,
+  deriveBuilderPick,
   computeBuilderAccuracyStats,
   computePlayerStats,
   type MinimalDb,
@@ -1804,41 +1808,78 @@ describe("__TEST_computeGradingDecision — pure grading logic", () => {
   });
 });
 
-// ── Calibration fallback logic test (pure logic) ──────────────────────────────
+// ── Calibration-independence guard ────────────────────────────────────────────
+//
+// Regression coverage for the calibration leak: builderScoringService previously
+// imported evaluation/calibrationCache.ts + evaluation/calibration.ts and reshaped
+// its own validationScore through the Prediction Engine's fitted calibration model
+// before picking a winner. Fixed by deriving the pick from deriveBuilderPick, a
+// pure function whose signature takes no calibration model, cache, or any other
+// Prediction Engine input -- there is no parameter it could use to reintroduce the
+// leak even by accident. See also checkParlayBoundary.test.ts for the import-level
+// regression guard (catches the leak coming back via a re-added import, even before
+// any test here would exercise it).
 
-describe("calibration — raw score fallback when no active model", () => {
-  it("builderCalibratedProbability equals rawValidationScore when no active calibration exists", () => {
-    // When getActiveCalibration returns no mapping, the raw score is used directly.
-    const rawValidationScore = 67;
-    // Simulate: getActiveCalibration returns { mapping: null }
-    const hasActiveMapping = false; // null mapping → no active model
-    const builderCalibratedProbability = hasActiveMapping
-      ? 99 // would be calibrated (never reached here)
-      : rawValidationScore;
-    assert.strictEqual(builderCalibratedProbability, rawValidationScore,
-      "calibrated probability must equal raw score when no active calibration model exists");
+describe("deriveBuilderPick — calibration-independence guard", () => {
+  it("builderCalibratedProbability always equals the input validationScore (no calibration applied)", () => {
+    for (const score of [0, 1, 33, 49, 50, 51, 67, 99, 100]) {
+      const result = deriveBuilderPick(score, "sel-id", "opp-id");
+      assert.strictEqual(result.builderCalibratedProbability, score,
+        `builderCalibratedProbability must equal the raw validationScore (${score}), got ${result.builderCalibratedProbability}`);
+    }
   });
 
-  it("calibration with non-null mapping produces output in [0, 100] range", () => {
-    // applyCalibrationOriented takes a 0–1 input and returns 0–1.
-    // After *100 rounding, output must be in [0, 100].
-    const rawScore = 72; // raw validation score in [0, 100]
-    const raw01 = rawScore / 100; // 0.72
-    // Simulate a trivial identity calibration (knots at 0→0 and 1→1)
-    const mockCalibrated01 = raw01; // identity
-    const builderCalibratedProbability = Math.round(mockCalibrated01 * 100);
-    assert.ok(builderCalibratedProbability >= 0 && builderCalibratedProbability <= 100,
-      `calibrated probability must be in [0, 100] (got ${builderCalibratedProbability})`);
+  it("picks selectedPlayerId when validationScore >= 50, purely from the score", () => {
+    const result = deriveBuilderPick(50, "sel-id", "opp-id");
+    assert.strictEqual(result.builderPickedPlayerId, "sel-id");
   });
 
-  it("rawValidationScore is preserved independently of calibration output", () => {
-    // Both rawValidationScore and builderCalibratedProbability must be stored.
-    const rawValidationScore = 58;
-    const builderCalibratedProbability = 62; // hypothetical calibrated output
-    assert.strictEqual(rawValidationScore, 58, "rawValidationScore must not be mutated by calibration");
-    assert.strictEqual(builderCalibratedProbability, 62, "calibrated probability is stored separately");
-    assert.notStrictEqual(rawValidationScore, builderCalibratedProbability,
-      "raw and calibrated can differ (this validates that both are stored)");
+  it("picks opponentId when validationScore < 50, purely from the score", () => {
+    const result = deriveBuilderPick(49, "sel-id", "opp-id");
+    assert.strictEqual(result.builderPickedPlayerId, "opp-id");
+  });
+
+  it("is a pure function: identical inputs always produce identical outputs, run after run", () => {
+    // There is no external state (no cache, no DB, no calibration model) this
+    // function could read, so repeated calls with the same score+ids can never
+    // diverge -- proving the pick is fully determined by the Builder's own score.
+    const calls = Array.from({ length: 5 }, () => deriveBuilderPick(71, "sel-id", "opp-id"));
+    for (const c of calls) {
+      assert.deepStrictEqual(c, calls[0]);
+    }
+  });
+
+  it("source-level guard: builderScoringService.ts's CODE (not comments) has no calibration imports or symbols", () => {
+    // Belt-and-braces alongside checkParlayBoundary.ts: even if the boundary script
+    // itself were ever bypassed or misconfigured, this test independently re-checks
+    // the exact file for the exact symbols that constituted the original leak.
+    // Comment lines are excluded (this file's own explanatory comments legitimately
+    // name calibrationCache/calibrationModelsTable when describing what NOT to do).
+    const filePath = fileURLToPath(new URL("./builderScoringService.ts", import.meta.url));
+    const codeLines = readFileSync(filePath, "utf8")
+      .split("\n")
+      .filter(line => {
+        const trimmed = line.trimStart();
+        return !trimmed.startsWith("//") && !trimmed.startsWith("*");
+      })
+      .map(line => {
+        const commentStart = line.indexOf("//");
+        return commentStart >= 0 ? line.slice(0, commentStart) : line;
+      })
+      .join("\n");
+    // Built via concatenation, not as contiguous literals: checkParlayBoundary.ts scans
+    // .test.ts files too, and a literal "getActiveCalibration" etc. sitting right here
+    // would itself trip those exact identifier rules on this file.
+    const forbidden = [
+      "getActive" + "Calibration",
+      "applyCalibration" + "Oriented",
+      "calibrationModels" + "Table",
+      "evaluation/calibration" + "Cache",
+      "evaluation/calibration" + ".js",
+    ];
+    for (const term of forbidden) {
+      assert.ok(!codeLines.includes(term), `builderScoringService.ts's code must not contain "${term}" (calibration-leak regression)`);
+    }
   });
 });
 

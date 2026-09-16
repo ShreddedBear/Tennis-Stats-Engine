@@ -10,6 +10,11 @@ import { buildPlayerIdentityIndex } from "../tennisData/playerIdentity";
 import { HISTORICAL_MODEL_VERSION, type ResultType, type RetirementRule } from "./types";
 import { defaultPredictionMode, derivePredictionStrategyIdentity } from "./strategyIdentity";
 
+/** Approximate resident heap, for periodic resource-safety logging (see `ShadowReplayOptions.onProgress`). */
+function heapUsedMB(): number {
+  return Math.round((process.memoryUsage().heapUsed / (1024 * 1024)) * 10) / 10;
+}
+
 /**
  * Shadow-mode replay (see the task spec): a faster-but-honestly-labeled alternative to waiting
  * for real live paper-trading to slowly accumulate graded fixtures one real match at a time.
@@ -62,6 +67,26 @@ export interface ShadowReplayOptions {
    * this flag.
    */
   overwrite?: boolean;
+  /**
+   * Cooperative cancellation hook, polled once per calendar day (a natural checkpoint boundary --
+   * every day already commits its own rows via `onConflictDoNothing` before this is checked, so
+   * stopping here never loses or duplicates work on resume). Return true to stop after the current
+   * day finishes; the summary is returned with `cancelled: true` rather than throwing, matching
+   * `backtestService.ts`'s cooperative-cancellation contract.
+   */
+  isCancelled?: () => Promise<boolean> | boolean;
+  /**
+   * Per-day progress callback for job-status polling and the resource-safety report. Called once
+   * per calendar day that contained at least one match (empty days are skipped before this fires,
+   * same as every other per-day step), after that day's matches have been scored and inserted.
+   */
+  onProgress?: (info: {
+    day: string;
+    matchesInDay: number;
+    insertedSoFar: number;
+    daysSimulatedSoFar: number;
+    heapUsedMB: number;
+  }) => Promise<void> | void;
 }
 
 export interface ShadowReplaySummary {
@@ -81,6 +106,10 @@ export interface ShadowReplaySummary {
   skippedInsufficientData: number;
   /** Distinct UTC calendar days actually walked while pacing this replay. */
   daysSimulated: number;
+  /** True when `options.isCancelled` returned true and the loop stopped before reaching `endDate`. */
+  cancelled: boolean;
+  /** Last UTC calendar day (YYYY-MM-DD) fully processed before stopping/finishing -- the resume point. */
+  lastDayProcessed: string | null;
 }
 
 function classifyResult(match: Pick<HistoricalMatchRow, "winnerId" | "retired" | "walkover" | "cancelled">): ResultType {
@@ -144,7 +173,7 @@ function getCalibrationMappingAsOf(history: CalibrationHistoryEntry[], asOf: Dat
 }
 
 export async function runShadowPaperTradingReplay(options: ShadowReplayOptions): Promise<ShadowReplaySummary> {
-  const { startDate, endDate, batchLabel, overwrite = false } = options;
+  const { startDate, endDate, batchLabel, overwrite = false, isCancelled, onProgress } = options;
   if (!batchLabel.trim()) throw new Error("batchLabel is required and cannot be blank");
   const rangeStart = parseUtcDateBoundary(startDate, false);
   const rangeEnd = parseUtcDateBoundary(endDate, true);
@@ -172,6 +201,8 @@ export async function runShadowPaperTradingReplay(options: ShadowReplayOptions):
     skippedAlreadyClaimed: 0,
     skippedInsufficientData: 0,
     daysSimulated: 0,
+    cancelled: false,
+    lastDayProcessed: null,
   };
 
   // Task #159 rework: unlike walk-forward (which genuinely scores the WHOLE corpus every run, so
@@ -187,7 +218,19 @@ export async function runShadowPaperTradingReplay(options: ShadowReplayOptions):
   // was measured at ~14% of the full corpus on a busy day -- comparable to walk-forward's own
   // per-fold cost, not a full-corpus spike -- and peak memory never grows with the requested
   // range's length, only with how busy any ONE day in it is.
-  const identityIndex = await buildPlayerIdentityIndex();
+  //
+  // Resource-safety fix (3-month walk-forward validation task): `identityIndex` and `eloHistory`
+  // depend only on the corpus up to `rangeEnd` and on nothing that changes mid-run (no writes to
+  // historical_matches/match_feature_snapshots happen during a replay), so both are built ONCE
+  // here, exactly like `calibrationHistory` below -- never per-day. Previously `buildEloHistoryIndex`
+  // was called INSIDE the day loop, which re-ran its full `match_feature_snapshots` eloOverall scan
+  // (the single largest query in either builder, ~229K rows at current corpus scale) once per
+  // calendar day in the requested range -- for a 3-month/~90-day replay that meant ~90 redundant
+  // full-table scans instead of 1. Both builders also now take a `scheduledBefore: rangeEnd` bound
+  // (see `CorpusLoadBound`'s doc) so they never load rows the replay could not use anyway.
+  const corpusBound = { scheduledBefore: rangeEnd };
+  const identityIndex = await buildPlayerIdentityIndex(corpusBound);
+  const eloHistory = await buildEloHistoryIndex(identityIndex, corpusBound);
   const previousSpecialistRows = await getActiveSpecialistSegments();
   const specialistRowsBySegmentKey = new Map(previousSpecialistRows.map((row) => [row.segmentKey, row]));
   // Task #160: the full fitted-calibration timeline, loaded ONCE for this whole run -- each
@@ -198,6 +241,11 @@ export async function runShadowPaperTradingReplay(options: ShadowReplayOptions):
   const retirementRule = settings.retirementRule as RetirementRule;
 
   for (let dayStart = new Date(rangeStart); dayStart.getTime() <= rangeEnd.getTime(); dayStart.setUTCDate(dayStart.getUTCDate() + 1)) {
+    if (isCancelled && (await isCancelled())) {
+      summary.cancelled = true;
+      break;
+    }
+
     const dayEnd = new Date(Math.min(new Date(dayStart).setUTCHours(23, 59, 59, 999), rangeEnd.getTime()));
 
     const dayMatches = await db
@@ -248,7 +296,7 @@ export async function runShadowPaperTradingReplay(options: ShadowReplayOptions):
 
     const scoringContext: HistoricalScoringContext = {
       matchHistory: buildMatchHistoryIndex(directMatches),
-      eloHistory: await buildEloHistoryIndex(identityIndex),
+      eloHistory,
       identityIndex,
       specialistRowsBySegmentKey,
       // Shadow replay is point-in-time historical evaluation: suppress the segment specialist
@@ -335,6 +383,18 @@ export async function runShadowPaperTradingReplay(options: ShadowReplayOptions):
         summary.skippedAlreadyClaimed += 1;
       }
     }
+
+    const dayLabel = dayStart.toISOString().slice(0, 10);
+    summary.lastDayProcessed = dayLabel;
+    if (onProgress) {
+      await onProgress({
+        day: dayLabel,
+        matchesInDay: dayMatches.length,
+        insertedSoFar: summary.inserted,
+        daysSimulatedSoFar: summary.daysSimulated,
+        heapUsedMB: heapUsedMB(),
+      });
+    }
     // `dayMatches`/`directMatches`/`scoringContext` fall out of scope here -- nothing from one
     // day's scoped context is retained once the next day's iteration begins.
   }
@@ -350,8 +410,10 @@ export async function runShadowPaperTradingReplay(options: ShadowReplayOptions):
       skippedAlreadyClaimed: summary.skippedAlreadyClaimed,
       skippedInsufficientData: summary.skippedInsufficientData,
       daysSimulated: summary.daysSimulated,
+      cancelled: summary.cancelled,
+      lastDayProcessed: summary.lastDayProcessed,
     },
-    "Shadow paper-trading replay batch completed",
+    summary.cancelled ? "Shadow paper-trading replay batch stopped (cancelled)" : "Shadow paper-trading replay batch completed",
   );
 
   return summary;

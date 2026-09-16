@@ -387,7 +387,12 @@ export async function runPredictionEngine(input: PredictionEngineInput): Promise
   const recentForm = computeRecentFormModule(input.player1Matches, input.player2Matches, input.surface, player1OpponentElo, player2OpponentElo);
   const fatigue = computeFatigueModule(input.player1Matches, input.player2Matches, input.asOfDate);
   const matchLoadRecovery = computeMatchLoadRecoveryModule(input.player1Matches, input.player2Matches, input.asOfDate);
-  const availability = computeAvailabilityModule(input.player1Matches, input.player2Matches, input.tournamentName ?? null, new Date(), input.webResearch ?? null);
+  // 2026-09-16 asOfDate fix (sibling of the 2026-07-14 Fatigue fix, see PredictionEngineInput.asOfDate):
+  // rest-days/recent-walkover/recent-retirement recency here must be measured against the same
+  // historical instant Fatigue and MatchLoadRecovery already use, not wall-clock "now" -- otherwise a
+  // historically-scored match's Availability edge silently depends on what real-world day the
+  // evaluation happens to run on.
+  const availability = computeAvailabilityModule(input.player1Matches, input.player2Matches, input.tournamentName ?? null, input.asOfDate ?? new Date(), input.webResearch ?? null);
   const styleMatchup = computeStyleMatchupModule(input.player1Matches, input.player2Matches);
   const headToHead = computeHeadToHeadModule(input.headToHead, input.surface);
 

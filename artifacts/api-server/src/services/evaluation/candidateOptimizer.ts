@@ -776,6 +776,16 @@ export async function runOptimizerRun(
           plattHoldoutLogLoss: snapshotCalibration?.plattHoldoutLogLoss ?? null,
           holdoutSampleSize: snapshotCalibration?.holdoutSampleSize ?? null,
           objectiveProfile: draft.strategySpec.objectiveProfile,
+          // Honesty disclosure (temporal-integrity-leakage-report.md #3.2): this run performs
+          // exactly ONE walk-forward evaluation and ONE pooled calibration fit, shared by every
+          // candidate generated in this batch -- these four fields above are that single shared
+          // result, not a measurement of THIS candidate's own strategySpec (weights/gates/
+          // thresholds). The engine (runPredictionEngine) has no mechanism today to apply a
+          // candidate's strategySpec during scoring, so no candidate-specific accuracy/logLoss/
+          // brier exists yet. Consumers (dashboards, optimizerSummary.ts ranking) must not treat
+          // these numbers as differentiating this candidate from any other in the same batch.
+          candidateSpecificallyScored: false,
+          metricsSource: "shared-walk-forward-run" as const,
         } as unknown as Record<string, unknown>,
         acceptanceChecksPassed: acceptanceChecks.every((c) => c.passed),
         acceptanceChecks,

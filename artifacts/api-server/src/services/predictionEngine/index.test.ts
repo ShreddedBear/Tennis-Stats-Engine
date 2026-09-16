@@ -69,6 +69,70 @@ test("the final-consistency guard runs automatically on every real engine output
   assert.deepEqual(output.engine.consistencyViolations, [], "a normal, well-formed prediction must never trip any contradiction rule");
 });
 
+test("Availability measures recency against the provided historical asOfDate, not the real current time (sibling of the Fatigue asOfDate fix)", async () => {
+  // Player 1's last match is exactly 3 days before a fixed 2024 historical asOfDate. If Availability
+  // used Date.now() instead (the pre-fix behavior at index.ts:390), daysSinceLastMatch would be
+  // however many days have elapsed between 2024-03-01 and whatever day this test happens to run on
+  // (hundreds of days), not 3 -- so this assertion is only stable, and only passes, when the engine
+  // actually honors asOfDate.
+  const historicalAsOfDate = new Date("2024-03-01T00:00:00.000Z"); // 2024 is a leap year: Feb 27 -> Mar 1 is exactly 3 days
+  const recentMatch: MatchRecord = {
+    id: "m-recent",
+    date: "2024-02-27",
+    tournamentName: "Fixture Open",
+    tournamentLevel: "ATP250",
+    round: "R32",
+    matchFormat: "BestOf3",
+    surface: "Hard",
+    indoor: false,
+    opponentId: "opp-recent",
+    opponentName: "Opp Recent",
+    opponentRank: 60,
+    result: "W",
+    score: "6-3 6-4",
+    retired: false,
+    walkover: false,
+    stats: null,
+    opponentStats: null,
+    setGameMargins: [],
+  };
+  const noHistory: MatchRecord[] = [];
+
+  const output = await runPredictionEngine(baseInput({ player1Matches: [recentMatch], player2Matches: noHistory, asOfDate: historicalAsOfDate }));
+
+  assert.equal(output.engine.availability.player1.daysSinceLastMatch, 3, `expected exactly 3 days between the match and asOfDate, got ${output.engine.availability.player1.daysSinceLastMatch} -- indicates real wall-clock time leaked into a historical Availability calculation`);
+  assert.equal(output.engine.availability.player1.restCategory, "Normal"); // 3 days: above SHORT_REST_THRESHOLD_DAYS (2), below LONG_LAYOFF_THRESHOLD_DAYS (14)
+});
+
+test("Availability with no asOfDate defaults to the real current time (live-path behavior, unchanged)", async () => {
+  const now = new Date();
+  const veryRecentMatch: MatchRecord = {
+    id: "m-today",
+    date: now.toISOString().slice(0, 10),
+    tournamentName: "Fixture Open",
+    tournamentLevel: "ATP250",
+    round: "R32",
+    matchFormat: "BestOf3",
+    surface: "Hard",
+    indoor: false,
+    opponentId: "opp-today",
+    opponentName: "Opp Today",
+    opponentRank: 60,
+    result: "W",
+    score: "6-3 6-4",
+    retired: false,
+    walkover: false,
+    stats: null,
+    opponentStats: null,
+    setGameMargins: [],
+  };
+  const outputWithDefault = await runPredictionEngine(baseInput({ player1Matches: [veryRecentMatch], player2Matches: [], asOfDate: undefined }));
+  const outputWithExplicitNow = await runPredictionEngine(baseInput({ player1Matches: [veryRecentMatch], player2Matches: [], asOfDate: now }));
+
+  assert.equal(outputWithDefault.engine.availability.player1.daysSinceLastMatch, outputWithExplicitNow.engine.availability.player1.daysSinceLastMatch);
+  assert.equal(outputWithDefault.engine.availability.player1.restCategory, "ShortRest");
+});
+
 test("a 'Surface Elo favors X' reason always names whichever player actually holds the HIGHER surface Elo rating, never the lower one", async () => {
   const output = await runPredictionEngine(baseInput());
   const surfaceEloReason = output.engine.reasons.find((r) => r.startsWith("Surface Elo favors"));

@@ -113,12 +113,15 @@ export interface PredictionEngineInput {
    */
   excludedModels?: ReadonlySet<AblationModelKey>;
   /**
-   * The instant Fatigue's 3/7/14-day recency windows are measured against (see `fatigue.ts`).
+   * The instant every recency-window module (`fatigue.ts`, `matchLoadRecovery.ts`,
+   * `availability.ts`'s rest-days/recent-walkover/recent-retirement windows) measures against.
    * Omit for every live call -- it defaults to the real current time, which is correct there.
-   * Walk-forward/backtest evaluation (`historicalScoring.ts`) passes each match's own frozen
-   * `cutoffAt` here instead, so historical rows measure recency against their own as-of moment
-   * rather than today's wall-clock time. 2026-07-14 fix -- before this, backtest fatigue always
-   * compared match dates from years ago against `Date.now()`, so the windows were always empty.
+   * Walk-forward/backtest evaluation (`historicalScoring.ts`, `ablation.ts`, and the one-off
+   * `scripts/` replays) passes each match's own frozen `cutoffAt` here instead, so historical rows
+   * measure recency against their own as-of moment rather than today's wall-clock time. 2026-07-14
+   * fix -- before this, backtest Fatigue always compared match dates from years ago against
+   * `Date.now()`, so the windows were always empty. 2026-09-16: the same fix extended to
+   * Availability, which had the identical `new Date()` bug independently.
    */
   asOfDate?: Date;
 }

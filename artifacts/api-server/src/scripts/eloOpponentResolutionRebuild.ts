@@ -136,6 +136,10 @@ async function scoreMatch(
     segment: null,
     simulatorAdoption: null,
     activeCalibration: null,
+    // Diagnostic replay against the frozen historical corpus (same principle as
+    // historicalScoring.ts's "2026-07-14 Fatigue asOfDate fix"): Fatigue/Availability/
+    // MatchLoadRecovery must measure recency against this match's own cutoffAt, not today.
+    asOfDate: match.cutoffAt,
   });
 
   const rawProbability = output.rawEnsembleProbability / 100;
@@ -193,6 +197,10 @@ async function scoreMatchWithVerificationCache(match: HistoricalMatchRow, matchH
     segment: null,
     simulatorAdoption: null,
     activeCalibration: null,
+    // Diagnostic replay against the frozen historical corpus (same principle as
+    // historicalScoring.ts's "2026-07-14 Fatigue asOfDate fix"): Fatigue/Availability/
+    // MatchLoadRecovery must measure recency against this match's own cutoffAt, not today.
+    asOfDate: match.cutoffAt,
   });
   const rawProbability = output.rawEnsembleProbability / 100;
   return { rawProbability, predictedWinnerId: rawProbability >= 0.5 ? match.player1Id : match.player2Id };

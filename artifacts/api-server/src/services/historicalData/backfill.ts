@@ -1,4 +1,4 @@
-import { db, historicalMatchesTable, matchFeatureSnapshotsTable, evaluationPredictionsTable } from "@workspace/db";
+import { db, pool, historicalMatchesTable, matchFeatureSnapshotsTable, evaluationPredictionsTable } from "@workspace/db";
 import { and, asc, desc, eq, lt, sql } from "drizzle-orm";
 import { logger } from "../../lib/logger";
 import type { Surface, TennisDataProvider, HistoricalFixture } from "../tennisData/types";
@@ -7,6 +7,7 @@ import { resolveTournamentTimezone } from "../tennisData/timezoneMap";
 import { applyMatchResult, computeFeatures, createPlayerState, type PlayerState } from "./features";
 import { CUTOFF_MINUTES, DEFAULT_CUTOFF, type BackfillOptions, type BackfillSummary, type CutoffOption } from "./types";
 import { createDatabaseCanonicalIngestionResolver } from "../identity/canonicalIngestionResolver.js";
+import { lookupPlayerPbpFeature } from "../historicalEvidence/lookupService.js";
 
 type GameMargins = Array<{ player1Games: number; player2Games: number }>;
 
@@ -308,9 +309,20 @@ export async function runHistoricalBackfill(
           const state1 = getOrCreateState(playerStates, fixture.player1Id);
           const state2 = getOrCreateState(playerStates, fixture.player2Id);
           const surface = existing.surface as Surface | null;
+          // Re-derives the same additive pbp-evidence feature the insert path computes (see
+          // lookupPlayerPbpFeature call below) so this integrity check's expected count stays
+          // correct now that a match can carry a pbp feature row in addition to Elo/form ones --
+          // otherwise every already-imported match with eligible pbp evidence would trip a false
+          // "Data integrity violation" on the next run.
+          const [existingPbpFeature1, existingPbpFeature2] = await Promise.all([
+            lookupPlayerPbpFeature(pool, fixture.player1Id, existing.cutoffAt),
+            lookupPlayerPbpFeature(pool, fixture.player2Id, existing.cutoffAt),
+          ]);
           const expectedCount =
             computeFeatures(state1, surface).filter((f) => f.sourceTimestamp.getTime() < existing.cutoffAt.getTime()).length +
-            computeFeatures(state2, surface).filter((f) => f.sourceTimestamp.getTime() < existing.cutoffAt.getTime()).length;
+            computeFeatures(state2, surface).filter((f) => f.sourceTimestamp.getTime() < existing.cutoffAt.getTime()).length +
+            (existingPbpFeature1.feature ? 1 : 0) +
+            (existingPbpFeature2.feature ? 1 : 0);
 
           if (expectedCount > 0) {
             const [row] = await db
@@ -353,9 +365,22 @@ export async function runHistoricalBackfill(
       const features1 = computeFeatures(state1, fixture.surface);
       const features2 = computeFeatures(state2, fixture.surface);
 
+      // Additive PBP-evidence feature (historicalEvidence/lookupService.ts): looks up each
+      // player's OWN prior matches' pbp_evidence (never this fixture's own match -- that would
+      // be hindsight leakage), applies the full identity/cutoff/validation/license eligibility
+      // chain, and returns at most one aggregated feature plus full used/rejected provenance.
+      // Never touches features1/features2 or the Elo/form state above -- this is a parallel,
+      // independently-computable addition, not a modification of the existing pipeline.
+      const [pbpFeature1, pbpFeature2] = await Promise.all([
+        lookupPlayerPbpFeature(pool, fixture.player1Id, cutoffAt),
+        lookupPlayerPbpFeature(pool, fixture.player2Id, cutoffAt),
+      ]);
+
       const featureRows = [
         ...features1.map((f) => ({ playerId: fixture.player1Id, ...f })),
         ...features2.map((f) => ({ playerId: fixture.player2Id, ...f })),
+        ...(pbpFeature1.feature ? [{ playerId: fixture.player1Id, ...pbpFeature1.feature }] : []),
+        ...(pbpFeature2.feature ? [{ playerId: fixture.player2Id, ...pbpFeature2.feature }] : []),
       ]
         // Defense in depth: never write a feature whose own source timestamp fails its cutoff
         // check, even though computeFeatures() only ever draws from strictly-earlier matches.
@@ -369,6 +394,7 @@ export async function runHistoricalBackfill(
       // otherwise a process failure between the two inserts would leave an orphaned match with no
       // snapshots, and the idempotency check above would treat it as already-imported forever,
       // silently and permanently losing that match's features with no repair path.
+      let insertedMatchId: number | undefined;
       await db.transaction(async (tx) => {
         const [insertedMatch] = await tx
           .insert(historicalMatchesTable)
@@ -415,7 +441,31 @@ export async function runHistoricalBackfill(
             })),
           );
         }
+        insertedMatchId = insertedMatch.id;
       });
+
+      // Prediction-audit trail (architecture-correction requirement): a structured log record,
+      // tied to the specific historical match this feature snapshot belongs to, of exactly which
+      // pbp_evidence rows contributed (with validationLevel/licenseStatus/provenance retained
+      // verbatim) and which were seen but rejected and why. This is emitted whenever evidence was
+      // FOUND for either player, even if none of it was eligible, so a rejection is never silent.
+      if (
+        pbpFeature1.usedEvidence.length > 0 || pbpFeature1.rejectedEvidence.length > 0 ||
+        pbpFeature2.usedEvidence.length > 0 || pbpFeature2.rejectedEvidence.length > 0
+      ) {
+        logger.info(
+          {
+            historicalMatchId: insertedMatchId,
+            player1Id: fixture.player1Id,
+            player2Id: fixture.player2Id,
+            player1UsedEvidence: pbpFeature1.usedEvidence,
+            player1RejectedEvidence: pbpFeature1.rejectedEvidence,
+            player2UsedEvidence: pbpFeature2.usedEvidence,
+            player2RejectedEvidence: pbpFeature2.rejectedEvidence,
+          },
+          "historical backfill: pbp evidence considered for this match's feature snapshot",
+        );
+      }
 
       summary.matchesInserted += 1;
       summary.featureRowsInserted += featureRows.length;

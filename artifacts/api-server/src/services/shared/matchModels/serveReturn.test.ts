@@ -1,9 +1,9 @@
 // Unit tests for the serve/return module's real-stats vs. margin-proxy fallback behavior.
-// Run with: tsx --test src/services/predictionEngine/serveReturn.test.ts
+// Run with: tsx --test src/services/shared/matchModels/serveReturn.test.ts
 import test from "node:test";
 import assert from "node:assert/strict";
 import { computeServeReturnModule } from "./serveReturn";
-import type { MatchRecord, MatchStatLine } from "../tennisData/types";
+import type { MatchRecord, MatchStatLine } from "../../tennisData/types";
 
 function statLine(overrides: Partial<MatchStatLine>): MatchStatLine {
   return {

@@ -41,7 +41,7 @@ import { buildEloHistoryIndex } from "../predictionEngine/opponentStrength";
 import { buildPlayerIdentityIndex } from "../tennisData/playerIdentity";
 import { applyCalibrationOriented } from "./calibration";
 import { defaultPredictionMode, derivePredictionStrategyIdentity } from "./strategyIdentity";
-import { eloFallbackTracker } from "../predictionEngine/fallbackTracking";
+import { eloFallbackTracker } from "../shared/matchModels/fallbackTracking";
 import { HISTORICAL_MODEL_VERSION, type RetirementRule } from "./types";
 import type { CalibrationKnot } from "./types";
 

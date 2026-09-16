@@ -24,7 +24,7 @@ import type {
 } from "./types";
 import { ProviderUnavailableError } from "./types";
 import { inferSurfaceAndLevel } from "./surfaceMap.js";
-import { fetchFromSofascore } from "../parlayBuilder/sofascoreProvider.js";
+import { fetchFromSofascore } from "./sofascoreProvider.js";
 import { fetchFromBsdTennis } from "./bsdTennisProvider.js";
 import { getPlayerMatchesFromDb } from "./dbHistoryFallback.js";
 import { getCachedPlayerIdentityIndex, getAliasIds } from "./playerIdentity.js";

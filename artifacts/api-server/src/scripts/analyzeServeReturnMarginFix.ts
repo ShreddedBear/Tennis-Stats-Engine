@@ -15,7 +15,7 @@
 import { db, historicalMatchesTable, pool } from "@workspace/db";
 import { asc } from "drizzle-orm";
 import { buildMatchHistoryIndex, reconstructPlayerMatchHistory } from "../services/historicalData/matchRecordReconstruction";
-import { realSetGameMargins } from "../services/predictionEngine/setMargins";
+import { realSetGameMargins } from "../services/shared/matchModels/setMargins";
 import type { MatchRecord } from "../services/tennisData/types";
 
 const BASELINE_ELO = 1500;

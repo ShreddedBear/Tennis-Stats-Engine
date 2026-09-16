@@ -25,14 +25,11 @@ import {
   type LiveFetchDiagnostics,
   type ResolutionOutcome,
 } from "./builderProviderFetch.js";
-import { researchPlayerMatchup } from "./webResearchService.js";
+import { researchPlayerMatchup } from "../shared/webResearchService.js";
 import { scrapeMatchstatPlayer, type MatchstatPlayerData } from "./matchstatScraper.js";
 import type { MatchRecord, Surface } from "../tennisData/types.js";
-import type { CalibrationKnot } from "../evaluation/types.js";
-import { computeSurfaceEloModule } from "../predictionEngine/surfaceElo.js";
-import { computeServeReturnModule } from "../predictionEngine/serveReturn.js";
-import { applyCalibrationOriented } from "../evaluation/calibration.js";
-import { getActiveCalibration } from "../evaluation/calibrationCache.js";
+import { computeSurfaceEloModule } from "../shared/matchModels/surfaceElo.js";
+import { computeServeReturnModule } from "../shared/matchModels/serveReturn.js";
 
 export const BUILDER_VERSION = "1.0.0";
 
@@ -1988,23 +1985,16 @@ export async function computeBuilderScore(snapshot: BuilderSnapshot): Promise<Bu
 
   const reasons = generateReasons(factors, sel, opp, surface);
 
-  // ── 9. Calibration + independent winner selection ─────────────────────────
+  // ── 9. Independent winner selection ────────────────────────────────────────
   //
-  // Apply the same calibration function the Prediction Engine uses to convert the
-  // raw validation score (a weighted average) into a calibrated probability.
-  // If no active calibration model exists, fall back to the raw score.
+  // Engine-separation note: the Builder intentionally does NOT calibrate validationScore
+  // through the Prediction Engine's shared calibration model (evaluation/calibrationCache.ts,
+  // backed by the calibration_models table the Prediction Engine fits and uses). Doing so would
+  // mathematically entangle the Builder's output with a curve trained on Prediction Engine
+  // outcomes, defeating the independent-validation guarantee. builderCalibratedProbability is
+  // always the raw validationScore.
   const rawValidationScore = validationScore;
-  let builderCalibratedProbability = validationScore; // fallback: raw score
-  try {
-    const { mapping } = await getActiveCalibration();
-    if (mapping && mapping.length > 0) {
-      const knots = mapping as CalibrationKnot[];
-      const calibrated01 = applyCalibrationOriented(knots, validationScore / 100);
-      builderCalibratedProbability = Math.round(calibrated01 * 100);
-    }
-  } catch {
-    // Calibration cache unavailable — raw score is the fallback
-  }
+  const builderCalibratedProbability = validationScore;
 
   // Independent winner selection: the engine picks the player it favors on its own,
   // independently of the caller's selection. Used to measure engine accuracy over time.

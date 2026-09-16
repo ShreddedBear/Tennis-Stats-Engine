@@ -15,8 +15,8 @@ import {
 } from "./builderProviderFetch.js";
 import { ProviderUnavailableError } from "../tennisData/index.js";
 import type { MatchRecord, PlayerSummary } from "../tennisData/index.js";
-import type { SofascoreFetchResult } from "./sofascoreProvider.js";
-import { isConfidentSofascoreMatch } from "./sofascoreProvider.js";
+import type { SofascoreFetchResult } from "../tennisData/sofascoreProvider.js";
+import { isConfidentSofascoreMatch } from "../tennisData/sofascoreProvider.js";
 
 // ─── Test doubles ─────────────────────────────────────────────────────────────
 

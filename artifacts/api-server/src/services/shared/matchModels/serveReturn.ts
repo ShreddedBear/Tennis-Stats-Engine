@@ -1,6 +1,9 @@
-import type { MatchRecord, Surface } from "../tennisData/types";
-import type { OpponentEloLookup } from "./opponentStrength";
+import type { MatchRecord, Surface } from "../../tennisData/types";
 import { realSetGameMargins } from "./setMargins";
+
+/** Structurally identical to predictionEngine/opponentStrength.ts's `OpponentEloLookup` — kept as
+ *  a local alias so this shared module has no dependency on predictionEngine/. */
+type OpponentEloLookup = Map<string, number>;
 
 /**
  * Point-level serve/return breakdown, computed directly from real provider match-level stats

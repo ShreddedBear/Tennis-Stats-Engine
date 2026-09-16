@@ -1,5 +1,5 @@
-import { logger } from "../../lib/logger";
-import type { TournamentLevel } from "../tennisData/types";
+import { logger } from "../../../lib/logger";
+import type { TournamentLevel } from "../../tennisData/types";
 
 /**
  * Task #77: auditable record of every time #76's last-resort, opponent-unresolved Elo fallback

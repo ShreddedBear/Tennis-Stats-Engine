@@ -1,6 +1,6 @@
 import type { MatchFormat } from "../tennisData/types";
-import type { SurfaceEloResult } from "./surfaceElo";
-import type { ServeReturnResult } from "./serveReturn";
+import type { SurfaceEloResult } from "../shared/matchModels/surfaceElo";
+import type { ServeReturnResult } from "../shared/matchModels/serveReturn";
 
 /**
  * Phase 7: point-by-point Monte Carlo match simulator.

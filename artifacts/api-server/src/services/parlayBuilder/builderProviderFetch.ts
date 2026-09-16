@@ -42,7 +42,7 @@ import {
 } from "../tennisData/index.js";
 import { logger } from "../../lib/logger.js";
 import { resolvePlayerProfileByName } from "../tennisData/playerIdentity.js";
-import { fetchFromSofascore } from "./sofascoreProvider.js";
+import { fetchFromSofascore } from "../tennisData/sofascoreProvider.js";
 import { fetchMarketOdds } from "../oddsData/index.js";
 
 // ─── Outcome & diagnostic types ──────────────────────────────────────────────

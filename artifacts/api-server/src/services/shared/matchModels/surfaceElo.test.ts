@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { computeSurfaceEloModule } from "./surfaceElo";
-import type { MatchRecord } from "../tennisData/types";
+import type { MatchRecord } from "../../tennisData/types";
 
 function baseMatch(
   id: string,

@@ -9,7 +9,7 @@ import { buildMatchHistoryIndex } from "../historicalData/matchRecordReconstruct
 import { buildEloHistoryIndex } from "../predictionEngine/opponentStrength";
 import { buildPlayerIdentityIndex } from "../tennisData/playerIdentity";
 import { defaultPredictionMode, derivePredictionStrategyIdentity } from "./strategyIdentity";
-import { eloFallbackTracker, fallbackRateWarning } from "../predictionEngine/fallbackTracking";
+import { eloFallbackTracker, fallbackRateWarning } from "../shared/matchModels/fallbackTracking";
 import { HISTORICAL_MODEL_VERSION, type ResultType, type RetirementRule } from "./types";
 import type { CalibrationKnot } from "./types";
 

@@ -1,12 +1,10 @@
 /**
  * Admin-only: Parlay Builder routes.
  *
- * Two evaluation paths:
- *   POST /evaluate  — legacy path using Prediction Engine stored signals
- *   POST /validate  — Task 105 Independent Validation Engine (completely separate)
- *
- * The /validate route is the primary path for Task 105. It reads only raw match data and
- * independent evidence sources — NEVER the predictions table or any engine output.
+ * POST /validate is the Task 105 Independent Validation Engine and the only evaluation path.
+ * It reads only raw match data and independent evidence sources — NEVER the predictions table
+ * or any Prediction Engine output. (The legacy /evaluate path, which read Prediction Engine
+ * stored signals directly, was removed — see the engine-separation audit in docs/.)
  */
 import { Router, type IRouter } from "express";
 import { requireAdmin } from "../lib/adminAuth";
@@ -20,7 +18,6 @@ import {
   writeBuilderDecisionLog,
   type BuilderSnapshot,
 } from "../services/parlayBuilder/builderScoringService.js";
-import { fetchMarketOdds } from "../services/oddsData";
 
 const router: IRouter = Router();
 
@@ -30,18 +27,6 @@ interface CheckResult {
   label: string;
   value: string;
   status: "pass" | "warn" | "fail";
-}
-
-interface EvalLeg {
-  player1Name: string; player2Name: string; selectedName: string;
-  tournamentName: string | null; selectedSide: "1" | "2";
-  hasData: boolean; score: number | null; decision: string;
-  reasons: string[]; checks: Record<string, CheckResult>;
-  winnerProb: number | null; calibratedProbabilityP1: number | null;
-  marketImpliedProb: number | null; marketOdds: number | null;
-  dataQuality: number | null; dataQualityLabel: string | null;
-  upsetRisk: string | null; modelAgreement: string | null;
-  dataStoredAt: string | null;
 }
 
 interface ScoreResult {
@@ -162,234 +147,14 @@ function getDecision(score: number): "Approved" | "Caution" | "Remove" {
   return "Remove";
 }
 
-function getSlipFragility(legs: Array<{ score: number; decision: string }>): "Low" | "Moderate" | "High" | "Extreme" {
-  if (legs.length === 0) return "Low";
-  const hasRemove = legs.some(l => l.decision === "Remove");
-  const hasCaution = legs.some(l => l.decision === "Caution");
-  const avg = legs.reduce((s, l) => s + l.score, 0) / legs.length;
-  if (hasRemove || avg < 3) return "Extreme";
-  if (hasCaution && avg < 5) return "High";
-  if (hasCaution || avg < 7) return "Moderate";
-  return "Low";
-}
-
-// ── POST /admin/parlay/evaluate ───────────────────────────────────────────────
-
-router.post("/admin/parlay/evaluate", requireAdmin, async (req, res): Promise<void> => {
-  try {
-    const { legs } = req.body as {
-      legs: Array<{
-        player1Id: string;
-        player2Id: string;
-        player1Name: string;
-        player2Name: string;
-        selectedSide: "1" | "2"; // which player in the matchup the user is backing
-        tournamentName?: string | null;
-        surface?: string | null;
-        marketOdds?: number | null; // decimal odds for the selected player
-      }>;
-    };
-
-    if (!Array.isArray(legs) || legs.length === 0) { res.status(400).json({ error: "legs must be a non-empty array" }); return; }
-    if (legs.length > 150) { res.status(400).json({ error: "maximum 150 legs per parlay" }); return; }
-
-    const evaluatedLegs = await Promise.all(legs.map(async (leg): Promise<EvalLeg> => {
-      try {
-      const { player1Id, player2Id, player1Name, player2Name, selectedSide, tournamentName, marketOdds: callerMarketOdds } = leg;
-      const inlineSignals = (leg as Record<string, unknown>).inlineSignals as {
-        calibratedProbabilityP1: number;
-        dataQuality: number;
-        dataQualityLabel: string;
-        upsetRisk: string;
-        modelAgreement: string;
-        closenessTo50: number | null;
-      } | null | undefined;
-      const selectedIsP1 = selectedSide === "1";
-      const selectedName = selectedIsP1 ? player1Name : player2Name;
-
-      // Task #2: resolve real market odds when the caller did not supply them.
-      // Without this, computeSafetyScore falls back to a hardcoded 50 (neutral) market factor
-      // for every leg that lacks caller-supplied odds — the "50 % fallback" Task #2 removes.
-      let marketOdds: number | null = callerMarketOdds ?? null;
-      if (marketOdds === null) {
-        try {
-          const oddsQuote = await fetchMarketOdds(player1Name, player2Name, null);
-          if (oddsQuote) {
-            // Orient to the selected player so the implied-probability display is always relative
-            // to the pick, not a fixed player slot.
-            marketOdds = selectedIsP1 ? oddsQuote.player1DecimalOdds : oddsQuote.player2DecimalOdds;
-          }
-        } catch (fetchErr) {
-          logger.warn({ fetchErr, player1Name, player2Name }, "Market odds fetch failed — scoring leg without odds");
-        }
-      }
-
-      // Fast path: inline signals supplied by caller (e.g. freshly-run prediction result)
-      // Skip the DB lookup entirely and compute the safety score directly.
-      if (inlineSignals) {
-        const { calibratedProbabilityP1: calibP1, dataQuality, dataQualityLabel, upsetRisk, modelAgreement, closenessTo50 } = inlineSignals;
-        const winnerProb = selectedIsP1 ? calibP1 : 100 - calibP1;
-        const { score, reasons, checks } = computeSafetyScore({ winnerProb, dataQuality, dataQualityLabel, upsetRisk, modelAgreement, closenessTo50, marketOdds: marketOdds ?? null });
-        return {
-          player1Name, player2Name, selectedName, tournamentName: tournamentName ?? null, selectedSide,
-          hasData: true,
-          score, decision: getDecision(score), reasons, checks,
-          winnerProb: parseFloat(winnerProb.toFixed(1)),
-          calibratedProbabilityP1: parseFloat(calibP1.toFixed(1)),
-          marketImpliedProb: marketOdds ? parseFloat(((1 / marketOdds) * 100).toFixed(1)) : null,
-          marketOdds: marketOdds ?? null,
-          dataQuality, dataQualityLabel, upsetRisk, modelAgreement,
-          dataStoredAt: new Date().toISOString(),
-        };
-      }
-
-      // Query user predictions first (most recent within 30 days, either player order)
-      const { rows } = await pool.query(`
-        SELECT
-          player1_id, calibrated_probability,
-          COALESCE(data_quality, 0) AS data_quality,
-          COALESCE(data_quality_label, 'Unknown') AS data_quality_label,
-          upset_risk, engine, created_at
-        FROM predictions
-        WHERE (
-          (player1_id = $1 AND player2_id = $2) OR
-          (player1_id = $2 AND player2_id = $1)
-        )
-        AND created_at > NOW() - INTERVAL '30 days'
-        ORDER BY created_at DESC
-        LIMIT 1
-      `, [player1Id, player2Id]);
-
-      // Fallback: evaluation_predictions (paper-trade or walk-forward rows)
-      let row = rows[0];
-      let storedP1Id: string | null = null;
-      if (!row) {
-        const epRes = await pool.query(`
-          SELECT
-            player1_id, calibrated_probability, data_quality, data_quality_label,
-            upset_risk_tier AS upset_risk, model_agreement, feature_snapshot AS engine,
-            locked_at AS created_at
-          FROM evaluation_predictions
-          WHERE (
-            (player1_id = $1 AND player2_id = $2) OR
-            (player1_id = $2 AND player2_id = $1)
-          )
-          AND status = 'pending'
-          AND locked_at > NOW() - INTERVAL '30 days'
-          ORDER BY locked_at DESC
-          LIMIT 1
-        `, [player1Id, player2Id]);
-        row = epRes.rows[0] ?? null;
-      }
-
-      if (!row) {
-        return {
-          player1Name, player2Name, selectedName, tournamentName: tournamentName ?? null, selectedSide,
-          hasData: false,
-          score: null as number | null,
-          decision: "Caution" as const,
-          reasons: ["No recent stored prediction — run a prediction for this matchup first"],
-          checks: {} as Record<string, CheckResult>,
-          winnerProb: null as number | null,
-          calibratedProbabilityP1: null as number | null,
-          marketImpliedProb: marketOdds ? parseFloat(((1 / marketOdds) * 100).toFixed(1)) : null,
-          marketOdds: marketOdds ?? null,
-          dataQuality: null, dataQualityLabel: null, upsetRisk: null, modelAgreement: null,
-          dataStoredAt: null,
-        };
-      }
-
-      storedP1Id = row.player1_id as string;
-      const storedP1MatchesLegP1 = storedP1Id === player1Id;
-
-      const calibP1 = parseFloat(String(row.calibrated_probability));
-      // Orient probability to the selected player's side
-      const winnerProb = (selectedIsP1 === storedP1MatchesLegP1)
-        ? calibP1
-        : 100 - calibP1;
-
-      const eng = (row.engine as Record<string, unknown>) ?? {};
-      const modelAgreement = (eng.modelAgreement as string | null) ?? (row.model_agreement as string | null) ?? "Unknown";
-      const closenessTo50 = typeof eng.closenessTo50 === "number" ? eng.closenessTo50 : null;
-      const upsetRisk = (row.upset_risk as string) ?? "UNKNOWN";
-
-      const { score, reasons, checks } = computeSafetyScore({
-        winnerProb,
-        dataQuality: row.data_quality as number,
-        dataQualityLabel: row.data_quality_label as string,
-        upsetRisk,
-        modelAgreement,
-        closenessTo50,
-        marketOdds: marketOdds ?? null,
-      });
-
-      return {
-        player1Name, player2Name, selectedName, tournamentName: tournamentName ?? null, selectedSide,
-        hasData: true,
-        score,
-        decision: getDecision(score),
-        reasons,
-        checks,
-        winnerProb: parseFloat(winnerProb.toFixed(1)),
-        calibratedProbabilityP1: parseFloat(calibP1.toFixed(1)),
-        marketImpliedProb: marketOdds ? parseFloat(((1 / marketOdds) * 100).toFixed(1)) : null,
-        marketOdds: marketOdds ?? null,
-        dataQuality: row.data_quality as number,
-        dataQualityLabel: row.data_quality_label as string,
-        upsetRisk,
-        modelAgreement,
-        dataStoredAt: row.created_at,
-      };
-      } catch (legErr) {
-        logger.error({ err: legErr, player1Name: leg.player1Name, player2Name: leg.player2Name }, "Per-leg evaluation error — returning Caution fallback");
-        const { player1Name, player2Name, selectedSide, tournamentName, marketOdds } = leg;
-        const selectedName = selectedSide === "1" ? player1Name : player2Name;
-        return {
-          player1Name, player2Name, selectedName, tournamentName: tournamentName ?? null, selectedSide,
-          hasData: false, score: null as number | null, decision: "Caution" as const,
-          reasons: ["Evaluation error — could not analyze this leg"],
-          checks: {} as Record<string, CheckResult>,
-          winnerProb: null as number | null, calibratedProbabilityP1: null as number | null,
-          marketImpliedProb: marketOdds ? parseFloat(((1 / marketOdds) * 100).toFixed(1)) : null,
-          marketOdds: marketOdds ?? null,
-          dataQuality: null, dataQualityLabel: null, upsetRisk: null, modelAgreement: null,
-          dataStoredAt: null,
-        };
-      }
-    }));
-
-    // Sort: Remove → Caution → Approved
-    const sortOrder: Record<string, number> = { Remove: 0, Caution: 1, Approved: 2 };
-    const sortedLegs = [...evaluatedLegs].sort((a, b) => sortOrder[a.decision] - sortOrder[b.decision]);
-
-    const legsWithScores = evaluatedLegs.filter(l => l.score != null).map(l => ({ score: l.score as number, decision: l.decision }));
-    const fragility = getSlipFragility(legsWithScores);
-
-    // Correlation: multiple legs from same tournament
-    const tGroups: Record<string, number> = {};
-    for (const l of evaluatedLegs) {
-      if (l.tournamentName) {
-        const k = l.tournamentName.toLowerCase().trim();
-        tGroups[k] = (tGroups[k] ?? 0) + 1;
-      }
-    }
-    const correlated = Object.entries(tGroups).filter(([, c]) => c >= 2).map(([n]) => n);
-
-    res.json({
-      legs: sortedLegs,
-      fragility,
-      correlationWarning: correlated.length > 0
-        ? `${correlated.map(n => n.split(" ").map(w => w[0].toUpperCase() + w.slice(1)).join(" ")).join(", ")} — multiple legs from the same tournament are correlated`
-        : null,
-      removeCount: evaluatedLegs.filter(l => l.decision === "Remove").length,
-      cautionCount: evaluatedLegs.filter(l => l.decision === "Caution").length,
-      approvedCount: evaluatedLegs.filter(l => l.decision === "Approved").length,
-    });
-  } catch (e) {
-    res.status(500).json({ error: e instanceof Error ? e.message : "Evaluation failed" });
-  }
-});
-
+// ── POST /admin/parlay/evaluate (REMOVED) ─────────────────────────────────────
+//
+// The legacy /evaluate path — which read `calibrated_probability`, `data_quality`,
+// `upset_risk`, and `model_agreement` directly from the `predictions` and
+// `evaluation_predictions` tables (Prediction Engine output) — was removed as part of the
+// engine-separation fixes (see docs/engine-separation-report.md). The current frontend never
+// called it; POST /admin/parlay/validate is the only live evaluation path and reads only raw
+// match data and independent evidence sources.
 // ── POST /admin/parlay/validate (Task 105 — Independent Validation Engine) ────
 //
 // This route is the ONLY entry point for the Independent Validation Engine.

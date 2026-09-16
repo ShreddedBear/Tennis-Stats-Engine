@@ -1,5 +1,5 @@
-import type { computeSurfaceEloModule } from "./surfaceElo";
-import type { computeServeReturnModule } from "./serveReturn";
+import type { computeSurfaceEloModule } from "../shared/matchModels/surfaceElo";
+import type { computeServeReturnModule } from "../shared/matchModels/serveReturn";
 import type { computeRecentFormModule } from "./recentForm";
 import type { computeFatigueModule } from "./fatigue";
 import type { computeHeadToHeadModule } from "./headToHead";

@@ -1,5 +1,5 @@
 /**
- * Sofascore provider for the Parlay Builder Validation Engine.
+ * Sofascore provider — neutral tennisData fixture/history source.
  *
  * Uses the Sofascore public unofficial API (api.sofascore.com/api/v1/) to
  * resolve player identity and fetch match history. Sofascore covers all tennis
@@ -7,15 +7,17 @@
  * for lower-tier players that the main API providers don't cover.
  *
  * This module does NOT implement the full TennisDataProvider interface.
- * It is called directly from builderProviderFetch.ts as a second-tier
- * fallback after the primary composite provider (RapidAPI + API-Tennis) fails.
+ * It is used as: (1) the tertiary fixture fallback inside compositeProvider.ts, the app-wide
+ * data provider used by the live prediction path, and (2) a second-tier fallback called
+ * directly from parlayBuilder/builderProviderFetch.ts. It has no engine-specific logic — hence
+ * its home in services/tennisData/, the neutral shared data layer, rather than either engine.
  *
  * No API key required — Sofascore's public API is unauthenticated.
  * Rate limiting: 3-second timeout per request; no more than 3 pages of events.
  */
 
 import { logger } from "../../lib/logger.js";
-import type { MatchRecord, PlayerSummary, Surface, TournamentLevel } from "../tennisData/types.js";
+import type { MatchRecord, PlayerSummary, Surface, TournamentLevel } from "./types.js";
 
 // ─── Sofascore response shapes ────────────────────────────────────────────────
 

@@ -1,5 +1,5 @@
 import type { MatchRecord } from "../tennisData/types";
-import { realSetGameMargins } from "./setMargins";
+import { realSetGameMargins } from "../shared/matchModels/setMargins";
 
 export interface FatigueResult {
   player1FatigueScore: number;

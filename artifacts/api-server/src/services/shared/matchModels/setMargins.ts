@@ -1,4 +1,4 @@
-import type { MatchRecord } from "../tennisData/types";
+import type { MatchRecord } from "../../tennisData/types";
 
 /**
  * `MatchRecord.setGameMargins` is stored/reconstructed from a fixed-length (5-slot) array in the

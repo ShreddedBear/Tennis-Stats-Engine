@@ -1,5 +1,5 @@
 import type { MatchRecord } from "../tennisData/types";
-import { realSetGameMargins } from "./setMargins";
+import { realSetGameMargins } from "../shared/matchModels/setMargins";
 
 /**
  * EXPERIMENTAL -- not wired into the live ensemble, `EngineOutput`, or `EngineBreakdown`.

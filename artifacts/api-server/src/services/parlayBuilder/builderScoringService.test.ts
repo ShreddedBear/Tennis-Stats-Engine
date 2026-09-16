@@ -1804,41 +1804,25 @@ describe("__TEST_computeGradingDecision — pure grading logic", () => {
   });
 });
 
-// ── Calibration fallback logic test (pure logic) ──────────────────────────────
+// ── Calibration independence test (pure logic) ────────────────────────────────
+//
+// Engine-separation guard: the Builder must never route its score through the Prediction
+// Engine's shared calibration model (evaluation/calibrationCache.ts / calibration_models
+// table) — see computeBuilderScore's "Independent winner selection" step.
 
-describe("calibration — raw score fallback when no active model", () => {
-  it("builderCalibratedProbability equals rawValidationScore when no active calibration exists", () => {
-    // When getActiveCalibration returns no mapping, the raw score is used directly.
+describe("calibration — builderCalibratedProbability is always the raw score", () => {
+  it("builderCalibratedProbability equals rawValidationScore", () => {
     const rawValidationScore = 67;
-    // Simulate: getActiveCalibration returns { mapping: null }
-    const hasActiveMapping = false; // null mapping → no active model
-    const builderCalibratedProbability = hasActiveMapping
-      ? 99 // would be calibrated (never reached here)
-      : rawValidationScore;
+    const builderCalibratedProbability = rawValidationScore;
     assert.strictEqual(builderCalibratedProbability, rawValidationScore,
-      "calibrated probability must equal raw score when no active calibration model exists");
+      "the Builder must never apply the Prediction Engine's shared calibration model");
   });
 
-  it("calibration with non-null mapping produces output in [0, 100] range", () => {
-    // applyCalibrationOriented takes a 0–1 input and returns 0–1.
-    // After *100 rounding, output must be in [0, 100].
-    const rawScore = 72; // raw validation score in [0, 100]
-    const raw01 = rawScore / 100; // 0.72
-    // Simulate a trivial identity calibration (knots at 0→0 and 1→1)
-    const mockCalibrated01 = raw01; // identity
-    const builderCalibratedProbability = Math.round(mockCalibrated01 * 100);
-    assert.ok(builderCalibratedProbability >= 0 && builderCalibratedProbability <= 100,
-      `calibrated probability must be in [0, 100] (got ${builderCalibratedProbability})`);
-  });
-
-  it("rawValidationScore is preserved independently of calibration output", () => {
-    // Both rawValidationScore and builderCalibratedProbability must be stored.
+  it("rawValidationScore and builderCalibratedProbability are the same value, not independently mutable", () => {
     const rawValidationScore = 58;
-    const builderCalibratedProbability = 62; // hypothetical calibrated output
-    assert.strictEqual(rawValidationScore, 58, "rawValidationScore must not be mutated by calibration");
-    assert.strictEqual(builderCalibratedProbability, 62, "calibrated probability is stored separately");
-    assert.notStrictEqual(rawValidationScore, builderCalibratedProbability,
-      "raw and calibrated can differ (this validates that both are stored)");
+    const builderCalibratedProbability = rawValidationScore;
+    assert.strictEqual(rawValidationScore, 58);
+    assert.strictEqual(builderCalibratedProbability, 58);
   });
 });
 

@@ -6,9 +6,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { simulateMatch, runMatchSimulation, deriveServicePointEstimate, deriveMatchSeed, type ServicePointEstimate } from "./simulator";
-import type { SurfaceEloResult } from "./surfaceElo";
-import type { ServeReturnResult } from "./serveReturn";
-import { asFraction, asPercentage } from "./units";
+import type { SurfaceEloResult } from "../shared/matchModels/surfaceElo";
+import type { ServeReturnResult } from "../shared/matchModels/serveReturn";
+import { asFraction, asPercentage } from "../shared/matchModels/units";
 
 function mulberry32(seed: number) {
   let a = seed;

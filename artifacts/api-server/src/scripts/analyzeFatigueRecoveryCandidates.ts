@@ -18,7 +18,7 @@ import { db, historicalMatchesTable, pool } from "@workspace/db";
 import { asc } from "drizzle-orm";
 import { buildMatchHistoryIndex, reconstructPlayerMatchHistory } from "../services/historicalData/matchRecordReconstruction";
 import { computeRecentFormModule } from "../services/predictionEngine/recentForm";
-import { realSetGameMargins } from "../services/predictionEngine/setMargins";
+import { realSetGameMargins } from "../services/shared/matchModels/setMargins";
 import type { MatchRecord, Surface } from "../services/tennisData/types";
 
 const MIN_SEGMENT_N = 200;

@@ -1,7 +1,10 @@
-import type { MatchRecord, Surface, TournamentLevel } from "../tennisData/types";
-import type { OpponentEloLookup } from "./opponentStrength";
+import type { MatchRecord, Surface, TournamentLevel } from "../../tennisData/types";
 import { eloFallbackTracker } from "./fallbackTracking";
 import { asFraction, asPercentage, type Fraction, type Percentage } from "./units";
+
+/** Structurally identical to predictionEngine/opponentStrength.ts's `OpponentEloLookup` — kept as
+ *  a local alias so this shared module has no dependency on predictionEngine/. */
+type OpponentEloLookup = Map<string, number>;
 
 /**
  * `Percentage` (0-100) vs `Fraction` (0-1) below are branded per the convention in `./units.ts` --

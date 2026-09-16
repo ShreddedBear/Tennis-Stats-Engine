@@ -3,7 +3,7 @@ import { and, asc, eq, inArray } from "drizzle-orm";
 import type { MatchRecord } from "../tennisData/types";
 import { buildPlayerIdentityIndex, canonicalizePlayerId, getAliasIds, getCachedPlayerIdentityIndex, type PlayerIdentityIndex } from "../tennisData/playerIdentity";
 import { logger } from "../../lib/logger";
-import { eloFallbackTracker } from "./fallbackTracking";
+import { eloFallbackTracker } from "../shared/matchModels/fallbackTracking";
 
 /**
  * Opponent-strength lookup for a set of live match records, keyed by `MatchRecord.id`. Value is

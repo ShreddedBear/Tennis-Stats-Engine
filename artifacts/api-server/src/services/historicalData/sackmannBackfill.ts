@@ -182,7 +182,7 @@ function intOrNull(s: string): number | null {
 
 // ── Row → HistoricalFixture ───────────────────────────────────────────────────
 
-function rowToFixture(
+export function rowToFixture(
   row: Record<string, string>,
   tour: "ATP" | "WTA",
 ): HistoricalFixture | null {
@@ -393,7 +393,7 @@ async function fetchCsvYear(
  * infrastructure can consume it. Only getCompletedMatchesByDateRange is meaningful; all other
  * methods throw ProviderUnavailableError because runHistoricalBackfill never calls them.
  */
-class SackmannProvider implements TennisDataProvider {
+export class SackmannProvider implements TennisDataProvider {
   readonly name = "SackmannProvider";
   private readonly fixtures: HistoricalFixture[];
 

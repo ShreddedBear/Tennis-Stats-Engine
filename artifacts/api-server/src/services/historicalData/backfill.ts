@@ -1,4 +1,4 @@
-import { db, pool, historicalMatchesTable, matchFeatureSnapshotsTable, evaluationPredictionsTable } from "@workspace/db";
+import { db, pool, historicalMatchesTable, matchFeatureSnapshotsTable, evaluationPredictionsTable, pbpEvidenceTable } from "@workspace/db";
 import { and, asc, desc, eq, lt, sql } from "drizzle-orm";
 import { logger } from "../../lib/logger";
 import type { Surface, TennisDataProvider, HistoricalFixture } from "../tennisData/types";
@@ -290,8 +290,18 @@ export async function runHistoricalBackfill(
         // normal insert path below so it's rebuilt fresh -- through the exact same
         // timezone-aware `toScheduledStart` + `computeFeatures` logic a brand-new fixture uses.
         // Not folded into playerStates here; the freshly-inserted row folds it in below instead.
+        //
+        // Also purges pbp_evidence: historicalMatchesTable.id is a serial PK, so recompute's
+        // delete+reinsert always assigns the rebuilt row a NEW id -- pbp_evidence's FK on the OLD
+        // id would otherwise block the delete outright (found by actually running this path
+        // against a real Postgres with a real imported pbp_evidence row -- FK violation
+        // pbp_evidence_match_id_historical_matches_id_fk). PBP evidence is independently-sourced
+        // (imported by scripts/importPbpEvidence.ts), not fixture-derived, so recompute cannot
+        // regenerate it the way it regenerates feature snapshots -- re-run the importer afterward
+        // to reattach it to the new id.
         await db.delete(evaluationPredictionsTable).where(eq(evaluationPredictionsTable.historicalMatchId, existing.id));
         await db.delete(matchFeatureSnapshotsTable).where(eq(matchFeatureSnapshotsTable.matchId, existing.id));
+        await db.delete(pbpEvidenceTable).where(eq(pbpEvidenceTable.matchId, existing.id));
         await db.delete(historicalMatchesTable).where(eq(historicalMatchesTable.id, existing.id));
         summary.matchesRecomputed += 1;
       } else if (existing) {

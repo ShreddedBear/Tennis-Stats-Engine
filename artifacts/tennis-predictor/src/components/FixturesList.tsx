@@ -323,7 +323,16 @@ export const FixturesList = forwardRef<
   // triggers (a distinct query key, so it's a real new network call, never a no-op cache hit),
   // then resets so normal/automatic loads go back through the cache as usual.
   const [force, setForce] = useState(false)
-  const { data, isLoading, isError, isFetching } = useGetUpcomingFixtures({ limit, force: force || undefined })
+  // Fixture metadata (new matches appearing, scheduled fixtures crossing into "live") needs to be
+  // picked up without a manual refresh, but not so often that it burns the provider's rate-limited
+  // upstream quota for no benefit -- a 90s interval lands in the middle of the target 60-120s
+  // window. `refetchIntervalInBackground: false` (TanStack Query's default, set explicitly here
+  // so the intent is visible) stops this polling once the tab is hidden/backgrounded; it resumes
+  // automatically on refocus via the same query.
+  const { data, isLoading, isError, isFetching } = useGetUpcomingFixtures(
+    { limit, force: force || undefined },
+    { query: { refetchInterval: 90_000, refetchIntervalInBackground: false } },
+  )
   const fixtures = data?.fixtures
   const hasMore = data?.hasMore ?? false
   const [, setLocation] = useLocation()
@@ -472,6 +481,10 @@ export const FixturesList = forwardRef<
       query: {
         queryKey: getGetLiveFixtureScoresQueryKey({ ids: liveScoresIds }),
         refetchInterval: 6000,
+        // Explicit (matches TanStack Query's default) — live-score polling must stop the moment
+        // the tab is hidden, same as the upcoming-fixtures poll above, not just when there are no
+        // live fixtures.
+        refetchIntervalInBackground: false,
         enabled: liveFixtureIds.length > 0,
       },
     },

@@ -9,6 +9,7 @@
  * data; every caller just calls `getTennisDataProvider()` and gets the best available source.
  */
 import { logger } from "../../lib/logger";
+import { TtlCache } from "./cache";
 import type {
   Fixture,
   HeadToHeadRecord,
@@ -151,6 +152,20 @@ async function fetchSofascoreFixturesRange(dateStart: string, dateStop: string):
 const SOFASCORE_MIN_RECORDS_THRESHOLD = 5;
 
 /**
+ * How long a fixture's identity metadata (date + player names) stays available for the
+ * getLiveScores cross-provider correlation after it was last returned by getUpcomingFixturesRange.
+ * Generous relative to a real match's maximum duration (best-of-5 rarely exceeds ~5 hours) plus
+ * slack for how long a client might keep polling a fixture id after its own last fixtures refresh.
+ */
+const FIXTURE_META_TTL_MS = 8 * 60 * 60 * 1000; // 8 hours
+
+interface FixtureMeta {
+  date: string;
+  player1Name: string;
+  player2Name: string;
+}
+
+/**
  * Union two MatchRecord arrays, deduplicating by id.
  *
  * Each provider uses its own id namespace (e.g. "12345" for API-Tennis,
@@ -178,6 +193,15 @@ export class CompositeTennisProvider implements TennisDataProvider {
    * Populated automatically on every successful getPlayer() call.
    */
   private readonly playerNameCache = new Map<string, string>();
+
+  /**
+   * Remembers each fixture's provider-agnostic identity (date + player names) keyed by whichever
+   * id was actually handed to the client (primary's, fallback's, or a tertiary tier's own
+   * namespace) so a later getLiveScores(id) call -- which only ever receives that same id back --
+   * can still be correlated against a DIFFERENT provider's live-score feed. Populated on every
+   * getUpcomingFixturesRange call, for every fixture returned regardless of which tier served it.
+   */
+  private readonly fixtureMetaCache = new TtlCache();
 
   constructor(
     private readonly primary: TennisDataProvider,
@@ -414,6 +438,14 @@ export class CompositeTennisProvider implements TennisDataProvider {
       logger.info({ enrichedCount }, "compositeProvider: surface-enriched fixtures via tournament-name lookup");
     }
 
+    for (const f of fixtures) {
+      this.fixtureMetaCache.set<FixtureMeta>(
+        f.id,
+        { date: f.date, player1Name: f.player1Name, player2Name: f.player2Name },
+        FIXTURE_META_TTL_MS,
+      );
+    }
+
     return fixtures;
   }
 
@@ -434,7 +466,30 @@ export class CompositeTennisProvider implements TennisDataProvider {
     // MatchStat (primary) does not provide live scores — hard-route to API-Tennis so real
     // in-progress score data is never silently replaced with an empty map. Same pattern
     // as getCompletedMatchesByDateRange, which MatchStat also doesn't support.
-    return this.fallback.getLiveScores(fixtureIds);
+    //
+    // The requested ids, however, are NOT necessarily API-Tennis's own event_keys — they're
+    // whatever id the client was originally handed by getUpcomingFixturesRange, which may have
+    // been served by primary (MatchStat's `${tournamentId}:${p1}:${p2}` composite key) or a
+    // tertiary tier (e.g. Sofascore's `sf-fixture-*`). Never assume those ids mean anything to
+    // API-Tennis. Try native event_key lookup first (covers ids API-Tennis itself handed out,
+    // i.e. fallback already served the fixture list), then correlate anything still unresolved
+    // via the provider-agnostic identity cached when the fixture was last returned.
+    const result = await this.fallback.getLiveScores(fixtureIds);
+
+    const unresolved = fixtureIds.filter((id) => !result.has(id));
+    if (unresolved.length === 0 || !this.fallback.getLiveScoresByIdentity) return result;
+
+    const identities = unresolved
+      .map((id) => {
+        const meta = this.fixtureMetaCache.get<FixtureMeta>(id);
+        return meta ? { id, ...meta } : null;
+      })
+      .filter((x): x is { id: string } & FixtureMeta => x !== null);
+    if (identities.length === 0) return result;
+
+    const byIdentity = await this.fallback.getLiveScoresByIdentity(identities);
+    for (const [id, score] of byIdentity) result.set(id, score);
+    return result;
   }
 
   async findTournamentSurfaceByName(name: string): Promise<{ surface: import("./types").Surface | null; level: import("./types").TournamentLevel | null } | null> {

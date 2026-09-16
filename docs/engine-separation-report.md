@@ -1,5 +1,24 @@
 # ENGINE SEPARATION REPORT — Prediction Engine / Parlay Builder Boundary Audit
 
+> **Update (follow-up commit on this branch):** Violations 0–3 and Violation 4 below are now
+> **fixed** — see the commit that added this note for the full change list. Summary:
+> `surfaceElo.ts`/`serveReturn.ts` and their pure-math dependencies moved to
+> `services/shared/matchModels/`; the legacy `POST /admin/parlay/evaluate` route was removed;
+> `builderScoringService.ts` no longer applies the Prediction Engine's shared calibration model;
+> `webResearchService.ts` moved to `services/shared/`; `sofascoreProvider.ts` moved to
+> `services/tennisData/`. `checkParlayBoundary.ts` now passes clean (verified below, §5 result
+> superseded — re-run shows 0 violations).
+>
+> **Still open, out of that fix's narrow scope** (see §6 for detail): `POST
+> /admin/parlay/backtest` reads the same Prediction Engine columns off `evaluation_predictions`
+> for historical backtesting of the legacy safety-score system — not named in the fix request and
+> not simply deletable without a frontend change. The frontend's leg-selection workflow coupling
+> (§2, "Workflow coupling") and the misnamed `computeCrossEngineAgreement` function (§2, final
+> item) were also left as-is — neither is an import/DB boundary violation.
+>
+> The rest of this document is the **original audit as filed**, describing the state of the code
+> before that follow-up commit. It's kept unmodified below for the record.
+
 **Scope:** `artifacts/api-server/src/services/parlayBuilder/`, `routes/adminParlay.ts`,
 `scripts/checkParlayBoundary.ts`, shared research/provider services, `artifacts/tennis-predictor/src/pages/AdminParlayBuilder.tsx`.
 

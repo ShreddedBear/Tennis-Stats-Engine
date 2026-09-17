@@ -236,3 +236,82 @@ test("scoreHistoricalMatch: the recorded winner remains correctly usable for pos
   assert.equal(predictedWinnerId, PLAYER_ALPHA);
   assert.equal(correct, true);
 });
+
+// ── Part 3: no-look-ahead survives the neutral-order fix (Agent 7 smoke test, 2026-09-18) ──────
+
+test("scoreHistoricalMatch: a future match record for either player never changes a historical prediction, even after neutral-order slot assignment", async () => {
+  // Baseline: score the same target match used throughout this file with only the pre-cutoff
+  // priorRows in context.
+  const match = targetMatch(500, "wfso-target-g", PLAYER_ALPHA, PLAYER_ZETA, PLAYER_ALPHA);
+  const baseline = await scoreHistoricalMatch(match as any, buildContext([...priorRows, match]));
+  assert.ok(baseline, "expected a non-null baseline scoring result");
+
+  // Adversarial: append two matches dated AFTER the target's own cutoffAt (2023-02-01T11:30Z) --
+  // one a big win for Alpha, one a big win for Zeta -- against a brand-new opponent neither has
+  // faced before. If reconstructPlayerMatchHistory's cutoff filter were bypassed or weakened by
+  // routing player ids through determineNeutralSlotOrder before reconstruction, either future row
+  // would shift the corresponding player's computed Elo/form and change the output below.
+  const futureForAlpha = priorMatch(701, "wfso-future-alpha", PLAYER_ALPHA, "opp-future-1", PLAYER_ALPHA, "2023-03-01");
+  const futureForZeta = priorMatch(702, "wfso-future-zeta", PLAYER_ZETA, "opp-future-2", PLAYER_ZETA, "2023-03-15");
+  const withFutureRows = await scoreHistoricalMatch(
+    match as any,
+    buildContext([...priorRows, match, futureForAlpha, futureForZeta]),
+  );
+  assert.ok(withFutureRows, "expected a non-null scoring result with future rows present in the corpus");
+
+  assert.equal(withFutureRows!.rawProbability, baseline!.rawProbability, "a future match record must not change rawProbability -- the temporal cutoff must still be enforced after the neutral-order fix");
+  assert.equal(withFutureRows!.calibratedProbability, baseline!.calibratedProbability, "a future match record must not change calibratedProbability");
+  assert.deepEqual(withFutureRows!.snapshot.engineSlotAssignment, baseline!.snapshot.engineSlotAssignment, "a future match record must not change engine slot assignment");
+});
+
+test("scoreHistoricalMatch: near-tie matchups do not systematically favor whichever player the source data recorded as the winner", async () => {
+  // Two players with IDENTICAL win/loss patterns (same dates, same opponent count, same 2-2
+  // record) against distinct-but-equivalent opponents, and an empty eloHistory (as used
+  // throughout this file), so neither gets an opponent-strength edge over the other -- the raw
+  // ensemble should land at or very near a genuine 50/50 coin flip for this matchup.
+  const MIRROR_A = `wfso-mirror-a-${RUN}`;
+  const MIRROR_B = `wfso-mirror-b-${RUN}`;
+  const mirrorRows: AnyRow[] = [
+    priorMatch(601, "wfso-mirror-p1", MIRROR_A, "opp-mirror-1", MIRROR_A, "2023-01-01"),
+    priorMatch(602, "wfso-mirror-p2", "opp-mirror-2", MIRROR_A, "opp-mirror-2", "2023-01-02"),
+    priorMatch(603, "wfso-mirror-p3", MIRROR_B, "opp-mirror-3", MIRROR_B, "2023-01-01"),
+    priorMatch(604, "wfso-mirror-p4", "opp-mirror-4", MIRROR_B, "opp-mirror-4", "2023-01-02"),
+  ];
+
+  // matchAWon: stored exactly as Sackmann would if A won. matchBWon: the SAME real-world
+  // matchup, stored as if B had won instead -- only the recorded outcome differs.
+  const matchAWon = targetMatch(610, "wfso-mirror-target-a", MIRROR_A, MIRROR_B, MIRROR_A);
+  const matchBWon = targetMatch(611, "wfso-mirror-target-b", MIRROR_B, MIRROR_A, MIRROR_B);
+
+  const resultAWon = await scoreHistoricalMatch(matchAWon as any, buildContext([...mirrorRows, matchAWon]));
+  const resultBWon = await scoreHistoricalMatch(matchBWon as any, buildContext([...mirrorRows, matchBWon]));
+  assert.ok(resultAWon && resultBWon, "expected non-null results for both mirrored scoring calls");
+
+  // What scoreHistoricalMatch itself is responsible for, and does guarantee: the raw/calibrated
+  // probability is genuinely symmetric at this tied matchup, in EITHER stored-slot direction --
+  // neither call is pulled toward its own row's recorded winner. Both calls return exactly 0.5
+  // here (perfectly symmetric synthetic inputs), which is the mathematically correct, unbiased
+  // engine output, not a bug -- and the probability contract (check 4) holds exactly even at this
+  // boundary.
+  assert.equal(resultAWon!.rawProbability, 0.5, `expected a genuine 50/50 raw probability for perfectly mirrored inputs, got ${resultAWon!.rawProbability}`);
+  const rawSum = resultAWon!.rawProbability + resultBWon!.rawProbability;
+  assert.ok(Math.abs(rawSum - 1) < 1e-9, `expected P(A wins) + P(B wins) == 1 exactly at a genuine tie, got ${rawSum}`);
+
+  // OUT-OF-SCOPE FINDING (discovered by this smoke test, not fixed here -- see the Agent 7
+  // smoke-test report): every real caller (backtestService.ts, walkForward.ts, shadowReplay.ts,
+  // bridgeRescore.ts) determines the PREDICTED winner via `rawProbability >= 0.5 ? player1Id :
+  // player2Id`, applied to the row's own STORED player1Id/player2Id -- which Sackmann ingestion
+  // still always sets to the actual historical winner (only scoreHistoricalMatch's INTERNAL engine
+  // ordering was fixed; the stored ingestion convention was deliberately left untouched, see
+  // determineNeutralSlotOrder's doc comment). At an EXACT 0.5 tie, that convention necessarily
+  // resolves to "whichever id is stored as player1" -- which is unconditionally the recorded
+  // winner for every Sackmann-sourced row. So an exact-50 raw probability is silently graded
+  // "correct" 100% of the time by every caller's own tie-break rule, independent of and
+  // unaffected by this fix. This is real for BOTH rows below (each resolves to ITS OWN recorded
+  // winner), demonstrated here rather than asserted, since fixing the shared grading convention is
+  // a separate, cross-caller change outside this fix's scope:
+  const gradedFromA = resultAWon!.rawProbability >= 0.5 ? matchAWon.player1Id : matchAWon.player2Id;
+  const gradedFromB = resultBWon!.rawProbability >= 0.5 ? matchBWon.player1Id : matchBWon.player2Id;
+  assert.equal(gradedFromA, matchAWon.winnerId, "documents the residual finding: the grading convention resolves an exact tie to the row's own recorded winner");
+  assert.equal(gradedFromB, matchBWon.winnerId, "documents the residual finding: the grading convention resolves an exact tie to the row's own recorded winner, regardless of which physical player that is");
+});

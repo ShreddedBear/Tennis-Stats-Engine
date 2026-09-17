@@ -151,6 +151,12 @@ function asIso(date: Date | null | undefined): string | null {
 }
 
 function readMetric(metrics: Record<string, unknown>, keys: string[]): number | null {
+  // Honesty guard (temporal-integrity-leakage-report.md #3.2): candidateOptimizer.ts marks a
+  // batch-generated candidate's holdoutMetrics `candidateSpecificallyScored: false` when those
+  // numbers are the ONE shared walk-forward run's pooled result, not this candidate's own
+  // strategySpec independently scored. Never let ranking/comparison read a metric explicitly
+  // flagged that way -- an absent flag (older/manually-entered rows) is unaffected.
+  if (metrics["candidateSpecificallyScored"] === false) return null;
   for (const key of keys) {
     const value = metrics[key];
     if (typeof value === "number" && Number.isFinite(value)) return value;

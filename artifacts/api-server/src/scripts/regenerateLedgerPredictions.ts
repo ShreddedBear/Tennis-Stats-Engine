@@ -167,6 +167,9 @@ async function main(): Promise<void> {
         tournamentLevel: fixture.tournamentLevel,
         segment: null,
         simulatorAdoption: null,
+        // Same no-look-ahead principle as this file's header: Fatigue/Availability/MatchLoadRecovery
+        // must measure recency against this fixture's own cutoff, not today's wall-clock time.
+        asOfDate: cutoffAt,
       });
       output.engine.warnings.push(...buildPlayerProfileWarnings(player1, player2));
 

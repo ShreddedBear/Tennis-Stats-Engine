@@ -287,6 +287,10 @@ async function scoreMatch(match: HistoricalMatchRow, excluded: ReadonlySet<Ablat
     simulatorAdoption,
     activeCalibration: ctx.activeCalibration,
     excludedModels: excluded,
+    // Same fix as historicalScoring.ts's "2026-07-14 Fatigue asOfDate fix" -- this is a diagnostic
+    // replay against the frozen historical corpus, so Fatigue/Availability/MatchLoadRecovery must
+    // measure recency against this match's own frozen cutoffAt, not today's wall-clock time.
+    asOfDate: match.cutoffAt,
   });
 }
 

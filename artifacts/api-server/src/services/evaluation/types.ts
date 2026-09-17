@@ -79,6 +79,19 @@ export interface LiveFeatureSnapshot {
    * last N predictions") without manually reconstructing the path through engine.models blobs.
    */
   moduleWeights?: ModuleTrace[];
+  /**
+   * Winner-first slot fix (2026-09-17): which physical player occupied the engine's own
+   * "player1"/"player2" slot for THIS scoring call. `engine.*`'s nested per-player breakdown
+   * fields (e.g. `surfaceElo.player1SurfaceElo`) are relative to these ids, which may differ from
+   * the row's own `historical_matches.player1_id`/`player2_id` (see `determineNeutralSlotOrder`
+   * in `historicalScoring.ts`) -- `swapped` records whether they do. `preCalibrationProbability`
+   * above, and the row's own top-level `rawProbability`/`calibratedProbability`, are always
+   * re-oriented back to the row's stored player1Id regardless of this flag; only the nested
+   * `engine.*` breakdown fields need this disclosure to be interpreted correctly. Absent on rows
+   * scored before this field existed (all pre-existing rows implicitly used the stored, possibly
+   * winner-first, ordering with no swap).
+   */
+  engineSlotAssignment?: { enginePlayer1Id: string; enginePlayer2Id: string; swapped: boolean };
 }
 
 export interface CalibrationKnot {

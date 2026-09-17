@@ -54,6 +54,43 @@ export interface HistoricalScoringContext {
   isPointInTimeReplay?: boolean;
 }
 
+/**
+ * Winner-first slot assignment fix (2026-09-17): every row sourced from Sackmann's CSVs maps
+ * winner_id -> historical_matches.player1_id and loser_id -> player2_id at ingestion time (see
+ * `sackmannBackfill.ts`'s `rowToFixture` -- "In Sackmann: winner is always player1"). That
+ * assignment is made AFTER the match outcome is known, so 179,986+ historical_test rows carry an
+ * outcome-oriented player1/player2 slot rather than a neutral one. Any asymmetry in how the
+ * ensemble breaks a near-50/50 tie (or any other slot-position-dependent effect) would then
+ * systematically favor the eventual winner through slot position alone, independent of whether
+ * the model actually distinguished the two players.
+ *
+ * Fix location (deliberately NOT ingestion): re-deriving 179,986 rows' stored player1Id/player2Id
+ * would require a full historical-corpus rewrite, which the fix is explicitly scoped to avoid,
+ * and would still leave every currently-running evaluation caller unaffected until that rewrite
+ * completed. Every evaluation path (walk-forward, backtest, shadow replay, bridge rescore, the
+ * frozen-vs-dynamic-weights script) already funnels through this single function
+ * (`scoreHistoricalMatch`), so applying a deterministic, outcome-independent re-ordering HERE --
+ * at evaluation-reconstruction time, never touching the stored row -- guarantees no outcome-
+ * derived ordering reaches the Prediction Engine, for every caller, without rewriting anything.
+ *
+ * The rule: whichever of the two player ids sorts first lexicographically occupies the engine's
+ * own "player1" slot for this scoring call. String comparison depends only on the two ids
+ * themselves, never on which one is `historical_matches.winner_id` -- the same two players get
+ * the same slot assignment for every match they ever play against each other, regardless of who
+ * won any particular meeting. This function is called BEFORE the match's own outcome is read for
+ * any purpose other than post-prediction grading (see `scoreHistoricalMatch` below), so it cannot
+ * see or depend on this match's own winner.
+ */
+export function determineNeutralSlotOrder(
+  storedPlayer1Id: string,
+  storedPlayer2Id: string,
+): { firstId: string; secondId: string; swapped: boolean } {
+  if (storedPlayer2Id < storedPlayer1Id) {
+    return { firstId: storedPlayer2Id, secondId: storedPlayer1Id, swapped: true };
+  }
+  return { firstId: storedPlayer1Id, secondId: storedPlayer2Id, swapped: false };
+}
+
 function minimalProfile(id: string, name: string): PlayerProfile {
   // A historical match row carries only the two player ids/names it was imported with -- rank,
   // country, age, and playing hand are live-standings concepts this row never captured. Every
@@ -67,6 +104,13 @@ function minimalProfile(id: string, name: string): PlayerProfile {
  * real paper-trading/live predictions use, fed with real match history reconstructed from
  * Phase 3's leak-proof historical store -- strictly bounded to this match's own frozen
  * `cutoffAt`, so nothing timestamped at or after that instant can leak in.
+ *
+ * The engine's own player1/player2 slots are assigned by `determineNeutralSlotOrder`, a
+ * deterministic ordering of the two player ids that does NOT depend on `match.winnerId` or which
+ * one is `historical_matches.player1_id` (see that function's doc comment) -- see the winner-first
+ * slot fix immediately below. `match.winnerId` itself is never read anywhere in this function;
+ * only the caller, after this function returns, compares its own predicted winner against it for
+ * grading.
  *
  * This replaces the earlier, deliberately reduced Elo/form/game-share reconstruction (see the
  * legacy `HistoricalFeatureSnapshot` type in `./types.ts`): walk-forward accuracy now describes
@@ -113,13 +157,24 @@ export async function scoreHistoricalMatch(
   const surface = match.surface as Surface;
   const matchFormat = match.matchFormat as MatchFormat;
 
-  const player1Matches = reconstructPlayerMatchHistory(context.matchHistory, match.player1Id, match.cutoffAt);
-  const player2Matches = reconstructPlayerMatchHistory(context.matchHistory, match.player2Id, match.cutoffAt);
-  if (player1Matches.length === 0 || player2Matches.length === 0) return null;
+  // Winner-first slot fix: derive the engine's own player1/player2 from a deterministic,
+  // outcome-independent ordering of the two ids, NOT from the stored (possibly winner-first)
+  // historical_matches.player1_id/player2_id. See `determineNeutralSlotOrder`'s doc comment.
+  // This line is the only place in the function that reads the stored slot columns for anything
+  // other than post-prediction grading (the caller compares its predicted winner against
+  // `match.winnerId`, never against these two ids directly) -- match.winnerId itself is never
+  // read here at all, so this match's own outcome cannot reach the engine call below.
+  const { firstId, secondId, swapped } = determineNeutralSlotOrder(match.player1Id, match.player2Id);
+  const firstName = swapped ? match.player2Name : match.player1Name;
+  const secondName = swapped ? match.player1Name : match.player2Name;
 
-  const player1OpponentStrength = resolveOpponentStrengthFromIndex(player1Matches, context.eloHistory, context.identityIndex);
-  const player2OpponentStrength = resolveOpponentStrengthFromIndex(player2Matches, context.eloHistory, context.identityIndex);
-  const headToHead = reconstructHeadToHead(context.matchHistory, match.player1Id, match.player2Id, match.cutoffAt);
+  const engineP1Matches = reconstructPlayerMatchHistory(context.matchHistory, firstId, match.cutoffAt);
+  const engineP2Matches = reconstructPlayerMatchHistory(context.matchHistory, secondId, match.cutoffAt);
+  if (engineP1Matches.length === 0 || engineP2Matches.length === 0) return null;
+
+  const engineP1OpponentStrength = resolveOpponentStrengthFromIndex(engineP1Matches, context.eloHistory, context.identityIndex);
+  const engineP2OpponentStrength = resolveOpponentStrengthFromIndex(engineP2Matches, context.eloHistory, context.identityIndex);
+  const headToHead = reconstructHeadToHead(context.matchHistory, firstId, secondId, match.cutoffAt);
   // Task #65: previous-cycle specialist fit, never this cycle's own -- see the doc on
   // `HistoricalScoringContext.specialistRowsBySegmentKey`.
   // Shadow replay sets `context.isPointInTimeReplay = true` to suppress the specialist:
@@ -139,15 +194,15 @@ export async function scoreHistoricalMatch(
     : resolveSegmentSpecialistInputSync(match.tour, surface, context.specialistRowsBySegmentKey);
 
   const output = await runPredictionEngine({
-    player1: minimalProfile(match.player1Id, match.player1Name),
-    player2: minimalProfile(match.player2Id, match.player2Name),
-    player1Matches,
-    player2Matches,
+    player1: minimalProfile(firstId, firstName),
+    player2: minimalProfile(secondId, secondName),
+    player1Matches: engineP1Matches,
+    player2Matches: engineP2Matches,
     headToHead,
     surface,
     matchFormat,
-    player1OpponentElo: player1OpponentStrength.lookup,
-    player2OpponentElo: player2OpponentStrength.lookup,
+    player1OpponentElo: engineP1OpponentStrength.lookup,
+    player2OpponentElo: engineP2OpponentStrength.lookup,
     tournamentName: match.tournamentName,
     weather: null,
     segment,
@@ -163,14 +218,27 @@ export async function scoreHistoricalMatch(
     asOfDate: match.cutoffAt,
   });
 
+  // Winner-first slot fix: output.rawEnsembleProbability/output.calibratedProbability are
+  // P(firstId wins) -- the swap-invariant engine (see swapInvariance.test.ts) guarantees
+  // P(A wins | A=player1) + P(A wins | A=player2) == 100, so when the engine's own player1
+  // (firstId) is NOT this row's stored player1Id, the probability every existing caller reads as
+  // "P(match.player1Id wins)" must be re-oriented back by subtracting from 100 -- otherwise every
+  // caller's `probability >= 0.5 ? match.player1Id : match.player2Id` grading logic (unchanged by
+  // this fix) would silently read the wrong player's probability on every swapped row.
+  const rawForStoredPlayer1 = swapped ? 100 - output.rawEnsembleProbability : output.rawEnsembleProbability;
+  const calibratedForStoredPlayer1 = swapped ? 100 - output.calibratedProbability : output.calibratedProbability;
+
   const snapshot: LiveFeatureSnapshot = {
     modelVersion: LIVE_MODEL_VERSION,
     engine: output.engine,
-    preCalibrationProbability: output.rawEnsembleProbability,
+    // Re-oriented to match.player1Id, consistent with the top-level rawProbability below -- see
+    // engineSlotAssignment for how to interpret the still-engine-relative nested engine.* fields.
+    preCalibrationProbability: rawForStoredPlayer1,
     dataQuality: output.dataQuality,
     isEliteTier: output.engine.isEliteTier,
     // Per-module weight trace: written forward-only; absent on rows scored before this field.
     moduleWeights: output.decisionTrace.modules,
+    engineSlotAssignment: { enginePlayer1Id: firstId, enginePlayer2Id: secondId, swapped },
   };
   const fallback = extractFallbackInstrumentation({
     engine: output.engine,
@@ -178,10 +246,14 @@ export async function scoreHistoricalMatch(
   });
 
   return {
-    rawProbability: output.rawEnsembleProbability / 100,
+    // Both re-oriented to be "P(match.player1Id wins)", exactly as every existing caller already
+    // assumes -- see the comment above. The engine itself was called with a deterministic,
+    // outcome-independent slot assignment (determineNeutralSlotOrder), not match.player1Id/
+    // player2Id directly.
+    rawProbability: rawForStoredPlayer1 / 100,
     // Equal to rawProbability for every existing caller (no override passed): unchanged
     // behavior. Only differs when `activeCalibrationOverride` is supplied (shadow replay).
-    calibratedProbability: output.calibratedProbability / 100,
+    calibratedProbability: calibratedForStoredPlayer1 / 100,
     snapshot,
     modelAgreement: output.engine.modelAgreement,
     upsetRiskTier: output.upsetRisk,

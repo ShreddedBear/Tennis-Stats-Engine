@@ -15,6 +15,7 @@
 import { db, historicalMatchesTable, calibrationModelsTable, backtestRunsTable, backtestPredictionsTable, candidateConfigsTable } from "@workspace/db";
 import { asc, and, gte, lte, eq, isNull } from "drizzle-orm";
 import { scoreHistoricalMatch, type HistoricalScoringContext } from "./historicalScoring";
+import { CALIBRATION_WINDOW_MONTHS } from "./walkForward";
 import { computeSegmentMetrics, computeCalibrationBuckets } from "./metrics";
 import { applyCalibrationOriented } from "./calibration";
 import { getPredictionSettings } from "./settle";
@@ -93,6 +94,13 @@ export interface BacktestTestHooks {
   onPredictionInserted?: (totalInserted: number) => void;
   /** Called for each run-status DB update (real in prod; can be a no-op in tests). */
   onRunUpdated?: (data: Record<string, unknown>) => Promise<void>;
+  /**
+   * Supply a candidate_configs row's `proposedConfig` directly, bypassing the DB lookup keyed by
+   * `options.candidateConfigId`. `null`/`undefined` mean "found no row" (same as a real miss).
+   */
+  candidateConfigForTest?: Record<string, unknown> | null;
+  /** Supply the "active calibration model" row directly, bypassing the DB lookup. */
+  activeCalibrationForTest?: { mapping: Array<{ x: number; y: number }> | null; fittedAt: Date } | null;
 }
 
 /** Preview how many rows a set of filters would capture, without running anything */
@@ -212,17 +220,30 @@ export async function runEvaluationBacktest(
 
     const settings = await getPredictionSettings();
     let effectiveConfig: Record<string, unknown> | null = null;
-    
+
     if (candidateConfigId) {
-      const [candidateConfig] = await db
-        .select()
-        .from(candidateConfigsTable)
-        .where(eq(candidateConfigsTable.id, candidateConfigId))
-        .limit(1);
-      if (candidateConfig?.proposedConfig) {
-        effectiveConfig = candidateConfig.proposedConfig;
+      if (_hooks && "candidateConfigForTest" in _hooks) {
+        effectiveConfig = _hooks.candidateConfigForTest ?? null;
+      } else {
+        const [candidateConfig] = await db
+          .select()
+          .from(candidateConfigsTable)
+          .where(eq(candidateConfigsTable.id, candidateConfigId))
+          .limit(1);
+        if (candidateConfig?.proposedConfig) {
+          effectiveConfig = candidateConfig.proposedConfig;
+        }
       }
     }
+
+    // Honesty disclosure (temporal-integrity-leakage-report.md #3.3): scoreHistoricalMatch /
+    // runPredictionEngine have no mechanism to apply a candidate's strategySpec (weights, gates,
+    // thresholds) during scoring -- every match below is scored with the production engine's
+    // default configuration regardless of candidateConfigId. This was previously a silent no-op
+    // (a log line only); it is now surfaced in the run's own persisted record (see `errors` push
+    // and `metrics.candidateConfigApplied` below) so a candidate backtest is never mistaken for a
+    // validated, independently-scored comparison.
+    const candidateConfigRequestedButNotApplied = candidateConfigId !== undefined && effectiveConfig !== null;
 
     // Load data slice for this date range
     // If test hooks provide matches, use them directly to avoid needing DB data.
@@ -291,25 +312,63 @@ export async function runEvaluationBacktest(
     };
 
     // Get the current active calibration (frozen — not refit during this run)
-    const [activeCalibration] = await db
-      .select()
-      .from(calibrationModelsTable)
-      .where(eq(calibrationModelsTable.active, true))
-      .limit(1);
+    let activeCalibration: { mapping: unknown; fittedAt: Date } | undefined;
+    if (_hooks && "activeCalibrationForTest" in _hooks) {
+      activeCalibration = _hooks.activeCalibrationForTest ?? undefined;
+    } else {
+      [activeCalibration] = await db
+        .select()
+        .from(calibrationModelsTable)
+        .where(eq(calibrationModelsTable.active, true))
+        .limit(1);
+    }
     const calibrationKnots = activeCalibration?.mapping ?? null;
+
+    // Calibration-window overlap check (temporal-integrity-leakage-report.md #3.4): the active
+    // calibration model is fit from validation points in [fittedAt - CALIBRATION_WINDOW_MONTHS,
+    // fittedAt] (see walkForward.ts's "Task #193" pooled-fit window). Applying that SAME curve to
+    // score matches that fall inside its own fitting window is in-sample calibration
+    // contamination -- the curve has already seen part of this exact period's outcomes. This does
+    // not affect the raw ensemble probability (still strictly cutoff-bound per match), only the
+    // calibration curve's independence from the window being evaluated.
+    let calibrationWindowOverlap = false;
+    if (activeCalibration) {
+      const calibrationFitWindowStart = new Date(activeCalibration.fittedAt);
+      calibrationFitWindowStart.setMonth(calibrationFitWindowStart.getMonth() - CALIBRATION_WINDOW_MONTHS);
+      const requestedStart = dateRange.start ? new Date(`${dateRange.start}T00:00:00.000Z`) : null;
+      const requestedEnd = dateRange.end ? new Date(`${dateRange.end}T23:59:59.999Z`) : null;
+      const startsBeforeFitWindowEnds = requestedStart === null || requestedStart.getTime() <= activeCalibration.fittedAt.getTime();
+      const endsAfterFitWindowStarts = requestedEnd === null || requestedEnd.getTime() >= calibrationFitWindowStart.getTime();
+      calibrationWindowOverlap = startsBeforeFitWindowEnds && endsAfterFitWindowStarts;
+    }
 
     await updateStatus("running", "Scoring matches", 0, eligibleMatches.length);
 
     const retirementRule = (settings.retirementRule as RetirementRule) ?? "excluded";
-    
-    // Log effective config for audit
-    if (candidateConfigId || effectiveConfig) {
-      logger.info({ runId, candidateConfigId, configPresent: !!effectiveConfig }, "Backtest running with candidate config");
-    }
 
     // Score matches and write to backtest_predictions
     const predictionRows: Array<{ player1Won: boolean; calibratedProbability: number; includedInAccuracy: boolean }> = [];
     const errors: Array<{ message: string; matchId?: string }> = [];
+
+    if (candidateConfigRequestedButNotApplied) {
+      logger.warn(
+        { runId, candidateConfigId },
+        "Backtest requested a candidate config, but the scoring engine has no mechanism to apply a candidate's strategySpec -- every match will be scored with the production engine's default configuration instead. This run's metrics do NOT reflect candidate config " + candidateConfigId + "'s own weights/gates/thresholds.",
+      );
+      errors.push({
+        message: `Candidate config ${candidateConfigId} was requested but could not be applied -- the scoring engine has no mechanism yet to run a candidate's strategySpec (weights/gates/thresholds). This backtest's metrics reflect the production engine's default configuration, not this candidate's own configuration. Do not treat this run as a validated comparison against other candidates.`,
+      });
+    }
+
+    if (calibrationWindowOverlap) {
+      logger.warn(
+        { runId, activeCalibrationFittedAt: activeCalibration?.fittedAt },
+        `Backtest date range overlaps the active calibration model's own ${CALIBRATION_WINDOW_MONTHS}-month fitting window -- some matches in this run may have contributed to fitting the exact curve being applied to them (in-sample calibration contamination).`,
+      );
+      errors.push({
+        message: `This backtest's date range overlaps the active calibration model's own ${CALIBRATION_WINDOW_MONTHS}-month fitting window (fitted ${activeCalibration?.fittedAt.toISOString().slice(0, 10)}). Some scored matches may have contributed to fitting the calibration curve now being applied to them. Raw ensemble probabilities are unaffected (still strictly cutoff-bound per match); only the calibration curve's independence from this window is in question. For an in-sample-free comparison, choose a date range entirely before the calibration window start, or use shadowReplay's point-in-time calibration reconstruction instead.`,
+      });
+    }
 
     let processed = 0;
     let loopIteration = 0;
@@ -484,6 +543,14 @@ export async function runEvaluationBacktest(
       accuracy,
       logLoss,
       brier,
+      // Honesty disclosure (temporal-integrity-leakage-report.md #3.3): false whenever a
+      // candidateConfigId was requested, since the engine has no mechanism to apply a candidate's
+      // strategySpec yet -- every row above was scored with the production default configuration.
+      // null means no candidate config was requested at all (a plain evaluation-mode backtest).
+      candidateConfigApplied: candidateConfigId === undefined ? null : false,
+      // Honesty disclosure (temporal-integrity-leakage-report.md #3.4): true when this run's date
+      // range overlaps the active calibration model's own fitting window (see the check above).
+      calibrationWindowOverlap,
       closeMatchAccuracy,
       retirementAdjustedAccuracy:
         retiredRows.length > 0 ? Math.round(((correct + retiredCorrect) / (accuracyRows.length + retiredRows.length)) * 1000) / 10 : accuracy,

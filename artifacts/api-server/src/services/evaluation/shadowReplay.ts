@@ -16,6 +16,67 @@ function heapUsedMB(): number {
 }
 
 /**
+ * Memory safety ceiling (final pre-run hardening pass, 2026-09).
+ *
+ * ## Root cause this closes
+ *
+ * The prior walk-forward OOM incident (see `.agents/memory/walkforward-historical-scoring-perf.md`
+ * and the resource-safety audit report) crashed the Node process consistently at ~2040MB heap in
+ * this class of environment, regardless of `--max-old-space-size` -- a container RAM ceiling
+ * (measured ~2.7-3.3GB total, shared with other workflows), not a V8 configuration problem. This
+ * replay engine (`shadowReplay.ts`) was already redesigned to stay well under that by construction
+ * (bounded per-day context, hoisted one-time index builds -- see the resource-safety audit), but
+ * until now nothing actually WATCHED heap usage and stopped before reaching that boundary: if the
+ * corpus grows, a single unusually "busy" day is bigger than expected, or the environment's
+ * available memory shrinks (more concurrent workflows), the only outcome was still a hard OOM kill
+ * with no checkpoint, no clean stop, and no distinction from a genuine crash in the job's own record.
+ *
+ * ## Why this threshold
+ *
+ * `DEFAULT_MAX_HEAP_MB` (1400MB) is chosen relative to the two real numbers this environment class
+ * has actually produced, not picked arbitrarily:
+ *   - The observed crash point is ~2040MB heap.
+ *   - 1400MB leaves ~640MB (~31%) of headroom below that observed crash point.
+ * That headroom has to absorb whatever allocation can happen BETWEEN two consecutive checks (this
+ * function is checked once before the day loop starts and once per day thereafter, never
+ * mid-day) -- `shadowReplay.ts`'s own Task #159 comment measured a single busy day's fan-out at up
+ * to ~14% of a full-corpus-scale load, which is the realistic upper bound on how much a single
+ * unchecked interval could add. 640MB of headroom comfortably covers that, plus normal V8/Node
+ * overhead variance, while still leaving the replay able to do meaningful work before stopping.
+ * This is intentionally a heap-based check (not RSS): the ~2040MB figure was itself measured as
+ * heap, so comparing heap-to-heap avoids introducing a unit mismatch.
+ *
+ * ## Configuration
+ *
+ * Prefer the `SHADOW_REPLAY_MAX_HEAP_MB` environment variable (read once in `shadowReplayJob.ts`,
+ * the job wrapper that owns operational configuration) over hardcoding a single production value
+ * here -- this lets the ceiling be tuned per-environment (e.g. lower on a smaller container, higher
+ * once the real available memory for a given deployment is known) without a code change. Direct
+ * callers of `runShadowPaperTradingReplay` (tests, scripts) can also pass `maxHeapMB` explicitly.
+ * `options.maxHeapMB` undefined/omitted disables the ceiling entirely (matches every other optional
+ * safety hook in this file -- opt-in, never a surprise behavior change for an existing caller).
+ *
+ * ## Releasing large structures on a stop
+ *
+ * `identityIndex`/`eloHistory`/`calibrationHistory` and the day-scoped `dayMatches`/
+ * `directMatches`/`scoringContext` are all plain local `const`/`let` bindings inside
+ * `runShadowPaperTradingReplay`'s own function scope -- nothing stores a reference to them anywhere
+ * outside that call. Stopping (via `return`/`break`, both used below) drops the last reference to
+ * all of them the moment the function returns, making them immediately eligible for normal V8
+ * garbage collection; no explicit `= null` or manual free is needed or would change that. Forcing an
+ * immediate collection (`global.gc()`) was deliberately not added: it requires `--expose-gc`, isn't
+ * available by default in the target environment, and V8 already reclaims unreferenced memory under
+ * its own pressure-driven schedule -- adding a forced-GC dependency here would be a larger, less
+ * portable change than this safety fix calls for.
+ */
+export const DEFAULT_MAX_HEAP_MB = 1400;
+
+/** Pure, dependency-free threshold check -- kept trivial and exported so it's unit-testable without a database. */
+export function isOverMemoryCeiling(currentHeapUsedMB: number, maxHeapMB: number): boolean {
+  return currentHeapUsedMB >= maxHeapMB;
+}
+
+/**
  * Shadow-mode replay (see the task spec): a faster-but-honestly-labeled alternative to waiting
  * for real live paper-trading to slowly accumulate graded fixtures one real match at a time.
  *
@@ -87,6 +148,16 @@ export interface ShadowReplayOptions {
     daysSimulatedSoFar: number;
     heapUsedMB: number;
   }) => Promise<void> | void;
+  /**
+   * Memory safety ceiling in MB, checked (a) once right after the one-time identity/Elo/calibration
+   * preload, before any day is processed, and (b) once at the top of every subsequent day iteration
+   * -- the same checkpoint boundary `isCancelled` uses, so a trip never loses or duplicates work.
+   * Omitted/undefined disables the ceiling (existing callers are unaffected). See
+   * `DEFAULT_MAX_HEAP_MB`'s doc for why 1400 is the recommended default and how to configure it.
+   */
+  maxHeapMB?: number;
+  /** Test-only override for the heap reading. Defaults to the real `process.memoryUsage().heapUsed`. */
+  getHeapUsedMB?: () => number;
 }
 
 export interface ShadowReplaySummary {
@@ -106,10 +177,25 @@ export interface ShadowReplaySummary {
   skippedInsufficientData: number;
   /** Distinct UTC calendar days actually walked while pacing this replay. */
   daysSimulated: number;
-  /** True when `options.isCancelled` returned true and the loop stopped before reaching `endDate`. */
+  /**
+   * True when the run stopped before reaching `endDate` for ANY reason other than completing
+   * normally -- user cancellation OR the memory ceiling tripping. Kept as a single boolean (rather
+   * than only exposing `stopReason`) so existing consumers that branch on "did this finish
+   * normally?" (e.g. `shadowReplayJob.ts`'s success/cancelled status mapping) keep working
+   * unchanged for the new memory-ceiling case: an early stop is never reported as a successful
+   * completion, whichever of the two reasons caused it.
+   */
   cancelled: boolean;
+  /**
+   * Why the run ended. `"memory_ceiling"` is distinct from `"cancelled"` (user-requested) even
+   * though both set `cancelled: true` above -- callers that need to tell an operator-requested
+   * cancellation apart from a safety stop (e.g. for alerting) should read this field, not `cancelled`.
+   */
+  stopReason: "completed" | "cancelled" | "memory_ceiling";
   /** Last UTC calendar day (YYYY-MM-DD) fully processed before stopping/finishing -- the resume point. */
   lastDayProcessed: string | null;
+  /** heapUsedMB at the moment the memory ceiling tripped. Null unless stopReason === "memory_ceiling". */
+  heapUsedMBAtStop: number | null;
 }
 
 function classifyResult(match: Pick<HistoricalMatchRow, "winnerId" | "retired" | "walkover" | "cancelled">): ResultType {
@@ -173,7 +259,8 @@ function getCalibrationMappingAsOf(history: CalibrationHistoryEntry[], asOf: Dat
 }
 
 export async function runShadowPaperTradingReplay(options: ShadowReplayOptions): Promise<ShadowReplaySummary> {
-  const { startDate, endDate, batchLabel, overwrite = false, isCancelled, onProgress } = options;
+  const { startDate, endDate, batchLabel, overwrite = false, isCancelled, onProgress, maxHeapMB } = options;
+  const getHeapUsedMB = options.getHeapUsedMB ?? heapUsedMB;
   if (!batchLabel.trim()) throw new Error("batchLabel is required and cannot be blank");
   const rangeStart = parseUtcDateBoundary(startDate, false);
   const rangeEnd = parseUtcDateBoundary(endDate, true);
@@ -202,7 +289,29 @@ export async function runShadowPaperTradingReplay(options: ShadowReplayOptions):
     skippedInsufficientData: 0,
     daysSimulated: 0,
     cancelled: false,
+    stopReason: "completed",
     lastDayProcessed: null,
+    heapUsedMBAtStop: null,
+  };
+
+  /** Marks `summary` as a safety stop (never "successful") and fires one final progress/heartbeat. */
+  const stopForMemoryCeiling = async (heapMB: number): Promise<void> => {
+    logger.warn(
+      { batchLabel, heapUsedMB: heapMB, maxHeapMB, lastDayProcessed: summary.lastDayProcessed },
+      "Shadow-replay: memory ceiling reached -- stopping cleanly before OOM risk. Job is NOT marked successful; resume by re-running the same batchLabel.",
+    );
+    summary.cancelled = true;
+    summary.stopReason = "memory_ceiling";
+    summary.heapUsedMBAtStop = heapMB;
+    if (onProgress) {
+      await onProgress({
+        day: summary.lastDayProcessed ?? startDate,
+        matchesInDay: 0,
+        insertedSoFar: summary.inserted,
+        daysSimulatedSoFar: summary.daysSimulated,
+        heapUsedMB: heapMB,
+      });
+    }
   };
 
   // Task #159 rework: unlike walk-forward (which genuinely scores the WHOLE corpus every run, so
@@ -240,10 +349,36 @@ export async function runShadowPaperTradingReplay(options: ShadowReplayOptions):
   const calibrationHistory = await loadCalibrationHistory();
   const retirementRule = settings.retirementRule as RetirementRule;
 
+  // Memory-ceiling check #1: right after the one-time identity/Elo/calibration preload, before any
+  // day is processed. This preload is the single largest allocation in the whole run (see
+  // `isOverMemoryCeiling`'s doc) -- for a range ending near "today" the `scheduledBefore` bound
+  // above narrows very little (almost the whole corpus predates "now"), so this checkpoint matters
+  // even when zero days have been scored yet. No day has run, so there is nothing to checkpoint
+  // beyond the summary itself -- the job is simply refused before it does any scoring.
+  if (maxHeapMB !== undefined) {
+    const preLoopHeapMB = getHeapUsedMB();
+    if (isOverMemoryCeiling(preLoopHeapMB, maxHeapMB)) {
+      await stopForMemoryCeiling(preLoopHeapMB);
+      return summary;
+    }
+  }
+
   for (let dayStart = new Date(rangeStart); dayStart.getTime() <= rangeEnd.getTime(); dayStart.setUTCDate(dayStart.getUTCDate() + 1)) {
     if (isCancelled && (await isCancelled())) {
       summary.cancelled = true;
+      summary.stopReason = "cancelled";
       break;
+    }
+
+    // Memory-ceiling check #2: top of every day iteration, before that day's (potentially large)
+    // `directMatches` context is built -- same checkpoint boundary as cancellation, so a trip here
+    // never loses or duplicates work: every prior day's matches are already durably committed.
+    if (maxHeapMB !== undefined) {
+      const currentHeapMB = getHeapUsedMB();
+      if (isOverMemoryCeiling(currentHeapMB, maxHeapMB)) {
+        await stopForMemoryCeiling(currentHeapMB);
+        break;
+      }
     }
 
     const dayEnd = new Date(Math.min(new Date(dayStart).setUTCHours(23, 59, 59, 999), rangeEnd.getTime()));
@@ -392,7 +527,7 @@ export async function runShadowPaperTradingReplay(options: ShadowReplayOptions):
         matchesInDay: dayMatches.length,
         insertedSoFar: summary.inserted,
         daysSimulatedSoFar: summary.daysSimulated,
-        heapUsedMB: heapUsedMB(),
+        heapUsedMB: getHeapUsedMB(),
       });
     }
     // `dayMatches`/`directMatches`/`scoringContext` fall out of scope here -- nothing from one
@@ -411,9 +546,15 @@ export async function runShadowPaperTradingReplay(options: ShadowReplayOptions):
       skippedInsufficientData: summary.skippedInsufficientData,
       daysSimulated: summary.daysSimulated,
       cancelled: summary.cancelled,
+      stopReason: summary.stopReason,
       lastDayProcessed: summary.lastDayProcessed,
+      heapUsedMBAtStop: summary.heapUsedMBAtStop,
     },
-    summary.cancelled ? "Shadow paper-trading replay batch stopped (cancelled)" : "Shadow paper-trading replay batch completed",
+    summary.stopReason === "memory_ceiling"
+      ? "Shadow paper-trading replay batch stopped (memory ceiling)"
+      : summary.cancelled
+        ? "Shadow paper-trading replay batch stopped (cancelled)"
+        : "Shadow paper-trading replay batch completed",
   );
 
   return summary;

@@ -30,7 +30,7 @@
 import { and, desc, eq, isNull } from "drizzle-orm";
 import { db, jobRunsTable } from "@workspace/db";
 import { logger } from "../lib/logger";
-import { runShadowPaperTradingReplay, type ShadowReplaySummary } from "../services/evaluation/shadowReplay";
+import { runShadowPaperTradingReplay, DEFAULT_MAX_HEAP_MB, type ShadowReplaySummary } from "../services/evaluation/shadowReplay";
 import { SHADOW_REPLAY_JOB_NAME } from "./shadowReplayJobName";
 
 export { SHADOW_REPLAY_JOB_NAME };
@@ -44,6 +44,20 @@ export const MAX_REPLAY_DAYS_WITHOUT_OVERRIDE = 100;
 
 /** A running job_runs row with no heartbeat update in this long is treated as crashed, not busy. */
 const STALE_LOCK_MS = 10 * 60_000;
+
+/**
+ * Resolves the memory safety ceiling (MB) for a job run: an explicit per-call override wins, then
+ * the `SHADOW_REPLAY_MAX_HEAP_MB` environment variable (the preferred way to tune this per
+ * environment without a code change), then `DEFAULT_MAX_HEAP_MB` (1400MB -- see its doc in
+ * `shadowReplay.ts` for why that number is safe relative to this environment's observed ~2040MB
+ * crash point). An invalid/non-positive env value falls back to the default rather than disabling
+ * the ceiling, so a typo in the env var can never silently turn safety off.
+ */
+function resolveMaxHeapMB(override?: number): number {
+  if (override !== undefined) return override;
+  const fromEnv = Number(process.env["SHADOW_REPLAY_MAX_HEAP_MB"]);
+  return Number.isFinite(fromEnv) && fromEnv > 0 ? fromEnv : DEFAULT_MAX_HEAP_MB;
+}
 
 interface RunningJobFields {
   startedAt: string;
@@ -62,6 +76,11 @@ export type ShadowReplayJobStatus =
   | ({ state: "running" } & RunningJobFields)
   | { state: "done"; startedAt: string; finishedAt: string; batchLabel: string; result: ShadowReplaySummary }
   | { state: "error"; startedAt: string; finishedAt: string; batchLabel: string; error: string };
+
+/** True for either kind of early stop -- lets a caller check "did this fully complete?" in one place. */
+export function isEarlyStop(result: Pick<ShadowReplaySummary, "stopReason">): boolean {
+  return result.stopReason === "cancelled" || result.stopReason === "memory_ceiling";
+}
 
 let currentJob: ShadowReplayJobStatus = { state: "idle" };
 let cancelRequested = false;
@@ -92,6 +111,8 @@ export interface StartShadowReplayJobOptions {
   overwrite?: boolean;
   /** Required to start a run spanning more than MAX_REPLAY_DAYS_WITHOUT_OVERRIDE days. */
   allowExtendedRange?: boolean;
+  /** Overrides the memory safety ceiling for this run. See `resolveMaxHeapMB`'s doc for the default. */
+  maxHeapMB?: number;
 }
 
 function daysBetween(startDate: string, endDate: string): number {
@@ -197,6 +218,7 @@ export async function startShadowReplayJob(
 
 async function runJob(startedAt: Date, batchLabel: string, opts: StartShadowReplayJobOptions): Promise<void> {
   const jobRunId = currentJobRunId;
+  const maxHeapMB = resolveMaxHeapMB(opts.maxHeapMB);
   try {
     const result = await runShadowPaperTradingReplay({
       startDate: opts.startDate,
@@ -204,6 +226,7 @@ async function runJob(startedAt: Date, batchLabel: string, opts: StartShadowRepl
       batchLabel,
       overwrite: opts.overwrite ?? false,
       isCancelled: () => cancelRequested,
+      maxHeapMB,
       onProgress: async (info) => {
         if (currentJob.state === "running") {
           currentJob = {
@@ -237,12 +260,20 @@ async function runJob(startedAt: Date, batchLabel: string, opts: StartShadowRepl
     const finishedAt = new Date();
     currentJob = { state: "done", startedAt: startedAt.toISOString(), finishedAt: finishedAt.toISOString(), batchLabel, result };
     if (jobRunId !== null) {
+      // `result.cancelled` is true for BOTH user cancellation and a memory-ceiling stop (see
+      // `ShadowReplaySummary.cancelled`'s doc) -- job_runs.status is intentionally never "success"
+      // for either case. `result.stopReason` is preserved in the persisted summary so the two are
+      // still distinguishable on inspection (e.g. for alerting on memory_ceiling specifically).
       await db
         .update(jobRunsTable)
         .set({ status: result.cancelled ? "cancelled" : "success", finishedAt, summary: { batchLabel, ...result } })
         .where(eq(jobRunsTable.id, jobRunId));
     }
-    logger.info({ batchLabel, ...result }, result.cancelled ? "Shadow-replay job cancelled cooperatively" : "Shadow-replay job completed");
+    if (result.stopReason === "memory_ceiling") {
+      logger.warn({ batchLabel, maxHeapMB, ...result }, "Shadow-replay job stopped: memory ceiling reached (not successful, resumable)");
+    } else {
+      logger.info({ batchLabel, ...result }, result.cancelled ? "Shadow-replay job cancelled cooperatively" : "Shadow-replay job completed");
+    }
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     const finishedAt = new Date();

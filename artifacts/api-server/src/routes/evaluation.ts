@@ -2046,7 +2046,7 @@ router.post("/evaluation/shadow-replay/run-job", async (req, res): Promise<void>
   if (!(await enforceEntitlement(res, canUseShadowReplay, "shadowReplay"))) return;
 
   const body = req.body ?? {};
-  const { startDate, endDate, batchLabel, overwrite, allowExtendedRange } = body as Record<string, unknown>;
+  const { startDate, endDate, batchLabel, overwrite, allowExtendedRange, maxHeapMB } = body as Record<string, unknown>;
 
   if (typeof startDate !== "string" || !DATE_ONLY_RE.test(startDate)) {
     res.status(400).json({ error: "startDate must be YYYY-MM-DD" });
@@ -2056,6 +2056,10 @@ router.post("/evaluation/shadow-replay/run-job", async (req, res): Promise<void>
     res.status(400).json({ error: "endDate must be YYYY-MM-DD" });
     return;
   }
+  if (maxHeapMB !== undefined && (typeof maxHeapMB !== "number" || !Number.isFinite(maxHeapMB) || maxHeapMB <= 0)) {
+    res.status(400).json({ error: "maxHeapMB must be a positive number when provided" });
+    return;
+  }
 
   const result = await startShadowReplayJob({
     startDate,
@@ -2063,6 +2067,7 @@ router.post("/evaluation/shadow-replay/run-job", async (req, res): Promise<void>
     batchLabel: typeof batchLabel === "string" && batchLabel.trim() ? batchLabel : undefined,
     overwrite: typeof overwrite === "boolean" ? overwrite : undefined,
     allowExtendedRange: typeof allowExtendedRange === "boolean" ? allowExtendedRange : undefined,
+    maxHeapMB: typeof maxHeapMB === "number" ? maxHeapMB : undefined,
   });
 
   if (!result.started) {

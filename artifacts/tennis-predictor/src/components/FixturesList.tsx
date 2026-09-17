@@ -1,6 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from "react"
 import {
   useGetUpcomingFixtures,
+  getGetUpcomingFixturesQueryKey,
   useGetLiveFixtureScores,
   getGetLiveFixtureScoresQueryKey,
   type Fixture,
@@ -331,7 +332,13 @@ export const FixturesList = forwardRef<
   // automatically on refocus via the same query.
   const { data, isLoading, isError, isFetching } = useGetUpcomingFixtures(
     { limit, force: force || undefined },
-    { query: { refetchInterval: 90_000, refetchIntervalInBackground: false } },
+    {
+      query: {
+        queryKey: getGetUpcomingFixturesQueryKey({ limit, force: force || undefined }),
+        refetchInterval: 90_000,
+        refetchIntervalInBackground: false,
+      },
+    },
   )
   const fixtures = data?.fixtures
   const hasMore = data?.hasMore ?? false

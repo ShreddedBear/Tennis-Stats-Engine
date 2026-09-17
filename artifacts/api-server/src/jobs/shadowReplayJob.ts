@@ -266,13 +266,13 @@ async function runJob(startedAt: Date, batchLabel: string, opts: StartShadowRepl
       // still distinguishable on inspection (e.g. for alerting on memory_ceiling specifically).
       await db
         .update(jobRunsTable)
-        .set({ status: result.cancelled ? "cancelled" : "success", finishedAt, summary: { batchLabel, ...result } })
+        .set({ status: result.cancelled ? "cancelled" : "success", finishedAt, summary: { ...result } })
         .where(eq(jobRunsTable.id, jobRunId));
     }
     if (result.stopReason === "memory_ceiling") {
-      logger.warn({ batchLabel, maxHeapMB, ...result }, "Shadow-replay job stopped: memory ceiling reached (not successful, resumable)");
+      logger.warn({ maxHeapMB, ...result }, "Shadow-replay job stopped: memory ceiling reached (not successful, resumable)");
     } else {
-      logger.info({ batchLabel, ...result }, result.cancelled ? "Shadow-replay job cancelled cooperatively" : "Shadow-replay job completed");
+      logger.info({ ...result }, result.cancelled ? "Shadow-replay job cancelled cooperatively" : "Shadow-replay job completed");
     }
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);

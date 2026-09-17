@@ -386,7 +386,7 @@ export async function runEvaluationBacktest(
         const rawProbability = scored?.rawProbability ?? null;
 
         let calibratedProbability = rawProbability;
-        if (rawProbability !== null && calibrationKnots && calibrationKnots.length > 0) {
+        if (rawProbability !== null && Array.isArray(calibrationKnots) && calibrationKnots.length > 0) {
           calibratedProbability = applyCalibrationOriented(calibrationKnots as Array<{ x: number; y: number }>, rawProbability);
         }
 

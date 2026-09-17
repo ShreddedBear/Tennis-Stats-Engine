@@ -232,6 +232,20 @@ export interface TennisDataProvider {
    * omitted from the returned map, never fabricated.
    */
   getLiveScores(fixtureIds: string[]): Promise<Map<string, LiveScore>>;
+  /**
+   * Same data as `getLiveScores`, but for fixture ids that came from a DIFFERENT provider's id
+   * namespace (e.g. MatchStat's `${tournamentId}:${player1Id}:${player2Id}` composite key passed
+   * to API-Tennis, whose ids are its own `event_key`). Correlates by a stable, provider-agnostic
+   * identity (calendar date + normalized player names, see `matchIdentity.ts`) instead of
+   * assuming id equality across providers. The returned map is keyed by the caller-supplied `id`
+   * (not this provider's own native id), so results can be merged straight into a `getLiveScores`
+   * result. Optional -- only implemented by providers that can serve live scores at all
+   * (`CompositeTennisProvider` calls this on its fallback as a second pass after native-id lookup
+   * misses).
+   */
+  getLiveScoresByIdentity?(
+    fixtures: Array<{ id: string; date: string; player1Name: string; player2Name: string }>,
+  ): Promise<Map<string, LiveScore>>;
   getStatus(): ProviderStatusInfo;
   /**
    * Name-only fallback surface/level lookup for callers with no `tournament_key` (currently just

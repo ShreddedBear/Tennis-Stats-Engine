@@ -207,12 +207,20 @@ function mapMatchToFixture(m: RawMatch): Fixture | null {
   // unconfirmed so the UI shows "Time TBD" rather than a fabricated start time.
   const scheduledStart = m.date ?? null;
 
+  // This endpoint has no live/winner field -- it only ever returns "upcoming" fixtures -- so
+  // there is no direct signal for "already started". Fall back to the same elapsed-time
+  // heuristic ApiTennisProvider uses for its own isLive (confirmed start time already in the
+  // past): a fixture with no confirmed time ("Time TBD") is never marked live, since there's no
+  // real evidence it has started. Downstream staleness cleanup (FixturesList's "stale/cancelled"
+  // rotation) still handles matches this endpoint keeps listing well after they actually finish.
+  const isLive = scheduledStart !== null && new Date(scheduledStart).getTime() < Date.now();
+
   return {
     id,
     date: dateStr,
     scheduledStart,
     timeConfirmed: !!m.date,
-    isLive: false,   // upcoming/matches only returns scheduled (not live)
+    isLive,
     tournamentName: m.tournament?.name ?? null,
     tournamentLevel: level,
     round: mapRound(m.roundId),

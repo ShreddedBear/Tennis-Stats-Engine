@@ -3,6 +3,7 @@ import { withRetry, isTransientError } from "../../lib/retry";
 import { CircuitBreaker } from "../../lib/circuitBreaker";
 import { PriorityCallQueue, type CallPriority } from "../../lib/priorityCallQueue";
 import { TtlCache } from "./cache";
+import { buildMatchIdentityKey } from "./matchIdentity";
 import { inferLevelFromEventType, normalizeProviderSurface, resolveSurfaceAndLevel } from "./surfaceMap";
 import { resolveTournamentTimezone } from "./timezoneMap";
 import type { Surface, TournamentLevel } from "./types";
@@ -789,31 +790,70 @@ export class ApiTennisProvider implements TennisDataProvider {
   }
 
   /**
+   * Fetches the raw yesterday-to-tomorrow fixture window used by both `getLiveScores` (native
+   * event_key lookup) and `getLiveScoresByIdentity` (cross-provider metadata lookup). Any fixture
+   * that is genuinely still live per `Fixture.isLive`'s own definition -- confirmed-started, no
+   * winner yet -- must fall in this window, since matches don't span more than ~2 calendar days.
+   * Cached under its own short `LIVE_SCORE_TTL_MS` key so frequent polling here never touches (or
+   * is throttled by) the 5-minute general fixtures cache.
+   */
+  private async fetchLiveWindowRaw(): Promise<RawMatch[]> {
+    const now = new Date();
+    const dateStart = new Date(now.getTime() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    const dateStop = new Date(now.getTime() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    const raw = await this.cache.getOrFetch(`live-scores:${dateStart}:${dateStop}`, LIVE_SCORE_TTL_MS, () =>
+      this.call<RawMatch[]>("live", "get_fixtures", { date_start: dateStart, date_stop: dateStop }),
+    );
+    return raw ?? [];
+  }
+
+  /**
    * Real-time set/game scores for a specific set of already-live fixture ids (see
    * `TennisDataProvider.getLiveScores`). API-Tennis has no "fetch by event_key list" call, so
-   * this re-uses `get_fixtures` over a generous yesterday-to-tomorrow window (any fixture that is
-   * genuinely still live per `Fixture.isLive`'s own definition -- confirmed-started, no winner
-   * yet -- must fall in this window, since matches don't span more than ~2 calendar days), then
-   * filters down to just the requested ids. Cached under its own short `LIVE_SCORE_TTL_MS` key so
-   * frequent polling here never touches (or is throttled by) the 5-minute general fixtures cache.
+   * this re-uses `get_fixtures` over a generous yesterday-to-tomorrow window, then filters down
+   * to just the requested ids -- which only works when those ids are already API-Tennis's own
+   * `event_key`s. Ids from a different provider's namespace (e.g. MatchStat) never match here and
+   * are silently omitted; `CompositeTennisProvider` handles those via `getLiveScoresByIdentity`.
    */
   async getLiveScores(fixtureIds: string[]): Promise<Map<string, LiveScore>> {
     const result = new Map<string, LiveScore>();
     if (fixtureIds.length === 0) return result;
 
     const wantedIds = new Set(fixtureIds);
-    const now = new Date();
-    const dateStart = new Date(now.getTime() - 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-    const dateStop = new Date(now.getTime() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    const raw = await this.fetchLiveWindowRaw();
 
-    const raw = await this.cache.getOrFetch(`live-scores:${dateStart}:${dateStop}`, LIVE_SCORE_TTL_MS, () =>
-      this.call<RawMatch[]>("live", "get_fixtures", { date_start: dateStart, date_stop: dateStop }),
-    );
-
-    for (const m of raw ?? []) {
+    for (const m of raw) {
       const id = str(m.event_key);
       if (!wantedIds.has(id)) continue;
       result.set(id, { sets: mapLiveScoreSets(m), statusText: m.event_status || null });
+    }
+    return result;
+  }
+
+  /**
+   * Cross-provider live-score lookup: correlates each requested fixture by `buildMatchIdentityKey`
+   * (calendar date + normalized player names) against this same live window, rather than by id --
+   * the caller's `id` is from a different provider's namespace and is never compared to
+   * `event_key` here. Returns a map keyed by the caller-supplied `id` (not `event_key`) so results
+   * merge directly into a `getLiveScores` map. See `TennisDataProvider.getLiveScoresByIdentity`.
+   */
+  async getLiveScoresByIdentity(
+    fixtures: Array<{ id: string; date: string; player1Name: string; player2Name: string }>,
+  ): Promise<Map<string, LiveScore>> {
+    const result = new Map<string, LiveScore>();
+    if (fixtures.length === 0) return result;
+
+    const raw = await this.fetchLiveWindowRaw();
+    const byKey = new Map<string, RawMatch>();
+    for (const m of raw) {
+      if (!m.event_date || !m.event_first_player || !m.event_second_player) continue;
+      byKey.set(buildMatchIdentityKey(m.event_date, m.event_first_player, m.event_second_player), m);
+    }
+
+    for (const f of fixtures) {
+      const m = byKey.get(buildMatchIdentityKey(f.date, f.player1Name, f.player2Name));
+      if (!m) continue;
+      result.set(f.id, { sets: mapLiveScoreSets(m), statusText: m.event_status || null });
     }
     return result;
   }

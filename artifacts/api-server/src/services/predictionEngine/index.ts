@@ -6,7 +6,7 @@ import { computeMatchLoadRecoveryModule } from "./matchLoadRecovery";
 import { computeAvailabilityModule } from "./availability";
 import { computeStyleMatchupModule } from "./styleMatchup";
 import { computeHeadToHeadModule } from "./headToHead";
-import { computeDataQuality, computeSurfaceSampleDepth, MODULE_IMPORTANCE, ENSEMBLE_WEIGHT_PRIOR, EXCLUDED_FROM_ENSEMBLE, EXCLUDED_FROM_DATA_QUALITY, CONFIDENCE_SHRINK, TOUR_RELIABILITY_DISCOUNT, LOW_SURFACE_SAMPLE_DISCOUNT } from "./dataQuality";
+import { computeDataQuality, computeSurfaceSampleDepth, MODULE_IMPORTANCE, ENSEMBLE_WEIGHT_PRIOR, EXCLUDED_FROM_ENSEMBLE, EXCLUDED_FROM_DATA_QUALITY, CONFIDENCE_SHRINK, TOUR_RELIABILITY_DISCOUNT } from "./dataQuality";
 import { buildEnsemble, edgeToProbability, worseAgreement, type ModelVote } from "./ensemble";
 import { computeWeightedDisagreement, computeMatchupCloseness, buildDisagreementNote, AGREEMENT_ORDER, type MatchupCloseness } from "./disagreement";
 import { calibrateProbability } from "./calibration";
@@ -676,15 +676,15 @@ export async function runPredictionEngine(input: PredictionEngineInput): Promise
     ? Math.round((specialistWeight * specialistProbability + (1 - specialistWeight) * generalProbability) * 10) / 10
     : generalProbability;
 
-  // Task #151: neither discount below applies once a real segment specialist has actually voted
+  // Task #151: this discount doesn't apply once a real segment specialist has actually voted
   // (`specialistApplied`) -- that's already a genuine, data-fit correction for this exact
   // tour/surface, so a coarse fallback discount on top of it would double-correct. Only kicks in
   // for the segments the 2026-07-13 ablation report flagged as genuinely underperforming their
   // stated confidence with no specialist available to fix it directly yet -- see
-  // `TOUR_RELIABILITY_DISCOUNT`/`LOW_SURFACE_SAMPLE_DISCOUNT` in `dataQuality.ts` for the exact
-  // evidence and sizing. Multiplicative when both apply (e.g. an ATP match that's also thin on
-  // this surface) rather than additive, so the combined shrink never overshoots past either
-  // factor alone.
+  // `TOUR_RELIABILITY_DISCOUNT` in `dataQuality.ts` for the exact evidence and sizing.
+  // (Surface-sample double-counting fix: this comment used to also describe a second,
+  // multiplicative `LOW_SURFACE_SAMPLE_DISCOUNT` factor here. See the retirement comment just
+  // below, at `surfaceSampleDiscount`, for why that factor was removed.)
   //
   // Task #33: the tour-reliability discount (e.g. ATP ×0.63) was sized BEFORE the pooled isotonic
   // calibration existed. The calibration is trained on raw_probability → actual_outcome across the
@@ -692,17 +692,40 @@ export async function runPredictionEngine(input: PredictionEngineInput): Promise
   // Applying the tour discount ON TOP of a real fitted calibration is a double-correction:
   // calibration maps raw→actual (correctly), then the discount pulls it back below the true rate.
   // Paper-trade data (n=520 graded) confirms 17-pt underconfidence in the 60-70% tier when the
-  // discount fires. When the real calibration is active, skip the tour discount; keep only the
-  // surface-sample-depth noise discount (which guards against per-match data sparsity, not
-  // systematic accuracy bias, and is not captured by pooled calibration knots).
+  // discount fires. When the real calibration is active, skip the tour discount (this codepath
+  // never applied the surface-sample discount under real calibration either -- both were already
+  // gated on `!usingRealCalibration`; the surface-sample discount is now retired outright, see
+  // `surfaceSampleDiscount` below).
   const usingRealCalibration = !generalEnsembleExcluded && (input.activeCalibration?.length ?? 0) > 0;
   const segmentTour = segment?.segmentKey.split("-")[0] ?? null;
   const tourDiscount = !specialistApplied && !usingRealCalibration && segmentTour ? TOUR_RELIABILITY_DISCOUNT[segmentTour] ?? 1 : 1;
-  // Task #33: also skip the surface-sample noise discount when real isotonic calibration is active —
-  // the pooled calibration knots are fitted on raw_probability → actual_outcome across the full
-  // corpus and already account for per-match data sparsity at scale. Applying the ×0.75 shrink on
-  // top double-corrects and contributes to systematic underconfidence in low-sample-surface matches.
-  const surfaceSampleDiscount = !specialistApplied && !usingRealCalibration && surfaceSampleDepth.label === "Low" ? LOW_SURFACE_SAMPLE_DISCOUNT : 1;
+  // RETIRED (surface-sample double-counting fix): this used to also apply
+  // `LOW_SURFACE_SAMPLE_DISCOUNT` (×0.75) here whenever `surfaceSampleDepth.label === "Low"`.
+  // Traced dependency chain (see docs/audit-surface-sample-double-counting.md): the exact same
+  // surface-sample-size signal (`surfaceElo.sampleSizePlayer1`/`sampleSizePlayer2`) already
+  // shrinks probability toward 50 THREE times before reaching this line --
+  //   1. `surfaceElo.ts`'s `eloWinProbabilityPlayer1` pulls Surface Elo's own vote toward 50 in
+  //      proportion to `reliability` (from `confidenceFromEffectiveSampleSize`) -- Surface Elo is
+  //      the only module with this internal sample-size-driven shrink;
+  //   2. that same low `reliability` reduces Surface Elo's ensemble VOTING WEIGHT
+  //      (`buildEnsemble`'s `Math.max(1, reliability) * weightPrior`), diluting the already-
+  //      shrunk vote further;
+  //   3. that same low `reliability`, at `MODULE_IMPORTANCE.surfaceElo` (1.3, the highest of any
+  //      module), drags down the overall Data Quality score, which lowers
+  //      `calibrateProbability`'s `confidenceFactor` and shrinks `generalProbability` toward 50
+  //      a second time (the fallback-calibration path only -- this whole block already never
+  //      fires once `usingRealCalibration` is true).
+  // Layered on top, `LOW_SURFACE_SAMPLE_DISCOUNT` shrank the SAME signal a fourth time using a
+  // cruder raw-count label (`computeSurfaceSampleDepth`), introduced in a later commit than (1)
+  // and (2) already existed. Its own doc in `dataQuality.ts` said as much: "this isn't a
+  // validated accuracy gap on its own baseline, just added noise-sensitivity on top of already-
+  // thin data" -- unlike `TOUR_RELIABILITY_DISCOUNT` below, which corrects a real, independently
+  // validated ATP accuracy gap with no other representation anywhere in this pipeline, and is
+  // left unchanged. `surfaceSampleDepth` itself is untouched and still returned for display
+  // (`EngineBreakdown.surfaceSampleDepth`) -- only its use as a second post-calibration shrink is
+  // removed. Fixed at 1 rather than deleted so `reliabilityDiscount`'s multiplication and the
+  // disclosure branch below need no further changes.
+  const surfaceSampleDiscount = 1;
   const reliabilityDiscount = Math.round(tourDiscount * surfaceSampleDiscount * 1000) / 1000;
   const preSimulatorProbability = reliabilityDiscount < 1
     ? Math.round((50 + (blendedProbability - 50) * reliabilityDiscount) * 10) / 10

@@ -235,10 +235,26 @@ export const TOUR_RELIABILITY_DISCOUNT: Partial<Record<string, number>> = {
 };
 
 /**
- * Additional post-calibration shrink toward 50%, applied in `predictionEngine/index.ts` ONLY when
- * no segment specialist actually voted (see `TOUR_RELIABILITY_DISCOUNT` above for why) AND this
- * match's surface sample depth is "Low" (`computeSurfaceSampleDepth`, below
- * `SURFACE_SAMPLE_LOW_THRESHOLD` prior matches for the thinner-sampled player).
+ * RETIRED from `predictionEngine/index.ts` (surface-sample double-counting fix; see
+ * `docs/audit-surface-sample-double-counting.md`). No longer applied anywhere -- kept exported,
+ * with its value and evidence trail below unchanged, purely as a historical record of the
+ * finding it was sized from. `computeSurfaceSampleDepth` and `SurfaceSampleLabel` below are
+ * unaffected and still power the (display-only) `EngineBreakdown.surfaceSampleDepth` field.
+ *
+ * It previously was: an additional post-calibration shrink toward 50%, applied in
+ * `predictionEngine/index.ts` ONLY when no segment specialist actually voted (see
+ * `TOUR_RELIABILITY_DISCOUNT` above for why) AND this match's surface sample depth is "Low"
+ * (`computeSurfaceSampleDepth`, below `SURFACE_SAMPLE_LOW_THRESHOLD` prior matches for the
+ * thinner-sampled player). Traced dependency chain: the same surface-sample-size signal already
+ * shrinks probability toward 50 three times before this discount would fire -- Surface Elo's own
+ * internal `reliability`-proportional probability shrink (`surfaceElo.ts`), that same
+ * `reliability` reducing Surface Elo's ensemble voting weight, and that same `reliability` (at
+ * the highest `MODULE_IMPORTANCE` of any module) dragging down the Data Quality score that drives
+ * `calibrateProbability`'s fallback shrink. This constant, introduced in a later commit than the
+ * first two of those already existed, added a fourth, redundant shrink on an admittedly
+ * unvalidated basis (see the Task #151 note below: "this isn't a validated accuracy gap on its
+ * own baseline"). `TOUR_RELIABILITY_DISCOUNT` above has no such redundant representation
+ * elsewhere in this pipeline and is unaffected by this change.
  *
  * Task #151: the same 2026-07-13 ablation report found Surface Elo, Fatigue, and Availability
  * each show their single largest per-surface leave-one-out swing on Grass (-1.3, -1.9, -1.9pts

@@ -2,7 +2,8 @@ import { asc, eq } from "drizzle-orm";
 import { db, historicalMatchesTable, calibrationModelsTable, specialistModelsTable, type HistoricalMatchRow } from "@workspace/db";
 import { logger } from "../../lib/logger";
 import { runPredictionEngine, type EngineOutput } from "../predictionEngine";
-import type { AblationModelKey, SegmentSpecialistInput } from "../predictionEngine/types";
+import type { AblationModelKey, SegmentSpecialistInput, SimulatorAdoptionInput } from "../predictionEngine/types";
+import { resolveSimulatorAdoption } from "./simulatorValidation";
 import { resolveOpponentStrengthFromIndex, buildEloHistoryIndex, type EloHistoryIndex } from "../predictionEngine/opponentStrength";
 import { reconstructHeadToHead, reconstructPlayerMatchHistory, buildMatchHistoryIndex, type MatchHistoryIndex } from "../historicalData/matchRecordReconstruction";
 import { resolveSegment } from "../predictionEngine/segments";
@@ -40,12 +41,40 @@ export const MODEL_DEFS: ReadonlyArray<{ key: AblationModelKey; label: string }>
   { key: "segmentSpecialist", label: "Active Segment Specialist" },
 ];
 
-interface Variant {
+export interface Variant {
   key: string;
   label: string;
   excluded: ReadonlySet<AblationModelKey>;
   /** Which MODEL_DEFS key this variant corresponds to for the leave-one-out delta table, or null for the extra multi-model combinations. */
   loo: AblationModelKey | null;
+  /**
+   * Evaluation-only Monte Carlo toggle for this variant's replay. `false` (every existing
+   * variant, the default) preserves today's behavior exactly: `scoreMatch` passes
+   * `simulatorAdoption: null` (Monte Carlo never votes), unchanged from before this field
+   * existed. Only `combo_simulator_on` sets this `true`, which makes `scoreMatch` pass the REAL
+   * measured adoption returned by `resolveSimulatorAdoption()` (the same function the
+   * live/paper-trading path already uses to decide whether/how much the simulator votes) --
+   * never an invented weight. A static `Variant` object can't hold the resolved value itself
+   * (resolving it needs a DB call, done once in `runAblationAnalysis`), so this is a boolean
+   * request, mapped to the real value by `resolveVariantSimulatorAdoption` below. This does not
+   * change `runPredictionEngine`, `simulator.ts`, or how the live engine adopts Monte Carlo; it
+   * only changes which already-supported input this diagnostic replay passes in, exactly as
+   * `excludedModels` already does for the other ablation variants.
+   */
+  useResolvedSimulatorAdoption?: boolean;
+}
+
+/**
+ * Pure, DB-free mapping from a variant + the one real resolved adoption value to the
+ * `simulatorAdoption` `scoreMatch` should pass for that variant. Extracted so the "which variant
+ * gets Monte Carlo ON vs OFF" logic is unit-testable without a database connection --
+ * `resolvedAdoption` is the single real value `runAblationAnalysis` resolves via
+ * `resolveSimulatorAdoption()` (DB-backed) once, before scoring any match; this function itself
+ * touches no I/O and makes no adoption decision of its own -- it only routes the value that was
+ * already decided elsewhere by the exact same logic the live path uses.
+ */
+export function resolveVariantSimulatorAdoption(variant: Pick<Variant, "useResolvedSimulatorAdoption">, resolvedAdoption: SimulatorAdoptionInput): SimulatorAdoptionInput | null {
+  return variant.useResolvedSimulatorAdoption ? resolvedAdoption : null;
 }
 
 const BASELINE_VARIANT: Variant = { key: "baseline", label: "Everything active (baseline)", excluded: new Set(), loo: null };
@@ -57,7 +86,10 @@ const LEAVE_ONE_OUT_VARIANTS: Variant[] = MODEL_DEFS.map((m) => ({
   loo: m.key,
 }));
 
-const COMBO_VARIANTS: Variant[] = [
+// Exported (read-only) so tests can assert against the REAL variant definitions directly instead
+// of hand-duplicating the excluded-model sets, which would silently drift out of sync if this
+// list ever changes.
+export const COMBO_VARIANTS: Variant[] = [
   { key: "combo_everything", label: "Everything active", excluded: new Set(), loo: null },
   {
     key: "combo_core_signals_only",
@@ -71,6 +103,43 @@ const COMBO_VARIANTS: Variant[] = [
     label: "General calibration + specialists off (raw ensemble only)",
     excluded: new Set(["generalEnsemble", "segmentSpecialist"]),
     loo: null,
+  },
+  {
+    key: "combo_pure_trio",
+    label: "Pure core trio only (Surface Elo + Serve & Return + Recent Form, nothing else voting)",
+    // Explicit and exhaustive on purpose, not just the minimum needed today: fatigue/availability/
+    // matchLoadRecovery are already excluded from the ensemble vote by EXCLUDED_FROM_ENSEMBLE
+    // (dataQuality.ts) regardless, and marketOdds is never present in this historical replay (see
+    // the MODEL_DEFS comment above) -- but this variant's whole point is "exactly these three vote
+    // and nothing else can sneak in," so every other AblationModelKey is named here defensively,
+    // including generalEnsemble and segmentSpecialist (which do NOT come from `moduleEdges`/
+    // `excludedModels` at all -- see `runPredictionEngine`'s separate `generalEnsembleExcluded`/
+    // `segment` handling -- naming them here is what actually keeps them out).
+    //
+    // Verified caveat (see ablation.pureTrioAndSimulator.test.ts): `runPredictionEngine` ALWAYS
+    // pushes a "General Model" entry onto `engine.models[]`, even with `generalEnsemble` excluded
+    // -- that exclusion only changes generalProbability's VALUE (it becomes the raw trio blend
+    // instead of a calibrated one), it never removes the entry itself. This is existing production
+    // methodology and out of scope to change here. The actual number this variant measures
+    // (`calibratedProbability`) is still genuinely trio-pure -- confirmed equal to
+    // `rawEnsembleProbability` whenever specialist is also forced off, exactly as this exclusion
+    // set guarantees -- but any consumer reading `engine.models[]` directly (a report, or
+    // `perModelMetrics.ts`) must not assume its length is 3, or that a "General Model" entry here
+    // is a second independent vote: check whether its `player1Probability` merely echoes the
+    // trio's own blend before treating it as informative. Segment Specialist has no equivalent
+    // leftover-entry issue -- it is correctly absent whenever `segmentSpecialist` is excluded.
+    excluded: new Set(["fatigue", "availability", "matchLoadRecovery", "headToHead", "marketOdds", "generalEnsemble", "segmentSpecialist"]),
+    loo: null,
+  },
+  {
+    key: "combo_simulator_on",
+    label: "Baseline evidence + Monte Carlo simulator voting (isolates the simulator's own marginal effect)",
+    // Same module set as baseline (nothing excluded) -- the ONLY difference from BASELINE_VARIANT
+    // is useResolvedSimulatorAdoption, so any metric delta between this variant and baseline is
+    // attributable to Monte Carlo alone, not a confound from also removing/adding a feature module.
+    excluded: new Set(),
+    loo: null,
+    useResolvedSimulatorAdoption: true,
   },
 ];
 
@@ -186,7 +255,7 @@ async function buildContext(allMatches: HistoricalMatchRow[]): Promise<AblationC
   };
 }
 
-async function scoreMatch(match: HistoricalMatchRow, excluded: ReadonlySet<AblationModelKey>, ctx: AblationContext): Promise<EngineOutput | null> {
+async function scoreMatch(match: HistoricalMatchRow, excluded: ReadonlySet<AblationModelKey>, ctx: AblationContext, simulatorAdoption: SimulatorAdoptionInput | null = null): Promise<EngineOutput | null> {
   if (!match.surface || !match.matchFormat || !match.winnerId) return null;
   const surface = match.surface as Surface;
   const matchFormat = match.matchFormat as MatchFormat;
@@ -215,7 +284,7 @@ async function scoreMatch(match: HistoricalMatchRow, excluded: ReadonlySet<Ablat
     tournamentName: match.tournamentName,
     weather: null,
     segment,
-    simulatorAdoption: null,
+    simulatorAdoption,
     activeCalibration: ctx.activeCalibration,
     excludedModels: excluded,
   });
@@ -379,6 +448,12 @@ export async function runAblationAnalysis(onProgress?: (p: AblationProgress) => 
   const sampleInfo: SampleInfo | null = sampled?.info ?? null;
   const eligible = sampled?.sample ?? eligibleFull;
 
+  // Resolved ONCE, via the exact same function the live/paper-trading path uses to decide the
+  // simulator's real measured adoption -- never invented for this diagnostic run. Only
+  // `combo_simulator_on` (via `useResolvedSimulatorAdoption`) actually uses this value; every
+  // other variant keeps passing `null` (Monte Carlo off), unchanged from before this existed.
+  const resolvedSimulatorAdoption = await resolveSimulatorAdoption();
+
   const variants = [BASELINE_VARIANT, ...LEAVE_ONE_OUT_VARIANTS, ...COMBO_VARIANTS];
 
   const baselineRecords: BaselineRecord[] = [];
@@ -509,7 +584,7 @@ export async function runAblationAnalysis(onProgress?: (p: AblationProgress) => 
       const baselineRecord = baselineByMatchId.get(match.id);
       if (!baselineRecord) continue;
 
-      const output = await scoreMatch(match, variant.excluded, ctx);
+      const output = await scoreMatch(match, variant.excluded, ctx, resolveVariantSimulatorAdoption(variant, resolvedSimulatorAdoption));
       if (!output) continue;
 
       const correct = output.predictedWinnerId === match.winnerId;

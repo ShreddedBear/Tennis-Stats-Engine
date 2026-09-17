@@ -51,6 +51,7 @@ import { validateAndStoreSimulator } from "../services/evaluation/simulatorValid
 import { predictionSettingsTable, simulatorValidationTable } from "@workspace/db";
 import { startAblationJob, getAblationJobStatus } from "../services/evaluation/ablationJob";
 import { runShadowPaperTradingReplay, listShadowReplayBatches } from "../services/evaluation/shadowReplay";
+import { startShadowReplayJob, getShadowReplayJobStatus, requestShadowReplayCancellation, MAX_REPLAY_DAYS_WITHOUT_OVERRIDE } from "../jobs/shadowReplayJob";
 import { isPipelineQuiet, PAPER_TRADE_QUIET_WINDOW_HOURS, sendPipelineQuietAlert, resetAlertCooldown } from "../services/evaluation/paperTradingQuiet";
 import { usedHistoricalMatchFallback } from "../services/predictionEngine/playerProfileWarnings";
 import { runIncrementalHistoricalBackfill, runHistoricalBackfill, getLatestCoveredMatchDate } from "../services/historicalData/backfill";
@@ -2030,6 +2031,63 @@ router.post("/evaluation/shadow-replay/run", async (req, res): Promise<void> => 
   } catch (err) {
     res.status(400).json({ error: err instanceof Error ? err.message : "Shadow replay failed" });
   }
+});
+
+const DATE_ONLY_RE = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * Async, resource-safe alternative to POST /evaluation/shadow-replay/run for a multi-week/month
+ * window: that synchronous route awaits the whole replay inside one HTTP request, which risks the
+ * same proxy-timeout failure walk-forward already hit before `walkForwardJob.ts` existed. This
+ * starts the run in the background (see `shadowReplayJob.ts` for the safety cap, restart-resistant
+ * lock, and cooperative-cancellation support) and the client polls GET .../job-status.
+ */
+router.post("/evaluation/shadow-replay/run-job", async (req, res): Promise<void> => {
+  if (!(await enforceEntitlement(res, canUseShadowReplay, "shadowReplay"))) return;
+
+  const body = req.body ?? {};
+  const { startDate, endDate, batchLabel, overwrite, allowExtendedRange, maxHeapMB } = body as Record<string, unknown>;
+
+  if (typeof startDate !== "string" || !DATE_ONLY_RE.test(startDate)) {
+    res.status(400).json({ error: "startDate must be YYYY-MM-DD" });
+    return;
+  }
+  if (typeof endDate !== "string" || !DATE_ONLY_RE.test(endDate)) {
+    res.status(400).json({ error: "endDate must be YYYY-MM-DD" });
+    return;
+  }
+  if (maxHeapMB !== undefined && (typeof maxHeapMB !== "number" || !Number.isFinite(maxHeapMB) || maxHeapMB <= 0)) {
+    res.status(400).json({ error: "maxHeapMB must be a positive number when provided" });
+    return;
+  }
+
+  const result = await startShadowReplayJob({
+    startDate,
+    endDate,
+    batchLabel: typeof batchLabel === "string" && batchLabel.trim() ? batchLabel : undefined,
+    overwrite: typeof overwrite === "boolean" ? overwrite : undefined,
+    allowExtendedRange: typeof allowExtendedRange === "boolean" ? allowExtendedRange : undefined,
+    maxHeapMB: typeof maxHeapMB === "number" ? maxHeapMB : undefined,
+  });
+
+  if (!result.started) {
+    res.status(409).json({ started: false, reason: result.reason, maxDaysWithoutOverride: MAX_REPLAY_DAYS_WITHOUT_OVERRIDE });
+    return;
+  }
+  res.status(202).json({ started: true, batchLabel: result.batchLabel });
+});
+
+/** Poll the in-process status of a shadow-replay job started via POST .../run-job. */
+router.get("/evaluation/shadow-replay/job-status", async (_req, res): Promise<void> => {
+  if (!(await enforceEntitlement(res, canUseShadowReplay, "shadowReplay"))) return;
+  res.json(getShadowReplayJobStatus());
+});
+
+/** Cooperatively cancel the currently-running shadow-replay job (stops at the next day boundary). */
+router.post("/evaluation/shadow-replay/cancel-job", async (_req, res): Promise<void> => {
+  if (!(await enforceEntitlement(res, canUseShadowReplay, "shadowReplay"))) return;
+  const result = requestShadowReplayCancellation();
+  res.status(result.ok ? 202 : 409).json(result);
 });
 
 router.get("/evaluation/shadow-replay/dashboard", async (_req, res): Promise<void> => {

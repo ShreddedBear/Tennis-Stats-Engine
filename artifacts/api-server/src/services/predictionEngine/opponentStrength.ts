@@ -1,7 +1,7 @@
 import { db, historicalMatchesTable, matchFeatureSnapshotsTable } from "@workspace/db";
-import { and, asc, eq, inArray } from "drizzle-orm";
+import { and, asc, eq, inArray, lt } from "drizzle-orm";
 import type { MatchRecord } from "../tennisData/types";
-import { buildPlayerIdentityIndex, canonicalizePlayerId, getAliasIds, getCachedPlayerIdentityIndex, type PlayerIdentityIndex } from "../tennisData/playerIdentity";
+import { buildPlayerIdentityIndex, canonicalizePlayerId, getAliasIds, getCachedPlayerIdentityIndex, type CorpusLoadBound, type PlayerIdentityIndex } from "../tennisData/playerIdentity";
 import { logger } from "../../lib/logger";
 import { eloFallbackTracker } from "./fallbackTracking";
 
@@ -85,11 +85,22 @@ export function resolveOpponentStrengthFromIndex(matches: MatchRecord[], index: 
  * timeline under their canonical id -- computed once here and reused for the rest of the run,
  * never re-replayed per opponent lookup.
  *
- * The index always loads the complete historical corpus. Callers may provide a run-scoped identity
- * index; when omitted, one is built from the complete historical match store before indexing.
+ * By default the index loads the complete historical corpus (every existing caller -- live
+ * prediction paths, production walk-forward -- relies on this and is unaffected by the optional
+ * `bound` parameter below). Callers may provide a run-scoped identity index; when omitted, one is
+ * built from the complete historical match store before indexing.
+ *
+ * `bound.scheduledBefore`, when provided, restricts BOTH internal queries (the `historical_matches`
+ * projection used for id-canonicalization and the `match_feature_snapshots` eloOverall query -- the
+ * larger of the two at current corpus scale) to rows strictly before that instant. See
+ * `CorpusLoadBound`'s doc for why this is a pure resource-safety narrowing, never a leakage risk:
+ * every lookup against the returned index still re-filters to strictly-before-this-match's-own-cutoff
+ * (see `resolveOpponentStrengthFromIndex`), so a scoped caller (e.g. a bounded historical replay)
+ * could never have used a row at or after its own `scheduledBefore` anyway.
  */
-export async function buildEloHistoryIndex(identity?: PlayerIdentityIndex): Promise<EloHistoryIndex> {
-  const identityIndex = identity ?? await buildPlayerIdentityIndex();
+export async function buildEloHistoryIndex(identity?: PlayerIdentityIndex, bound?: CorpusLoadBound): Promise<EloHistoryIndex> {
+  const identityIndex = identity ?? await buildPlayerIdentityIndex(bound);
+  const matchDateFilter = bound ? lt(historicalMatchesTable.scheduledStartAt, bound.scheduledBefore) : undefined;
   const matches = await db
     .select({
       id: historicalMatchesTable.id,
@@ -101,6 +112,7 @@ export async function buildEloHistoryIndex(identity?: PlayerIdentityIndex): Prom
       scheduledStartAt: historicalMatchesTable.scheduledStartAt,
     })
     .from(historicalMatchesTable)
+    .where(matchDateFilter)
     .orderBy(asc(historicalMatchesTable.scheduledStartAt), asc(historicalMatchesTable.id));
 
   const rawToCanonical = new Map<string, string>();
@@ -122,6 +134,10 @@ export async function buildEloHistoryIndex(identity?: PlayerIdentityIndex): Prom
     if (match.winnerId) registerRawId(match.winnerId, canonicalizePlayerId(identityIndex, match.winnerId));
   }
 
+  // The single largest query in this function at current corpus scale (~229K eloOverall rows
+  // vs. ~133K historical_matches rows) -- bounding it by `bound.scheduledBefore` (via
+  // sourceTimestamp, the column that actually orders this table) is the highest-leverage part
+  // of the resource-safety narrowing described in this function's doc.
   const rows = await db
     .select({
       playerId: matchFeatureSnapshotsTable.playerId,
@@ -129,7 +145,11 @@ export async function buildEloHistoryIndex(identity?: PlayerIdentityIndex): Prom
       sourceTimestamp: matchFeatureSnapshotsTable.sourceTimestamp,
     })
     .from(matchFeatureSnapshotsTable)
-    .where(eq(matchFeatureSnapshotsTable.featureName, "eloOverall"));
+    .where(
+      bound
+        ? and(eq(matchFeatureSnapshotsTable.featureName, "eloOverall"), lt(matchFeatureSnapshotsTable.sourceTimestamp, bound.scheduledBefore))
+        : eq(matchFeatureSnapshotsTable.featureName, "eloOverall"),
+    );
 
   // ── Step 1: collect raw snapshot data by the STORED player id (no early canonicalization).
   // Early canonicalization via canonicalizePlayerId was the source of reference-inequality bugs:

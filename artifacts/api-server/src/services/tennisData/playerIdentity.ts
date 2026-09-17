@@ -1,4 +1,4 @@
-import { and, desc, eq, sql, type SQLWrapper } from "drizzle-orm";
+import { and, desc, eq, lt, sql, type SQLWrapper } from "drizzle-orm";
 import { db, historicalMatchesTable } from "@workspace/db";
 import { logger } from "../../lib/logger";
 import type { PlayerProfile, PlayerSummary, TennisDataProvider } from "./types";
@@ -242,15 +242,35 @@ export interface PlayerIdentityIndex {
   aliasIdsByCanonicalId: Map<string, string[]>;
 }
 
+/**
+ * Optional resource-safety bound applied to the whole-corpus builders below (`buildPlayerIdentityIndex`,
+ * `buildEloHistoryIndex`). Omitted entirely for every existing full-corpus caller (live prediction
+ * paths, production walk-forward) -- behavior there is byte-for-byte unchanged.
+ *
+ * A scoped historical replay (e.g. the 3-month no-look-ahead walk-forward run) can never legitimately
+ * need identity/Elo facts sourced from strictly at-or-after `scheduledBefore`: every downstream lookup
+ * already re-filters by each match's own `cutoffAt` (see `resolveOpponentStrengthFromIndex`), so rows
+ * at or after the replay's own end date could never be selected by any lookup anyway. Passing this
+ * bound just stops loading rows that would be discarded regardless -- it is a pure resource-safety
+ * narrowing, never a change to which facts a match "sees" (that is still enforced per-match by cutoffAt).
+ */
+export interface CorpusLoadBound {
+  /** Exclusive upper bound on scheduledStartAt / sourceTimestamp. */
+  scheduledBefore: Date;
+}
+
 /** Builds a fresh `PlayerIdentityIndex` from every singles sighting in `historical_matches`. */
-export async function buildPlayerIdentityIndex(): Promise<PlayerIdentityIndex> {
+export async function buildPlayerIdentityIndex(bound?: CorpusLoadBound): Promise<PlayerIdentityIndex> {
+  const dateFilter = bound ? lt(historicalMatchesTable.scheduledStartAt, bound.scheduledBefore) : undefined;
   const [player1Rows, player2Rows] = await Promise.all([
     db
       .select({ id: historicalMatchesTable.player1Id, name: historicalMatchesTable.player1Name, scheduledStartAt: historicalMatchesTable.scheduledStartAt })
-      .from(historicalMatchesTable),
+      .from(historicalMatchesTable)
+      .where(dateFilter),
     db
       .select({ id: historicalMatchesTable.player2Id, name: historicalMatchesTable.player2Name, scheduledStartAt: historicalMatchesTable.scheduledStartAt })
-      .from(historicalMatchesTable),
+      .from(historicalMatchesTable)
+      .where(dateFilter),
   ]);
 
   // normalizedName -> (playerId -> { minSeenAt, maxSeenAt } under that name)

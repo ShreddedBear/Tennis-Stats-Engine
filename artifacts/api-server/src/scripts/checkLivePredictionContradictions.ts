@@ -63,6 +63,10 @@ async function main(): Promise<void> {
       // stored simulation (post-Phase-7) -- absent on legacy rows, which is expected schema
       // evolution, not a violation (see `isLegacyRow` above for the same pattern).
       simulationPlayer1WinProbability: typeof engine.simulation?.player1WinProbability === "number" ? engine.simulation.player1WinProbability : null,
+      // Surface Elo (and its eloDifference field) predates every "legacy row" field guarded above
+      // -- it's a foundational module, not one of the later 2026-07-13 additions -- so this is a
+      // real stored value on every row, not a legacy-row default standing in for missing data.
+      eloGapPoints: Math.abs(engine.surfaceElo.eloDifference),
     });
     if (violations.length > 0) {
       violationRows++;

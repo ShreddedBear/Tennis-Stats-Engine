@@ -1092,6 +1092,7 @@ export async function runPredictionEngine(input: PredictionEngineInput): Promise
     simulationPlayer1WinProbability: simulation.player1WinProbability,
     tieBreakerApplied: tieBreakerGated.applied,
     coreSignalsAlign,
+    eloGapPoints,
   });
   const isEliteTier = consistencyViolations.length === 0 && eliteTierBeforeGuard;
   const eliteTierReason =

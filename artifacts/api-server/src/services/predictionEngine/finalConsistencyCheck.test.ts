@@ -25,6 +25,10 @@ function baseInput(overrides: Partial<FinalConsistencyInput> = {}): FinalConsist
     predictedSetScore: "2-0",
     dataQuality: 70,
     dataQualityLabel: "Strong",
+    // "Decisive" band (>=75) by default -- matches computeRecommendation's own pre-Elo-gap-gate
+    // default of `Infinity` (always "Decisive"), so every existing test below that doesn't
+    // override this field keeps its exact original behavior.
+    eloGapPoints: 100,
     ...overrides,
   };
 }
@@ -56,6 +60,55 @@ test("rule 10: a v2 recommendation that matches computeRecommendation's current 
     baseInput({ calibratedProbability: 59, predictedWinnerProbability: 59, dataQuality: 70, dataQualityLabel: "Strong", upsetRisk: "LOW", modelAgreement: "Strong", recommendation: "HIGH_CONFIDENCE" }),
   );
   assert.deepEqual(violations, []);
+});
+
+// --- Elo-gap-gate regression coverage (Candidate B / Rule 12 forensic finding) ---------------
+// The 2026-08-13 Elo-gap-gate fix (classificationPolicy.ts) made real Elo-point-gap separation a
+// REQUIRED condition for HIGH_CONFIDENCE, not just probability margin + Strong agreement. Rules 10
+// and 12 here were never updated for that: Rule 10 used to recompute computeRecommendation without
+// forwarding eloGapPoints (silently defaulting to Infinity/"always Decisive"), and Rule 12 hardcoded
+// "margin 9-12 + Strong ⇒ never LOW_CONFIDENCE" with no separation gate at all -- both now correctly
+// require the same "at least Modest" Elo-gap separation (HIGH_CONFIDENCE_GATE.ELO_GAP_MIN_POINTS)
+// that computeRecommendation itself requires before treating a LOW_CONFIDENCE pick as anomalous.
+
+test("false-positive prevention: margin 9-12 + Strong agreement with a genuinely thin (Caution) Elo gap is NOT flagged -- LOW_CONFIDENCE is the correct, policy-intended answer", () => {
+  // eloGapPoints=32 ("Caution" band, <50) mirrors the real Bouchelaghem/Ganesan regression fixture:
+  // a player with no real surface-specific rating yet. Under the current Elo-gap-gated policy,
+  // margin+Strong alone cannot earn HIGH_CONFIDENCE without at least "Modest" separation, so the
+  // real computeRecommendation call correctly returns LOW_CONFIDENCE here -- neither Rule 10 nor
+  // Rule 12 should treat that as stale or as a catch-all-gap violation.
+  const { violations } = checkFinalConsistency(
+    baseInput({
+      calibratedProbability: 59.2,
+      predictedWinnerProbability: 59.2,
+      dataQuality: 70,
+      dataQualityLabel: "Strong",
+      modelAgreement: "Strong",
+      recommendation: "LOW_CONFIDENCE",
+      eloGapPoints: 32,
+    }),
+  );
+  assert.deepEqual(violations, []);
+});
+
+test("guard preservation: margin 9-12 + Strong agreement with real (Modest) Elo-gap separation is still flagged when stored as LOW_CONFIDENCE", () => {
+  // eloGapPoints=60 is in the "Modest" band (>=50, <75) -- enough real separation that the current
+  // policy DOES permit HIGH_CONFIDENCE for this margin/agreement combination (recommendation.ts's
+  // hasHighConfidenceSeparation gate: >= HIGH_CONFIDENCE_GATE.ELO_GAP_MIN_POINTS = 50). A stored
+  // LOW_CONFIDENCE here is genuinely stale/wrong, so Rule 12 must still catch it -- proving the
+  // Elo-gap gate narrows the rule rather than disabling it.
+  const { violations } = checkFinalConsistency(
+    baseInput({
+      calibratedProbability: 59.2,
+      predictedWinnerProbability: 59.2,
+      dataQuality: 70,
+      dataQualityLabel: "Strong",
+      modelAgreement: "Strong",
+      recommendation: "LOW_CONFIDENCE",
+      eloGapPoints: 60,
+    }),
+  );
+  assert.ok(violations.some((v) => v.includes("Rule 12")), `expected Rule 12 to fire; got: ${JSON.stringify(violations)}`);
 });
 
 test("rule 10: legacy stored recommendations (pre-v2 rename) are never flagged as stale even when they differ from current logic", () => {

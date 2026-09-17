@@ -2,6 +2,7 @@ import type { ModelAgreement } from "./disagreement";
 import type { UpsetRisk } from "./upsetRisk";
 import type { DataQualityLabel } from "./dataQuality";
 import { computeRecommendation } from "./recommendation";
+import { HIGH_CONFIDENCE_GATE } from "./classificationPolicy";
 
 /**
  * Defense-in-depth guard applied as the LAST step inside `runPredictionEngine`, before
@@ -44,6 +45,17 @@ export interface FinalConsistencyInput {
    * that predate the coreSignalsAlign parameter — default false so those rows are not flagged.
    */
   coreSignalsAlign?: boolean;
+  /**
+   * Raw (non-negative) surface-Elo rating-point gap between the two players --
+   * `Math.abs(surfaceElo.eloDifference)`, the same value `index.ts` passes to `computeRecommendation`
+   * as its `eloGapPoints` argument (added 2026-08-13, see `classificationPolicy.ts`'s Elo-gap-gate
+   * fix). Must be forwarded to `computeRecommendation` in Rule 10, and used by Rule 12, so both
+   * checks apply the same real-separation gate the live call used -- without it, Rule 10's
+   * recomputation silently falls back to `computeRecommendation`'s own `Infinity` default (always
+   * "Decisive"), which predates the Elo-gap gate and produces false-positive staleness violations
+   * whenever the real separation is genuinely thin.
+   */
+  eloGapPoints: number;
   /** True when calibration/specialist/simulator blending flipped the pick away from the raw evidence vote (index.ts's `modelConflict`). */
   modelConflict: boolean;
   /** Non-null only when modelAgreement isn't "Strong" (disagreement.ts's `buildDisagreementNote` contract). */
@@ -210,6 +222,13 @@ export function checkFinalConsistency(input: FinalConsistencyInput): FinalConsis
   //    even though nothing about that specific bug's root cause needs to be known in advance.
   // upsetRisk is intentionally NOT passed to computeRecommendation — it is a separate, independent
   // signal that is no longer an input to the recommendation function (see recommendation.ts).
+  // `eloGapPoints` (added below) MUST be forwarded here: computeRecommendation defaults it to
+  // `Infinity` (always "Decisive" separation) for callers that predate the 2026-08-13 Elo-gap-gate
+  // fix, and this call used to be one of them -- silently bypassing the entire real-separation gate
+  // and producing false-positive "stale recommendation" violations whenever the real Elo gap was
+  // genuinely Thin/Caution. `dataIncomplete` is passed as its existing default (`false`) --
+  // `FinalConsistencyInput` has never tracked it and that is unchanged here; it must be supplied
+  // positionally only because `eloGapPoints` comes after it in computeRecommendation's signature.
   const expectedRecommendation = computeRecommendation(
     input.calibratedProbability,
     input.dataQuality,
@@ -217,6 +236,8 @@ export function checkFinalConsistency(input: FinalConsistencyInput): FinalConsis
     input.modelAgreement,
     input.tieBreakerApplied ?? false,
     input.coreSignalsAlign ?? false,
+    false,
+    input.eloGapPoints,
   );
   // IMPORTANT: rows stored before the v2 rename keep their original recommendation value
   // (STRONG_RECOMMENDATION, MODERATE_LEAN, etc.). Rule 10 exists to catch staleness in LIVE
@@ -232,7 +253,7 @@ export function checkFinalConsistency(input: FinalConsistencyInput): FinalConsis
   ]);
   if (!legacyRecommendationValues.has(input.recommendation) && input.recommendation !== expectedRecommendation) {
     violations.push(
-      `Rule 10 (recommendation freshness): stored recommendation "${input.recommendation}" does not match what computeRecommendation currently produces ("${expectedRecommendation}") for calibratedProbability=${input.calibratedProbability}, dataQuality=${input.dataQuality}, dataQualityLabel=${input.dataQualityLabel}, modelAgreement=${input.modelAgreement}, tieBreakerApplied=${input.tieBreakerApplied ?? false}, coreSignalsAlign=${input.coreSignalsAlign ?? false} -- this recommendation is stale and was not recomputed under the current logic.`,
+      `Rule 10 (recommendation freshness): stored recommendation "${input.recommendation}" does not match what computeRecommendation currently produces ("${expectedRecommendation}") for calibratedProbability=${input.calibratedProbability}, dataQuality=${input.dataQuality}, dataQualityLabel=${input.dataQualityLabel}, modelAgreement=${input.modelAgreement}, tieBreakerApplied=${input.tieBreakerApplied ?? false}, coreSignalsAlign=${input.coreSignalsAlign ?? false}, eloGapPoints=${input.eloGapPoints} -- this recommendation is stale and was not recomputed under the current logic.`,
     );
   }
 
@@ -270,22 +291,35 @@ export function checkFinalConsistency(input: FinalConsistencyInput): FinalConsis
   }
 
   // Rule 12 (recommendation catch-all-gap): re-checks, independently of `computeRecommendation`,
-  // that margin 9-12 with Strong agreement never falls through to LOW_CONFIDENCE. Deliberately
-  // hardcodes the expected outcome rather than calling `computeRecommendation` (that's Rule 10's
-  // job): if a FUTURE change reopens this exact branch inside `computeRecommendation` itself,
-  // Rule 10 alone could not catch it — it would just recompute the same newly-buggy value and
-  // "match". This rule stands guard independently, regardless of whatever the current
-  // `computeRecommendation` implementation does. upsetRisk is intentionally NOT checked here
-  // because it is no longer an input to computeRecommendation.
+  // that margin 9-12 with Strong agreement never falls through to LOW_CONFIDENCE -- BUT ONLY when
+  // the current Elo-gap-gated classification policy would actually have permitted HIGH_CONFIDENCE
+  // in the first place. Deliberately hardcodes the expected outcome rather than calling
+  // `computeRecommendation` (that's Rule 10's job): if a FUTURE change reopens this exact branch
+  // inside `computeRecommendation` itself, Rule 10 alone could not catch it — it would just
+  // recompute the same newly-buggy value and "match". This rule stands guard independently,
+  // regardless of whatever the current `computeRecommendation` implementation does. upsetRisk is
+  // intentionally NOT checked here because it is no longer an input to computeRecommendation.
+  //
+  // The `hasHighConfidenceSeparation` gate below is REQUIRED as of the 2026-08-13 Elo-gap-gate fix
+  // (classificationPolicy.ts): margin + Strong agreement alone no longer guarantee HIGH_CONFIDENCE
+  // -- a genuine underlying Elo-point-gap of at least "Modest" separation (`eloGapPoints` reaching
+  // `HIGH_CONFIDENCE_GATE.ELO_GAP_MIN_POINTS`, i.e. `classifyEloSeparation(eloGapPoints)` being
+  // "Modest" or "Decisive", never "Thin"/"Caution") is also required. Without this gate, this rule
+  // itself becomes a stale invariant that fires on genuinely-correct LOW_CONFIDENCE picks whenever
+  // the real separation is thin (the exact false-positive this fix addresses) -- LOW_CONFIDENCE is
+  // the policy-intended answer there, not a catch-all-gap bug. The gate does not weaken the rule:
+  // whenever separation IS at least "Modest", the invariant below still fires exactly as before.
   const catchAllGapMargin = Math.abs(input.calibratedProbability - 50);
+  const catchAllGapHasSeparation = Math.abs(input.eloGapPoints) >= HIGH_CONFIDENCE_GATE.ELO_GAP_MIN_POINTS;
   if (
     catchAllGapMargin >= 9 &&
     catchAllGapMargin < 12 &&
     input.modelAgreement === "Strong" &&
+    catchAllGapHasSeparation &&
     input.recommendation === "LOW_CONFIDENCE"
   ) {
     violations.push(
-      `Rule 12 (recommendation catch-all gap): recommendation is LOW_CONFIDENCE for a margin-${catchAllGapMargin.toFixed(1)} pick (calibratedProbability=${input.calibratedProbability}) with modelAgreement=${input.modelAgreement} -- a real lean with Strong model agreement and margin ≥ 9 must be at least HIGH_CONFIDENCE, not LOW_CONFIDENCE.`,
+      `Rule 12 (recommendation catch-all gap): recommendation is LOW_CONFIDENCE for a margin-${catchAllGapMargin.toFixed(1)} pick (calibratedProbability=${input.calibratedProbability}) with modelAgreement=${input.modelAgreement} and eloGapPoints=${input.eloGapPoints} (real separation, not thin) -- a real lean with Strong model agreement, margin ≥ 9, and genuine Elo-gap separation must be at least HIGH_CONFIDENCE, not LOW_CONFIDENCE.`,
     );
   }
 

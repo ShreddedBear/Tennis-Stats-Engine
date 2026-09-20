@@ -81,6 +81,49 @@ function makeProvider(overrides: Partial<TennisDataProvider> = {}): TennisDataPr
   };
 }
 
+test("resolveScreenshotMatchup resolves today's fixture players before slow historical lookup", async () => {
+  let searchCalled = false;
+
+  const provider = makeProvider({
+    searchPlayers: async () => {
+      searchCalled = true;
+      throw new Error("simulated slow/unavailable player search");
+    },
+    getUpcomingFixtures: async () => [{
+      id: "rennes-1",
+      date: "2026-09-20",
+      scheduledStart: "2026-09-20T10:00:00.000Z",
+      timeConfirmed: true,
+      isLive: false,
+      tournamentName: "Rennes",
+      tournamentLevel: "Challenger",
+      round: "R32",
+      surface: "Hard",
+      indoor: false,
+      matchFormat: "BestOf3",
+      player1Id: "max-schoenhaus",
+      player1Name: "Max Schoenhaus",
+      player2Id: "matteo-martineau",
+      player2Name: "Matteo Martineau",
+    }],
+    getUpcomingFixturesRange: async () => [],
+    findTournamentSurfaceByName: async () => ({ surface: "Hard", level: "Challenger" }),
+  });
+
+  const result = await resolveScreenshotMatchup(provider, {
+    matchups: [{
+      player1Name: "Max Schoenhaus",
+      player2Name: "Matteo Martineau",
+      eventName: "ATP Challenger Rennes",
+    }],
+  });
+
+  assert.equal(result.player1.player?.id, "max-schoenhaus");
+  assert.equal(result.player2.player?.id, "matteo-martineau");
+  assert.equal(result.matchups?.[0]?.resolved, true);
+  assert.equal(searchCalled, false, "fixture fast-path should avoid slow player-name lookup");
+});
+
 test("resolveScreenshotMatchup falls back to a real name search for a Challenger event the name table never covers", async () => {
   const provider = makeProvider({
     findTournamentSurfaceByName: async (name: string) => {

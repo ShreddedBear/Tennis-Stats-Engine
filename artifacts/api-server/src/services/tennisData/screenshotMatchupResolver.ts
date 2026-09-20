@@ -775,6 +775,97 @@ async function gatherCandidates(provider: TennisDataProvider, searchName: string
   return Array.from(accumulated.values());
 }
 
+/**
+ * Fast-path screenshot resolution from today's verified fixture feed.
+ *
+ * Screenshot imports are latency-sensitive. For a match that is already in today's
+ * fixture feed, there is no reason to fan out into historical-ID validation (which
+ * can wait on an unavailable provider). Resolve directly from the fixture's own
+ * canonical player IDs/names first, using the event/tour/level as context.
+ *
+ * This is intentionally conservative: it returns a player only when the best fixture
+ * identity is strong enough and is unique. Otherwise the normal historical/provider
+ * resolver remains the fallback.
+ */
+function resolvePlayerFromTodayFixtures(
+  recognizedName: string,
+  eventName: string | null | undefined,
+  todayFixtures: Fixture[],
+): PlayerSummary | null {
+  const eventNorm = normalizeLooseText(eventName);
+  const { level: eventLevel } = inferSurfaceAndLevel(eventName ?? null);
+
+  const candidates: Array<{
+    player: PlayerSummary;
+    nameScore: number;
+    eventScore: number;
+    fixtureId: string;
+  }> = [];
+
+  for (const fixture of todayFixtures) {
+    // If the screenshot explicitly identifies a level and the fixture does too,
+    // never cross-match a player from a different competition tier.
+    if (eventLevel && fixture.tournamentLevel && eventLevel !== fixture.tournamentLevel) continue;
+
+    const eventScore = eventNorm
+      ? eventSimilarity(eventName ?? null, fixture.tournamentName)
+      : 0;
+
+    const sides: Array<["player1" | "player2", string]> = [
+      ["player1", fixture.player1Name],
+      ["player2", fixture.player2Name],
+    ];
+
+    for (const [slot, fixtureName] of sides) {
+      const nameScore = scoreNamePair(recognizedName, fixtureName);
+      if (nameScore < 0.82) continue;
+
+      // With an event name present, require at least some fixture-event agreement
+      // unless the player-name match is exact. This prevents a common name from
+      // resolving against an unrelated fixture.
+      const exactName = nameScore >= 0.999;
+      if (eventNorm && !exactName && eventScore < 0.25) continue;
+
+      const player = fixturePlayerSummary(fixture, slot);
+      candidates.push({ player, nameScore, eventScore, fixtureId: fixture.id });
+    }
+  }
+
+  if (candidates.length === 0) return null;
+
+  // Collapse duplicate appearances of the same canonical player identity.
+  const byPlayer = new Map<string, (typeof candidates)[number]>();
+  for (const candidate of candidates) {
+    const existing = byPlayer.get(candidate.player.id);
+    if (!existing || candidate.nameScore > existing.nameScore || candidate.eventScore > existing.eventScore) {
+      byPlayer.set(candidate.player.id, candidate);
+    }
+  }
+
+  const ranked = [...byPlayer.values()].sort((a, b) => {
+    const aScore = a.nameScore + a.eventScore * 0.15;
+    const bScore = b.nameScore + b.eventScore * 0.15;
+    return bScore - aScore;
+  });
+
+  const best = ranked[0];
+  if (!best) return null;
+
+  // Exact full-name fixture match is sufficient when it is unique.
+  if (best.nameScore >= 0.999 && ranked.length === 1) return best.player;
+
+  // Fuzzy/abbreviated fixture match requires a clear margin over the next identity.
+  const bestScore = best.nameScore + best.eventScore * 0.15;
+  const secondScore = ranked[1]
+    ? ranked[1].nameScore + ranked[1].eventScore * 0.15
+    : -Infinity;
+  if (best.nameScore >= 0.88 && bestScore - secondScore >= 0.06) {
+    return best.player;
+  }
+
+  return null;
+}
+
 // ── Player resolution ──────────────────────────────────────────────────────
 
 /**
@@ -804,6 +895,17 @@ async function resolvePlayerMatch(
   // matching. The original recognizedName is preserved for display and debugging.
   const searchName = stripOcrMetadata(recognizedName);
   const norm = normalizeName(searchName);
+
+  // Fast path: today's fixture feed is already a trusted source of the exact
+  // player ID/name for matches the user is entering now. This prevents screenshot
+  // imports from blocking on historical-ID validation when an upstream provider
+  // is slow or unavailable.
+  if (todayFixtures && todayFixtures.length > 0) {
+    const fixturePlayer = resolvePlayerFromTodayFixtures(searchName, eventName, todayFixtures);
+    if (fixturePlayer) {
+      return { match: { recognizedName, player: fixturePlayer }, status: "resolved" };
+    }
+  }
 
   const candidates = await gatherCandidates(provider, searchName);
   const confident = candidates.filter((c) => isConfidentMatch(norm, normalizeName(c.name)));
